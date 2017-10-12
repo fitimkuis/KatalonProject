@@ -1,0 +1,32 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+Data Driven Test Suite,Chrome 61.0.3163.100,,2017-10-10 18:18:42,2017-10-10 18:19:59,"1m - 16,801s",FAILED
+,,,,,,
+Test Cases/Web Application/Data Driven Test case - for loop - Iteration 1,Chrome 61.0.3163.100,Katalon Studio supports data-driven testing which allows users to define data sets and execute test scripts that use these data sets.,2017-10-10 18:18:43,2017-10-10 18:19:16,"32,941s",FAILED
+openBrowser,Chrome 61.0.3163.100,Invoke Browser and Navigate to Demo Application,2017-10-10 18:18:46,2017-10-10 18:18:54,"7,770s",PASSED
+navigateToUrl,Chrome 61.0.3163.100,,2017-10-10 18:18:54,2017-10-10 18:18:58,"4,292s",PASSED
+waitForPageLoad,Chrome 61.0.3163.100,Wait till the page load,2017-10-10 18:18:58,2017-10-10 18:18:59,"0,286s",PASSED
+setText,Chrome 61.0.3163.100,Enter the value of username (From Internal Test Data),2017-10-10 18:18:59,2017-10-10 18:18:59,"0,925s",PASSED
+setText,Chrome 61.0.3163.100,Enter the value of password (From Internal Test Data),2017-10-10 18:18:59,2017-10-10 18:19:00,"0,917s",PASSED
+click,Chrome 61.0.3163.100,Click on Login Button\\r\\n,2017-10-10 18:19:00,2017-10-10 18:19:02,"1,507s",PASSED
+verifyElementPresent,Chrome 61.0.3163.100,,2017-10-10 18:19:02,2017-10-10 18:19:14,"11,948s",FAILED
+closeBrowser,Chrome 61.0.3163.100,Close the Browser,2017-10-10 18:19:14,2017-10-10 18:19:16,"2,350s",PASSED
+,,,,,,
+Test Cases/Web Application/Data Driven Test case - for loop - Iteration 2,Chrome 61.0.3163.100,Katalon Studio supports data-driven testing which allows users to define data sets and execute test scripts that use these data sets.,2017-10-10 18:19:16,2017-10-10 18:19:32,"15,132s",PASSED
+openBrowser,Chrome 61.0.3163.100,Invoke Browser and Navigate to Demo Application,2017-10-10 18:19:17,2017-10-10 18:19:20,"3,444s",PASSED
+navigateToUrl,Chrome 61.0.3163.100,,2017-10-10 18:19:20,2017-10-10 18:19:25,"4,655s",PASSED
+waitForPageLoad,Chrome 61.0.3163.100,Wait till the page load,2017-10-10 18:19:25,2017-10-10 18:19:25,"0,027s",PASSED
+setText,Chrome 61.0.3163.100,Enter the value of username (From Internal Test Data),2017-10-10 18:19:25,2017-10-10 18:19:26,"1,299s",PASSED
+setText,Chrome 61.0.3163.100,Enter the value of password (From Internal Test Data),2017-10-10 18:19:26,2017-10-10 18:19:27,"1,169s",PASSED
+click,Chrome 61.0.3163.100,Click on Login Button\\r\\n,2017-10-10 18:19:27,2017-10-10 18:19:29,"1,743s",PASSED
+verifyElementPresent,Chrome 61.0.3163.100,,2017-10-10 18:19:29,2017-10-10 18:19:29,"0,386s",PASSED
+closeBrowser,Chrome 61.0.3163.100,Close the Browser,2017-10-10 18:19:29,2017-10-10 18:19:32,"2,177s",PASSED
+,,,,,,
+Test Cases/Web Application/Data Driven Test case - for loop - Iteration 3,Chrome 61.0.3163.100,Katalon Studio supports data-driven testing which allows users to define data sets and execute test scripts that use these data sets.,2017-10-10 18:19:32,2017-10-10 18:19:59,"26,942s",FAILED
+openBrowser,Chrome 61.0.3163.100,Invoke Browser and Navigate to Demo Application,2017-10-10 18:19:32,2017-10-10 18:19:36,"4,071s",PASSED
+navigateToUrl,Chrome 61.0.3163.100,,2017-10-10 18:19:36,2017-10-10 18:19:41,"4,564s",PASSED
+waitForPageLoad,Chrome 61.0.3163.100,Wait till the page load,2017-10-10 18:19:41,2017-10-10 18:19:41,"0,083s",PASSED
+setText,Chrome 61.0.3163.100,Enter the value of username (From Internal Test Data),2017-10-10 18:19:41,2017-10-10 18:19:42,"1,098s",PASSED
+setText,Chrome 61.0.3163.100,Enter the value of password (From Internal Test Data),2017-10-10 18:19:42,2017-10-10 18:19:43,"0,933s",PASSED
+click,Chrome 61.0.3163.100,Click on Login Button\\r\\n,2017-10-10 18:19:43,2017-10-10 18:19:44,"1,594s",PASSED
+verifyElementPresent,Chrome 61.0.3163.100,,2017-10-10 18:19:44,2017-10-10 18:19:56,"11,678s",FAILED
+closeBrowser,Chrome 61.0.3163.100,Close the Browser,2017-10-10 18:19:56,2017-10-10 18:19:59,"2,592s",PASSED

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Katalon Studio supports data-driven testing which allows users to define data sets and execute test scripts that use these data sets.</description>
+   <name>Data Driven Test case</name>
+   <tag>DataDriven</tag>
+   <comment></comment>
+   <testCaseGuid>ac4e133f-14a5-473d-96ee-d7501f4574b9</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>f6689921-77a4-410c-891d-b98303f54e1e</id>
+      <masked>false</masked>
+      <name>demo_username</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>7028a8b7-9c17-4975-b850-81b86c1aab00</id>
+      <masked>false</masked>
+      <name>demo_password</name>
+   </variable>
+</TestCaseEntity>
