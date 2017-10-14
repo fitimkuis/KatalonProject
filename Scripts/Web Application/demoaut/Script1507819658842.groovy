@@ -26,9 +26,9 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('http://newtours.demoaut.com/')
 
-WebUI.setText(findTestObject('demoaut/Page_Welcome Mercury Tours/input_userName'), 'fitimkuis')
+WebUI.setText(findTestObject('demoaut/Page_Welcome Mercury Tours/input_userName'), GlobalVariable.user)
 
-WebUI.setText(findTestObject('demoaut/Page_Welcome Mercury Tours/input_password'), 'ModeeMi16')
+WebUI.setText(findTestObject('demoaut/Page_Welcome Mercury Tours/input_password'), GlobalVariable.password)
 
 WebUI.click(findTestObject('demoaut/Page_Welcome Mercury Tours/input_login'))
 
@@ -42,6 +42,11 @@ WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tou
 
 //WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromPort'), 'Frankfurt', true)
 //WebUI.selectOptionByIndex(findTestObject('Page_CuraAppointment/lst_Facility'), 1)
+
+WebUI.verifyTextPresent("Use our Flight Finder to search for the lowest fare on participating airlines. Once you've booked your flight, don't forget to visit the Mercury Tours Hotel Finder to reserve lodging in your destination city", false)
+
+number = WebUI.getNumberOfTotalOption(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromPort'), FailureHandling.CONTINUE_ON_FAILURE)
+println("count of deparding from values is: "+number)
 WebUI.selectOptionByIndex(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromPort'), index)
 
 WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromMonth'), '1', true)

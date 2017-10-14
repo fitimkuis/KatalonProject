@@ -12,4 +12,14 @@
       <initValue>10</initValue>
       <name>SmallTimeout</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'fitimkuis'</initValue>
+      <name>user</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'ModeeMi16'</initValue>
+      <name>password</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
