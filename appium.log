@@ -1,0 +1,82 @@
+[Appium] Welcome to Appium v1.7.2
+[Appium] Non-default server args:
+[Appium]   port: 3413
+[Appium]   chromeDriverPort: 3430
+[Appium]   tmpDir: C:\Users\fitim\AppData\Local\Temp\\Katalon\Appium\Temp1517772555476
+[Appium] Appium REST http interface listener started on 0.0.0.0:3413
+[HTTP] --> GET /wd/hub/status {}
+[debug] [MJSONWP] Calling AppiumDriver.getStatus() with args: []
+[debug] [MJSONWP] Responding to client with driver.getStatus() result: {"build":{"version":"1.7.2","revision":null}}
+[HTTP] <-- GET /wd/hub/status 200 854 ms - 72 
+[HTTP] --> GET /wd/hub/status {}
+[debug] [MJSONWP] Calling AppiumDriver.getStatus() with args: []
+[debug] [MJSONWP] Responding to client with driver.getStatus() result: {"build":{"version":"1.7.2","revision":null}}
+[HTTP] <-- GET /wd/hub/status 200 943 ms - 72 
+[HTTP] --> POST /wd/hub/session {"desiredCapabilities":{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"capabilities":{"desiredCapabilities":{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"firstMatch":[{"platformName":"android"}]}}
+[debug] [MJSONWP] Calling AppiumDriver.createSession() with args: [{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},null,{"desiredCapabilities":{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"firstMatch":[{"platformName":"android"}]}]
+[debug] [BaseDriver] Event 'newSessionRequested' logged at 1517772593892 (21:29:53 GMT+0200 (Suomen normaaliaika))
+[Appium] Merged W3C capabilities {"desiredCapabilities":{"app":"C:\\Katalon Stud... into desiredCapabilities object {"app":"C:\\Katalon Studio\\DataDrivenTest-mast...
+[Appium] Creating new AndroidDriver (v1.37.0) session
+[Appium] Capabilities:
+[Appium]   app: C:\Katalon Studio\DataDrivenTest-master\Test Cases\example.apk
+[Appium]   appWaitActivity: com
+[Appium]   autoGrantPermissions: true
+[Appium]   deviceId: 
+[Appium]   deviceName: emulator-5554 (Android SDK built for x86 - Android 5.1.1)
+[Appium]   fullReset: false
+[Appium]   newCommandTimeout: 1800
+[Appium]   noReset: true
+[Appium]   platform: ANDROID
+[Appium]   platformName: android
+[Appium]   udid: emulator-5554
+[BaseDriver] The following capabilities were provided, but are not recognized by appium: deviceId, platform.
+[BaseDriver] Session created with session id: 900e47ad-6c4c-4653-bcf0-376941f4e57c
+[debug] [AndroidDriver] Getting Java version
+[AndroidDriver] Java version is: 1.8.0_102
+[ADB] Checking whether adb is present
+[ADB] Using adb.exe from C:\Users\fitim\.katalon\tools\android_sdk\platform-tools\adb.exe
+[AndroidDriver] Retrieving device list
+[debug] [ADB] Trying to find a connected android device
+[debug] [ADB] Getting connected devices...
+[debug] [ADB] 0 device(s) connected
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Getting connected devices...
+[debug] [ADB] 0 device(s) connected
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Getting connected devices...
+[debug] [ADB] 0 device(s) connected
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Getting connected devices...
+[debug] [ADB] 0 device(s) connected
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Getting connected devices...
+[debug] [ADB] 0 device(s) connected
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [ADB] Could not find devices, restarting adb server...
+[debug] [ADB] Restarting adb
+[debug] [ADB] Killing adb server on port 5037
+[debug] [AndroidDriver] Shutting down Android driver
+[debug] [AndroidDriver] Called deleteSession but bootstrap wasn't active
+[HTTP] <-- POST /wd/hub/session 500 34326 ms - 179 

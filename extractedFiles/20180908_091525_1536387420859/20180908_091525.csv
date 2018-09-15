@@ -1,0 +1,18 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+Pdf,Chrome 68.0.3440.106,,2018-09-08 09:15:36,2018-09-08 09:16:35,"59,118s",ERROR
+,,,,,,
+Test Cases/ReadPdf/pdfReader,Chrome 68.0.3440.106,,2018-09-08 09:15:41,2018-09-08 09:16:35,"54,181s",ERROR
+Start listener action : sampleBeforeTestCase,Chrome 68.0.3440.106,,2018-09-08 09:15:41,2018-09-08 09:15:41,"0,311s",PASSED
+openBrowser,Chrome 68.0.3440.106,,2018-09-08 09:15:43,2018-09-08 09:15:53,"10,013s",PASSED
+navigateToUrl,Chrome 68.0.3440.106,,2018-09-08 09:15:53,2018-09-08 09:16:10,"17,035s",PASSED
+click,Chrome 68.0.3440.106,,2018-09-08 09:16:10,2018-09-08 09:16:12,"1,860s",PASSED
+"Statement - pdfContent = CustomKeywords.readPdfFile.verifyPdfContent.readPdfFileVerify(""http://www.axmag.com/download/pdfurl-guide.pdf"")",Chrome 68.0.3440.106,,2018-09-08 09:16:12,2018-09-08 09:16:16,"4,626s",PASSED
+"Statement - org.testng.Assert.assertTrue(pdfContent.contains(""Open the setting.xml, you can see it is like this:""))",Chrome 68.0.3440.106,,2018-09-08 09:16:16,2018-09-08 09:16:17,"0,087s",PASSED
+"Statement - org.testng.Assert.assertTrue(pdfContent.contains(""Please add the following sentence in setting.xml before""))",Chrome 68.0.3440.106,,2018-09-08 09:16:17,2018-09-08 09:16:17,"0,009s",PASSED
+"Statement - org.testng.Assert.assertTrue(pdfContent.contains(""You can see that I have modified the setting.xml, and if open the file in IE, it is like this:""))",Chrome 68.0.3440.106,,2018-09-08 09:16:17,2018-09-08 09:16:17,"0,048s",PASSED
+"Statement - println(""PDF IS GOOD TO GO...
+"")",Chrome 68.0.3440.106,,2018-09-08 09:16:17,2018-09-08 09:16:17,"0,118s",PASSED
+closeBrowser,Chrome 68.0.3440.106,,2018-09-08 09:16:17,2018-09-08 09:16:19,"2,620s",PASSED
+Statement - java.lang.Thread.sleep(10000),Chrome 68.0.3440.106,,2018-09-08 09:16:19,2018-09-08 09:16:30,"10,109s",PASSED
+Statement - fileName = CustomKeywords.readGmail.getGmail.getGmailAttachment(),Chrome 68.0.3440.106,,2018-09-08 09:16:30,2018-09-08 09:16:35,"5,014s",ERROR
+Start listener action : sampleAfterTestCase,Chrome 68.0.3440.106,,2018-09-08 09:16:35,2018-09-08 09:16:35,"0,103s",PASSED

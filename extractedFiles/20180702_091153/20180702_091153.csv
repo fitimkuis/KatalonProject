@@ -1,0 +1,8 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+Data Driven Test Suite,Firefox 60.0,,2018-07-02 09:12:03,2018-07-02 09:13:42,"1m - 38,924s",FAILED
+,,,,,,
+Test Cases/Web Application/Data Driven Test case FOR LOOP,Firefox 60.0,Katalon Studio supports data-driven testing which allows users to define data sets and execute test scripts that use these data sets.,2018-07-02 09:12:05,2018-07-02 09:13:41,"1m - 36,193s",FAILED
+Start listener action : sampleBeforeTestCase,Firefox 60.0,,2018-07-02 09:12:05,2018-07-02 09:12:06,"0,233s",PASSED
+Statement - data = com.kms.katalon.core.testdata.TestDataFactory.findTestData(Login/LoginTestData),Firefox 60.0,,2018-07-02 09:12:06,2018-07-02 09:12:07,"0,438s",PASSED
+Statement - For (def index : (0..(data.getRowNumbers() - 1))),Firefox 60.0,,2018-07-02 09:12:07,2018-07-02 09:13:41,"1m - 34,243s",FAILED
+Start listener action : sampleAfterTestCase,Firefox 60.0,,2018-07-02 09:13:41,2018-07-02 09:13:41,"0,016s",PASSED

@@ -10,13 +10,13 @@
       <description></description>
       <id>3fce98b0-8ab8-451d-a18d-9f7ae6fd520f</id>
       <masked>false</masked>
-      <name>demo_username</name>
+      <name>user</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
       <id>ae1da9f3-dfc2-47bb-8485-2b1a858f44e4</id>
       <masked>false</masked>
-      <name>demo_password</name>
+      <name>pass</name>
    </variable>
 </TestCaseEntity>

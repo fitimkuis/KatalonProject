@@ -4,6 +4,21 @@
    <name>iframe_demo-frame</name>
    <tag></tag>
    <elementGuidId>fc688f40-e46f-40f8-8c9b-db7ef324b955</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//iframe[@src = '/resources/demos/datepicker/default.html']</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>

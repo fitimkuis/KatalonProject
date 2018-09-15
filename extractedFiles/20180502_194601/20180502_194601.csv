@@ -1,0 +1,16 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+Pdf,,,2018-05-02 19:46:12,2018-05-02 19:46:40,"28,708s",FAILED
+,,,,,,
+Test Cases/ReadPdf/pdfReader,,,2018-05-02 19:46:15,2018-05-02 19:46:39,"24,018s",FAILED
+Start listener action : sampleBeforeTestCase,,,2018-05-02 19:46:16,2018-05-02 19:46:16,"0,561s",PASSED
+openBrowser,,,2018-05-02 19:46:18,2018-05-02 19:46:32,"14,611s",FAILED
+navigateToUrl,,,2018-05-02 19:46:32,2018-05-02 19:46:32,"0,268s",FAILED
+click,,,2018-05-02 19:46:32,2018-05-02 19:46:33,"0,345s",FAILED
+"Statement - pdfContent = CustomKeywords.readPdfFile.verifyPdfContent.readPdfFileVerify(""http://www.axmag.com/download/pdfurl-guide.pdf"")",,,2018-05-02 19:46:33,2018-05-02 19:46:38,"5,396s",PASSED
+"Statement - org.testng.Assert.assertTrue(pdfContent.contains(""Open the setting.xml, you can see it is like this:""))",,,2018-05-02 19:46:38,2018-05-02 19:46:38,"0,118s",PASSED
+"Statement - org.testng.Assert.assertTrue(pdfContent.contains(""Please add the following sentence in setting.xml before""))",,,2018-05-02 19:46:38,2018-05-02 19:46:38,"0,046s",PASSED
+"Statement - org.testng.Assert.assertTrue(pdfContent.contains(""You can see that I have modified the setting.xml, and if open the file in IE, it is like this:""))",,,2018-05-02 19:46:38,2018-05-02 19:46:38,"0,030s",PASSED
+"Statement - println(""PDF IS GOOD TO GO...
+"")",,,2018-05-02 19:46:38,2018-05-02 19:46:38,"0,026s",PASSED
+closeBrowser,,,2018-05-02 19:46:38,2018-05-02 19:46:39,"0,229s",PASSED
+Start listener action : sampleAfterTestCase,,,2018-05-02 19:46:39,2018-05-02 19:46:39,"0,349s",PASSED
