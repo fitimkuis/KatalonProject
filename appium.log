@@ -1,82 +1,64 @@
-[Appium] Welcome to Appium v1.7.2
-[Appium] Non-default server args:
-[Appium]   port: 3413
-[Appium]   chromeDriverPort: 3430
-[Appium]   tmpDir: C:\Users\fitim\AppData\Local\Temp\\Katalon\Appium\Temp1517772555476
-[Appium] Appium REST http interface listener started on 0.0.0.0:3413
-[HTTP] --> GET /wd/hub/status {}
-[debug] [MJSONWP] Calling AppiumDriver.getStatus() with args: []
-[debug] [MJSONWP] Responding to client with driver.getStatus() result: {"build":{"version":"1.7.2","revision":null}}
-[HTTP] <-- GET /wd/hub/status 200 854 ms - 72 
-[HTTP] --> GET /wd/hub/status {}
-[debug] [MJSONWP] Calling AppiumDriver.getStatus() with args: []
-[debug] [MJSONWP] Responding to client with driver.getStatus() result: {"build":{"version":"1.7.2","revision":null}}
-[HTTP] <-- GET /wd/hub/status 200 943 ms - 72 
-[HTTP] --> POST /wd/hub/session {"desiredCapabilities":{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"capabilities":{"desiredCapabilities":{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"firstMatch":[{"platformName":"android"}]}}
-[debug] [MJSONWP] Calling AppiumDriver.createSession() with args: [{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},null,{"desiredCapabilities":{"app":"C:\\Katalon Studio\\DataDrivenTest-master\\Test Cases\\example.apk","appWaitActivity":"com","autoGrantPermissions":true,"deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 5.1.1)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"firstMatch":[{"platformName":"android"}]}]
-[debug] [BaseDriver] Event 'newSessionRequested' logged at 1517772593892 (21:29:53 GMT+0200 (Suomen normaaliaika))
-[Appium] Merged W3C capabilities {"desiredCapabilities":{"app":"C:\\Katalon Stud... into desiredCapabilities object {"app":"C:\\Katalon Studio\\DataDrivenTest-mast...
-[Appium] Creating new AndroidDriver (v1.37.0) session
-[Appium] Capabilities:
-[Appium]   app: C:\Katalon Studio\DataDrivenTest-master\Test Cases\example.apk
-[Appium]   appWaitActivity: com
-[Appium]   autoGrantPermissions: true
-[Appium]   deviceId: 
-[Appium]   deviceName: emulator-5554 (Android SDK built for x86 - Android 5.1.1)
-[Appium]   fullReset: false
-[Appium]   newCommandTimeout: 1800
-[Appium]   noReset: true
-[Appium]   platform: ANDROID
-[Appium]   platformName: android
-[Appium]   udid: emulator-5554
-[BaseDriver] The following capabilities were provided, but are not recognized by appium: deviceId, platform.
-[BaseDriver] Session created with session id: 900e47ad-6c4c-4653-bcf0-376941f4e57c
-[debug] [AndroidDriver] Getting Java version
-[AndroidDriver] Java version is: 1.8.0_102
-[ADB] Checking whether adb is present
-[ADB] Using adb.exe from C:\Users\fitim\.katalon\tools\android_sdk\platform-tools\adb.exe
-[AndroidDriver] Retrieving device list
-[debug] [ADB] Trying to find a connected android device
-[debug] [ADB] Getting connected devices...
-[debug] [ADB] 0 device(s) connected
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Getting connected devices...
-[debug] [ADB] 0 device(s) connected
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Getting connected devices...
-[debug] [ADB] 0 device(s) connected
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Getting connected devices...
-[debug] [ADB] 0 device(s) connected
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Getting connected devices...
-[debug] [ADB] 0 device(s) connected
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [ADB] Could not find devices, restarting adb server...
-[debug] [ADB] Restarting adb
-[debug] [ADB] Killing adb server on port 5037
-[debug] [AndroidDriver] Shutting down Android driver
-[debug] [AndroidDriver] Called deleteSession but bootstrap wasn't active
-[HTTP] <-- POST /wd/hub/session 500 34326 ms - 179 
+[35m[Appium][39m Welcome to Appium v1.9.1
+[35m[Appium][39m Non-default server args:
+[35m[Appium][39m   port: 9802
+[35m[Appium][39m   loglevel: info
+[35m[Appium][39m   chromeDriverPort: 9818
+[35m[Appium][39m   tmpDir: C:\Users\fitim\AppData\Local\Temp\\Katalon\Appium\Temp1541840164232
+[35m[Appium][39m Appium REST http interface listener started on 0.0.0.0:9802
+[35m[Appium][39m Received SIGINT - shutting down
+d/hub/status[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/status [39m[32m200[39m [90m24 ms - 67[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/status[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/status [39m[32m200[39m [90m11 ms - 67[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session[39m
+[35m[HTTP][39m [90m{"desiredCapabilities":{"app":"C:\\Users\\fitim\\AndroidStudioProjects\\MyApplication\\app\\build\\outputs\\apk\\debug\\app-debug.apk","appWaitActivity":"com","autoGrantPermissions":true,"automationName":"uiautomator2","deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 8.1.0)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"capabilities":{"desiredCapabilities":{"app":"C:\\Users\\fitim\\AndroidStudioProjects\\MyApplication\\app\\build\\outputs\\apk\\debug\\app-debug.apk","appWaitActivity":"com","autoGrantPermissions":true,"automationName":"uiautomator2","deviceId":"","deviceName":"emulator-5554 (Android SDK built for x86 - Android 8.1.0)","fullReset":false,"newCommandTimeout":1800,"noReset":true,"platform":"ANDROID","platformName":"Android","udid":"emulator-5554"},"firstMatch":[{"platformName":"android"}]}}[39m
+[35m[Appium][39m Could not parse W3C capabilities: 'deviceName' can't be blank
+[35m[Appium][39m Trying to fix W3C capabilities by merging them with JSONWP caps
+[35m[BaseDriver][39m The capabilities ["app","appWaitActivity","autoGrantPermissions","automationName","deviceId","deviceName","fullReset","newCommandTimeout","noReset","platform","udid"] are not standard capabilities and should have an extension prefix
+[35m[Appium][39m Creating new AndroidUiautomator2Driver (v1.19.0) session
+[35m[Appium][39m Capabilities:
+[35m[Appium][39m   app: C:\Users\fitim\AndroidStudioProjects\MyApplication\app\build\outputs\apk\debug\app-debug.apk
+[35m[Appium][39m   appWaitActivity: com
+[35m[Appium][39m   autoGrantPermissions: true
+[35m[Appium][39m   automationName: uiautomator2
+[35m[Appium][39m   deviceId: 
+[35m[Appium][39m   deviceName: emulator-5554 (Android SDK built for x86 - Android 8.1.0)
+[35m[Appium][39m   fullReset: false
+[35m[Appium][39m   newCommandTimeout: 1800
+[35m[Appium][39m   noReset: true
+[35m[Appium][39m   platform: ANDROID
+[35m[Appium][39m   udid: emulator-5554
+[35m[Appium][39m   platformName: android
+[35m[BaseDriver][39m The following capabilities were provided, but are not recognized by appium: deviceId, platform.
+[35m[BaseDriver][39m Session created with session id: 07ad8783-d959-4be0-8c1f-7dc3e2dd7452
+[35m[BaseDriver][39m Using local app 'C:\Users\fitim\AndroidStudioProjects\MyApplication\app\build\outputs\apk\debug\app-debug.apk'
+[35m[AndroidDriver][39m Java version is: 1.8.0_181
+[35m[ADB][39m Checking whether adb is present
+[35m[ADB][39m Found 1 'build-tools' folders under 'C:\Users\fitim\.katalon\tools\android_sdk' (newest first):
+[35m[ADB][39m     C:/Users/fitim/.katalon/tools/android_sdk/build-tools/27.0.3
+[35m[ADB][39m Using adb.exe from C:\Users\fitim\.katalon\tools\android_sdk\platform-tools\adb.exe
+[35m[AndroidDriver][39m Retrieving device list
+[35m[AndroidDriver][39m Using device: emulator-5554
+[35m[ADB][39m Using the alternative activity name detection method because of: Could not find apkanalyzer.bat in C:\Users\fitim\.katalon\tools\android_sdk\platform-tools\apkanalyzer.bat,C:\Users\fitim\.katalon\tools\android_sdk\emulator\apkanalyzer.bat,C:\Users\fitim\.katalon\tools\android_sdk\tools\apkanalyzer.bat,C:\Users\fitim\.katalon\tools\android_sdk\tools\bin\apkanalyzer.bat,C:\Users\fitim\.katalon\tools\android_sdk\build-tools\27.0.3\apkanalyzer.bat. Do you have the Android SDK installed at 'C:\Users\fitim\.katalon\tools\android_sdk'?
+[35m[ADB][39m Checking whether aapt is present
+[35m[ADB][39m Using aapt.exe from C:\Users\fitim\.katalon\tools\android_sdk\build-tools\27.0.3\aapt.exe
+[35m[ADB][39m Extracting package and launch activity from manifest
+[35m[ADB][39m Package name: 'com.example.fitim.myapplication'
+[35m[ADB][39m Main activity name: 'com.example.fitim.myapplication.MapsActivity'
+[35m[ADB][39m Getting device platform version
+[35m[ADB][39m Using apksigner.bat from C:\Users\fitim\.katalon\tools\android_sdk\build-tools\27.0.3\apksigner.bat
+[35m[ADB][39m Checking whether zipalign is present
+[35m[ADB][39m Using zipalign.exe from C:\Users\fitim\.katalon\tools\android_sdk\build-tools\27.0.3\zipalign.exe
+[35m[UiAutomator2][39m Error uninstalling 'io.appium.uiautomator2.server': Unable to uninstall APK. Original error: Error executing adbExec. Original error: 'Command 'C\:\\Users\\fitim\\.katalon\\tools\\android_sdk\\platform-tools\\adb.exe -P 5037 -s emulator-5554 uninstall io.appium.uiautomator2.server' timed out after 20000ms'; Stderr: ''; Code: 'null'
+[35m[ADB][39m io.appium.uiautomator2.server.test was not uninstalled, because it was not present on the device
+[35m[UiAutomator2][39m Did not get confirmation UiAutomator2 deleteSession worked; Error was: UnknownError: An unknown server-side error occurred while processing the command. Original error: Trying to proxy a session command without session id
+[35m[UiAutomator2][39m Unable to remove port forward 'Error executing adbExec. Original error: 'Command 'C\:\\Users\\f[35m[Appium][39m Received SIGINT - shutting down
+adb.exe -P 50[35m[Appium][39m Received SIGINT - shutting down
+d with code 1'; Stderr: 'error: listener 'tcp:8200' not found'; Code: '1''
+[35m[HTTP][39m [37m<-- POST /wd/hub/session [39m[31m500[39m [90m138064 ms - 2065[39m
+[35m[HTTP][39m [90m[39m
+[35m[Appium][39m Received SIGINT - shutting down
