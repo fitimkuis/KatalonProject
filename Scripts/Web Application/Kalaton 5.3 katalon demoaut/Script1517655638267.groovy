@@ -52,10 +52,10 @@ WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA
 
 //WebUI.verifyElementText(findTestObject('katalon_5_3_katalon_demo/Page_CURA Healthcare Service/p_Please be informed that your'), 
 //    'Cat Please be informed that your appointment has been booked as following:')
-WebUI.verifyElementText(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/p_Please be informed that your'), 
-    'Cat Please be informed that your appointment has been booked as following:', FailureHandling.CONTINUE_ON_FAILURE)
+//WebUI.verifyElementText(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/p_Please be informed that your'), 
+//    'Cat Please be informed that your appointment has been booked as following:', FailureHandling.CONTINUE_ON_FAILURE)
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/a_Go to Homepage'))
+//WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/a_Go to Homepage'))
 
 WebUI.closeBrowser()
 

@@ -25,7 +25,7 @@ for (def index : (0..data.getRowNumbers() - 1)) {
     'Click on Login Button\\r\\n'
     WebUI.click(findTestObject('Login Page of Demo Application/button_Login'))
 
-    WebUI.verifyElementPresent(findTestObject('Make Appointment Page/btn_Book Appointment'), GlobalVariable.SmallTimeout)
+    //WebUI.verifyElementPresent(findTestObject('Make Appointment Page/btn_Book Appointment'), GlobalVariable.SmallTimeout)
 
     'Close the Browser'
     WebUI.closeBrowser()
