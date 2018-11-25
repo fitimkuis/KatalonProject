@@ -20,11 +20,11 @@ WebUI.setViewPortSize(700, 500)
 WebUI.navigateToUrl('http://demoaut.katalon.com/')
 
 //WebUI.click(findTestObject("katalon_5_3_katalon_demo"))
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/a_Make Appointment'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/a_MakeAppointment'))
 
-WebUI.setText(findTestObject('katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_username'), GlobalVariable.username)
+WebUI.setText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_username'), GlobalVariable.username)
 
-WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_password'), GlobalVariable.password)
+WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_password'), GlobalVariable.password)
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/button_Login'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/button_Login'))
 
