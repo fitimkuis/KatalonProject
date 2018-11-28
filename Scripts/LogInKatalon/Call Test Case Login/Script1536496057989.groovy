@@ -18,9 +18,8 @@ WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : GlobalVar
 
 WebUI.closeBrowser()
 
-WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : 'John Doe', ('password') : 'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM'],
-	FailureHandling.CONTINUE_ON_FAILURE)
+WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : 'John Doe', ('password') : 'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM'], 
+    FailureHandling.CONTINUE_ON_FAILURE)
 
 WebUI.closeBrowser()
-
 

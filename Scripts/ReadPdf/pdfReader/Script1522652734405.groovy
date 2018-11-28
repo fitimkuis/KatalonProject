@@ -27,7 +27,7 @@ WebUI.openBrowser('')
 WebUI.navigateToUrl('http://www.testingdiaries.com/selenium-webdriver-read-pdf-content/')
 
 //WebUI.click(findTestObject('99_RPDF/Page_Selenium WebDriver Read PDF Co (1)/a_this location'))
-WebUI.click(findTestObject('Object Repository/Page_Selenium WebDriver Read PDF Co/a_this location'))
+WebUI.click(findTestObject('Page_SeleniumWebDriverRead-PDF-Co/a_this-location'))
 
 //CustomKeywords.'tools.pdfReader.ReadPDF'('http://www.axmag.com/download/pdfurl-guide.pdf')
 String pdfContent = CustomKeywords.'readPdfFile.verifyPdfContent.readPdfFileVerify'('http://www.axmag.com/download/pdfurl-guide.pdf')

@@ -15,7 +15,7 @@ WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo
 
 WebUI.waitForJQueryLoad(1)
 
-WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker/a_Choose date'))
+WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
 
 WebUI.delay(1)
 
@@ -40,7 +40,7 @@ TestObject to = findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Mon
 int x = 1;
 
 WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/datePicker.html')
-WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker/a_Choose date'))
+WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
 
 WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
 WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'))
@@ -62,7 +62,7 @@ for (int z=0;z<31;z++) {
 
     //WebUI.waitForJQueryLoad(1)
 
-    WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker/a_Choose date'))
+    WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
 
     //WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
 	

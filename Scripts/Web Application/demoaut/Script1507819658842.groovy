@@ -25,83 +25,83 @@ WebUI.openBrowser('')
 for (def index : (0..3 - 1)) {
     WebUI.navigateToUrl('http://newtours.demoaut.com/')
 
-    WebUI.setText(findTestObject('demoaut/Page_Welcome Mercury Tours/input_userName'), GlobalVariable.user)
+    WebUI.setText(findTestObject('demoaut/Page_WelcomeMercuryTours/input_userName'), GlobalVariable.user)
 
-    WebUI.setText(findTestObject('demoaut/Page_Welcome Mercury Tours/input_password'), GlobalVariable.password)
+    WebUI.setText(findTestObject('demoaut/Page_WelcomeMercuryTours/input_password'), GlobalVariable.password)
 
-    WebUI.click(findTestObject('demoaut/Page_Welcome Mercury Tours/input_login'))
+    WebUI.click(findTestObject('demoaut/Page_WelcomeMercuryTours/input_login'))
 
     if ((index % 2) == 0) {
-        WebUI.click(findTestObject('demoaut/Page_Find a Flight Mercury Tours/input_tripType - oneway'))
+        WebUI.click(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/input_tripType-oneway'))
     } else {
-        WebUI.click(findTestObject('demoaut/Page_Find a Flight Mercury Tours/input_tripType - roundtrip'))
+        WebUI.click(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/input_tripType-roundtrip'))
     }
     
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_passCount'), '2', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_passCount'), '2', true)
 
-    //WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromPort'), 'Frankfurt', true)
+    //WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_fromPort'), 'Frankfurt', true)
     //WebUI.selectOptionByIndex(findTestObject('Page_CuraAppointment/lst_Facility'), 1)
     WebUI.verifyTextPresent('Use our Flight Finder to search for the lowest fare on participating airlines. Once you\'ve booked your flight, don\'t forget to visit the Mercury Tours Hotel Finder to reserve lodging in your destination city', 
         false)
 
-    number = WebUI.getNumberOfTotalOption(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromPort'), FailureHandling.CONTINUE_ON_FAILURE)
+    number = WebUI.getNumberOfTotalOption(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_fromPort'), FailureHandling.CONTINUE_ON_FAILURE)
 
     println('count of deparding from values is: ' + number)
 
-    WebUI.selectOptionByIndex(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromPort'), index)
+    WebUI.selectOptionByIndex(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_fromPort'), index)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromMonth'), '1', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_fromMonth'), '1', true)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_fromDay'), '20', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_fromDay'), '20', true)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_toPort'), 'London', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_toPort'), 'London', true)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_toMonth'), '3', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_toMonth'), '3', true)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_toDay'), '19', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_toDay'), '19', true)
 
-    WebUI.click(findTestObject('demoaut/Page_Find a Flight Mercury Tours/input_servClass'))
+    WebUI.click(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/input_servClass'))
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find a Flight Mercury Tours/select_airline'), 'Blue Skies Airlines', 
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/select_airline'), 'Blue Skies Airlines', 
         true)
 
-    WebUI.click(findTestObject('demoaut/Page_Find a Flight Mercury Tours/input_findFlights'))
+    WebUI.click(findTestObject('demoaut/Page_Find-a-FlightMercuryTours/input_findFlights'))
 
-    WebUI.click(findTestObject('demoaut/Page_Select a Flight Mercury Tours/input_outFlight'))
+    WebUI.click(findTestObject('demoaut/Page_Select-a-FlightMercuryTours/input_outFlight'))
 
-    WebUI.click(findTestObject('demoaut/Page_Select a Flight Mercury Tours/input_inFlight'))
+    WebUI.click(findTestObject('demoaut/Page_Select-a-FlightMercuryTours/input_inFlight'))
 
-    WebUI.click(findTestObject('demoaut/Page_Select a Flight Mercury Tours/input_reserveFlights'))
+    WebUI.click(findTestObject('demoaut/Page_Select-a-FlightMercuryTours/input_reserveFlights'))
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_passFirst0'), 'tim')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_passFirst0'), 'tim')
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_passLast0'), 'kuis')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_passLast0'), 'kuis')
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book a Flight Mercury Tours/select_pass.0.meal'), 'BLML', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/select_pass.0.meal'), 'BLML', true)
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_passFirst1'), 'tim')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_passFirst1'), 'tim')
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_passLast1'), 'kuis')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_passLast1'), 'kuis')
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book a Flight Mercury Tours/select_pass.1.meal'), 'BLML', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/select_pass.1.meal'), 'BLML', true)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book a Flight Mercury Tours/select_creditCard'), 'IK', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/select_creditCard'), 'IK', true)
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_creditnumber'), '1234567890')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_creditnumber'), '1234567890')
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book a Flight Mercury Tours/select_cc_exp_dt_mn'), '01', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/select_cc_exp_dt_mn'), '01', true)
 
-    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book a Flight Mercury Tours/select_cc_exp_dt_yr'), '2000', true)
+    WebUI.selectOptionByValue(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/select_cc_exp_dt_yr'), '2000', true)
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_cc_frst_name'), 'tim')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_cc_frst_name'), 'tim')
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_cc_mid_name'), 'ti')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_cc_mid_name'), 'ti')
 
-    WebUI.setText(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_cc_last_name'), 'kuis')
+    WebUI.setText(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_cc_last_name'), 'kuis')
 
-    WebUI.click(findTestObject('demoaut/Page_Book a Flight Mercury Tours/input_buyFlights'))
+    WebUI.click(findTestObject('demoaut/Page_Book-a-FlightMercuryTours/input_buyFlights'))
 
-    WebUI.click(findTestObject('demoaut/Page_Flight Confirmation Mercury To/img'))
+    WebUI.click(findTestObject('demoaut/Page_FlightConfirmationMercuryTo/img'))
 }
 
 WebUI.closeBrowser()

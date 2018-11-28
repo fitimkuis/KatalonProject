@@ -19,6 +19,18 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import com.kms.katalon.core.webui.driver.DriverFactory
 
 //Set chromedriver path
+/*ChromeOptions options = new ChromeOptions();
+DesiredCapabilities capabilities = new DesiredCapabilities();
+capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+System.setProperty("webdriver.chrome.driver", "C:\\Users\\fitim\\Desktop\\ajuri\\chromedriver.exe");
+ChromeDriver driver = new ChromeDriver(capabilities);
+DriverFactory.changeWebDriver(driver)*/
+
+WebUI.openBrowser('')
+WebUI.navigateToUrl('http://www.google.com')
+//WebUI.openBrowser('http://www.google.com')
+WebUI.closeBrowser()
+
 ChromeOptions options = new ChromeOptions();
 DesiredCapabilities capabilities = new DesiredCapabilities();
 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
@@ -26,6 +38,8 @@ System.setProperty("webdriver.chrome.driver", "C:\\Users\\fitim\\Desktop\\ajuri\
 ChromeDriver driver = new ChromeDriver(capabilities);
 DriverFactory.changeWebDriver(driver)
 
-WebUI.openBrowser('http://www.google.com')
+WebUI.openBrowser('')
+WebUI.navigateToUrl('http://www.google.com')
+//WebUI.openBrowser('http://www.google.com')
 WebUI.closeBrowser()
 
