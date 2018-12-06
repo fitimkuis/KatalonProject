@@ -6,7 +6,7 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://jqueryui.com/datepicker/')
 
-WebUI.waitForJQueryLoad(1)
+WebUI.waitForJQueryLoad(5)
 
 WebUI.switchToFrame(findTestObject('DatePicker/Page_Datepicker_ jQueryUI2/iframe_demo-frame'),10)
 
