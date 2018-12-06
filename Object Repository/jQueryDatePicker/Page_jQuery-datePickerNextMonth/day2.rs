@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>day 1</name>
+   <name>day2</name>
    <tag></tag>
-   <elementGuidId>2c096049-f5c5-45e0-9ee0-833875d78b94</elementGuidId>
+   <elementGuidId>7d5cd310-be64-4233-a8dc-69ef577e903e</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//*[text() = '1']</value>
+         <value>//*[text() = '2']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -31,7 +31,7 @@
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>1</value>
+      <value>2</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>

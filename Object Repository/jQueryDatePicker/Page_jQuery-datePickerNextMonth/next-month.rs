@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>next month</name>
+   <name>next-month</name>
    <tag></tag>
    <elementGuidId>cff77a44-3def-4c8f-9065-f7431a9e6b0f</elementGuidId>
    <selectorCollection>
