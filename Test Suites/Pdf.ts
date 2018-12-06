@@ -4,7 +4,7 @@
    <name>Pdf</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-11-18T19:55:04</lastRun>
+   <lastRun>2018-12-06T08:50:32</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -80,7 +80,7 @@
    <testCaseLink>
       <guid>d61d80d2-48b8-412a-8a99-ec0b8921a1c2</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Web Application/kendo datepicker</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -94,5 +94,17 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
       <testCaseId>Test Cases/GenerateCardNumber/cardNumberTest</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>59a3dbf1-ecad-47c0-a806-6f07a4dcee4c</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>8b7a8e65-e0c2-40bf-b8ab-05b662c25c34</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

@@ -19,13 +19,13 @@ WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-dat
 
 WebUI.delay(1)
 
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
-attribute = WebUI.getAttribute(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), 'text')
+WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/next-month'))
+attribute = WebUI.getAttribute(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1'), 'text')
 println attribute
 
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'))
+WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1'))
 */
-/////WebUI.click(findTestObject("jQueryDatePicker/Page_jQuery datePicker next year/datePickerNextYear"))
+/////WebUI.click(findTestObject("jQueryDatePicker/Page_jQuery-datePicker-next-year/datePickerNextYear"))
 
 //InternalData data = findTestData('November/November days')
 
@@ -36,17 +36,18 @@ WebUI.executeJavaScript("alert('This is an alert')", null)
 WebUI.verifyAlertPresent(5)
 */
 
-TestObject to = findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1')
+TestObject to = findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1')
 int x = 1;
 
 WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/datePicker.html')
-WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
+//WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
+WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
 
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'))
+WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/next-month'))
+WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1'))
 //for (def index : (0..data.getRowNumbers() - 1)) {
 //int counter = 0;
-for (int z=0;z<31;z++) {
+for (int z=0;z<20;z++) {
 	'Change xpath property to new value'
 	//to.findProperty('text').setValue(day)
 	//to.findProperty('xpath').setValue('//*[text()='+day)
@@ -61,17 +62,18 @@ for (int z=0;z<31;z++) {
     //WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/datePicker.html')
 
     //WebUI.waitForJQueryLoad(1)
+	WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
+    
+	//WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
 
-    WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/a_Choose-date'))
-
-    //WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
+    //WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/next-month'))
 	
-	//LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), 'text','equals',dynamicObject, true)
+	//LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1'), 'text','equals',dynamicObject, true)
 	//WebUI.click(LinkToSearch, FailureHandling.STOP_ON_FAILURE)
 	
-	LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), 'text','equals',txtval, true)
+	LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1'), 'text','equals',txtval, true)
 	WebUI.click(LinkToSearch, FailureHandling.STOP_ON_FAILURE)
-    //WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), x++, index)
+    //WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePickerNextMonth/day1'), x++, index)
 	//WebUI.delay(3)
 	//WebUI.closeBrowser()
 	/*counter++;
