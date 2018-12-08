@@ -101,4 +101,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/XPATH Locator/xpath-locator</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>aae2f9bd-05fd-4804-85d0-c2203192fccf</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
