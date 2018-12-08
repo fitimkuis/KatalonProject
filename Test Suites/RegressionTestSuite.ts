@@ -4,7 +4,7 @@
    <name>RegressionTestSuite</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-12-07T17:55:57</lastRun>
+   <lastRun>2018-12-08T14:43:54</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -106,5 +106,11 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>85f68bab-e28a-4628-8b19-56b159d9a049</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ForcedToFailed/forced-to-failed</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
