@@ -4,7 +4,7 @@
    <name>RegressionTestSuite</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-12-09T12:06:42</lastRun>
+   <lastRun>2018-12-09T13:08:46</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -14,7 +14,7 @@
    <testCaseLink>
       <guid>389f71ff-980b-4e88-9169-13ac64c4e166</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -92,7 +92,7 @@
    <testCaseLink>
       <guid>c55a668a-c300-4620-9dda-36cf25b14fae</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/WebServiceTest/webService</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -104,7 +104,7 @@
    <testCaseLink>
       <guid>aae2f9bd-05fd-4804-85d0-c2203192fccf</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
    </testCaseLink>
    <testCaseLink>
