@@ -56,7 +56,7 @@
    <testCaseLink>
       <guid>62176495-edef-483c-9acd-1618dbbede97</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/datePicker</testCaseId>
    </testCaseLink>
    <testCaseLink>
