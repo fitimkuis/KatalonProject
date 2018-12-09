@@ -24,7 +24,7 @@ WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/
 
 WebUI.setText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_username'), GlobalVariable.username)
 
-WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_password'), GlobalVariable.password)
+WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_password'), GlobalVariable.pass)
 
 WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/button_Login'))
 

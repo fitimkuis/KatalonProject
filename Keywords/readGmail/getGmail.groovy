@@ -46,7 +46,7 @@ public class getGmail {
 		//gmailPort = 587
 
 		//user = GlobalVariable.gmailUser
-		//password = GlobalVariable.password
+		//password = GlobalVariable.pass
 
 		// gmail label, or "INBOX" for inbox
 		inboxFolder = "INBOX"
@@ -64,7 +64,7 @@ public class getGmail {
 
 		String host = "imap.gmail.com";
 		String username = GlobalVariable.gmailUser;
-		password = GlobalVariable.password;
+		password = GlobalVariable.pass;
 		Properties props = new Properties();
 		props.setProperty("mail.imap.ssl.enable", "true");
 		// set any other needed mail.imap.* properties here

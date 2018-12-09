@@ -27,7 +27,7 @@ for (def index : (0..3 - 1)) {
 
     WebUI.setText(findTestObject('demoaut/Page_WelcomeMercuryTours/input_userName'), GlobalVariable.user)
 
-    WebUI.setText(findTestObject('demoaut/Page_WelcomeMercuryTours/input_password'), GlobalVariable.password)
+    WebUI.setText(findTestObject('demoaut/Page_WelcomeMercuryTours/input_password'), GlobalVariable.pass)
 
     WebUI.click(findTestObject('demoaut/Page_WelcomeMercuryTours/input_login'))
 

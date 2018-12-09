@@ -37,7 +37,7 @@ public class JavaMail {
 		 Session session = Session.getDefaultInstance(properties);*/
 		//String host = "imap.gmail.com";
 		//String username = GlobalVariable.gmailUser;
-		//password = GlobalVariable.password;
+		//password = GlobalVariable.pass;
 
 		try {
 			// connects to the message store

@@ -13,12 +13,12 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : GlobalVariable.username, ('password') : GlobalVariable.password], 
+WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : GlobalVariable.username, ('pass') : GlobalVariable.pass], 
     FailureHandling.CONTINUE_ON_FAILURE)
 
 WebUI.closeBrowser()
 
-WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : 'John Doe', ('password') : 'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM'], 
+WebUI.callTestCase(findTestCase('LogInKatalon/Login'), [('username') : 'John Doe', ('pass') : 'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM'], 
     FailureHandling.CONTINUE_ON_FAILURE)
 
 WebUI.closeBrowser()
