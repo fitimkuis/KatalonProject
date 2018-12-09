@@ -14,7 +14,7 @@
    <testCaseLink>
       <guid>389f71ff-980b-4e88-9169-13ac64c4e166</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -62,7 +62,7 @@
    <testCaseLink>
       <guid>4e275579-5e82-4663-b6da-baf6c6cc119f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -80,19 +80,19 @@
    <testCaseLink>
       <guid>77f019d4-34b7-4a27-a205-bde89461f246</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/Kalaton 5.3 katalon demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>4f48c4c1-a18c-49c6-b24c-e5c43844e927</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/kendo datepicker</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>c55a668a-c300-4620-9dda-36cf25b14fae</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/WebServiceTest/webService</testCaseId>
    </testCaseLink>
    <testCaseLink>
