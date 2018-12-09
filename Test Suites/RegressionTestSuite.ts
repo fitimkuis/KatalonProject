@@ -4,7 +4,7 @@
    <name>RegressionTestSuite</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-12-09T11:45:21</lastRun>
+   <lastRun>2018-12-09T12:06:42</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -26,13 +26,13 @@
    <testCaseLink>
       <guid>54e90cc7-e1e3-4eed-9dcc-1b7b6bbbf821</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Demo/demotest</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>20a1d9a7-07fb-4c1c-8791-4c73860b0f7e</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/ReadPdf/pdfReader</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -68,7 +68,7 @@
    <testCaseLink>
       <guid>f403c489-bf2c-4f5d-bf0b-bf49397ea83b</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/jQueryDatePicker</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -104,7 +104,7 @@
    <testCaseLink>
       <guid>aae2f9bd-05fd-4804-85d0-c2203192fccf</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
    </testCaseLink>
    <testCaseLink>
