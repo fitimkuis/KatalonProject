@@ -20,7 +20,7 @@
             <profileName>testProfiles</profileName>
             <runConfigurationId>Chrome</runConfigurationId>
          </configuration>
-         <runEnabled>true</runEnabled>
+         <runEnabled>false</runEnabled>
          <testSuiteEntity>Test Suites/LogInKatalon</testSuiteEntity>
       </TestSuiteRunConfiguration>
    </testSuiteRunConfigurations>
