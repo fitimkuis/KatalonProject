@@ -14,5 +14,14 @@
          <runEnabled>true</runEnabled>
          <testSuiteEntity>Test Suites/RegressionTestSuite</testSuiteEntity>
       </TestSuiteRunConfiguration>
+      <TestSuiteRunConfiguration>
+         <configuration>
+            <groupName>Web Desktop</groupName>
+            <profileName>testProfiles</profileName>
+            <runConfigurationId>Chrome</runConfigurationId>
+         </configuration>
+         <runEnabled>true</runEnabled>
+         <testSuiteEntity>Test Suites/LogInKatalon</testSuiteEntity>
+      </TestSuiteRunConfiguration>
    </testSuiteRunConfigurations>
 </TestSuiteCollectionEntity>
