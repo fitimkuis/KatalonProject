@@ -18,10 +18,10 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 
 public class WriteToFile {
-	
+
 	@Keyword
 	public void SpreadSheetWrite(){
-		
+
 		try {
 			//create .xls and create a worksheet.
 			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\data2excel.xls");
@@ -58,7 +58,7 @@ public class WriteToFile {
 			cellStyle.setDataFormat(HSSFDataFormat
 					.getBuiltinFormat("m/d/yy h:mm"));
 			cellD1.setCellStyle(cellStyle);
-			
+
 			//Create COL-E from row-1 and set data
 			HSSFCell cellE1 = row1.createCell((short) 4);
 			cellE1.setCellValue("some data here with red background");
