@@ -29,32 +29,59 @@ public class testWiniumClass {
 
 	@Keyword
 	public void testWiniumExe(){
+		
+		WiniumDriver d;
 
-		DesktopOptions option = new DesktopOptions();
+		//DesktopOptions option = new DesktopOptions();
+		
+		Random rand = new Random(System.currentTimeMillis()); // see comments!
+		int port = rand.nextInt((9999 - 9000) + 1) + 9000;
+		System.out.println("DEBUG port number "+port);
+		//WebUI.delay(20)
+		//random = Random.generateRandomInteger(1000, 9999);
+		
+		DesktopOptions options = new DesktopOptions();
+		options.setApplicationPath("C:\\Windows\\System32\\calc.exe");
+		//options.setApplicationPath("C:\\Windows\\System32\\openfiles.exe");
+		//String WiniumEXEpath = System.getProperty("user.dir") + "\\Winium.Desktop.Driver.exe";
+		String WiniumEXEpath = "C:\\KatalonStudio\\DataDrivenTestMaster\\Winium.Desktop.Driver.exe";
+		File file = new File(WiniumEXEpath);
+		if (! file.exists()) {
+			throw new IllegalArgumentException("The file " + WiniumEXEpath + " does not exist");
+		}
+		Runtime.getRuntime().exec(file.getAbsolutePath()+" --port "+port);
+		
+		try {
+			d = new WiniumDriver(new URL("http://localhost:"+port),options);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 
-		option.setApplicationPath("C:\\Windows\\System32\\calc.exe");
-
-		WiniumDriver driver = new WiniumDriver(new URL("http://localhost:9999"), option);
+		//d = new WiniumDriver(new URL("http://localhost:9000"), options);
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.name("Seitsemän")).click();
+		d.findElement(By.name("Seitsemän")).click();
 
-		driver.findElement(By.name("Plus")).click();
+		d.findElement(By.name("Plus")).click();
 
-		driver.findElement(By.name("Kahdeksan")).click();
+		d.findElement(By.name("Kahdeksan")).click();
 
-		driver.findElement(By.name("On yhtä suuri kuin")).click();
+		d.findElement(By.name("On yhtä suuri kuin")).click();
 
 		Thread.sleep(2000);
 
-		String output = driver.findElement(By.id("CalculatorResults")).getAttribute("Name");
+		String output = d.findElement(By.id("CalculatorResults")).getAttribute("Name");
 
 		System.out.println("Result after addition is: "+output);
+		
+		d.findElement(By.name("Sulje Laskin")).click();
 
-		Thread.sleep(2000);
+		//Thread.sleep(5000);
+		
+		//d.quit();
 
-		driver.close();
+		//d.close();
 
 		/*WiniumDriver driver = null
 		 String appPath = "C:/windows/system32/calc.exe"

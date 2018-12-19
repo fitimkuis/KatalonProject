@@ -54,4 +54,9 @@
       <initValue>'ThisIsNotAPassword'</initValue>
       <name>password2</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>name</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

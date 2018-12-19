@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>webRequest</name>
+   <name>SOAP-Demo</name>
    <tag></tag>
-   <elementGuidId>2a570059-6ee3-4683-a205-881ffe6c8946</elementGuidId>
+   <elementGuidId>de59988b-cdbf-443f-8d58-e47c1d81b578</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <httpBody></httpBody>
-   <httpBodyContent>{
-  &quot;text&quot;: &quot;&quot;,
-  &quot;contentType&quot;: &quot;text/plain&quot;,
-  &quot;charset&quot;: &quot;UTF-8&quot;
-}</httpBodyContent>
-   <httpBodyType>text</httpBodyType>
-   <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl>http://ergast.com/api/f1/2017/circuits.json</restUrl>
-   <serviceType>RESTful</serviceType>
+   <httpBodyContent></httpBodyContent>
+   <httpBodyType></httpBodyType>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Host</name>
+      <type>Main</type>
+      <value>currencyconverter.kowabunga.net</value>
+   </httpHeaderProperties>
+   <restRequestMethod></restRequestMethod>
+   <restUrl></restUrl>
+   <serviceType>SOAP</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
-   <soapRequestMethod></soapRequestMethod>
-   <soapServiceFunction></soapServiceFunction>
+   <soapRequestMethod>SOAP</soapRequestMethod>
+   <soapServiceFunction>GetLastUpdateDate</soapServiceFunction>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -34,11 +36,6 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-
-
-
-WS.verifyResponseStatusCode(response, 200)
-
-assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
-   <wsdlAddress></wsdlAddress>
+</verificationScript>
+   <wsdlAddress>http://currencyconverter.kowabunga.net/converter.asmx?WSDL</wsdlAddress>
 </WebServiceRequestEntity>

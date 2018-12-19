@@ -4,6 +4,17 @@
    <name>input_buyFlights</name>
    <tag></tag>
    <elementGuidId>e1a3092c-bab1-4960-b664-130ef87e6d19</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@src = '/images/forms/purchase.gif' and @name = 'buyFlights' and @type = 'image']</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>

@@ -4,7 +4,6 @@
    <name>LogInKatalon</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-12-09T10:01:17</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -16,6 +15,18 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/LogInKatalon/Call Test Case Login</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>e7a340e5-8305-4157-8add-ac031220cb75</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>26cb56f3-b370-4fc2-b481-f946b33b05ee</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>890880b6-c54e-4919-8846-34c78d926003</guid>

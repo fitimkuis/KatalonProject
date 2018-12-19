@@ -4,7 +4,6 @@
    <name>RegressionTestSuite</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-12-09T13:08:46</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -118,6 +117,18 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/LogInKatalon/Call Test Case Login</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>e7a340e5-8305-4157-8add-ac031220cb75</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>26cb56f3-b370-4fc2-b481-f946b33b05ee</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>93b19663-d59d-4111-a89a-b5821786aa48</guid>

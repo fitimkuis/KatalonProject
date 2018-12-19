@@ -12,8 +12,9 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
-//TODO need to start Winium driver first
-//C:\KatalonStudio>Winium.Desktop.Driver.exe --port 9000
-//Starting Windows Desktop Driver on port 9000
-//Spy object by ObjectSpy tool
-CustomKeywords.'winium.testWiniumClass.testWiniumExe'()
+
+CustomKeywords.'compareFiles.CompareCsvFileColumns.compare_cvs'()
+
+/////CustomKeywords.'compareFiles.CompareCsvFileColumns.titles'()
+
+//CustomKeywords.'compareFiles.CompareTwoCsvFiles.compareTwoCsvFiles'()
