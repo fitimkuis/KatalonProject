@@ -29,17 +29,17 @@ public class testWiniumClass {
 
 	@Keyword
 	public void testWiniumExe(){
-		
+
 		WiniumDriver d;
 
 		//DesktopOptions option = new DesktopOptions();
-		
+
 		Random rand = new Random(System.currentTimeMillis()); // see comments!
 		int port = rand.nextInt((9999 - 9000) + 1) + 9000;
 		System.out.println("DEBUG port number "+port);
 		//WebUI.delay(20)
 		//random = Random.generateRandomInteger(1000, 9999);
-		
+
 		DesktopOptions options = new DesktopOptions();
 		options.setApplicationPath("C:\\Windows\\System32\\calc.exe");
 		//options.setApplicationPath("C:\\Windows\\System32\\openfiles.exe");
@@ -50,7 +50,7 @@ public class testWiniumClass {
 			throw new IllegalArgumentException("The file " + WiniumEXEpath + " does not exist");
 		}
 		Runtime.getRuntime().exec(file.getAbsolutePath()+" --port "+port);
-		
+
 		try {
 			d = new WiniumDriver(new URL("http://localhost:"+port),options);
 		} catch (MalformedURLException e) {
@@ -60,25 +60,17 @@ public class testWiniumClass {
 		//d = new WiniumDriver(new URL("http://localhost:9000"), options);
 
 		Thread.sleep(2000);
-
 		d.findElement(By.name("Seitsemän")).click();
-
 		d.findElement(By.name("Plus")).click();
-
 		d.findElement(By.name("Kahdeksan")).click();
-
 		d.findElement(By.name("On yhtä suuri kuin")).click();
-
 		Thread.sleep(2000);
-
 		String output = d.findElement(By.id("CalculatorResults")).getAttribute("Name");
-
 		System.out.println("Result after addition is: "+output);
-		
 		d.findElement(By.name("Sulje Laskin")).click();
 
 		//Thread.sleep(5000);
-		
+
 		//d.quit();
 
 		//d.close();

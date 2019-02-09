@@ -4,7 +4,6 @@
    <name>Custom Driver</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-11-20T17:51:40</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>

@@ -6,6 +6,14 @@
    <elementGuidId>c5e25805-d2dd-4598-a517-b4e1454af117</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@type = 'password' and @id = 'txt-password' and @name = 'password' and @placeholder = 'Password']</value>
+      </entry>
+      <entry>
          <key>XPATH</key>
          <value>//input[@id='txt-password']</value>
       </entry>

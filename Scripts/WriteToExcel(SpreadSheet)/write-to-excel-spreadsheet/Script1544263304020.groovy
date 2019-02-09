@@ -1,5 +1,10 @@
-import org.apache.poi.ss.usermodel.Workbook
+List <String> excel = new ArrayList <String>();
+excel.add("First");
+excel.add("Second");
+excel.add("Third");
+excel.add("Fourth");
+excel.add("Fifth");
+excel.add("");
+CustomKeywords.'spreadsheet.WriteToFile.writeToExcel'(excel, 1)
 
-import bsh.org.objectweb.asm.Label
-
-CustomKeywords.'spreadsheet.WriteToFile.SpreadSheetWrite'()
+//CustomKeywords.'spreadsheet.WriteToFile.SpreadSheetWrite'()

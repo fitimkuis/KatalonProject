@@ -110,7 +110,7 @@
       <guid>85f68bab-e28a-4628-8b19-56b159d9a049</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/ForcedToFailed/forced-to-failed</testCaseId>
+      <testCaseId>Test Cases/JavaScriptForcedToFailed/forced-to-failed</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>5ff7ff57-2fb6-485a-bbcb-56cf6c3b4c80</guid>
