@@ -20,9 +20,22 @@ KeywordLogger log = new KeywordLogger()
 log.logInfo("count of json side "+jsonSize)
 
 //println "count of json side "+jsonSize
+List <String> data = new ArrayList<>()
 
-for (int i = 0; i < jsonSize+1; i++){
+for (int i = 0; i < jsonSize; i++){
 	println(object.MRData.CircuitTable.Circuits.circuitId[i])
+	data.add(object.MRData.CircuitTable.Circuits.circuitId[i].toString())
+}
+CustomKeywords.'spreadsheet.WriteToFile.writeToExcelJsonData'(data, 1, 2)
+
+for (int x = 0; x < object.MRData.CircuitTable.Circuits.circuitName.size(); x++){
+	println(object.MRData.CircuitTable.Circuits.circuitName[x])
+	
+}
+
+for (int y = 0; y < object.MRData.CircuitTable.Circuits.circuitName.size(); y++){
+	println(object.MRData.CircuitTable.Circuits.Location.country[y])
+	
 }
 //def text = {"applications":[{"name":"test123","id":"c1257c5","description":"test","type":"generic","version":"0.1"},{"name":"Asset_1","id":"a9e0bce","description":"sfsdgdg","type":"generic","version":"0.1"},{"name":"Asset_2","id":"a9e0cd2","description":"sffgdgf","type":"generic","version":"0.1"}]}
 
