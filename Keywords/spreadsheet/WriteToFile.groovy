@@ -1,14 +1,5 @@
 package spreadsheet
 
-import org.apache.poi.ss.usermodel.Workbook
-import com.kms.katalon.core.annotation.Keyword
-import bsh.org.objectweb.asm.Label
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
@@ -16,15 +7,40 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row
+import org.apache.poi.ss.usermodel.Row.MissingCellPolicy
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
+import com.kms.katalon.core.annotation.Keyword
 
 public class WriteToFile {
+	
+	private static MissingCellPolicy xRow;
+	private static XSSFSheet ExcelWSheetX;
+    private static XSSFWorkbook ExcelWBookX;
+    private static XSSFCell eCellNumbersX;
+	private static XSSFCell eCellValuesX;
+    private static XSSFRow eRowX;
+	
+	private static HSSFSheet ExcelWSheetH;
+	private static HSSFWorkbook ExcelWBookH;
+	private static HSSFCell eCellNumbers;
+	private static HSSFCell eCellValues;
+	private static HSSFRow eRowH;
+	private static HSSFCell eCellH;
 
 	@Keyword
 	public void SpreadSheetWrite(){
 
 		try {
 			//create .xls and create a worksheet.
-			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\data2excel.xls");
+			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls", true);
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet worksheet = workbook.createSheet("SheetName");
 
@@ -77,19 +93,134 @@ public class WriteToFile {
 			e.printStackTrace();
 		}
 	}
+	
+	@Keyword
+	public void updateExcelFile(List<String> excel, colIndex){
+		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
+                  
+                HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook                
+                HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+				                 
+                Cell cell = null; // declare a Cell object
+				
+				int ro = 1 //rows will start
+				for (String s : excel){
+					cell = worksheet.getRow(ro).getCell(colIndex);//if cell is null
+					worksheet.createRow(ro).createCell(colIndex).setCellValue(s); //if cell is null then update it to new value
+					ro++
+				}
+                 
+                fsIP.close(); //Close the InputStream               
+                FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates                
+                wb.write(output_file); //write changes           
+	}
+	
+	@Keyword
+	public void updateNumberValueXlsx(HashMap<String, String> hmap, colIndexNumbers, colIndexValues)throws FileNotFoundException, IOException, InvalidFormatException{
+		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\file_example_XLSX_10.xlsx")); //Read the spreadsheet that needs to be updated
+		
+		ExcelWBookX = new XSSFWorkbook (fsIP); //Access the workbook
+		ExcelWSheetX = ExcelWBookX.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+		
+		int ro = 1
+		Set set = hmap.entrySet();
+		Iterator iterator = set.iterator();
+		while(iterator.hasNext()){
+			Map.Entry mentry = (Map.Entry)iterator.next();
+			eRowX = ExcelWSheetX.getRow(ro);
+			
+			eCellNumbersX = eRowX.getCell(colIndexNumbers, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellValuesX = eRowX.getCell(colIndexValues, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			if (eCellNumbersX == null || eCellValuesX == null) {
+				eCellNumbersX = eRowX.createCell(colIndexNumbers);
+				eCellValuesX = eRowX.createCell(colIndexValues);
+				eCellNumbersX.setCellValue(mentry.getKey());
+				eCellValuesX.setCellValue(mentry.getValue());
+			} else {
+				eCellNumbersX.setCellValue(mentry.getKey());
+				eCellValuesX.setCellValue(mentry.getValue());
+			}
+			ro++
+		}
+			 
+		fsIP.close(); //Close the InputStream
+		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\file_example_XLSX_10.xlsx"));  //Open FileOutputStream to write updates
+		ExcelWBookX.write(output_file); //write changes
+	}
+	
+	@Keyword
+	public void updateNumberValue(HashMap<String, String> hmap, colIndexNumbers, colIndexValues){
+		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
+		
+		ExcelWBookH = new HSSFWorkbook (fsIP); //Access the workbook
+		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+		
+		int ro = 1
+		Set set = hmap.entrySet();
+		Iterator iterator = set.iterator();
+		while(iterator.hasNext()){
+			Map.Entry mentry = (Map.Entry)iterator.next();
+			eRowH = ExcelWSheetH.getRow(ro);
+			
+			eCellNumbers = eRowH.getCell(colIndexNumbers, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellValues = eRowH.getCell(colIndexValues, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			if (eCellNumbers == null || eCellValues == null) {
+				eCellNumbers = eRowH.createCell(colIndexNumbers);
+				eCellValues = eRowH.createCell(colIndexValues);
+				eCellNumbers.setCellValue(mentry.getKey());
+				eCellValues.setCellValue(mentry.getValue());
+			} else {
+				eCellNumbers.setCellValue(mentry.getKey());
+				eCellValues.setCellValue(mentry.getValue());
+			}
+			ro++
+		}
+			 
+		fsIP.close(); //Close the InputStream
+		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
+		ExcelWBookH.write(output_file); //write changes
+	}
+	
+	@Keyword
+	public void updateExcelFile2(List<String> excel, colIndex){
+		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
+		
+		ExcelWBookH = new HSSFWorkbook (fsIP); //Access the workbook
+		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.		  
+		
+		int ro = 1
+		for (String s : excel){
+			
+			eRowH = ExcelWSheetH.getRow(ro);
+			
+			eCellH = eRowH.getCell(colIndex, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			if (eCellH == null) {
+				eCellH = eRowH.createCell(colIndex);
+				eCellH.setCellValue(s);
+			} else {
+				eCellH.setCellValue(s);
+			}
+			ro++
+		}
+			 
+		fsIP.close(); //Close the InputStream
+		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
+		ExcelWBookH.write(output_file); //write changes
+	}
+
 
 	@Keyword
-	public void writeToExcel(List <String> excel, int rows){
+	public void writeToExcel(List <String> excel, int rows, int start){
 
 		try {
 			//create .xls and create a worksheet.
-			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\data2excel2.xls");
+			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls", true);
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet worksheet = workbook.createSheet("SheetName");
 			HSSFRow row;
 			HSSFCell cell;
 			HSSFCellStyle cellStyle;
-			for (int i = 0;i < rows; i++){
+			for (int i = start;i < rows; i++){
 				row = worksheet.createRow((short) i);
 				for(int y = 0; y < excel.size(); y++){
 					cell = row.createCell((short) y);
@@ -148,7 +279,9 @@ public class WriteToFile {
 		}
 
 	}
+
 	
+
 	@Keyword
 	public void writeToExcelJsonData(List <String> excel, int rows, int count){
 
@@ -157,30 +290,30 @@ public class WriteToFile {
 			//File file = new File("C:\\Users\\fitim\\Desktop\\data\\json_data.xls");
 			//FileOutputStream fos = null;
 			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\json_data.xls", true);
-			
+
 			// if file doesn't exists, then create it
 			/*if (!file.exists()) {
-				file.createNewFile();
-			}*/
-			
+			 file.createNewFile();
+			 }*/
+
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet worksheet = workbook.createSheet("JsonData");
 			HSSFRow row;
 			HSSFCell cell;
 			HSSFCellStyle cellStyle;
-			
+
 			//for(int x = 0; x < count; x++){
-				for (int i = 0;i < rows; i++){
+			for (int i = 0;i < rows; i++){
 				row = worksheet.createRow((short) i);
-					for(int y = 0; y < excel.size(); y++){
-						cell = row.createCell((short) y);
-						cell.setCellValue(excel[y]);
-						cellStyle = workbook.createCellStyle();
-						cellStyle.setFillForegroundColor(HSSFColor.GOLD.index);
-						cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-						cell.setCellStyle(cellStyle);
-					}
+				for(int y = 0; y < excel.size(); y++){
+					cell = row.createCell((short) y);
+					cell.setCellValue(excel[y]);
+					cellStyle = workbook.createCellStyle();
+					cellStyle.setFillForegroundColor(HSSFColor.GOLD.index);
+					cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+					cell.setCellStyle(cellStyle);
 				}
+			}
 			//}
 
 			/*

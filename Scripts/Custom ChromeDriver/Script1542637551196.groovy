@@ -26,11 +26,13 @@ System.setProperty("webdriver.chrome.driver", "C:\\Users\\fitim\\Desktop\\ajuri\
 ChromeDriver driver = new ChromeDriver(capabilities);
 DriverFactory.changeWebDriver(driver)*/
 
+
+//Use Katalon chromedriver
 WebUI.openBrowser('')
 WebUI.navigateToUrl('http://www.google.com')
-//WebUI.openBrowser('http://www.google.com')
 WebUI.closeBrowser()
 
+//use external chromedriver
 ChromeOptions options = new ChromeOptions();
 DesiredCapabilities capabilities = new DesiredCapabilities();
 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
@@ -40,7 +42,7 @@ DriverFactory.changeWebDriver(driver)
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl('http://www.google.com')
-//WebUI.openBrowser('http://www.google.com')
+
 WebUI.closeBrowser()
 
 /*

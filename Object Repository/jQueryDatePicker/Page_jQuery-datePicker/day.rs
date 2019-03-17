@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>day1</name>
+   <name>day</name>
    <tag></tag>
    <elementGuidId>2c096049-f5c5-45e0-9ee0-833875d78b94</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>XPATH</key>
+         <value></value>
+      </entry>
+      <entry>
          <key>BASIC</key>
-         <value>//*[text() = '1']</value>
+         <value>//*[(text() = '1' or . = '1')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>

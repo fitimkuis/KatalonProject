@@ -51,10 +51,10 @@ myNewObject = new TestObject("myNewObject")
 //  a boolean value to indicate if the property will be used to identify the object during execution
 myNewObject.addProperty("xpath", ConditionType.EQUALS, "//header[@id='top']/div/a", true)
 
-def testObject = findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath', [('id') : '{btn-make-appointment}'])
+//def testObject = findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath', [('id') : '{btn-make-appointment}'])
 
 //change xpath
-new_xpath = WebUI.modifyObjectProperty(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath'),'xpath', 'equals', "//a[contains(text(),'Make Appointment')]",true )
+//new_xpath = WebUI.modifyObjectProperty(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath'),'xpath', 'equals', "//a[contains(text(),'Make Appointment')]",true )
 ///WebUI.click(new_xpath)//use new xpath locator
 WebUI.click(myNewObject)//use new relative xpath locator
 

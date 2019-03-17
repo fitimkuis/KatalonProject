@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description></description>
-   <name>DatePickerTests</name>
+   <name>SpamTests</name>
    <tag></tag>
    <isRerun>false</isRerun>
    <mailRecipient></mailRecipient>
@@ -9,17 +9,11 @@
    <pageLoadTimeout>30</pageLoadTimeout>
    <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
-   <testSuiteGuid>4fb0b6fc-874f-41dd-8795-07b6df95669d</testSuiteGuid>
+   <testSuiteGuid>56060cd2-f001-4b2d-8fc4-fd211efd40f4</testSuiteGuid>
    <testCaseLink>
-      <guid>a049a3ed-fb80-4c07-b668-02000fa3d3ce</guid>
+      <guid>d870e89a-ca1c-4587-8b2e-4e816ad4a7af</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Web Application/jQueryDatePicker</testCaseId>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>33eb3d4f-05ce-4ed3-b61a-0e4faddd1724</variableId>
-      </variableLink>
+      <testCaseId>Test Cases/Spam/spam</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

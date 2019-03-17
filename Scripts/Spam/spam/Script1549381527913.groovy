@@ -6,15 +6,55 @@ import org.joda.time.format.DateTimeFormatter
 import org.joda.time.format.ISODateTimeFormat
 
 import com.kms.katalon.core.exception.StepErrorException
+import com.kms.katalon.core.logging.KeywordLogger
 import com.kms.katalon.core.util.KeywordUtil
 
-Double min = 5.0;  //  Set To Your Desired Min Value
-Double max = 19.9; //    Set To Your Desired Max Value
+KeywordLogger log = new KeywordLogger()
+
+
+Date date = new Date();
+TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+Calendar cal = Calendar.getInstance(TimeZone.getDefault());
+date = cal.getTime();
+
+println date
+
+HashMap<String, String> hmapStr = new HashMap<String, String>();
+hmapStr.put("eka","first")
+hmapStr.put("toka","second")
+hmapStr.put("kolmas","third")
+hmapStr.put("neljas","fourth")
+hmapStr.put("viides","fifth")
+
+log.logInfo("value = " + hmapStr.get("kolmas"));
+
+Iterator entries = hmapStr.entrySet().iterator();
+
+while (entries.hasNext()) {
+	Map.Entry entry = (Map.Entry) entries.next();
+	String key = (String)entry.getKey();
+	String value = (String)entry.getValue();
+	//System.out.println("Key = " + key + ", Value = " + value);
+}
+
+//change map order by keys desc
+TreeMap<String, String> sortedMap = new TreeMap<String, String>(Collections.reverseOrder());
+// Copy all data from hashMap into TreeMap
+sortedMap.putAll(hmapStr);
+
+// Display the TreeMap which is reversed sorted
+for (Map.Entry<String, String> entry : sortedMap.entrySet()){
+	println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+	log.logInfo("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+}
+
+Double min = 90.0;  //  Set To Your Desired Min Value
+Double max = 140.5; //    Set To Your Desired Max Value
 double x = (Math.random()*((max-min)+1))+min; //    This Will Create A Random Number In between Your Min And Max.
 double xrounded = Math.round(x * 100.0) / 100.0; // Creates Answer To The Nearest 100th, You Can Modify This To Change How It Rounds.
 //System.out.println(xrounded); //    This Will Now Print Out The Rounded, Random Number.
 
-double leader = 20
+double leader = 140.6
 
 List<Double> list = new ArrayList<Double>();
 for (int j = 0; j < 5; j++){
@@ -57,7 +97,8 @@ sorted.putAll(hmap);
 
 // Display the TreeMap which is reversed sorted
 for (Map.Entry<Double, Double> entry : sorted.entrySet()){
-	System.out.println("leader: "+leader+"\t points: " + entry.getKey() + "\t difference:" + df.format(entry.getValue()));
+	println("leader: "+leader+"\t points: " + entry.getKey() + "\t difference:" + df.format(entry.getValue()));
+	log.logInfo("leader: "+leader+"\t points: " + entry.getKey() + "\t difference:" + df.format(entry.getValue()));
 }
 
 /*

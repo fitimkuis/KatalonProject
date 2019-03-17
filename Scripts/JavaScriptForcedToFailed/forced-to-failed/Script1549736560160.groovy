@@ -1,15 +1,19 @@
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
-import org.openqa.selenium.WebElement 
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 
-import com.kms.katalon.core.logging.KeywordLogger
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.common.WebUiCommonHelper 
+import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 WebUI.openBrowser('')
 
-KeywordLogger log = new KeywordLogger()
+
+KeywordUtil log = new KeywordUtil()
 log.logInfo("yourMsg")
 
 WebUI.comment("myMessage")
@@ -75,7 +79,61 @@ WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareS
 WebUI.selectOptionByValue(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/select_TokyoCURAHealthcareC'), 
     'Seoul CURA Healthcare Center', true)
 
-WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Applyforhospitalreadm'))
+//TODO check inputbox readonly/editable
+clickable = WebUI.verifyElementClickable(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Applyforhospitalreadm'))
+if(clickable){
+	println ("DEBUG**** clickable "+clickable)
+	
+}else{
+	println ("DEBUG**** not clickable "+clickable)
+}
+
+WebDriver driver = DriverFactory.getWebDriver()
+
+//List<WebElement> elements = driver.findElements(By.xpath("//checkbox"));
+/////List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+List<WebElement> elements = driver.findElements(By.xpath("//div[@class='col-sm-offset-5 col-sm-4']/label"));
+//println ("**************DEBUG************** "+elements)
+
+ArrayList<String> chxClickable = new ArrayList<String>()
+ArrayList<String> chxNotClickable = new ArrayList<String>()
+for (WebElement el: elements){
+	clickable = WebUI.verifyElementClickable(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Applyforhospitalreadm'))
+	if(clickable){
+		println ("DEBUG**** clickable "+clickable)
+		println"${el.getText()}"
+		chxClickable.add("${el.getText()}")
+		//println "${el.getAttribute('value')}"
+		//println "${el.getTagName()}"
+	
+	}else{
+		chxNotClickable.add("${el.getText()}")
+		println ("DEBUG**** not clickable "+clickable)
+		//println "${el.getAttribute('value')}"
+	}
+}
+
+for (String s : chxClickable){
+	
+	println ("here are all enabled checkboxes "+s)
+}
+
+for (String k : chxNotClickable){
+	
+	println ("here are all Not enabled checkboxes "+k)
+}
+
+
+
+boolean editable = WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Applyforhospitalreadm'))
+/*if(editable){
+	println ("DEBUG editable "+editable)
+}else{
+	println ("DEBUG not editable "+editable)
+}*/
+
+
+//WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Applyforhospitalreadm'))
 
 WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Medicaid_programs'))
 
@@ -89,7 +147,7 @@ WebUI.setText(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcar
 WebUI.verifyElementPresent(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/button_BookAppointment'), 30, FailureHandling.CONTINUE_ON_FAILURE)
 WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/button_BookAppointment'))
 
-WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/a_GotoHomepagexx'))
+//////WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/a_GotoHomepagexx'))
 
 WebUI.closeBrowser()
 
