@@ -19,13 +19,13 @@
    <testCaseLink>
       <guid>fbb5789b-32ac-4332-92f2-b7df9a908ee7</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Demo/demotest</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>b0919555-afc7-4b87-8b9c-ecc763dc4dc7</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -37,7 +37,7 @@
    <testCaseLink>
       <guid>2ea91729-cfd7-45e8-89cd-70f7ab355b5f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/jQueryDatePicker</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -49,13 +49,13 @@
    <testCaseLink>
       <guid>fd3595e2-a640-4675-a1aa-4949aaa46a71</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/Kalaton 5.3 katalon demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>3ee6e531-4ac3-48d2-8006-01c03096cb63</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/Data Driven Test case FOR LOOP</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -79,13 +79,13 @@
    <testCaseLink>
       <guid>d61d80d2-48b8-412a-8a99-ec0b8921a1c2</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/kendo datepicker</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>04d40076-9eb6-4d32-9329-f91eed990d1d</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -97,7 +97,7 @@
    <testCaseLink>
       <guid>59a3dbf1-ecad-47c0-a806-6f07a4dcee4c</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

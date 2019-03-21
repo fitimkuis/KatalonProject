@@ -7,8 +7,10 @@ String zip = fileName.substring(0, 29);
 println("*********DEBUG zipfile*******"+zip)
 String path = Paths.get(".").toAbsolutePath().normalize().toString();
 path = path.replace("\\", "/");
-String url = path+"/extractedFiles/"+zip+"/Report.html"
-println("*********DEBUG url*******"+url)
-//String url = path+"/extractedFiles/"+zip+"/Report.html"
+spam1 = zip.substring(0,8)
+spam2 = zip.substring(9,15)
+completeUrl = spam1+"_"+spam2
+println completeUrl
+String url = path+"/extractedFiles/"+zip+"/"+completeUrl+".html"
 CustomKeywords.'readGmail.openWebHtml.openHtmlPage'(url)
 

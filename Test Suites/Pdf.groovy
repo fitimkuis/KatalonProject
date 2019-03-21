@@ -37,7 +37,11 @@ def setupTestCase() {
 }
 
 @TearDownTestCase(skipped = true)
+
 def tearDownTestCase() {
+
+}
+/*
     String fileName = CustomKeywords.'readGmail.getGmail.getGmailAttachment'()
     println('**************DEBUG returned filename *************** ' + fileName)
     CustomKeywords.'readGmail.unZip.unzipFile'(fileName)
@@ -47,8 +51,4 @@ def tearDownTestCase() {
     String url = path + '/extractedFiles/' + zip + '/Report.html'
     CustomKeywords.'readGmail.openWebHtml.openHtmlPage'(url)
 }
-
-/**
- * References:
- * Groovy tutorial page: http://docs.groovy-lang.org/next/html/documentation/
- */
+*/

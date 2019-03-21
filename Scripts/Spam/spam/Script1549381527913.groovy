@@ -12,6 +12,55 @@ import com.kms.katalon.core.util.KeywordUtil
 KeywordLogger log = new KeywordLogger()
 
 
+
+
+HashMap<String, Integer> hm = new HashMap<>();
+hm.put("Banana", 1);
+hm.put("Orange", 2);
+hm.put("Banana", 3);
+hm.put("Banana", 4);
+
+System.out.println("The set is: " + hm.keySet());
+
+
+List <Long> numbers = new ArrayList<>()
+Random r = new Random();
+long xx = 100000000L;
+long yy = 999999999L;
+long number = 0L
+number = xx+((long)(r.nextDouble()*(yy-xx)));
+numbers.add(number)
+int counter = 8
+while (counter >= 0){
+	number = xx+((long)(r.nextDouble()*(yy-xx)));
+		if(!numbers.contains(number)){
+			numbers.add(number)
+			counter--
+		}	
+}
+
+Collections.sort(numbers, Collections.reverseOrder());
+println ("numbers are in list with reversed order "+numbers)
+
+/*for (int z = 0; z < numbers.size(); z++){
+	println ("numbers are "+numbers[z])
+}*/
+
+HashMap<Long, Integer> hamap = new HashMap<>();
+for (int g=0;g<15;g++){
+	number = xx+((long)(r.nextDouble()*(yy-xx)));
+	hamap.put(number, g);
+}
+System.out.println("The set is: " + hamap.keySet());
+TreeMap<Long, Integer> sortedHasMap = new TreeMap<>();
+// Copy all data from hashMap into TreeMap
+sortedHasMap.putAll(hamap);
+// Display the TreeMap which is naturally sorted
+for (Map.Entry<Long, Integer> entry : sortedHasMap.entrySet())
+	System.out.println("Key = " + entry.getKey() +
+				 ", Value = " + entry.getValue());
+
+
 Date date = new Date();
 TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
 Calendar cal = Calendar.getInstance(TimeZone.getDefault());

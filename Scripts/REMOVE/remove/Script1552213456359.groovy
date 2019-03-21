@@ -13,6 +13,17 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+
+
+List<String> resp = new ArrayList<>(Arrays.asList("available", "available", "available", "available"))
+println resp[0]
+
+String spam = "20190319_200741_1553018936546"
+spam1 = spam.substring(0,8)
+spam2 = spam.substring(9,15)
+println spam1
+println spam2
+
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://eonasdan.github.io/bootstrap-datetimepicker/')

@@ -1,9 +1,0 @@
-Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
-WebService,,,2018-11-09 16:56:26,2018-11-09 16:57:41,"1m - 15,756s",PASSED
-,,,,,,
-Test Cases/WebServiceTest/webService,,,2018-11-09 16:57:01,2018-11-09 16:57:36,"35,101s",PASSED
-Start listener action : sampleBeforeTestCase,,,2018-11-09 16:57:02,2018-11-09 16:57:04,"1,400s",PASSED
-Statement - response = com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords.sendRequest(com.kms.katalon.core.testobject.ObjectRepository.findTestObject(WebServiceReqs/webRequest)),,,2018-11-09 16:57:16,2018-11-09 16:57:35,"18,369s",PASSED
-verifyResponseStatusCode,,,2018-11-09 16:57:35,2018-11-09 16:57:35,"0,690s",PASSED
-containsString,,,2018-11-09 16:57:35,2018-11-09 16:57:36,"0,417s",PASSED
-Start listener action : sampleAfterTestCase,,,2018-11-09 16:57:36,2018-11-09 16:57:36,"0,232s",PASSED

@@ -1,17 +1,27 @@
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import org.openqa.selenium.By as By
 import org.openqa.selenium.WebDriver as WebDriver
 import org.openqa.selenium.WebElement as WebElement
 
+import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-//WebUI.openBrowser('')
+WebUI.openBrowser('')
+WebUI.navigateToUrl('https://datatables.net/examples/data_sources/dom')
+WebDriver driver3 = DriverFactory.getWebDriver()
+WebElement table = driver3.findElement(By.xpath('//table/tbody'))
+'Identify table web element based on column headers'
+table = CustomKeywords.'kms.turing.katalon.plugins.helper.table.HTMLTableHelper.identifyTableByColumnHeaders'(['Name','Position','Office','Age','Start date','Salary'], 10, FailureHandling.CONTINUE_ON_FAILURE)
+"Verify a row display inside the table using cells info"
+println table
+//Map< String,String> hm =  new HashMap< String,String>(); 
+//hm = CustomKeywords.'kms.turing.katalon.plugins.helper.table.HTMLTableHelper.verifyRowDisplayed'(table, ["Name":"Airi Satoul", "Position":"Accountant", "Office":"Tokyo"],FailureHandling.CONTINUE_ON_FAILURE)
+//println hm
+WebUI.closeBrowser()
 
-//WebUI.navigateToUrl('https://datatables.net/examples/data_sources/dom')
+
 
 String ExpectedValue = 'Airi Satou'
 
@@ -52,7 +62,7 @@ WebDriver driver2 = DriverFactory.getWebDriver()
 'To locate paginate buttons'
 list2 = driver2.findElements(By.xpath("//a[contains(@class, 'paginate_button')]"))
 println list2.size()
-count = list2.size() - 2
+count = list2.size() - 2 //remove previous and next from the count
 WebUI.closeBrowser()
 
 for (int i = 0; i < count; i++){
@@ -63,12 +73,14 @@ for (int i = 0; i < count; i++){
 	listHref = WebUI.getAllLinksOnCurrentPage(true, [])
 	println listHref
 
-	
+//modify paginate object xpath property	
 path = "//div[@id='example_paginate']/span/a["+pagi+"]"
 myObject.addProperty("xpath", ConditionType.EQUALS, path, true)
 WebUI.click(myObject)//use new relative xpath locator
 WebUI.delay(1)
 
+
+//get all table cells data to the list array
 WebDriver driver = DriverFactory.getWebDriver()
 'To locate table'
 WebElement Table = driver.findElement(By.xpath('//table/tbody'))
@@ -117,11 +129,11 @@ Loop: for (int row = 0; row < rows_count; row++) {
         'Checking if Cell text is matching with the expected value'
         if (celltext == ExpectedValue) {
             'Getting the Country Name if cell text i.e Company name matches with Expected value'
-            //println('Text present in row number 3 is: ' + Columns_row.get(2).getText())
+            println('Text present in row number 3 is: ' + Columns_row.get(2).getText())
 
             'After getting the Expected value from Table we will Terminate the loop'
             //Loop: break
-        }
+      }
     }
 }
 pagi++
@@ -142,6 +154,7 @@ if (ans)
 System.out.println("The list contains name");
 else
 System.out.println("The list does not contains name");
+
 
 
 /*

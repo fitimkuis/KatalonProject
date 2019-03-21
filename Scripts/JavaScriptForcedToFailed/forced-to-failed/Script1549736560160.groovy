@@ -122,8 +122,25 @@ for (String k : chxNotClickable){
 	
 	println ("here are all Not enabled checkboxes "+k)
 }
-
-
+/*
+List<String> chxList = new ArrayList<>()
+//this line collects all the checkboxes, enabled and disabled
+//make sure to use the object with the locator of "type"
+java.util.List<WebElement> checkBox = WebUiCommonHelper.findWebElements(findTestObject("Object Repository/CheckBox"), 30)
+//checks if the checkbox is enabled then it will be clicked otherwise it will be ignored. . .
+for (int index = 0; index <= checkBox.size(); index++)
+{
+	 if (checkBox[index].getAttribute("disabled") != null)
+	 {
+			// do nothing
+	 }
+	 else
+	 {
+		   checkBox[index].click()
+		   //chxList.add("${checkBox[index].getText()}")
+		   //println ("**************DEBUG************** "+"${checkBox[index].getText()}")
+	 }
+}*/
 
 boolean editable = WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Applyforhospitalreadm'))
 /*if(editable){

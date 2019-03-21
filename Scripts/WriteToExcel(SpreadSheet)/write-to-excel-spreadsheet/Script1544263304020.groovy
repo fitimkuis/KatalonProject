@@ -9,6 +9,7 @@ excel.add("number");
 
 List <String> excel2 = new ArrayList <String>();
 Random r = new Random();
+int low = 1947400365
 int low = 1000;
 int high = 9999;
 int val = 0
@@ -18,8 +19,8 @@ for (int i = 0;i < 10; i++){
 	
 }
 
-long x = 123456789L;
-long y = 234567890L;
+long x = 100000000L;
+long y = 999999999L;
 
 //CustomKeywords.'spreadsheet.WriteToFile.updateExcelFile2'(excel2, 2)
 HashMap<String, String> hmap = new HashMap<String, String>();
