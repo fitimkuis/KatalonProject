@@ -132,7 +132,7 @@ public List<String> openPfdFile(String pdfFile){
 
 public WebDriver setChromeOptions(File folder){
 	
-	ChromeOptions optionsBeta = new ChromeOptions();
+	ChromeOptions options = new ChromeOptions();
 	String downloadPath = folder.getAbsolutePath()
 	//String downloadsPath = System.getProperty("user.home") + "/Downloads";
 	println ("downloadpath "+downloadPath)
@@ -143,9 +143,9 @@ public WebDriver setChromeOptions(File folder){
 	chromePrefs.put("download.prompt_for_download", false)
 	chromePrefs.put("plugins.plugins_disabled", "Chrome PDF Viewer");
 	
-	optionsBeta.setExperimentalOption("prefs", chromePrefs)
+	options.setExperimentalOption("prefs", chromePrefs)
 	DesiredCapabilities cap = DesiredCapabilities.chrome()
-	cap.setCapability(ChromeOptions.CAPABILITY, optionsBeta)
+	cap.setCapability(ChromeOptions.CAPABILITY, options)
 	
 	System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverPath())
 	//System.setProperty("webdriver.chrome.driver", "C:\\Users\\timok1\\Desktop\\chromedriver\\chromedriver.exe")
