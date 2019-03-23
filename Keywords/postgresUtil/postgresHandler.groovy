@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement
 import java.sql.ResultSet;
+import java.sql.SQLException
 import java.sql.Statement;
 
 import com.kms.katalon.core.annotation.Keyword
@@ -79,7 +80,7 @@ public class postgresHandler {
 			//int x = 5
 			int index = 0 //list index start from 0
 
-			String SQL = "INSERT INTO COMPANY VALUES (?, ?, ?, ?, ?)";
+			String SQL = "INSERT INTO COMPANY VALUES (?, ?, ?, ?, ?, ?)";
 			pstmt = c.prepareStatement(SQL);
 
 
@@ -95,11 +96,15 @@ public class postgresHandler {
 				index++
 				double salary = Double.valueOf(data.get(index))
 				println salary
+				index++
+				String ssn = data.get(index).toString()
+				println ssn
 				pstmt.setInt(1, indexStart);
 				pstmt.setString(2, fName);
 				pstmt.setInt(3, age)
 				pstmt.setString(4, city);
 				pstmt.setDouble(5, salary);
+				pstmt.setString(6, ssn);
 				pstmt.executeUpdate();
 				indexStart++
 				index++
@@ -173,11 +178,13 @@ public class postgresHandler {
 				int age  = rs.getInt("age");
 				String  address = rs.getString("address");
 				float salary = rs.getFloat("salary");
+				String  ssn = rs.getString("ssn");
 				System.out.println( "ID = " + id );
 				System.out.println( "NAME = " + name );
 				System.out.println( "AGE = " + age );
 				System.out.println( "ADDRESS = " + address );
 				System.out.println( "SALARY = " + salary );
+				System.out.println( "SSN = " + ssn );
 				System.out.println();
 			}
 			rs.close();
@@ -186,6 +193,158 @@ public class postgresHandler {
 		} catch ( Exception e ) {
 			System.err.println( e.getClass().getName()+": "+ e.getMessage() );
 			System.exit(0);
+		}
+		System.out.println("Operation done successfully");
+	}
+	
+	@Keyword
+	public void updateSsn(List<String> ssn){
+
+		int index = 0
+
+		Class.forName("org.postgresql.Driver");
+		c = DriverManager
+				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+		c.setAutoCommit(false);
+		System.out.println("Opened database successfully");
+
+		String SQL = "UPDATE COMPANY SET ssn = ? WHERE id = ?";
+		pstmt = c.prepareStatement(SQL)
+		try{
+			
+			for (int x = 0; x < ssn.size(); x++){
+				String ssnString = ssn.get(index).toString()
+				//println ssnString
+				pstmt.setString(1, ssnString);
+				pstmt.setInt(2, x)
+				pstmt.executeUpdate();
+				c.commit();
+				index++
+				if (index == 54){
+					break
+				}
+			}
+
+			pstmt.close();
+			c.close();
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		System.out.println("Operation done successfully");
+	}
+	
+	@Keyword
+	public void updateColumn(int val, int id, Object arg){
+
+
+		Class.forName("org.postgresql.Driver");
+		c = DriverManager
+				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+		c.setAutoCommit(false);
+		System.out.println("Opened database successfully");
+
+
+		try{
+			switch (val){
+				
+				case 1: String SQL = "UPDATE COMPANY SET name = ? WHERE id = ?";
+					pstmt = c.prepareStatement(SQL);
+					pstmt.setFloat(1, arg);
+					pstmt.setInt(2, id);
+					break;
+				case 2:	String SQL = "UPDATE COMPANY SET age = ? WHERE id = ?";
+					pstmt = c.prepareStatement(SQL)
+					pstmt.setFloat(1, arg)
+					pstmt.setInt(2, id)
+					break
+				case 3: String SQL = "UPDATE COMPANY SET address = ? WHERE id = ?";
+					pstmt = c.prepareStatement(SQL)
+					pstmt.setFloat(1, arg)
+					pstmt.setInt(2, id)
+					break
+				case 4: String SQL = "UPDATE COMPANY SET salary = ? WHERE id = ?";
+					pstmt = c.prepareStatement(SQL)
+					pstmt.setFloat(1, arg)
+					pstmt.setInt(2, id)
+					break
+				case 5: String SQL = "UPDATE COMPANY SET ssn = ? WHERE id = ?";
+					pstmt = c.prepareStatement(SQL)
+					pstmt.setFloat(1, arg)
+					pstmt.setInt(2, id)
+					break
+				
+			}
+			pstmt.executeUpdate();
+			c.commit();
+
+			pstmt.close();
+			c.close();
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		System.out.println("Operation done successfully");
+	}
+
+	@Keyword
+	public void updateSalary(int id, float salary){
+
+		boolean update = true
+
+		Class.forName("org.postgresql.Driver");
+		c = DriverManager
+				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+		c.setAutoCommit(false);
+		System.out.println("Opened database successfully");
+
+		String SQL = "UPDATE COMPANY SET salary = ? WHERE id = ?";
+		pstmt = c.prepareStatement(SQL)
+		try{
+			pstmt.setFloat(1, salary)
+			pstmt.setInt(2, id)
+
+			pstmt.executeUpdate();
+			c.commit();
+
+			pstmt.close();
+			c.close();
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		System.out.println("Operation done successfully");
+	}
+
+	@Keyword
+	public void updateExactData(int id, String fName, int age, String city, float salary, String ssn){
+
+		boolean update = true
+
+		Class.forName("org.postgresql.Driver");
+		c = DriverManager
+				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+		c.setAutoCommit(false);
+		System.out.println("Opened database successfully");
+
+		String SQL = "UPDATE COMPANY SET name = ?, age = ?, address = ?, salary = ?, SET ssn WHERE id = ?";
+		pstmt = c.prepareStatement(SQL)
+		try{
+			pstmt.setString(1, fName);
+			pstmt.setInt(2, age);
+			pstmt.setString(3, city);
+			pstmt.setFloat(4, salary)
+			pstmt.setString(5, ssn);
+			pstmt.setInt(6, id)
+
+			pstmt.executeUpdate();
+			c.commit();
+
+			pstmt.close();
+			c.close();
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
 		}
 		System.out.println("Operation done successfully");
 	}
