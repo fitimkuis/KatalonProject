@@ -13,7 +13,7 @@
    <testCaseLink>
       <guid>389f71ff-980b-4e88-9169-13ac64c4e166</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -37,7 +37,7 @@
    <testCaseLink>
       <guid>4a78cf4f-ba67-40b8-9af1-83547c328ff5</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/Data Driven Test case FOR LOOP</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -91,31 +91,31 @@
    <testCaseLink>
       <guid>c55a668a-c300-4620-9dda-36cf25b14fae</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/WebServiceTest/webService</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>44eb360c-8ccc-404b-b3c1-90d24db80943</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/XPATH Locator/xpath-locator</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>aae2f9bd-05fd-4804-85d0-c2203192fccf</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>85f68bab-e28a-4628-8b19-56b159d9a049</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/JavaScriptForcedToFailed/forced-to-failed</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>5ff7ff57-2fb6-485a-bbcb-56cf6c3b4c80</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/LogInKatalon/Call Test Case Login</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -133,7 +133,7 @@
    <testCaseLink>
       <guid>93b19663-d59d-4111-a89a-b5821786aa48</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/LogInKatalon/Login</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
