@@ -13,7 +13,12 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+String command = "python /c start python C:\\Users\\fitim\\Desktop\\data\\ssn.py";
+println command
+Process p = Runtime.getRuntime().exec(command);
 
+//def ssn = CustomKeywords.'ssn.setSsn.getSsn'(1)
+//println ssn
 
 List<String> resp = new ArrayList<>(Arrays.asList("available", "available", "available", "available"))
 println resp[0]
@@ -41,4 +46,6 @@ WebUI.click(findTestObject('DatePicker/Page_/select-month'))
 WebUI.click(findTestObject('Object Repository/DatePicker/Page_/REMOVE/Page_/td_10'))
 
 WebUI.closeBrowser()
+
+
 

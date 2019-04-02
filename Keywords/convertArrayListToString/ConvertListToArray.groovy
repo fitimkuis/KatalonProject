@@ -19,10 +19,10 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable
 
 public class ConvertListToArray {
-	
+
 	@Keyword
 	public void getArrayList(ArrayList<String> arrayList){
-		
+
 		String[] array = new String[arrayList.size()];
 		int i = 0;
 		for (Iterator<String> iterator = arrayList.iterator(); iterator.hasNext(); i++) {

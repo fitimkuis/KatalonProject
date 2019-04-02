@@ -79,4 +79,49 @@
       <initValue>''</initValue>
       <name>REPORT_FOLDER_NAME</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>e.g., 'Test Cases/TC1'</description>
+      <initValue>''</initValue>
+      <name>CURRENT_TESTCASE_ID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>null</initValue>
+      <name>MATERIAL_REPOSITORY</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'demoaut.katalon.com'</initValue>
+      <name>Hostname</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'John Doe'</initValue>
+      <name>Username</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'ThisIsNotAPassword'</initValue>
+      <name>Password</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'postgres'</initValue>
+      <name>postgresUser</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'postgres'</initValue>
+      <name>postgresPass</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'localhost'</initValue>
+      <name>postgresHost</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'testdb'</initValue>
+      <name>postgresDb</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

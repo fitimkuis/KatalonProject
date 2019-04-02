@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>C%%Users%fitim%Desktop%Katalon Studio%DataDrivenTest-master%Data Driven.prj</name>
+	<name>C%%KatalonStudio%KatalonProject%KatalonProject.prj</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -15,16 +15,9 @@
 		<nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>kat-5746690791813923235.groovy</name>
-			<type>1</type>
-			<location>C:/Users/fitim/AppData/Local/Temp/Katalon/Web Services/kat-5746690791813923235.groovy</location>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
-			<id>1507645642598</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -33,7 +26,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1507645642640</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -42,7 +35,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1507986033408</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -51,7 +44,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1507986033472</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -60,7 +53,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1514029343976</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -69,7 +62,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1514029344017</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -78,7 +71,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1517651964322</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -87,7 +80,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1517651964358</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -96,7 +89,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1520349574796</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -105,7 +98,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1520349574965</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -114,7 +107,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1522683694509</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -123,7 +116,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1522683694572</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -132,7 +125,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1522684164335</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -141,7 +134,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1522684164382</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -150,7 +143,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1525276440674</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -159,7 +152,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1525276440733</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -168,7 +161,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1528304482458</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -177,7 +170,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1528304482503</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -186,7 +179,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1531828837089</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -195,7 +188,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1531828837408</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -204,7 +197,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1535191457809</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -213,7 +206,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1535191457888</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -222,7 +215,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1536345939546</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -231,7 +224,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1536345939609</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -240,7 +233,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1536512358438</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -249,7 +242,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1536512358685</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -258,7 +251,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1536934878403</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -267,7 +260,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1536934878465</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -276,7 +269,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1539179176026</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -285,7 +278,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1539179176070</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -294,7 +287,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1540913631706</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -303,7 +296,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1540913631747</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -312,7 +305,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1541774200072</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -321,7 +314,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1541774200146</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -330,7 +323,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1542042421334</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -339,7 +332,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1542042421397</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -348,7 +341,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1543416774691</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -357,7 +350,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1543416774735</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -366,7 +359,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1543594397220</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -375,7 +368,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1543594397267</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -384,7 +377,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1544626810006</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -393,7 +386,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1544626810068</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -402,7 +395,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1546613491060</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -411,7 +404,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1546613491109</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -420,7 +413,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1549808415875</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -429,7 +422,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1549808415964</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -438,7 +431,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1551883550064</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -447,7 +440,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1551883550905</id>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>
@@ -456,7 +449,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1553093922179</id>
+			<id>0</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -465,7 +458,25 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1553093922232</id>
+			<id>0</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.core.resources.regexFilterMatcher</id>
+				<arguments>(.*\.svn-base$)|(.*\.png$)|(.*\.log$)|(.*\.xlsx$)|(.*\.xls$)|(.*\.csv$)|(.*\.txt$)</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>0</id>
+			<name></name>
+			<type>10</type>
+			<matcher>
+				<id>org.eclipse.core.resources.regexFilterMatcher</id>
+				<arguments>.*\.svn$</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>0</id>
 			<name></name>
 			<type>6</type>
 			<matcher>

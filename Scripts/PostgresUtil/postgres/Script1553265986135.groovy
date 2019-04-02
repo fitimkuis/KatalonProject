@@ -1,34 +1,27 @@
 import java.text.DecimalFormat
+import java.time.Period
 
-import org.joda.time.LocalDate
-import org.joda.time.Period
+import com.kms.katalon.core.configuration.RunConfiguration
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.microsoft.sqlserver.jdbc.LocalDate
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
-import java.util.Random;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//generate SSN
+String ssnData = ""
+def ssnDir = RunConfiguration.getProjectDir() + "/ssn-python"
 
-/*
-//generate ssn 
-String ssn = randomAlphaNumeric(3)
-println ssn
-System.out.println("randomDate: " + randomBirthday());
-System.out.println(randomBirthday().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-ssn2 = randomBirthday().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))+"-"+ssn
-println ssn2
+Runtime.getRuntime().exec("python "+ssnDir+"/ssn.py")
 
-List <String> ssnString = new ArrayList<>()
-for (int w = 0; w <= 54; w++){
-	
-	ssn = randomAlphaNumeric(3)
-	ssn2 = randomBirthday().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))+"-"+ssn
-	ssnString.add(ssn2)
+WebUI.delay(3)
+
+//get ssn from file
+println ssnDir
+File file = new File(ssnDir+"/ssn.txt");
+BufferedReader br = new BufferedReader(new FileReader(file));
+String st;
+while ((st = br.readLine()) != null){
+  System.out.println(st);
+  ssnData = st
 }
-println ssnString
-*/
 
 //style two to generate bird date
 /*Random rand = new Random();
@@ -44,6 +37,7 @@ Random r = new Random();
 double random = new Random().nextDouble();
 int lowerAge = 30;
 int upperAge = 65;
+int age = r.nextInt(upperAge-lowerAge) + lowerAge;
 
 double lowerSalary = 30000;
 double upperSalary = 65000;
@@ -54,7 +48,8 @@ DecimalFormat f = new DecimalFormat("##.00");
 String s = String.valueOf(f.format(salary));
 println s
 
-String ss = faker.name().lastName()
+String fakeName = faker.name().lastName()
+String fakeCity = faker.address().city()
 
 /*
 //generate example data
@@ -92,11 +87,43 @@ CustomKeywords.'postgresUtil.postgresHandler.insertIntoFromList'(data, count + 1
 //select databases data
 //CustomKeywords.'postgresUtil.postgresHandler.selectData'()
 
-Object oValue = 47
-CustomKeywords.'postgresUtil.postgresHandler.updateColumn'(2, 1, oValue)//2 update column age, 1 row id 1
+
+//update any value
+//Object oValue = "12072002-015H"
+/*
+ * 1 = name
+ * 2 = age
+ * 3 = address
+ * 4 = salary
+ * 5 = ssn
+ */
+//CustomKeywords.'postgresUtil.postgresHandler.updateColumn'(2, 54, oValue)//2 update column age, 1 row id 1
 
 //updat just added new column where all data are NULL
 //CustomKeywords.'postgresUtil.postgresHandler.updateSsn'(ssnString)
+
+
+//get row count
+int count = CustomKeywords.'postgresUtil.postgresHandler.getRowCount'()
+def newRow = count + 1
+//insert new datarow
+def counter = CustomKeywords.'postgresUtil.postgresHandler.insertIntoNewDataRow'(newRow, fakeName, age, fakeCity, salary, ssnData)
+println counter
+
+//get rowdata to list by index number
+List<String> rowData = new ArrayList<>()
+rowData = CustomKeywords.'postgresUtil.postgresHandler.getRowDataById'(newRow)
+String fName = rowData.get(1)
+int personAge = Integer.parseInt(rowData.get(2))
+String add = rowData.get(3)
+double sal = Double.parseDouble(rowData.get(4))
+String personSsn = rowData.get(5)
+println "datarow contains: name: "+fName+" age: "+personAge+" address: "+add+" salary: "+sal+" ssn: "+personSsn
+
+//Update column data: String column name, int id, Object arg
+Object oValue = r.nextInt(upperAge-lowerAge) + lowerAge;
+CustomKeywords.'postgresUtil.postgresHandler.updateDbColumn'("age", newRow, oValue)
+
 
 public LocalDate randomBirthday() {
 	return LocalDate.now().minus(Period.ofDays((new Random().nextInt(365 * 70))));

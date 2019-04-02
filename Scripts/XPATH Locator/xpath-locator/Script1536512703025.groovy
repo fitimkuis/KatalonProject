@@ -14,6 +14,14 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 import com.kms.katalon.core.testobject.ConditionType
 
+
+//search case-insensitivity text with xpath
+// //*[matches(text(), ‘^some text$’, ‘i’)]
+//xpath= //*[matches(text(), '(.+?)', 'i'), "some text"]
+//text() is the ‘attribute’ you’re checking
+//‘(.+?)’ is a regex pattern to match
+//‘i’ is a flag indicating case-insensitivity
+
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')

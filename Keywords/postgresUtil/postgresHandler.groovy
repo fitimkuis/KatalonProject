@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException
 import java.sql.Statement;
 
+import internal.GlobalVariable
+
 import com.kms.katalon.core.annotation.Keyword
 
 public class postgresHandler {
@@ -15,6 +17,11 @@ public class postgresHandler {
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 
+	private final String user = GlobalVariable.postgresUser
+	private final String pass = GlobalVariable.postgresPass
+	private final String host = GlobalVariable.postgresHost
+	private final String db = GlobalVariable.postgresDb
+
 	@Keyword
 	public int getRowCount(){
 
@@ -22,7 +29,7 @@ public class postgresHandler {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 			c.setAutoCommit(false);
 			stmt = c.createStatement();
 			ResultSet r = stmt.executeQuery("SELECT COUNT(*) AS rowcount FROM COMPANY");
@@ -45,7 +52,7 @@ public class postgresHandler {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb", "postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 			System.out.println("Opened database successfully");
 
 			stmt = c.createStatement();
@@ -54,7 +61,8 @@ public class postgresHandler {
 					" NAME           TEXT    NOT NULL, " +
 					" AGE            INT     NOT NULL, " +
 					" ADDRESS        CHAR(50), " +
-					" SALARY         REAL)";
+					" SALARY         REAL)" +
+					" SSN			 CHAR(20)";
 			stmt.executeUpdate(sql);
 			stmt.close();
 			c.close();
@@ -71,7 +79,7 @@ public class postgresHandler {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass)
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
 
@@ -133,7 +141,7 @@ public class postgresHandler {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
 
@@ -166,7 +174,7 @@ public class postgresHandler {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
 
@@ -196,7 +204,7 @@ public class postgresHandler {
 		}
 		System.out.println("Operation done successfully");
 	}
-	
+
 	@Keyword
 	public void updateSsn(List<String> ssn){
 
@@ -204,14 +212,14 @@ public class postgresHandler {
 
 		Class.forName("org.postgresql.Driver");
 		c = DriverManager
-				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+				.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 		c.setAutoCommit(false);
 		System.out.println("Opened database successfully");
 
 		String SQL = "UPDATE COMPANY SET ssn = ? WHERE id = ?";
 		pstmt = c.prepareStatement(SQL)
 		try{
-			
+
 			for (int x = 0; x < ssn.size(); x++){
 				String ssnString = ssn.get(index).toString()
 				//println ssnString
@@ -233,34 +241,73 @@ public class postgresHandler {
 		}
 		System.out.println("Operation done successfully");
 	}
-	
+
+	@Keyword
+	public long insertIntoNewDataRow(int idx, String name, int age, String address, double salary, String ssn){
+
+		long id = 0
+		try {
+			Class.forName("org.postgresql.Driver");
+			c = DriverManager
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
+			c.setAutoCommit(false);
+			System.out.println("Opened database successfully");
+
+			String SQL = "INSERT INTO COMPANY (ID, NAME, AGE, ADDRESS, SALARY, SSN) VALUES (?,?,?,?,?,?);"
+			pstmt = c.prepareStatement(SQL,Statement.RETURN_GENERATED_KEYS)
+			pstmt.setInt(1, idx);
+			pstmt.setString(2, name);
+			pstmt.setInt(3, age)
+			pstmt.setString(4, address);
+			pstmt.setDouble(5, salary);
+			pstmt.setString(6, ssn);
+
+			int affectedRows = pstmt.executeUpdate();
+			c.commit();
+			if (affectedRows > 0) {
+				// get the ID back
+				ResultSet rs = pstmt.getGeneratedKeys()
+				if (rs.next()) {
+					id = rs.getLong(1);
+					println "*******Affected rows******* "+id
+				}
+			}
+
+			pstmt.close();
+			c.close();
+		} catch (Exception e) {
+			System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+			System.exit(0);
+		}
+		System.out.println("Records created successfully");
+		return id
+	}
+
 	@Keyword
 	public void updateColumn(int val, int id, Object arg){
 
-
 		Class.forName("org.postgresql.Driver");
 		c = DriverManager
-				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+				.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 		c.setAutoCommit(false);
 		System.out.println("Opened database successfully");
 
-
 		try{
 			switch (val){
-				
+
 				case 1: String SQL = "UPDATE COMPANY SET name = ? WHERE id = ?";
 					pstmt = c.prepareStatement(SQL);
-					pstmt.setFloat(1, arg);
+					pstmt.setString(1, arg);
 					pstmt.setInt(2, id);
 					break;
 				case 2:	String SQL = "UPDATE COMPANY SET age = ? WHERE id = ?";
 					pstmt = c.prepareStatement(SQL)
-					pstmt.setFloat(1, arg)
+					pstmt.setInt(1, arg)
 					pstmt.setInt(2, id)
 					break
 				case 3: String SQL = "UPDATE COMPANY SET address = ? WHERE id = ?";
 					pstmt = c.prepareStatement(SQL)
-					pstmt.setFloat(1, arg)
+					pstmt.setString(1, arg)
 					pstmt.setInt(2, id)
 					break
 				case 4: String SQL = "UPDATE COMPANY SET salary = ? WHERE id = ?";
@@ -270,11 +317,49 @@ public class postgresHandler {
 					break
 				case 5: String SQL = "UPDATE COMPANY SET ssn = ? WHERE id = ?";
 					pstmt = c.prepareStatement(SQL)
-					pstmt.setFloat(1, arg)
+					pstmt.setString(1, arg)
 					pstmt.setInt(2, id)
 					break
-				
+
 			}
+			pstmt.executeUpdate();
+			c.commit();
+
+			pstmt.close();
+			c.close();
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		System.out.println("Operation done successfully");
+	}
+
+	@Keyword
+	public void updateDbColumn(String column, int id, Object arg){
+
+		Class.forName("org.postgresql.Driver");
+		c = DriverManager
+				.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
+		c.setAutoCommit(false);
+		System.out.println("Opened database successfully");
+
+		try{
+			String SQL = "UPDATE COMPANY SET "+column+" = ? WHERE id = ?";
+			pstmt = c.prepareStatement(SQL);
+
+			if (column.matches("name|address|ssn")){
+				pstmt.setString(1, arg);
+				pstmt.setInt(2, id);
+			}
+			if (column.equals("age")){
+				pstmt.setInt(1, arg);
+				pstmt.setInt(2, id);
+			}
+			if (column.equals("salary")){
+				pstmt.setDouble(1, arg);
+				pstmt.setInt(2, id);
+			}
+
 			pstmt.executeUpdate();
 			c.commit();
 
@@ -294,7 +379,7 @@ public class postgresHandler {
 
 		Class.forName("org.postgresql.Driver");
 		c = DriverManager
-				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+				.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 		c.setAutoCommit(false);
 		System.out.println("Opened database successfully");
 
@@ -323,11 +408,11 @@ public class postgresHandler {
 
 		Class.forName("org.postgresql.Driver");
 		c = DriverManager
-				.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+				.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 		c.setAutoCommit(false);
 		System.out.println("Opened database successfully");
 
-		String SQL = "UPDATE COMPANY SET name = ?, age = ?, address = ?, salary = ?, SET ssn WHERE id = ?";
+		String SQL = "UPDATE COMPANY SET name = ?, age = ?, address = ?, salary = ?, ssn = ? WHERE id = ?";
 		pstmt = c.prepareStatement(SQL)
 		try{
 			pstmt.setString(1, fName);
@@ -350,12 +435,65 @@ public class postgresHandler {
 	}
 
 	@Keyword
+	public List<String> getRowDataById(int idx){
+
+		List<String> rowData = new ArrayList<>()
+
+		try {
+			Class.forName("org.postgresql.Driver");
+			c = DriverManager
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
+			c.setAutoCommit(false);
+			System.out.println("Opened database successfully");
+
+			String SQL = "SELECT * FROM COMPANY WHERE id = ?";
+
+			pstmt = c.prepareStatement(SQL);
+			pstmt.setInt(1, idx);
+
+			ResultSet rs = pstmt.executeQuery();
+			while ( rs.next() ) {
+				int id = rs.getInt("id");
+				String  name = rs.getString("name");
+				int age  = rs.getInt("age");
+				String  address = rs.getString("address");
+				float salary = rs.getFloat("salary");
+				String  ssn = rs.getString("ssn");
+				if (id == idx){
+					rowData.add(id)
+					rowData.add(name)
+					rowData.add(age.toString())
+					rowData.add(address)
+					rowData.add(salary.toString())
+					rowData.add(ssn)
+					System.out.println( "ID = " + id );
+					System.out.println( "NAME = " + name );
+					System.out.println( "AGE = " + age );
+					System.out.println( "ADDRESS = " + address );
+					System.out.println( "SALARY = " + salary );
+					System.out.println( "SSN = " + ssn );
+					System.out.println();
+				}
+			}
+			rs.close();
+			pstmt.close();
+			c.close();
+
+		} catch ( Exception e ) {
+			System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+			System.exit(0);
+		}
+		System.out.println("Operation done successfully");
+		return rowData
+	}
+
+	@Keyword
 	public void updateData(){
 
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
 
@@ -371,11 +509,13 @@ public class postgresHandler {
 				int age  = rs.getInt("age");
 				String  address = rs.getString("address");
 				float salary = rs.getFloat("salary");
+				String  ssn = rs.getString("ssn");
 				System.out.println( "ID = " + id );
 				System.out.println( "NAME = " + name );
 				System.out.println( "AGE = " + age );
 				System.out.println( "ADDRESS = " + address );
 				System.out.println( "SALARY = " + salary );
+				System.out.println( "SSN = " + ssn );
 				System.out.println();
 			}
 			rs.close();
@@ -389,36 +529,41 @@ public class postgresHandler {
 	}
 
 	@Keyword
-	public void deleleRowData(){
+	public void deleleRowData(int idx){
 
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/testdb","postgres", "postgres");
+					.getConnection("jdbc:postgresql://"+host+":5432/"+db,user,pass);
 			c.setAutoCommit(false);
 			System.out.println("Opened database successfully");
 
-			stmt = c.createStatement();
-			String sql = "DELETE from COMPANY where ID = 2;";
-			stmt.executeUpdate(sql);
+			String SQL = "DELETE from COMPANY WHERE id = ?";
+			pstmt = c.prepareStatement(SQL)
+			pstmt.setInt(1, idx)
+			pstmt.executeUpdate(SQL);
 			c.commit();
 
-			ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
+			//stmt = c.createStatement();
+			ResultSet rs = pstmt.executeQuery( "SELECT * FROM COMPANY;" );
 			while ( rs.next() ) {
 				int id = rs.getInt("id");
 				String  name = rs.getString("name");
 				int age  = rs.getInt("age");
 				String  address = rs.getString("address");
 				float salary = rs.getFloat("salary");
+				String  ssn = rs.getString("ssn");
 				System.out.println( "ID = " + id );
 				System.out.println( "NAME = " + name );
 				System.out.println( "AGE = " + age );
 				System.out.println( "ADDRESS = " + address );
 				System.out.println( "SALARY = " + salary );
+				System.out.println( "SSN = " + ssn );
 				System.out.println();
 			}
 			rs.close();
-			stmt.close();
+			pstmt.close();
+			//stmt.close();
 			c.close();
 		} catch ( Exception e ) {
 			System.err.println( e.getClass().getName()+": "+ e.getMessage() );
