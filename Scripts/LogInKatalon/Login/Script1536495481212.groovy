@@ -18,7 +18,7 @@ import java.lang.Integer as Integer
 String variableFromTestCase1 = GlobalVariable.name
 
 //println("DEBUG*************"+variableFromTestCase1)
-WebUI.openBrowser(null)
+WebUI.openBrowser()
 
 //WebUI.setViewPortSize(700, 500)
 
