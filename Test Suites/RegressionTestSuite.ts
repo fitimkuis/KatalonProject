@@ -115,7 +115,7 @@
    <testCaseLink>
       <guid>5ff7ff57-2fb6-485a-bbcb-56cf6c3b4c80</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/LogInKatalon/Call Test Case Login</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -133,7 +133,7 @@
    <testCaseLink>
       <guid>93b19663-d59d-4111-a89a-b5821786aa48</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/LogInKatalon/Login</testCaseId>
    </testCaseLink>
    <testCaseLink>
