@@ -20,7 +20,7 @@ String variableFromTestCase1 = GlobalVariable.name
 //println("DEBUG*************"+variableFromTestCase1)
 WebUI.openBrowser(null)
 
-WebUI.setViewPortSize(700, 500)
+//WebUI.setViewPortSize(700, 500)
 
 WebUI.navigateToUrl('http://demoaut.katalon.com/')
 
