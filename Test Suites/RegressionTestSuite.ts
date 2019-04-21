@@ -13,13 +13,13 @@
    <testCaseLink>
       <guid>389f71ff-980b-4e88-9169-13ac64c4e166</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>2dc06547-fe96-4499-902a-8d1eb8685bd7</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -31,13 +31,13 @@
    <testCaseLink>
       <guid>20a1d9a7-07fb-4c1c-8791-4c73860b0f7e</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/ReadPdf/pdfReader</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>4a78cf4f-ba67-40b8-9af1-83547c328ff5</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/Data Driven Test case FOR LOOP</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -55,13 +55,13 @@
    <testCaseLink>
       <guid>62176495-edef-483c-9acd-1618dbbede97</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/datePicker</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>4e275579-5e82-4663-b6da-baf6c6cc119f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -115,7 +115,7 @@
    <testCaseLink>
       <guid>5ff7ff57-2fb6-485a-bbcb-56cf6c3b4c80</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/LogInKatalon/Call Test Case Login</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -133,7 +133,7 @@
    <testCaseLink>
       <guid>93b19663-d59d-4111-a89a-b5821786aa48</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/LogInKatalon/Login</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -141,5 +141,11 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/SpamData/spamDataCheck</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>f65f6328-9aef-4f07-926c-a909d5c5498d</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/CygwinSSH/cygwinSsh</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

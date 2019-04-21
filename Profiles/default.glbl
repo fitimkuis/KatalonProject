@@ -124,4 +124,14 @@
       <initValue>'testdb'</initValue>
       <name>postgresDb</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>localURL</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>0</initValue>
+      <name>age</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
