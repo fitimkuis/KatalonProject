@@ -9,7 +9,7 @@ excel.add("number");
 
 List <String> excel2 = new ArrayList <String>();
 Random r = new Random();
-int low = 1947400365
+//int low = 1947400365
 int low = 1000;
 int high = 9999;
 int val = 0
