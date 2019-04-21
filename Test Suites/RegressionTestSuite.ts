@@ -103,7 +103,7 @@
    <testCaseLink>
       <guid>aae2f9bd-05fd-4804-85d0-c2203192fccf</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
    </testCaseLink>
    <testCaseLink>
