@@ -138,9 +138,9 @@ Loop: for (int row = 0; row < rows_count; row++) {
 }
 pagi++
 index++
-WebUI.delay(20)
+WebUI.delay(10)
 WebUI.closeBrowser()
-WebUI.delay(20)
+WebUI.delay(10)
 }
 println page1
 println page2
