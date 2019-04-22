@@ -18,11 +18,11 @@ import java.lang.Integer as Integer
 String variableFromTestCase1 = GlobalVariable.name
 
 //println("DEBUG*************"+variableFromTestCase1)
-WebUI.openBrowser('http://demoaut.katalon.com/')
+WebUI.openBrowser('')
 
 //WebUI.setViewPortSize(700, 500)
 
-//WebUI.navigateToUrl('http://demoaut.katalon.com/')
+WebUI.navigateToUrl('http://demoaut.katalon.com/')
 
 //WebUI.click(findTestObject("katalon_5_3_katalon_demo"))
 WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/a_MakeAppointment'))
