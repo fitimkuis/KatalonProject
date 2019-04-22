@@ -148,4 +148,28 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/CygwinSSH/cygwinSsh</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>77401652-72e3-48b4-9247-8765c1e416a4</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/CaptureAlert/alertCapture</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>301bb606-d36c-4837-98a5-9e26a6518ff9</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/GetAttributeValue/getAttribute</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>22147c45-a0a7-4fcf-b6df-8f7d76e25a5d</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/HtmlTableValues/TableValues</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>dab5cac0-4014-45ba-a455-b203a24ef5d0</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/IniFileUtil/iniFile</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
