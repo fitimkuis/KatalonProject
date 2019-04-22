@@ -61,7 +61,7 @@
    <testCaseLink>
       <guid>4e275579-5e82-4663-b6da-baf6c6cc119f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
