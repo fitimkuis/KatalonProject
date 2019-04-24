@@ -1,9 +1,15 @@
 import com.kms.katalon.core.configuration.RunConfiguration
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 //get pdf dir
 def pdfDir = RunConfiguration.getProjectDir() + "/pdfFiles/"
+
+
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+String string  = dateFormat.format(new Date());
+System.out.println(string);
 
 try {
 	//Prepare input pdf file list as list of input stream.
@@ -16,7 +22,7 @@ try {
 
 
 	//Prepare output stream for merged pdf file.
-	OutputStream outputStream = new FileOutputStream(pdfDir+"MergeFile_12.pdf");
+	OutputStream outputStream = new FileOutputStream(pdfDir+""+string+".pdf");
 
 	//call method to merge pdf files.
 	CustomKeywords.'com.pdf.util.MergePdfFiles.mergePdfFiles'(inputPdfList, outputStream);

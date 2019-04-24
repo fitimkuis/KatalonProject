@@ -13,6 +13,7 @@ WiniumDriver d;
 
 Random rand = new Random(System.currentTimeMillis()); // see comments!
 int port = rand.nextInt((9999 - 9000) + 1) + 9000;
+port = 9999
 System.out.println("DEBUG port number "+port);
 //WebUI.delay(20)
 //random = Random.generateRandomInteger(1000, 9999);
@@ -51,7 +52,7 @@ d.findElementByXPath("//*[@Name='Peruuta']//preceding-sibling::*[@Name='Avaa']")
 //d.findElementByXPath("//*[@Name='Cancel']//preceding-sibling::*[@Name='Open']").click();
 WebUI.click(findTestObject('Object Repository/FileUpload/Page_TheInternet/input_FileUploader_file-submi'))
 //driver.findElement(By.id("file-submit")).click();
-WebUI.delay(2)
+WebUI.delay(10)
 WebUI.closeBrowser()
 //d.close()
 //WebUI.delay(10)

@@ -172,4 +172,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/IniFileUtil/iniFile</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>e3a3d427-88f9-4fd5-88ab-bf07622419f3</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/FileUpload/uploadFile</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
