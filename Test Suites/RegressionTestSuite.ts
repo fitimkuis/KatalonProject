@@ -17,24 +17,6 @@
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
-      <guid>2dc06547-fe96-4499-902a-8d1eb8685bd7</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>54e90cc7-e1e3-4eed-9dcc-1b7b6bbbf821</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/Demo/demotest</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>20a1d9a7-07fb-4c1c-8791-4c73860b0f7e</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/ReadPdf/pdfReader</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
       <guid>4a78cf4f-ba67-40b8-9af1-83547c328ff5</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
@@ -51,6 +33,24 @@
          <value></value>
          <variableId>ae1da9f3-dfc2-47bb-8485-2b1a858f44e4</variableId>
       </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>54e90cc7-e1e3-4eed-9dcc-1b7b6bbbf821</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Demo/demotest</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>20a1d9a7-07fb-4c1c-8791-4c73860b0f7e</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ReadPdf/pdfReader</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>2dc06547-fe96-4499-902a-8d1eb8685bd7</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>62176495-edef-483c-9acd-1618dbbede97</guid>
@@ -175,7 +175,13 @@
    <testCaseLink>
       <guid>e3a3d427-88f9-4fd5-88ab-bf07622419f3</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/FileUpload/uploadFile</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>943578ac-fd98-4cc4-b3f1-b7f811d5f9bc</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/PdfUtil/mergePdfFiles</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
