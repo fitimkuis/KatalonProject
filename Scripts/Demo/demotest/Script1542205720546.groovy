@@ -43,6 +43,22 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 
+
+Calendar c = Calendar.getInstance();
+int monthMaxDays = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+println "Current month count of dates: "+monthMaxDays
+int day = c.get(Calendar.DATE);
+println "day "+day
+int validDays = monthMaxDays - day
+println "Valid calendar days in month: "+validDays
+
+int startDate = monthMaxDays - validDays
+String strStartDate = startDate.toString()
+
+int x = startDate;
+x++
+println "start date "+x
+
 WebUI.openBrowser('https://www.katalon.com/')
 def driver = DriverFactory.getWebDriver()
 String baseUrl = "https://www.katalon.com/"
@@ -61,14 +77,18 @@ selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Visi
 //selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='September 2018'])[1]/following::th[1]")
 //selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='October 2018'])[1]/following::th[1]")
 //selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='November 2018'])[1]/following::th[1]")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='December 2018'])[1]/following::th[1]")
+/*selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='December 2018'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='January 2019'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='February 2019'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='March 2019'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='April 2019'])[1]/following::th[1]")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='May 2019'])[1]/following::th[1]")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='June 2019'])[1]/following::th[1]")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td[32]")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='May 2019'])[1]/following::th[1]")*/
+//selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='June 2019'])[1]/following::th[1]")
+//selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td[32]")
+
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Visit Date (Required)'])[1]/following::span[1]")
+selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td["+x+"]")
+
 selenium.click("id=txt_comment")
 selenium.type("id=txt_comment", "python")
 assertEquals("Make Appointment", selenium.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Make Appointment'])[1]/following::h2[1]"));

@@ -18,3 +18,9 @@ println "global variable default value "+GlobalVariable.testVariable
 //give new value for global variable in testsuite1
 CustomKeywords.'com.global.variables.CreateGlobalVariables.addGlobalVariable'('testVariable', 999)
 println "new value given in testsuite1 "+GlobalVariable.testVariable
+
+'TestCase variable'
+println "default local variable "+var1
+int a = 1000
+var1 = a
+println "value changed "+var1

@@ -15,5 +15,11 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/GlobalVarBetweenTestSuites/forTestSuite2</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>b20a97f5-5ddb-4715-9003-bab8a035e691</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

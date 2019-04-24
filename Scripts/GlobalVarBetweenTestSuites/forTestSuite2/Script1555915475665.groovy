@@ -27,3 +27,4 @@ else{
 //change value in testsuite 2
 CustomKeywords.'com.global.variables.CreateGlobalVariables.addGlobalVariable'('testVariable', 888)
 println "value changed in testsuite2 "+GlobalVariable.testVariable
+
