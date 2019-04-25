@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.remote.DesiredCapabilities
+import org.openqa.selenium.remote.CapabilityType
 
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
@@ -66,7 +67,7 @@ lines = openPfdFile(pdfFile)
 
 
 'After test delete files'
-deleteFiles(folder)
+//deleteFiles(folder)
 
 public void deleteFiles(File folder){
 	for(File file: folder.listFiles()){
@@ -142,10 +143,19 @@ public WebDriver setChromeOptions(File folder){
 	chromePrefs.put("download.default_directory", downloadPath)
 	chromePrefs.put("download.prompt_for_download", false)
 	chromePrefs.put("plugins.plugins_disabled", "Chrome PDF Viewer");
-	
+	options.addArguments("--headless")
+	options.addArguments("--window-size=1920,1080")
+	options.addArguments("--test-type")
+	options.addArguments("--disable-gpu")
+	options.addArguments("--no-sandbox")
+	options.addArguments("--disable-dev-shm-usage")
+	options.addArguments("--disable-software-rasterizer")
+	options.addArguments("--disable-popup-blocking")
+	options.addArguments("--disable-extensions")
 	options.setExperimentalOption("prefs", chromePrefs)
 	DesiredCapabilities cap = DesiredCapabilities.chrome()
 	cap.setCapability(ChromeOptions.CAPABILITY, options)
+	cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 	
 	System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverPath())
 	//System.setProperty("webdriver.chrome.driver", "C:\\Users\\timok1\\Desktop\\chromedriver\\chromedriver.exe")

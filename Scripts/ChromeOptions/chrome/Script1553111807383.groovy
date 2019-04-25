@@ -28,9 +28,10 @@ chromePrefs.put("download.prompt_for_download", false)
 chromePrefs.put("pdfjs.disabled", true);
 System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverPath())
 ChromeOptions options = new ChromeOptions()
+//options.addArguments("--headless")
 options.setExperimentalOption("prefs", chromePrefs)
 WebDriver driver = new ChromeDriver(options)
 driver.get("https://docs.oracle.com/javaee/7/JEETT.pdf");
-WebUI.delay(10)
+WebUI.delay(30)
 System.out.println("Task complete, please go to save folder to see it.");
 driver.close()
