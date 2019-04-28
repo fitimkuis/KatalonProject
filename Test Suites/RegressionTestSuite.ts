@@ -184,4 +184,22 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/PdfUtil/mergePdfFiles</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>44872692-bbec-4637-bbd4-09a7973688a7</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/GnerateSIN/generateSin</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>db9219cd-ca7b-4bf0-a354-fe369cacec6c</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ReadYAML/readyaml</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>8e967a02-264d-48c7-80e3-727b8a27ef2f</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/PropertiesFile/properties</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
