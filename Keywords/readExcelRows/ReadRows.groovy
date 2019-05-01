@@ -9,11 +9,13 @@ import com.kms.katalon.core.annotation.Keyword
 
 public class ReadRows {
 
-	public static final String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\fitim\\Desktop\\data\\readExcelSheet.xls";
+	public String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\fitim\\Desktop\\data\\readExcelSheet.xls";
 	Workbook workbook
 
 	@Keyword
-	public List<String> readExcelRows(int start, int end) throws IOException, InvalidFormatException{
+	public List<String> readExcelRows(int start, int end, String path) throws IOException, InvalidFormatException{
+
+		SAMPLE_XLSX_FILE_PATH = path;
 
 		List<String> excelValues = new ArrayList<String>();
 
@@ -51,7 +53,7 @@ public class ReadRows {
 
 		// 1. You can obtain a rowIterator and columnIterator and iterate over them
 		//System.out.println("\n\nIterating over Rows and Columns using Iterator\n");
-		Iterator<Row> rowIterator = sheet.rowIterator();
+		//Iterator<Row> rowIterator = sheet.rowIterator();
 		/*while (rowIterator.hasNext()) {
 		 Row row = rowIterator.next();
 		 // Now let's iterate over the columns of the current row
@@ -66,11 +68,23 @@ public class ReadRows {
 
 		// 2. Or you can use a for-each loop to iterate over the rows and columns
 		//System.out.println("\n\nIterating over Rows and Columns using for-each loop\n");
+		boolean last = false
+		int lastRowNum = sheet.getLastRowNum()
+		lastRowNum++
+		if (start == lastRowNum){
+			last = true
+		}
+		//System.out.println("sheet rows "+lastRowNum);
 		int startRow = 0
 		int endRow = 0;
 		for (Row row: sheet) {
 			for(Cell cell: row) {
-				if (startRow >= start && endRow < end){
+				if (startRow >= start && endRow < end && last==false){
+					String cellValue = dataFormatter.formatCellValue(cell);
+					//System.out.print(cellValue + "\t");
+					excelValues.add(cellValue);
+				}
+				if (last){
 					String cellValue = dataFormatter.formatCellValue(cell);
 					//System.out.print(cellValue + "\t");
 					excelValues.add(cellValue);
@@ -78,7 +92,7 @@ public class ReadRows {
 			}
 			startRow++;
 			endRow++;
-			System.out.println();
+			//System.out.println();
 		}
 
 		// 3. Or you can use Java 8 forEach loop with lambda

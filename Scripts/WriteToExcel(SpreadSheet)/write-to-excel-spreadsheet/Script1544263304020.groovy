@@ -25,12 +25,12 @@ long y = 999999999L;
 //CustomKeywords.'spreadsheet.WriteToFile.updateExcelFile2'(excel2, 2)
 HashMap<String, String> hmap = new HashMap<String, String>();
 
-for (int l = 0; l < 10; l++){
+for (int l = 0; l < 15; l++){
 	val = r.nextInt(high-low) + low;
 	long number = x+((long)(r.nextDouble()*(y-x)));
 	hmap.put(String.valueOf(number),String.valueOf(val))
 }
-CustomKeywords.'spreadsheet.WriteToFile.updateNumberValueXlsx'(hmap, 0, 2)
+CustomKeywords.'spreadsheet.WriteToFile.updateNumberValueXlsx'(hmap, 0, 7)
 
 //CustomKeywords.'spreadsheet.WriteToFile.updateExcelFile'(excel2, 2) //values will change, column number where all update will do
 

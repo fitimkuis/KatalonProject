@@ -20,14 +20,14 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import com.kms.katalon.core.annotation.Keyword
 
 public class WriteToFile {
-	
+
 	private static MissingCellPolicy xRow;
 	private static XSSFSheet ExcelWSheetX;
-    private static XSSFWorkbook ExcelWBookX;
-    private static XSSFCell eCellNumbersX;
+	private static XSSFWorkbook ExcelWBookX;
+	private static XSSFCell eCellNumbersX;
 	private static XSSFCell eCellValuesX;
-    private static XSSFRow eRowX;
-	
+	private static XSSFRow eRowX;
+
 	private static HSSFSheet ExcelWSheetH;
 	private static HSSFWorkbook ExcelWBookH;
 	private static HSSFCell eCellNumbers;
@@ -93,42 +93,42 @@ public class WriteToFile {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Keyword
 	public void updateExcelFile(List<String> excel, colIndex){
 		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
-                  
-                HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook                
-                HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
-				                 
-                Cell cell = null; // declare a Cell object
-				
-				int ro = 1 //rows will start
-				for (String s : excel){
-					cell = worksheet.getRow(ro).getCell(colIndex);//if cell is null
-					worksheet.createRow(ro).createCell(colIndex).setCellValue(s); //if cell is null then update it to new value
-					ro++
-				}
-                 
-                fsIP.close(); //Close the InputStream               
-                FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates                
-                wb.write(output_file); //write changes           
+
+		HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook
+		HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+
+		Cell cell = null; // declare a Cell object
+
+		int ro = 1 //rows will start
+		for (String s : excel){
+			cell = worksheet.getRow(ro).getCell(colIndex);//if cell is null
+			worksheet.createRow(ro).createCell(colIndex).setCellValue(s); //if cell is null then update it to new value
+			ro++
+		}
+
+		fsIP.close(); //Close the InputStream
+		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
+		wb.write(output_file); //write changes
 	}
-	
+
 	@Keyword
 	public void updateNumberValueXlsx(HashMap<String, String> hmap, colIndexNumbers, colIndexValues)throws FileNotFoundException, IOException, InvalidFormatException{
 		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\file_example_XLSX_10.xlsx")); //Read the spreadsheet that needs to be updated
-		
+
 		ExcelWBookX = new XSSFWorkbook (fsIP); //Access the workbook
 		ExcelWSheetX = ExcelWBookX.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
-		
+
 		int ro = 1
 		Set set = hmap.entrySet();
 		Iterator iterator = set.iterator();
 		while(iterator.hasNext()){
 			Map.Entry mentry = (Map.Entry)iterator.next();
 			eRowX = ExcelWSheetX.getRow(ro);
-			
+
 			eCellNumbersX = eRowX.getCell(colIndexNumbers, Row.RETURN_BLANK_AS_NULL);//check if cell is null
 			eCellValuesX = eRowX.getCell(colIndexValues, Row.RETURN_BLANK_AS_NULL);//check if cell is null
 			if (eCellNumbersX == null || eCellValuesX == null) {
@@ -142,26 +142,26 @@ public class WriteToFile {
 			}
 			ro++
 		}
-			 
+
 		fsIP.close(); //Close the InputStream
 		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\file_example_XLSX_10.xlsx"));  //Open FileOutputStream to write updates
 		ExcelWBookX.write(output_file); //write changes
 	}
-	
+
 	@Keyword
 	public void updateNumberValue(HashMap<String, String> hmap, colIndexNumbers, colIndexValues){
 		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
-		
+
 		ExcelWBookH = new HSSFWorkbook (fsIP); //Access the workbook
 		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
-		
+
 		int ro = 1
 		Set set = hmap.entrySet();
 		Iterator iterator = set.iterator();
 		while(iterator.hasNext()){
 			Map.Entry mentry = (Map.Entry)iterator.next();
 			eRowH = ExcelWSheetH.getRow(ro);
-			
+
 			eCellNumbers = eRowH.getCell(colIndexNumbers, Row.RETURN_BLANK_AS_NULL);//check if cell is null
 			eCellValues = eRowH.getCell(colIndexValues, Row.RETURN_BLANK_AS_NULL);//check if cell is null
 			if (eCellNumbers == null || eCellValues == null) {
@@ -175,24 +175,24 @@ public class WriteToFile {
 			}
 			ro++
 		}
-			 
+
 		fsIP.close(); //Close the InputStream
 		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
 		ExcelWBookH.write(output_file); //write changes
 	}
-	
+
 	@Keyword
 	public void updateExcelFile2(List<String> excel, colIndex){
 		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
-		
+
 		ExcelWBookH = new HSSFWorkbook (fsIP); //Access the workbook
-		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.		  
-		
+		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+
 		int ro = 1
 		for (String s : excel){
-			
+
 			eRowH = ExcelWSheetH.getRow(ro);
-			
+
 			eCellH = eRowH.getCell(colIndex, Row.RETURN_BLANK_AS_NULL);//check if cell is null
 			if (eCellH == null) {
 				eCellH = eRowH.createCell(colIndex);
@@ -202,7 +202,7 @@ public class WriteToFile {
 			}
 			ro++
 		}
-			 
+
 		fsIP.close(); //Close the InputStream
 		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
 		ExcelWBookH.write(output_file); //write changes
@@ -280,7 +280,7 @@ public class WriteToFile {
 
 	}
 
-	
+
 
 	@Keyword
 	public void writeToExcelJsonData(List <String> excel, int rows, int count){
