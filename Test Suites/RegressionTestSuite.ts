@@ -202,4 +202,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/PropertiesFile/properties</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>685a9762-bc9e-478b-ba26-c51b7d3a6e4a</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/IsFileDownloaded/fileDownload</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
