@@ -13,24 +13,11 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-
-//get global variable value declared in testsuite 1
-int testVar2 = GlobalVariable.testVariable
-println "global variable defined in testsuite1 "+testVar2
-
-if (testVar2 == 999){
-	println "value moved to testsuite2 "+testVar2
-}
-else{
-	println "value NOT moved to testsuite2 "+testVar2
-}
-
-//change value in testsuite 2
-CustomKeywords.'com.global.variables.CreateGlobalVariables.addGlobalVariable'('testVariable', 888)
-println "value changed in testsuite2 "+GlobalVariable.testVariable
-
-driver.get("http://www.google.com/")
-driver.close()
-
-
+WebUI.openBrowser('')
+WebUI.deleteAllCookies(FailureHandling.STOP_ON_FAILURE)
+println('Cleared all the caches')
+WebUI.navigateToUrl('http://www.google.com')
+//WebUI.maximizeWindow()
+WebUI.setText(findTestObject('Object Repository/DatePicker/Page_/REMOVE/Page_Google/search'), Parameters)
+WebUI.delay(4)
 

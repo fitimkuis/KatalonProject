@@ -13,24 +13,11 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+CustomKeywords.'com.testwithhari.katalon.plugins.Gmail.sendEmail'("fitimkuis@gmail.com", "ModeeMi16", "fitimkuis@gmail.com", "This is Test GmailPlugin", "hello, let's testing this gmail plugin!!!")
 
-//get global variable value declared in testsuite 1
-int testVar2 = GlobalVariable.testVariable
-println "global variable defined in testsuite1 "+testVar2
+def count = CustomKeywords.'com.testwithhari.katalon.plugins.Gmail.getEmailsCount'("fitimkuis@gmail.com", "ModeeMi16", "INBOX")
+println count
 
-if (testVar2 == 999){
-	println "value moved to testsuite2 "+testVar2
-}
-else{
-	println "value NOT moved to testsuite2 "+testVar2
-}
-
-//change value in testsuite 2
-CustomKeywords.'com.global.variables.CreateGlobalVariables.addGlobalVariable'('testVariable', 888)
-println "value changed in testsuite2 "+GlobalVariable.testVariable
-
-driver.get("http://www.google.com/")
-driver.close()
-
-
+def latest = CustomKeywords.'com.testwithhari.katalon.plugins.Gmail.readLatestEMailBodyContent'("fitimkuis@gmail.com", "ModeeMi16", "INBOX")
+println latest
 

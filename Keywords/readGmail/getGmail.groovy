@@ -58,7 +58,7 @@ public class getGmail {
 		//StartDate= "2-4-2018"
 		//EndDate = "2-4-2018"
 		////////////////////// </CONFIGURATION> //////////////////////
-		
+
 		Properties props = new Properties();
 		props.load(new FileInputStream(new File( "C:\\Users\\fitim\\Desktop\\gmail\\smtp.properties" )));
 		Session session = Session.getDefaultInstance(props, null);
@@ -70,7 +70,7 @@ public class getGmail {
 		Store store = session.getStore("imaps");
 		///store.connect("smtp.gmail.com", username,password);
 		store.connect("smtp.gmail.com", "fitimkuis@gmail.com", "ModeeMi16");
-		
+
 		int i = 0;
 		def folder = store.getFolder(inboxFolder)
 

@@ -208,4 +208,49 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/IsFileDownloaded/fileDownload</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>e58d6978-da3b-4277-a92b-8bd9b65d4037</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>false</isRun>
+      <testCaseId>Test Cases/GlobalVarBetweenTestSuites/forTestSuite1</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>2048d527-96e5-4e25-aca9-2a058b9883b2</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>631ee287-2a42-47b8-b11f-6ab2024ff0a7</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>false</isRun>
+      <testCaseId>Test Cases/GlobalVarBetweenTestSuites/forTestSuite2</testCaseId>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>b20a97f5-5ddb-4715-9003-bab8a035e691</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>a9433d4d-2584-40d1-b2c2-fa682545513b</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/TestCaseParameters/dataBinding</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>516454ae-d05d-458d-bfc8-9c1ccdca7cee</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value></value>
+         </iterationEntity>
+         <testDataId>Data Files/SearchParameter/parameterValues</testDataId>
+      </testDataLink>
+      <variableLink>
+         <testDataLinkId>516454ae-d05d-458d-bfc8-9c1ccdca7cee</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Parameters</value>
+         <variableId>9f637f52-ce52-44ef-b2fc-08fb507a1642</variableId>
+      </variableLink>
+   </testCaseLink>
 </TestSuiteEntity>

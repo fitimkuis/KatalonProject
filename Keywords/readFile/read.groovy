@@ -24,56 +24,45 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 
 public class read {
-	
+
 	@Keyword
-	public List<String> readFileInList(String fileName)
-	{
-	  List<String> lines = Collections.emptyList();
-	  try
-	  {
-		lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
-	  }
-	  catch (IOException e)
-	  {
-		// do something
-		e.printStackTrace();
-	  }
-	  return lines;
+	public List<String> readFileInList(String fileName) {
+		List<String> lines = Collections.emptyList();
+		try {
+			lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
+		}
+		catch (IOException e) {
+			// do something
+			e.printStackTrace();
+		}
+		return lines;
 	}
 }
 
 /*
-BufferedReader br = new BufferedReader(new FileReader(path));
-String txtFile = null;
-String[] strArgs = null;
-try {
-StringBuilder sb = new StringBuilder();
-String line = br.readLine();
-
-while (line = br.readLine() != null){
-	strArgs = line.split("\n\r");
-}
-//println("DEBUG first line "+strArgs[1])
-
-while (line != null) {
-	sb.append(line);
-	sb.append(System.lineSeparator());
-	line = br.readLine();
-}
-txtFile = sb.toString();
-
-} finally {
-br.close();
-}
-KeywordLogger log = new KeywordLogger()
-log.logInfo(txtFile)
-
-// Java program to illustrate reading data from file
-// using nio.File
-
-
-
-//println("DEBUG first line "+strArgs[0])
-
-//log.logInfo(strArgs[0])
-*/
+ BufferedReader br = new BufferedReader(new FileReader(path));
+ String txtFile = null;
+ String[] strArgs = null;
+ try {
+ StringBuilder sb = new StringBuilder();
+ String line = br.readLine();
+ while (line = br.readLine() != null){
+ strArgs = line.split("\n\r");
+ }
+ //println("DEBUG first line "+strArgs[1])
+ while (line != null) {
+ sb.append(line);
+ sb.append(System.lineSeparator());
+ line = br.readLine();
+ }
+ txtFile = sb.toString();
+ } finally {
+ br.close();
+ }
+ KeywordLogger log = new KeywordLogger()
+ log.logInfo(txtFile)
+ // Java program to illustrate reading data from file
+ // using nio.File
+ //println("DEBUG first line "+strArgs[0])
+ //log.logInfo(strArgs[0])
+ */
