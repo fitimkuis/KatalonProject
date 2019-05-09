@@ -9,9 +9,11 @@ import com.kms.katalon.core.util.KeywordUtil
 InternalData data = findTestData('SpamData/someSpamTestData')
 //int colNumbers = data.columnNumbers
 
-//get columns name from the datafile
+//get column names from the datafile
 def colNames = data.columnNames
 println "column names "+colNames
+
+def ro = data.getRowNumbers()
 
 /*
 //add column name to list
@@ -26,9 +28,21 @@ String column
 
 KeywordUtil log = new KeywordUtil();
 
+List <String> row1 = new ArrayList<>()
+List <String> row2 = new ArrayList<>()
+List <String> row3 = new ArrayList<>()
+List <String> row4 = new ArrayList<>()
+
+List<ArrayList> allCol = new ArrayList<ArrayList>();//Create a list of lists
+allCol.add(row1)
+allCol.add(row2)
+allCol.add(row3)
+allCol.add(row4)
 
 int row = 1  //values start from row 1
-
+int rowCount = 1
+int colCount = 0
+int columnIndex = 1
 //loop rows
 for (def index : (0..data.getRowNumbers() - 1)) {
 	//loop columns
@@ -37,14 +51,63 @@ for (def index : (0..data.getRowNumbers() - 1)) {
 		if (data.getValue(col, row).equals("")){
 			println "column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row
 			log.markWarning("column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row);
+			allCol.get(colCount).add(data.getValue(col, row))
 			//log.markError("column "+col+" has not value!!!! "+data.getValue(col, row)+ " row "+row);
 			//throw new com.kms.katalon.core.exception.StepErrorException("column "+col+" has not value!!!! "+data.getValue(col, row)+ " row "+row)
 		}else{
 			println "column: "+col+ " row: "+row+" value: "+data.getValue(col, row)
+			allCol.get(colCount).add(data.getValue(col, row))
+			println colCount	
 		}
+		
 	}
+	colCount++
+	rowCount++
+	columnIndex++
 	row++
 }
+println "row 1 contents "+row1
+println "row 2 contents "+row2
+println "row 3 contents "+row3
+println "row 4 contents "+row4
+
+
+List <String> colRows1 = new ArrayList<>()
+List <String> colRows2 = new ArrayList<>()
+List <String> colRows3 = new ArrayList<>()
+List <String> colRows4 = new ArrayList<>()
+
+//loop col1
+for (ArrayList s: allCol){
+	colRows1.add(0, s.get(0))
+}
+//loop col2
+for (ArrayList s: allCol){
+	colRows2.add(0, s.get(1))
+}
+//loop col3
+for (ArrayList s: allCol){
+	colRows3.add(0, s.get(2))
+}
+//loop col4
+for (ArrayList s: allCol){
+	colRows4.add(0, s.get(3))
+}
+
+colRows1.removeAll(Arrays.asList("")) 
+colRows2.removeAll(Arrays.asList(""))  
+colRows3.removeAll(Arrays.asList(""))  
+colRows4.removeAll(Arrays.asList(""))  
+println colRows1
+println colRows2
+println colRows3
+println colRows4
+
+println "count of rows in column name first: "+colRows1.size()
+println "count of rows in column name second: "+colRows2.size()
+println "count of rows in column name third: "+colRows3.size()
+println "count of rows in column name fourth: "+colRows4.size()
+
 
 /*
 for (def index : (0..data.getRowNumbers() - 1)) {

@@ -11,7 +11,15 @@ import com.kms.katalon.core.util.KeywordUtil
 
 KeywordLogger log = new KeywordLogger()
 
+def String numberFromString(String str) {
+	String numbers= str.replaceAll("[^0-9]", "")
+	}
 
+println numberFromString("Quote # 39281 created successfully")
+
+
+def s = "Quote # 39281 created successfully"
+System.out.println(s.substring(8,13));
 
 
 HashMap<String, Integer> hm = new HashMap<>();
