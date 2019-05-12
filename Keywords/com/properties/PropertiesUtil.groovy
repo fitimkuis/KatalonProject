@@ -24,13 +24,13 @@ import java.util.Properties;
 import internal.GlobalVariable
 
 public class PropertiesUtil {
-	
+
 	Properties prop
-	
+
 	public void WriteProperties(){
-		
+
 		try {
-			
+
 			OutputStream output = new FileOutputStream("C:\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
 			prop = new Properties();
 
@@ -47,11 +47,10 @@ public class PropertiesUtil {
 		} catch (IOException io) {
 			io.printStackTrace();
 		}
-		
 	}
-	
+
 	public String GetProperty(String strProp){
-		
+
 		try{
 			InputStream input = new FileInputStream("C:\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
 			prop = new Properties();
@@ -67,13 +66,13 @@ public class PropertiesUtil {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		
-		
+
+
 		return prop.getProperty(strProp)
 	}
-	
+
 	public Properties GetAllProperties(){
-		
+
 		try{
 			InputStream input = new FileInputStream("C:\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
 			prop = new Properties();
@@ -83,13 +82,13 @@ public class PropertiesUtil {
 
 			// get the property value and print it out
 			/*System.out.println(prop.getProperty("db.url"));
-			System.out.println(prop.getProperty("db.user"));
-			System.out.println(prop.getProperty("db.password"));*/
+			 System.out.println(prop.getProperty("db.user"));
+			 System.out.println(prop.getProperty("db.password"));*/
 
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		
+
 		return prop
 	}
 }
