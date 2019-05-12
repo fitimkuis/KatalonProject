@@ -10,6 +10,24 @@ def response = WS.sendRequest(findTestObject('WebServiceReqs/webRequest'))
 def responseText = response.getResponseText()
 //println responseText
 
+/*
+JsonSlurper jsl = new JsonSlurper()	
+RequestObject ro = new RequestObject()	
+def myJson = ""	
+def parsedResponse = ""	
+String defaultUrl = "http://webhook.satyamphysio.in:8081/Lang.Product-en.json"	
+String customUrl = "http://webhook.satyamphysio.in:8081/Lang.UserProduct-en.json"	
+ro.setRestRequestMethod("GET")	
+ro.setRestUrl(defaultUrl)	
+ResponseObject resp = WSBuiltInKeywords.sendRequest(ro)	
+if (resp.getStatusCode() == 200) {
+	
+  // replace BOM in response text		
+	myJson = resp.getResponseText().replaceAll("\uFEFF","")		
+	parsedResponse = jsl.parseText(myJson)	
+	}	
+*/
+
 println JsonOutput.prettyPrint(responseText)
 
 def jsonSlurper = new JsonSlurper()
