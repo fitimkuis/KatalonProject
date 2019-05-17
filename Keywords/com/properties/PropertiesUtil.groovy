@@ -52,7 +52,7 @@ public class PropertiesUtil {
 	public String GetProperty(String strProp){
 
 		try{
-			InputStream input = new FileInputStream("C:\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
+			InputStream input = new FileInputStream("C:\\Users\\fitim\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
 			prop = new Properties();
 
 			// load a properties file
@@ -74,7 +74,7 @@ public class PropertiesUtil {
 	public Properties GetAllProperties(){
 
 		try{
-			InputStream input = new FileInputStream("C:\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
+			InputStream input = new FileInputStream("C:\\Users\\fitim\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
 			prop = new Properties();
 
 			// load a properties file
