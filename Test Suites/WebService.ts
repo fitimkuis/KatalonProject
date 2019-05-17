@@ -4,7 +4,6 @@
    <name>WebService</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-09-12T19:32:16</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>

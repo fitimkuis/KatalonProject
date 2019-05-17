@@ -29,6 +29,8 @@ import java.util.regex.Pattern
 import static org.apache.commons.lang3.StringUtils.join
 
 WebUI.openBrowser('https://www.katalon.com/')
+WebUI.setViewPortSize(700, 500)
+
 def driver = DriverFactory.getWebDriver()
 String baseUrl = "https://www.katalon.com/"
 selenium = new WebDriverBackedSelenium(driver, baseUrl)
@@ -42,9 +44,37 @@ selenium.select("id=combo_facility", "label=Hongkong CURA Healthcare Center")
 selenium.click("id=combo_facility")
 selenium.click("id=chk_hospotal_readmission")
 selenium.click("id=radio_program_medicaid")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Visit Date (Required)'])[1]/following::span[1]")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='September 2018'])[1]/following::th[1]")
-selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='October 2018'])[1]/following::th[1]")
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/div_VisitDate(Required)_inpu'))
+
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'))
+WebUI.waitForElementPresent(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/th_'),30)
+
+WebUI.click(findTestObject('Katalon5.8.4/Page_CURA-HealthcareService/td_30'))
+/*
+//selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Visit Date (Required)'])[1]/following::span[1]")
+//selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='September 2018'])[1]/following::th[1]")
+//selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='October 2018'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='November 2018'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='December 2018'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='January 2019'])[1]/following::th[1]")
@@ -54,6 +84,7 @@ selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Apri
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='May 2019'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='June 2019'])[1]/following::th[1]")
 selenium.click("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sa'])[1]/following::td[32]")
+*/
 selenium.click("id=txt_comment")
 selenium.type("id=txt_comment", "python")
 assertEquals("Make Appointment", selenium.getText("xpath=(.//*[normalize-space(text()) and normalize-space(.)='Make Appointment'])[1]/following::h2[1]"));

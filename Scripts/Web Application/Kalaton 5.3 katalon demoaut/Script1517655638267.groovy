@@ -26,36 +26,36 @@ WebUI.setViewPortSize(700, 500)
 WebUI.navigateToUrl('http://demoaut.katalon.com/')
 
 //WebUI.click(findTestObject("katalon_5_3_katalon_demo"))
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/a_Make Appointment'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/a_MakeAppointment'))
 
-WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_username'), 'gdcc432nhE0fy+OnPxrtHw==')
+WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_username'), 'gdcc432nhE0fy+OnPxrtHw==')
 
-WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_password'), 'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM')
+WebUI.setEncryptedText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_password'), 'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM')
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/button_Login'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/button_Login'))
 
-WebUI.selectOptionByValue(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/select_Tokyo CURA Healthcare C'), 
+WebUI.selectOptionByValue(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/select_TokyoCURAHealthcareC'), 
     'Seoul CURA Healthcare Center', false)
 
-WebUI.check(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_hospital_readmission'))
+WebUI.check(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_hospital_readmission'))
 
-WebUI.check(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_programs'))
+WebUI.check(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_programs'))
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/input_visit_date'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/input_visit_date'))
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/td_28'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/td_28'))
 
-WebUI.setText(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/textarea_comment'), 
+WebUI.setText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/textarea_comment'), 
     'Hello Katalon users')
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/button_Book Appointment'))
+WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/button_BookAppointment'))
 
-//WebUI.verifyElementText(findTestObject('katalon_5_3_katalon_demo/Page_CURA Healthcare Service/p_Please be informed that your'), 
+//WebUI.verifyElementText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/p_PleaseBeInformedThatYour'), 
 //    'Cat Please be informed that your appointment has been booked as following:')
-WebUI.verifyElementText(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/p_Please be informed that your'), 
-    'Cat Please be informed that your appointment has been booked as following:', FailureHandling.CONTINUE_ON_FAILURE)
+//WebUI.verifyElementText(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/p_PleaseBeInformedThatYour'), 
+//    'Cat Please be informed that your appointment has been booked as following:', FailureHandling.CONTINUE_ON_FAILURE)
 
-WebUI.click(findTestObject('Object Repository/katalon_5_3_katalon_demo/Page_CURA Healthcare Service/a_Go to Homepage'))
+//WebUI.click(findTestObject('katalon_5_3_katalon_demo/Page_CURAHealthcareService/a_GoToHomepage'))
 
 WebUI.closeBrowser()
 

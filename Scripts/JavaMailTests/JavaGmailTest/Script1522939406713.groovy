@@ -19,4 +19,4 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKe
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-CustomKeywords.'javaGmail.JavaMail.searchEmail'("imap.gmail.com", GlobalVariable.gmailUser, GlobalVariable.password, "Test Suite")
+CustomKeywords.'javaGmail.JavaMail.searchEmail'("imap.gmail.com", GlobalVariable.gmailUser, GlobalVariable.pass, "Test Suite")

@@ -24,12 +24,20 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('http://demos.telerik.com/kendo-ui/datetimepicker/index')
 
-WebUI.click(findTestObject('Object Repository/Kendo/Page_Kendo UI Date and Time picker/span_k-icon k-i-calendar'))
+//WebUI.click(findTestObject('Kendo/Page_KendoUI-Date-and-Time-picker/span_k-icon-k-i-calendar'))
 
-WebUI.click(findTestObject('Kendo/Page_Kendo UI Date and Time picker/a_20'))
+//WebUI.click(findTestObject('Kendo/Page_KendoUI-Date-and-Time-picker/a_20'))
 
-def response = WebUI.getText(findTestObject('Object Repository/Kendo/Page_Kendo UI Date and Time picker/input_datetimepicker'))
+/*
+def response = WebUI.getText(findTestObject('Kendo/Page_KendoUI-Date-and-Time-picker/input_datetimepicker'))
 println "field value is: "+response
+if (!response){
+	throw new com.kms.katalon.core.exception.StepErrorException('Value required')
+}
+else{
+	println("DEBUG txt field value: "+response)
+}*/
+
 
 WebUI.takeScreenshot("C:\\Users\\fitim\\Desktop\\Katalon Studio\\screenshots\\picture.png")
 

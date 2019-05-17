@@ -37,7 +37,7 @@ public class JavaMail {
 		 Session session = Session.getDefaultInstance(properties);*/
 		//String host = "imap.gmail.com";
 		//String username = GlobalVariable.gmailUser;
-		//password = GlobalVariable.password;
+		//password = GlobalVariable.pass;
 
 		try {
 			// connects to the message store
@@ -62,15 +62,15 @@ public class JavaMail {
 							System.out.println("Found message #: " + message.getSubject());
 							try {
 								if (message.getSubject().contains("Katalon")){
-									 return true; 
-									 }
-								/*else{
-										System.out.println("no emails");
-								}*/
-									} catch (MessagingException ex) {
-										ex.printStackTrace();
+									return true;
 								}
-								return false;
+								/*else{
+						 System.out.println("no emails");
+						 }*/
+							} catch (MessagingException ex) {
+								ex.printStackTrace();
+							}
+							return false;
 						}
 					};
 
@@ -86,11 +86,11 @@ public class JavaMail {
 
 
 			Message[] foundMessages = folderInbox.search(searchCondition);
-			
+
 			//To get the latest 5 mails use:
 			int count = folderInbox.getMessageCount();
 			foundMessages= folderInbox.getMessages(count-5,count);
-			
+
 			if (foundMessages.length == 0){
 				System.out.println("No messages found.");
 				throw new com.kms.katalon.core.exception.StepErrorException("No unread mesages will found!!!");
@@ -104,7 +104,7 @@ public class JavaMail {
 					System.out.println("Found message #" + i + ": " + subject+" recivedDate "+getDate+" sentDate "+sentDate);
 				}
 			}
-			
+
 			//
 
 			// disconnect
