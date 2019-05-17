@@ -43,7 +43,7 @@ File input = new File(path);
 BufferedImage bufImage = ImageIO.read(input);
 
 WebUI.delay(3)
-String scaledConvertedImagePath = "C:\\KatalonStudio\\DataDrivenTestMaster\\images\\"+prefix+"Google.png";
+String scaledConvertedImagePath = "C:\\Users\\fitim\\KatalonStudio\\DataDrivenTestMaster\\images\\"+prefix+"Google.png";
 //BufferedImage scaledBufImage = CustomKeywords.'readImageText.readImage.resized'(bufImage,544, 184); //scale image testing
 BufferedImage scaledBufImage = CustomKeywords.'readImageText.readImage.resized'(bufImage,1066, 468) //scale image
 BufferedImage convertBufImage = CustomKeywords.'readImageText.readImage.convert'(scaledBufImage)//convert to gray

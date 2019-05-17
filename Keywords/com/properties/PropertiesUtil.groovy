@@ -31,7 +31,7 @@ public class PropertiesUtil {
 
 		try {
 
-			OutputStream output = new FileOutputStream("C:\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
+			OutputStream output = new FileOutputStream("C:\\Users\\fitim\\KatalonStudio\\KatalonProject\\Include\\PROPERTIES\\config.properties")
 			prop = new Properties();
 
 			// set the properties value

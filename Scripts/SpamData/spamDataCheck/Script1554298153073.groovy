@@ -2,7 +2,13 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testdata.InternalData as InternalData
+
 import com.kms.katalon.core.util.KeywordUtil
+
+BigDecimal price = new BigDecimal("9.99")
+BigDecimal tax = new BigDecimal("0.30")
+BigDecimal total = price.add(tax)
+println total
 
 
 //get instance of internal datafile
@@ -24,10 +30,25 @@ for (String cname: colNames){
 println "columns in List "+columns*/
 
 //println colNumbers
-String column
+//String column
 
 KeywordUtil log = new KeywordUtil();
 
+/*ArrayList[] list = new ArrayList[ro];
+for(int i=0; i<ro; i++)
+{
+	list[i] = new ArrayList<String>();
+}*/
+
+//Create a dynamic list of lists
+List<List<String>> lists = new ArrayList<List<String>>();
+for (int i = 0; i < ro; i++) {
+	List<String> list = new ArrayList<>();
+	lists.add(list);
+}
+// Now you can use lists.get(0) etc to get at each list
+
+/*
 List <String> row1 = new ArrayList<>()
 List <String> row2 = new ArrayList<>()
 List <String> row3 = new ArrayList<>()
@@ -37,12 +58,12 @@ List<ArrayList> allCol = new ArrayList<ArrayList>();//Create a list of lists
 allCol.add(row1)
 allCol.add(row2)
 allCol.add(row3)
-allCol.add(row4)
+allCol.add(row4)*/
 
 int row = 1  //values start from row 1
-int rowCount = 1
+//int rowCount = 1
 int colCount = 0
-int columnIndex = 1
+
 //loop rows
 for (def index : (0..data.getRowNumbers() - 1)) {
 	//loop columns
@@ -51,25 +72,25 @@ for (def index : (0..data.getRowNumbers() - 1)) {
 		if (data.getValue(col, row).equals("")){
 			println "column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row
 			log.markWarning("column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row);
-			allCol.get(colCount).add(data.getValue(col, row))
+			//allCol.get(colCount).add(data.getValue(col, row))
+			lists.get(colCount).add(data.getValue(col, row))
 			//log.markError("column "+col+" has not value!!!! "+data.getValue(col, row)+ " row "+row);
 			//throw new com.kms.katalon.core.exception.StepErrorException("column "+col+" has not value!!!! "+data.getValue(col, row)+ " row "+row)
 		}else{
 			println "column: "+col+ " row: "+row+" value: "+data.getValue(col, row)
-			allCol.get(colCount).add(data.getValue(col, row))
+			//allCol.get(colCount).add(data.getValue(col, row))
+			lists.get(colCount).add(data.getValue(col, row))
 			println colCount	
 		}
 		
 	}
 	colCount++
-	rowCount++
-	columnIndex++
 	row++
 }
-println "row 1 contents "+row1
+/*println "row 1 contents "+row1
 println "row 2 contents "+row2
 println "row 3 contents "+row3
-println "row 4 contents "+row4
+println "row 4 contents "+row4*/
 
 
 List <String> colRows1 = new ArrayList<>()
@@ -78,19 +99,19 @@ List <String> colRows3 = new ArrayList<>()
 List <String> colRows4 = new ArrayList<>()
 
 //loop col1
-for (ArrayList s: allCol){
+for (ArrayList s: lists){
 	colRows1.add(0, s.get(0))
 }
 //loop col2
-for (ArrayList s: allCol){
+for (ArrayList s: lists){
 	colRows2.add(0, s.get(1))
 }
 //loop col3
-for (ArrayList s: allCol){
+for (ArrayList s: lists){
 	colRows3.add(0, s.get(2))
 }
 //loop col4
-for (ArrayList s: allCol){
+for (ArrayList s: lists){
 	colRows4.add(0, s.get(3))
 }
 

@@ -31,7 +31,7 @@ System.out.println(map.get("name"));
 System.out.println(map.get("phone numbers"));
 
 
-reader2 = new YamlReader(new FileReader("C:\\KatalonStudio\\KatalonProject\\Include\\USERS\\users.yaml"));
+reader2 = new YamlReader(new FileReader("C:\\Users\\fitim\\KatalonStudio\\KatalonProject\\Include\\USERS\\users.yaml"));
 Object object2 = reader2.read();
 System.out.println(object2);
 Map map2 = (Map)object2;

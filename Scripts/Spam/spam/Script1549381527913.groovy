@@ -9,7 +9,7 @@ import com.kms.katalon.core.exception.StepErrorException
 import com.kms.katalon.core.logging.KeywordLogger
 import com.kms.katalon.core.util.KeywordUtil
 
-KeywordLogger log = new KeywordLogger()
+KeywordUtil log = new KeywordUtil()
 
 def String numberFromString(String str) {
 	String numbers= str.replaceAll("[^0-9]", "")
