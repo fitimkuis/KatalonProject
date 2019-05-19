@@ -13,4 +13,14 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-CustomKeywords.'demo.PythonKeywords.helloWorld'(11, 15)
+/*WebUI.openBrowser('')
+ 
+ CustomKeywords.'demo.PythonKeywords.gotoGoogle'()
+ 
+ WebUI.closeBrowser()*/
+ 
+ WebUI.openBrowser('')
+ 
+ CustomKeywords.'demo.PythonKeywords.gotoKatalonDemo'()
+ 
+ WebUI.closeBrowser()

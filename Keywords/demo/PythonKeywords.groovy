@@ -17,7 +17,7 @@ class PythonKeywords {
 	def gotoGoogle() {
 		runPython("keywords.goto_google")
 	}
-	
+
 	@Keyword
 	def gotoKatalonDemo(){
 		runPython("keywords.goto_katalon_demo")

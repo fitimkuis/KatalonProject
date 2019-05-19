@@ -33,6 +33,3 @@ def goto_katalon_demo(allArgs):
   input_element.send_keys("Hongkong CURA Healthcare Center")
   driver.find_element_by_id("chk_hospotal_readmission").click()
   driver.find_element_by_id("radio_program_medicaid").click()
-
-  
-  
