@@ -1,82 +1,92 @@
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testdata.InternalData as InternalData
+import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 
 WebUI.openBrowser('')
-/*
-WebUI.openBrowser('')
+
+Calendar c = Calendar.getInstance();
+int monthMaxDays = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+println "Current month count of dates: "+monthMaxDays
+int day = c.get(Calendar.DATE);
+int validDays = monthMaxDays - day
+println "Valid calendar days in month: "+validDays
+
+int startDate = monthMaxDays - validDays
+String strStartDate = startDate.toString()
+
+int x = startDate;
+
+int y = startDate;
+String txtval2 = y
+txtval2 = 24
 
 WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/datePicker.html')
 
-WebUI.waitForJQueryLoad(1)
+//WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/Choose-date'))
+myNewObject = new TestObject("myNewObject")
+List<String> paths = new ArrayList<>()
+path25 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td"
+path26 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td[2]"
+path27 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td[3]"
+path28 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td[4]"
+path29 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td[5]"
+path30 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td[6]"
+path31 = "//div[@id='dp-popup']/div[3]/table/tbody/tr[5]/td[7]"
+paths.add(path26)
+paths.add(path27)
+paths.add(path28)
+paths.add(path29)
+paths.add(path30)
+paths.add(path31)
+//myNewObject.addProperty("xpath", ConditionType.EQUALS, path25, true)
+//WebUI.click(myNewObject)//use new relative xpath locator
 
-WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker/a_Choose date'))
+//WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery-datePicker/day'))
+//use xpath value
+//LinkToSearch2 = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/day'), 'xpath','equals',path, true)
+//WebUI.click(LinkToSearch2, FailureHandling.STOP_ON_FAILURE)
 
-WebUI.delay(1)
+//use txt value
+//LinkToSearch2 = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/day'), 'text','equals',txtval2, true)
+//WebUI.click(LinkToSearch2, FailureHandling.STOP_ON_FAILURE)
 
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
-attribute = WebUI.getAttribute(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), 'text')
-println attribute
 
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'))
-*/
-/////WebUI.click(findTestObject("jQueryDatePicker/Page_jQuery datePicker next year/datePickerNextYear"))
-
-//InternalData data = findTestData('November/November days')
-
-/*
-'Use Javascript to make an alert'
-WebUI.executeJavaScript("alert('This is an alert')", null)  
-'Verify if the created alert is present'
-WebUI.verifyAlertPresent(5)
-*/
-
-TestObject to = findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1')
-int x = 1;
-
-WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/datePicker.html')
-WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker/a_Choose date'))
-
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
-WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'))
-//for (def index : (0..data.getRowNumbers() - 1)) {
-//int counter = 0;
-for (int z=0;z<31;z++) {
-	'Change xpath property to new value'
-	//to.findProperty('text').setValue(day)
-	//to.findProperty('xpath').setValue('//*[text()='+day)
+int p = 0
+List <String> l = new ArrayList<>()
+String txtval = x
+for (int z=0; z < validDays+1; z++) {
 	
-	String txtval = x++
+	txtval = x++
 	println txtval
 	
-	//TestObject dynamicObject = new TestObject().addProperty("text", ConditionType.EQUALS, day)
+	//select choose a date button
+	WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/Choose-date'))
 	
-    //WebUI.openBrowser('')
-
-    //WebUI.navigateToUrl('http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/datePicker.html')
-
-    //WebUI.waitForJQueryLoad(1)
-
-    WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker/a_Choose date'))
-
-    //WebUI.click(findTestObject('Object Repository/jQueryDatePicker/Page_jQuery datePicker Next Month/next month'))
+	if (Integer.parseInt(txtval) < 25){
+	'Change xpath property to new value'
+	LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/day'), 'text','equals',txtval, true)
+	WebUI.click(LinkToSearch, FailureHandling.OPTIONAL)
+	}
+	if (Integer.parseInt(txtval) == 25){
+		myNewObject.addProperty("xpath", ConditionType.EQUALS, path25, true)
+		WebUI.click(myNewObject)//use new relative xpath locator
+	}
+	if (Integer.parseInt(txtval) > 25){
+		myNewObject.addProperty("xpath", ConditionType.EQUALS, paths.get(p++), true)
+		WebUI.click(myNewObject)//use new relative xpath locator
+	}
+	String date = WebUI.getAttribute(findTestObject('jQueryDatePicker/Page_jQuery-datePicker/getDate'), 'value')
+    //add date to list
+	l.add(date)
 	
-	//LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), 'text','equals',dynamicObject, true)
-	//WebUI.click(LinkToSearch, FailureHandling.STOP_ON_FAILURE)
+	//txtval = x++
 	
-	LinkToSearch = WebUI.modifyObjectProperty(findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), 'text','equals',txtval, true)
-	WebUI.click(LinkToSearch, FailureHandling.STOP_ON_FAILURE)
-    //WebUI.click(findTestObject('jQueryDatePicker/Page_jQuery datePicker Next Month/day 1'), x++, index)
-	//WebUI.delay(3)
-	//WebUI.closeBrowser()
-	/*counter++;
-	if (counter >= 31){
-		break;
-	}*/
+	//WebUI.delay(1)
 }
+
+println "DEBUG list of dates: "+l
 WebUI.closeBrowser()

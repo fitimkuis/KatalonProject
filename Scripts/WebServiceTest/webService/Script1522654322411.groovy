@@ -1,24 +1,77 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
-import com.kms.katalon.core.checkpoint.CheckpointFactory as CheckpointFactory
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as MobileBuiltInKeywords
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling as FailureHandling
-import com.kms.katalon.core.testcase.TestCase as TestCase
-import com.kms.katalon.core.testcase.TestCaseFactory as TestCaseFactory
-import com.kms.katalon.core.testdata.TestData as TestData
-import com.kms.katalon.core.testdata.TestDataFactory as TestDataFactory
-import com.kms.katalon.core.testobject.ObjectRepository as ObjectRepository
-import com.kms.katalon.core.testobject.TestObject as TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WSBuiltInKeywords
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import internal.GlobalVariable as GlobalVariable
 
-response = WS.sendRequest(findTestObject('WebServiceReqs/webRequest'))
+import com.kms.katalon.core.logging.KeywordLogger
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+def response = WS.sendRequest(findTestObject('WebServiceReqs/webRequest'))
+def responseText = response.getResponseText()
+//println responseText
+
+/*
+JsonSlurper jsl = new JsonSlurper()	
+RequestObject ro = new RequestObject()	
+def myJson = ""	
+def parsedResponse = ""	
+String defaultUrl = "http://webhook.satyamphysio.in:8081/Lang.Product-en.json"	
+String customUrl = "http://webhook.satyamphysio.in:8081/Lang.UserProduct-en.json"	
+ro.setRestRequestMethod("GET")	
+ro.setRestUrl(defaultUrl)	
+ResponseObject resp = WSBuiltInKeywords.sendRequest(ro)	
+if (resp.getStatusCode() == 200) {
+	
+  // replace BOM in response text		
+	myJson = resp.getResponseText().replaceAll("\uFEFF","")		
+	parsedResponse = jsl.parseText(myJson)	
+	}	
+*/
+
+println JsonOutput.prettyPrint(responseText)
+
+def jsonSlurper = new JsonSlurper()
+def object = jsonSlurper.parseText(responseText)
+int jsonSize = object.MRData.CircuitTable.Circuits.circuitId.size()
+
+KeywordLogger log = new KeywordLogger()
+log.logInfo("count of json side "+jsonSize)
+
+//println "count of json side "+jsonSize
+List <String> data = new ArrayList<>()
+
+for (int i = 0; i < jsonSize; i++){
+	println(object.MRData.CircuitTable.Circuits.circuitId[i])
+	data.add(object.MRData.CircuitTable.Circuits.circuitId[i].toString())
+}
+CustomKeywords.'spreadsheet.WriteToFile.writeToExcelJsonData'(data, 1, 2)
+
+for (int x = 0; x < object.MRData.CircuitTable.Circuits.circuitName.size(); x++){
+	println(object.MRData.CircuitTable.Circuits.circuitName[x])
+	
+}
+
+for (int y = 0; y < object.MRData.CircuitTable.Circuits.circuitName.size(); y++){
+	println(object.MRData.CircuitTable.Circuits.Location.country[y])
+	
+}
+//def text = {"applications":[{"name":"test123","id":"c1257c5","description":"test","type":"generic","version":"0.1"},{"name":"Asset_1","id":"a9e0bce","description":"sfsdgdg","type":"generic","version":"0.1"},{"name":"Asset_2","id":"a9e0cd2","description":"sffgdgf","type":"generic","version":"0.1"}]}
+
+def json = new JsonSlurper().parseText('{"applications":[{"name":"test123","id":"c1257c5","description":"test","type":"generic","version":"0.1"},{"name":"Asset_1","id":"a9e0bce","description":"sfsdgdg","type":"generic","version":"0.1"},{"name":"Asset_2","id":"a9e0cd2","description":"sffgdgf","type":"generic","version":"0.1"}]}')
+println(json.applications[1].id)
+/*println JsonOutput.prettyPrint(text)
+def jsonSlurper = new JsonSlurper()
+def object = jsonSlurper.parseText(text)*/
+
+//assert object.response[0].id == 'c1257c5'
+//println object.get("applications").get(0).get("id")
+//JsonSlurper slurper = new JsonSlurper()
+//Map parsedJson = slurper.parseText(response)
+//println parsedJson.get("applications").get(0).get("id")
+
+println "response: $response"
+def cookiez = response.getHeaderFields()['Set-Cookie']
+println cookiez
 WS.verifyResponseStatusCode(response, 200)
 WS.containsString(response, 'Bahrain International Circuit', false)
+

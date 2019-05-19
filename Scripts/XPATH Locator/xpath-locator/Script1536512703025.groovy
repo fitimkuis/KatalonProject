@@ -14,20 +14,28 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 import com.kms.katalon.core.testobject.ConditionType
 
+
+//search case-insensitivity text with xpath
+// //*[matches(text(), ‘^some text$’, ‘i’)]
+//xpath= //*[matches(text(), '(.+?)', 'i'), "some text"]
+//text() is the ‘attribute’ you’re checking
+//‘(.+?)’ is a regex pattern to match
+//‘i’ is a flag indicating case-insensitivity
+
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')
 
-//WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/a_Make Appointment'))//
+//WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/a_MakeAppointment'))//
 
 //show existing one xpath
-//WebUI.waitForElementVisible(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/xpath'))//
+//WebUI.waitForElementVisible(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath'))//
 
-myPredefinedObject = findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/xpath')
+myPredefinedObject = findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath')
 println ("**********DEBUG*************"+myPredefinedObject)
 
 //get object xpath properties
-myPredefinedObject2 = findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/a_Make Appointment')
+myPredefinedObject2 = findTestObject('xpathTestRepository/Page_CURA-HealthcareService/a_MakeAppointment')
 def properties = myPredefinedObject2.getXpaths()
 println ("**********DEBUG XPATH PROPERTIES*************"+properties)
 for (def prop : properties){
@@ -51,40 +59,40 @@ myNewObject = new TestObject("myNewObject")
 //  a boolean value to indicate if the property will be used to identify the object during execution
 myNewObject.addProperty("xpath", ConditionType.EQUALS, "//header[@id='top']/div/a", true)
 
-def testObject = findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/xpath', [('id') : '{btn-make-appointment}'])
+//def testObject = findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath', [('id') : '{btn-make-appointment}'])
 
 //change xpath
-new_xpath = WebUI.modifyObjectProperty(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/xpath'),'xpath', 'equals', "//a[contains(text(),'Make Appointment')]",true )
+//new_xpath = WebUI.modifyObjectProperty(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath'),'xpath', 'equals', "//a[contains(text(),'Make Appointment')]",true )
 ///WebUI.click(new_xpath)//use new xpath locator
 WebUI.click(myNewObject)//use new relative xpath locator
 
-//WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/xpath'))//
+//WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/xpath'))//
 
-WebUI.setText(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/input_Username_username'), 
+WebUI.setText(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/input_Username_username'), 
     'John Doe')
 
-WebUI.setEncryptedText(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/input_Password_password'), 
+WebUI.setEncryptedText(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/input_Password_password'), 
     'g3/DOGG74jC3Flrr3yH+3D/yKbOqqUNM')
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/button_Login'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/button_Login'))
 
-WebUI.selectOptionByValue(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/select_Tokyo CURA Healthcare C'), 
+WebUI.selectOptionByValue(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/select_TokyoCURA-HealthcareC'), 
     'Hongkong CURA Healthcare Center', true)
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/input_Apply for hospital readm'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/input_Apply-for-hospital-readm'))
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/input_Medicaid_programs'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/input_Medicaid_programs'))
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/div_Visit Date (Required)_inpu'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/div_VisitDate(Required)_inpu'))
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/td_30'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/td_30'))
 
-WebUI.setText(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/textarea_Comment_comment'), 
+WebUI.setText(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/textarea_Comment_comment'), 
     'this is comment')
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/button_Book Appointment'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/button_BookAppointment'))
 
-WebUI.click(findTestObject('Object Repository/xpathTestRepository/Page_CURA Healthcare Service/h2_Appointment Confirmation'))
+WebUI.click(findTestObject('xpathTestRepository/Page_CURA-HealthcareService/h2_AppointmentConfirmation'))
 
 WebUI.verifyTextPresent('Make Appointment', false, FailureHandling.CONTINUE_ON_FAILURE)
 

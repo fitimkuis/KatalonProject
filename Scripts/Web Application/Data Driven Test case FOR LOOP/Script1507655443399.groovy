@@ -9,24 +9,17 @@ InternalData data = findTestData('Login/LoginTestData')
 for (def index : (0..data.getRowNumbers() - 1)) {
     'Invoke Browser and Navigate to Demo Application'
     WebUI.openBrowser('')
-
     WebUI.navigateToUrl(GlobalVariable.URL_Application)
-
     'Wait till the page load'
     //WebUI.waitForPageLoad(10)´
-	WebUI.click(findTestObject('Object Repository/Login Page of Demo Application/a_Make Appointment'))
-
+	WebUI.click(findTestObject('LoginPage-of-DemoApplication/a_MakeAppointment'))
     'Enter the value of username (From Internal Test Data)'
-	WebUI.setText(findTestObject('Login Page of Demo Application/input_username'), data.internallyGetValue("user", index))
-	
+	WebUI.setText(findTestObject('LoginPage-of-DemoApplication/input_username'), data.internallyGetValue("user", index))	
     'Enter the value of password (From Internal Test Data)'
-    WebUI.setText(findTestObject('Login Page of Demo Application/input_password'), data.internallyGetValue("pass", index))
-
+    WebUI.setText(findTestObject('LoginPage-of-DemoApplication/input_password'), data.internallyGetValue("pass", index))
     'Click on Login Button\\r\\n'
-    WebUI.click(findTestObject('Login Page of Demo Application/button_Login'))
-
-    //WebUI.verifyElementPresent(findTestObject('Make Appointment Page/btn_Book Appointment'), GlobalVariable.SmallTimeout)
-
+    WebUI.click(findTestObject('LoginPage-of-DemoApplication/button_Login'))
+    //WebUI.verifyElementPresent(findTestObject('MakeAppointmentPage/btn_BookAppointment'), GlobalVariable.SmallTimeout)
     'Close the Browser'
     WebUI.closeBrowser()
 }

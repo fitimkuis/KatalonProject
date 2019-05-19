@@ -46,7 +46,7 @@ public class getGmail {
 		//gmailPort = 587
 
 		//user = GlobalVariable.gmailUser
-		//password = GlobalVariable.password
+		//password = GlobalVariable.pass
 
 		// gmail label, or "INBOX" for inbox
 		inboxFolder = "INBOX"
@@ -59,18 +59,17 @@ public class getGmail {
 		//EndDate = "2-4-2018"
 		////////////////////// </CONFIGURATION> //////////////////////
 
+		Properties props = new Properties();
+		props.load(new FileInputStream(new File( "C:\\Users\\fitim\\Desktop\\gmail\\smtp.properties" )));
+		Session session = Session.getDefaultInstance(props, null);
+
 		//StartDate = Date.parse("dd-MM-yyyy", StartDate)
 		//EndDate = Date.parse("dd-MM-yyyy", EndDate)
-
-		String host = "imap.gmail.com";
+		password = GlobalVariable.pass;
 		String username = GlobalVariable.gmailUser;
-		password = GlobalVariable.password;
-		Properties props = new Properties();
-		props.setProperty("mail.imap.ssl.enable", "true");
-		// set any other needed mail.imap.* properties here
-		Session session = Session.getInstance(props);
-		Store store = session.getStore("imap");
-		store.connect(host, username, password);
+		Store store = session.getStore("imaps");
+		///store.connect("smtp.gmail.com", username,password);
+		store.connect("smtp.gmail.com", "fitimkuis@gmail.com", "ModeeMi16");
 
 		int i = 0;
 		def folder = store.getFolder(inboxFolder)

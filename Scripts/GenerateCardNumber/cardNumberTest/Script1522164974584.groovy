@@ -21,6 +21,19 @@ import internal.GlobalVariable as GlobalVariable
 
 import java.util.Scanner;
 
+//Verify if checked data of checkpoint matches their source data.
+WebUI.verifyCheckpoint(findCheckpoint('Checkpoints/Checkpoint'), false)
+
+String hostname =  '192.168.0.12'
+boolean reachable = InetAddress.getByName(hostname).isReachable(10);
+if(reachable){
+	print '*************NETWORK IS NOT VPN CONNECTED*************'
+}
+else{
+	print '*************NETWORK IS VPN CONNECTED*************'
+}
+
+
 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 String accStr;
 net.andreinc.mockneat.types.enums.CreditCardType ct

@@ -1,0 +1,15 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+Pdf,Chrome 72.0.3626.121,,2019-03-19 20:34:16,2019-03-19 20:35:05,"48,430s",PASSED
+,,,,,,
+Test Cases/ReadPdf/pdfReader,Chrome 72.0.3626.121,,2019-03-19 20:34:19,2019-03-19 20:35:04,"45,561s",PASSED
+Start listener action : sampleBeforeTestCase,Chrome 72.0.3626.121,,2019-03-19 20:34:19,2019-03-19 20:34:19,"0,237s",PASSED
+"openBrowser("""")",Chrome 72.0.3626.121,,2019-03-19 20:34:21,2019-03-19 20:34:31,"9,516s",PASSED
+"navigateToUrl(""http://www.testingdiaries.com/selenium-webdriver-read-pdf-content/"")",Chrome 72.0.3626.121,,2019-03-19 20:34:31,2019-03-19 20:34:53,"22,639s",PASSED
+"click(findTestObject(""Page_SeleniumWebDriverRead-PDF-Co/a_this-location""))",Chrome 72.0.3626.121,,2019-03-19 20:34:54,2019-03-19 20:34:55,"1,360s",PASSED
+"pdfContent = readPdfFile.verifyPdfContent.readPdfFileVerify(""http://www.axmag.com/download/pdfurl-guide.pdf"")",Chrome 72.0.3626.121,,2019-03-19 20:34:55,2019-03-19 20:35:01,"5,997s",PASSED
+"Assert.assertTrue(pdfContent.contains(""Open the setting.xml, you can see it is like this:""))",Chrome 72.0.3626.121,,2019-03-19 20:35:01,2019-03-19 20:35:01,"0,166s",PASSED
+"Assert.assertTrue(pdfContent.contains(""Please add the following sentence in setting.xml before""))",Chrome 72.0.3626.121,,2019-03-19 20:35:01,2019-03-19 20:35:01,"0,008s",PASSED
+"Assert.assertTrue(pdfContent.contains(""You can see that I have modified the setting.xml, and if open the file in IE, it is like this:""))",Chrome 72.0.3626.121,,2019-03-19 20:35:01,2019-03-19 20:35:01,"0,005s",PASSED
+"println(""PDF IS GOOD TO GO...
+"")",Chrome 72.0.3626.121,,2019-03-19 20:35:01,2019-03-19 20:35:01,"0,021s",PASSED
+closeBrowser(),Chrome 72.0.3626.121,,2019-03-19 20:35:01,2019-03-19 20:35:04,"2,963s",PASSED

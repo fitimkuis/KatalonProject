@@ -11,15 +11,15 @@ public class ReadOnly {
 	@Keyword
 	def readOnlyTrue(){
 		if(Desktop.isDesktopSupported()) {
-			
+
 			WebUI.openBrowser('')
 			WebUI.navigateToUrl("https://jqueryui.com/datepicker/")
-			WebUI.switchToFrame(findTestObject('Object Repository/DatePicker/Page_Datepicker  jQuery UI 2/iframe_demo-frame'),10)
-			
-			WebUI.click(findTestObject('DatePicker/Page_Datepicker  jQuery UI 2/input_datepicker'))
-			
-			WebUI.click(findTestObject('DatePicker/Page_Datepicker  jQuery UI/a_20'))
-			
+			WebUI.switchToFrame(findTestObject('DatePicker/Page_Datepicker_ jQueryUI2/iframe_demo-frame'),10)
+
+			WebUI.click(findTestObject('DatePicker/Page_Datepicker_ jQueryUI2/input_datepicker'))
+
+			WebUI.click(findTestObject('DatePicker/Page_Datepicker jQueryUI/a_20'))
+
 			//Desktop.getDesktop().browse(new URI("https://jqueryui.com/datepicker/"));
 			String param = "kissa"
 
