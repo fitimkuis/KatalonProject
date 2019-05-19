@@ -18,3 +18,18 @@ def goto_google(allArgs):
   input_element.send_keys("Search and close after 5 seconds")
   input_element.submit()
   time.sleep(5)
+  
+def goto_katalon_demo(allArgs):
+  driver = utils.get_driver(allArgs)
+  driver.get("https://katalon-demo-cura.herokuapp.com/")
+  driver.find_element_by_id("btn-make-appointment").click()
+  input_element = driver.find_element_by_id("txt-username")
+  input_element.send_keys("John Doe")
+  input_element = driver.find_element_by_id("txt-password")
+  input_element.send_keys("ThisIsNotAPassword")
+  driver.find_element_by_id("btn-login").click()
+  time.sleep(3)
+  input_element = driver.find_element_by_id("combo_facility")
+  input_element.send_keys("Hongkong CURA Healthcare Center")
+  driver.find_element_by_id("chk_hospotal_readmission").click()
+  driver.find_element_by_id("radio_program_medicaid").click()
