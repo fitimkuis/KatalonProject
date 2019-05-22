@@ -6,10 +6,14 @@ import org.joda.time.format.DateTimeFormatter
 import org.joda.time.format.ISODateTimeFormat
 
 import com.kms.katalon.core.exception.StepErrorException
-import com.kms.katalon.core.logging.KeywordLogger
 import com.kms.katalon.core.util.KeywordUtil
 
+import internal.GlobalVariable
+
 KeywordUtil log = new KeywordUtil()
+
+def ret = GlobalVariable.long_paramer_name_described_more_words_needed_here
+println ret
 
 def String numberFromString(String str) {
 	String numbers= str.replaceAll("[^0-9]", "")
