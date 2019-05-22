@@ -134,4 +134,9 @@
       <initValue>0</initValue>
       <name>age</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'ZZ'</initValue>
+      <name>long_paramer_name_described_more_words_needed_here</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

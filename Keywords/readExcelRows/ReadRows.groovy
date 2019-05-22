@@ -10,23 +10,23 @@ public class ReadRows {
 
 	public String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\fitim\\Desktop\\data\\readExcelSheet.xls";
 	Workbook workbook
-	
+
 	@Keyword
 	public int getCountOfRows(String path){
-		
+
 		// Creating a Workbook from an Excel file (.xls or .xlsx)
 		workbook = WorkbookFactory.create(new File(path));
 		//Sheet sheet = workbook.getSheet("sheet0");
 		Sheet sheet = workbook.getSheetAt(0);
 		int lastRowNum = sheet.getLastRowNum()
-		
+
 		int used = sheet.getRow(0).getPhysicalNumberOfCells();
 		println "rows used "+used
-		
+
 		int last = sheet.getRow(0).getLastCellNum();
 		println "rows last "+last
-			
-		return lastRowNum;		
+
+		return lastRowNum;
 	}
 
 	@Keyword
@@ -87,7 +87,7 @@ public class ReadRows {
 		// 2. Or you can use a for-each loop to iterate over the rows and columns
 		//System.out.println("\n\nIterating over Rows and Columns using for-each loop\n");
 		boolean last = false
-		
+
 		boolean actualValue;
 		int lastRowNum = sheet.getLastRowNum()
 		lastRowNum++
@@ -99,9 +99,9 @@ public class ReadRows {
 		int endRow = 0;
 		for (Row row: sheet) {
 			for(Cell cell: row) {
-				
+
 				if (startRow >= start && endRow < end && last==false){
-					
+
 					if (cell == null || cell.getCellType() == Cell.CELL_TYPE_BLANK) {
 						excelValues.add("**no value**");
 					}else{
@@ -109,10 +109,10 @@ public class ReadRows {
 						System.out.print(cellValue + ",");
 						excelValues.add(cellValue);
 					}
-					
+
 					/*String cellValue = dataFormatter.formatCellValue(cell);
-					System.out.print(cellValue + ",");
-					excelValues.add(cellValue);*/
+					 System.out.print(cellValue + ",");
+					 excelValues.add(cellValue);*/
 				}
 				if (last){
 					String cellValue = dataFormatter.formatCellValue(cell);
