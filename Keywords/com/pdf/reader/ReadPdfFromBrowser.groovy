@@ -36,7 +36,7 @@ public class ReadPdfFromBrowser {
 
 	@Keyword
 	public String PdfReaderUtil(){
-		
+
 		String pdfFileInText = "";
 
 		driver=new ChromeDriver();
@@ -62,9 +62,9 @@ public class ReadPdfFromBrowser {
 
 			// split by whitespace
 			/*String lines[] = pdfFileInText.split("\\r?\\n");
-			for (String line : lines) {
-				System.out.println(line);
-			}*/
+			 for (String line : lines) {
+			 System.out.println(line);
+			 }*/
 		}
 		driver.close();
 		return pdfFileInText;

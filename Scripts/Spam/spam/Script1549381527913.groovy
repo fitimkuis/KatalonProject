@@ -5,12 +5,38 @@ import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormatter
 import org.joda.time.format.ISODateTimeFormat
 
+import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.exception.StepErrorException
 import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.webui.common.WebUiCommonHelper
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
 
 KeywordUtil log = new KeywordUtil()
+
+/*
+//just do a simple click
+WebUI.click(findTestObject("your_dropdown-image"))
+WebUI.waitForElementVisible(findTestObject("your_dropdown-Item_MyAccount"), 30)
+WebUI.click(findTestObject("your_dropdown-Item_MyAccount"))
+
+//this will collect the dropdown items once it becomes visible in the website
+java.util.List<WebElement> dropDownItems = WebUiCommonHelper.findElements(findTestObject("your_testObject"), 30)
+
+//it will be stored in your list of webelement like this
+//0 = My Account
+//1 = Logout
+
+//to click that "My Account", do a click event using the list's index
+dropDownItems[0].click()
+*/
+
+println RunConfiguration.getExecutionSource().substring(RunConfiguration.getExecutionSource().toString().lastIndexOf("\\")+1)
+println RunConfiguration.getExecutionSourceName()
+println RunConfiguration.executionSource
+println RunConfiguration.getExecutionSourceId()
+println RunConfiguration.getExecutionSourceDescription()
 
 def ret = GlobalVariable.long_paramer_name_described_more_words_needed_here
 println ret
