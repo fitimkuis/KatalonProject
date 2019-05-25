@@ -65,10 +65,12 @@ for (int k = 0; k < data.rowNumbers; k++){
 	println listOMaps.get(k)
 }
 
-//loop key value from the map
+int r = 1
+//loop key & value from the map
 for (int h = 0; h < data.rowNumbers; h++){
 	
 	for (Map.Entry<String, String> entry : listOMaps.get(h).entrySet()) {
-	    System.out.println(entry.getKey() + ":" + entry.getValue());
+	    System.out.println("row "+r+" "+entry.getKey() + ":" + entry.getValue());
 	}
+	r++
 }
