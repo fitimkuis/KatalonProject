@@ -253,4 +253,16 @@
          <variableId>9f637f52-ce52-44ef-b2fc-08fb507a1642</variableId>
       </variableLink>
    </testCaseLink>
+   <testCaseLink>
+      <guid>54d09304-5de4-4ebb-a952-0fbce8b5a339</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ChromeDriverTest/CreateChromeDriver</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>c095917c-f814-4b7c-9a1e-2bce659346ac</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ExcelDataBinding/databindFromExcel</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
