@@ -25,7 +25,7 @@ def loop_until():
 
 def read_log(path):
     path = path + "\\log"
-    print "DEBUG %s" % (path)
+    #print "DEBUG %s" % (path)
 
     important = []
     keep_phrases = ["End sending to Katalon Analytics","Report has been sent to Katalon Analytics"]
@@ -135,6 +135,7 @@ while (datetime.now()-t1).seconds <= 1400:
     if search in log:
         print "Report has been sent to Katalon Analytics time elapsed: %02d \n" % (elapsed)
         t = 0
+        time.sleep(5)
         break
     elif search not in log:
         #print "waiting report to been sent Katalon Analytics..."
