@@ -19,7 +19,7 @@
    <testCaseLink>
       <guid>4a78cf4f-ba67-40b8-9af1-83547c328ff5</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Web Application/Data Driven Test case FOR LOOP</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
@@ -163,7 +163,7 @@
    <testCaseLink>
       <guid>22147c45-a0a7-4fcf-b6df-8f7d76e25a5d</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/HtmlTableValues/TableValues</testCaseId>
    </testCaseLink>
    <testCaseLink>
