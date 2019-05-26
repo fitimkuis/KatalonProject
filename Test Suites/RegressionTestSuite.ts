@@ -35,12 +35,6 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>54e90cc7-e1e3-4eed-9dcc-1b7b6bbbf821</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
-      <testCaseId>Test Cases/Demo/demotest</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
       <guid>20a1d9a7-07fb-4c1c-8791-4c73860b0f7e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
@@ -57,12 +51,6 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/Web Application/datePicker</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>4e275579-5e82-4663-b6da-baf6c6cc119f</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/Web Application/demoaut</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>f403c489-bf2c-4f5d-bf0b-bf49397ea83b</guid>
@@ -155,12 +143,6 @@
       <testCaseId>Test Cases/CaptureAlert/alertCapture</testCaseId>
    </testCaseLink>
    <testCaseLink>
-      <guid>301bb606-d36c-4837-98a5-9e26a6518ff9</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/GetAttributeValue/getAttribute</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
       <guid>22147c45-a0a7-4fcf-b6df-8f7d76e25a5d</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
@@ -173,22 +155,10 @@
       <testCaseId>Test Cases/IniFileUtil/iniFile</testCaseId>
    </testCaseLink>
    <testCaseLink>
-      <guid>e3a3d427-88f9-4fd5-88ab-bf07622419f3</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/FileUpload/uploadFile</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
       <guid>943578ac-fd98-4cc4-b3f1-b7f811d5f9bc</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/PdfUtil/mergePdfFiles</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>44872692-bbec-4637-bbd4-09a7973688a7</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/GnerateSIN/generateSin</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>db9219cd-ca7b-4bf0-a354-fe369cacec6c</guid>
@@ -201,36 +171,6 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/PropertiesFile/properties</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>685a9762-bc9e-478b-ba26-c51b7d3a6e4a</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/IsFileDownloaded/fileDownload</testCaseId>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>e58d6978-da3b-4277-a92b-8bd9b65d4037</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
-      <testCaseId>Test Cases/GlobalVarBetweenTestSuites/forTestSuite1</testCaseId>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>2048d527-96e5-4e25-aca9-2a058b9883b2</variableId>
-      </variableLink>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>631ee287-2a42-47b8-b11f-6ab2024ff0a7</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
-      <testCaseId>Test Cases/GlobalVarBetweenTestSuites/forTestSuite2</testCaseId>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>b20a97f5-5ddb-4715-9003-bab8a035e691</variableId>
-      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>a9433d4d-2584-40d1-b2c2-fa682545513b</guid>
