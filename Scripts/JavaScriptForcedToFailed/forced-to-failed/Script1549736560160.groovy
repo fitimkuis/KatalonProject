@@ -13,6 +13,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 WebUI.openBrowser('')
 
 
+//WebUI.executeJavaScript("document.getElementsByClassName('DayPicker-Day')[13].click()")
+
 KeywordUtil log = new KeywordUtil()
 log.logInfo("yourMsg")
 
