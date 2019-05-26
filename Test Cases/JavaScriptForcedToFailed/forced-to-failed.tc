@@ -3,6 +3,6 @@
    <description></description>
    <name>forced-to-failed</name>
    <tag></tag>
-   <comment></comment>
+   <comment>myMessage</comment>
    <testCaseGuid>debc25a0-04c9-4709-aa94-72378cdd8e79</testCaseGuid>
 </TestCaseEntity>
