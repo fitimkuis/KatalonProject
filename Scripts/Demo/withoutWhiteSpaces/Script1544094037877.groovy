@@ -14,6 +14,8 @@ log.logInfo("yourMsg")
 
 WebUI.comment("myMessage")
 
+WebUI.focus(null)
+
 WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')
 
 WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/a_MakeAppointment'))

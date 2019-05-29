@@ -35,12 +35,16 @@ public class WriteToFile {
 	private static HSSFRow eRowH;
 	private static HSSFCell eCellH;
 
+	private String excelpath = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData.xls";
+	private String excelpathXlsx = System.getProperty("user.dir")+"\\ExcelFiles\\file_example_XLSX_10.xlsx";
+	private String jsonPath = System.getProperty("user.dir")+"\\ExcelFiles\\json_data.xls";
+
 	@Keyword
 	public void SpreadSheetWrite(){
 
 		try {
 			//create .xls and create a worksheet.
-			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls", true);
+			FileOutputStream fos = new FileOutputStream(excelpath, true);
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet worksheet = workbook.createSheet("SheetName");
 
@@ -96,7 +100,7 @@ public class WriteToFile {
 
 	@Keyword
 	public void updateExcelFile(List<String> excel, colIndex){
-		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
+		FileInputStream fsIP= new FileInputStream(new File(excelpath)); //Read the spreadsheet that needs to be updated
 
 		HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook
 		HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
@@ -111,13 +115,13 @@ public class WriteToFile {
 		}
 
 		fsIP.close(); //Close the InputStream
-		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
+		FileOutputStream output_file =new FileOutputStream(new File(excelpath));  //Open FileOutputStream to write updates
 		wb.write(output_file); //write changes
 	}
 
 	@Keyword
 	public void updateNumberValueXlsx(HashMap<String, String> hmap, colIndexNumbers, colIndexValues)throws FileNotFoundException, IOException, InvalidFormatException{
-		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\file_example_XLSX_10.xlsx")); //Read the spreadsheet that needs to be updated
+		FileInputStream fsIP= new FileInputStream(new File(excelpathXlsx)); //Read the spreadsheet that needs to be updated
 
 		ExcelWBookX = new XSSFWorkbook (fsIP); //Access the workbook
 		ExcelWSheetX = ExcelWBookX.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
@@ -144,13 +148,13 @@ public class WriteToFile {
 		}
 
 		fsIP.close(); //Close the InputStream
-		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\file_example_XLSX_10.xlsx"));  //Open FileOutputStream to write updates
+		FileOutputStream output_file =new FileOutputStream(new File(excelpathXlsx));  //Open FileOutputStream to write updates
 		ExcelWBookX.write(output_file); //write changes
 	}
 
 	@Keyword
 	public void updateNumberValue(HashMap<String, String> hmap, colIndexNumbers, colIndexValues){
-		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
+		FileInputStream fsIP= new FileInputStream(new File(excelpath)); //Read the spreadsheet that needs to be updated
 
 		ExcelWBookH = new HSSFWorkbook (fsIP); //Access the workbook
 		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
@@ -177,13 +181,13 @@ public class WriteToFile {
 		}
 
 		fsIP.close(); //Close the InputStream
-		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
+		FileOutputStream output_file =new FileOutputStream(new File(excelpath));  //Open FileOutputStream to write updates
 		ExcelWBookH.write(output_file); //write changes
 	}
 
 	@Keyword
 	public void updateExcelFile2(List<String> excel, colIndex){
-		FileInputStream fsIP= new FileInputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls")); //Read the spreadsheet that needs to be updated
+		FileInputStream fsIP= new FileInputStream(new File(excelpath)); //Read the spreadsheet that needs to be updated
 
 		ExcelWBookH = new HSSFWorkbook (fsIP); //Access the workbook
 		ExcelWSheetH = ExcelWBookH.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
@@ -204,7 +208,7 @@ public class WriteToFile {
 		}
 
 		fsIP.close(); //Close the InputStream
-		FileOutputStream output_file =new FileOutputStream(new File("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls"));  //Open FileOutputStream to write updates
+		FileOutputStream output_file =new FileOutputStream(new File(excelpath));  //Open FileOutputStream to write updates
 		ExcelWBookH.write(output_file); //write changes
 	}
 
@@ -214,7 +218,7 @@ public class WriteToFile {
 
 		try {
 			//create .xls and create a worksheet.
-			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\xlsData.xls", true);
+			FileOutputStream fos = new FileOutputStream(excelpath, true);
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet worksheet = workbook.createSheet("SheetName");
 			HSSFRow row;
@@ -289,7 +293,7 @@ public class WriteToFile {
 			//create .xls and create a worksheet.
 			//File file = new File("C:\\Users\\fitim\\Desktop\\data\\json_data.xls");
 			//FileOutputStream fos = null;
-			FileOutputStream fos = new FileOutputStream("C:\\Users\\fitim\\Desktop\\data\\json_data.xls", true);
+			FileOutputStream fos = new FileOutputStream(jsonPath, true);
 
 			// if file doesn't exists, then create it
 			/*if (!file.exists()) {

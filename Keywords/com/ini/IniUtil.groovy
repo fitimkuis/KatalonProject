@@ -25,13 +25,15 @@ import org.apache.commons.configuration.SubnodeConfiguration
 
 
 public class IniUtil {
+	
+	private String iniPath = System.getProperty("user.dir")+"\\inidata\\myinifile.ini";
 
 	@Keyword
 	public List<Object> readInitFile(){
 
 		List <Object> lis = new ArrayList<>()
 
-		Wini ini = new Wini(new File("C:/Users/fitim/Desktop/data/inidata/myinifile.ini"));
+		Wini ini = new Wini(new File(iniPath));
 		int age = ini.get("owner", "age", int.class);
 		lis.add(age)
 		double height = ini.get("owner", "height", double.class);
@@ -50,7 +52,7 @@ public class IniUtil {
 		Properties prop = new Properties();
 		//c:\\myapp\\config.ini is the location of the ini file
 		//ini file should look like host=localhost
-		prop.load(new FileInputStream("C:/Users/fitim/Desktop/data/inidata/myinifile.ini"));
+		prop.load(new FileInputStream(iniPath));
 		String port = prop.getProperty("port");
 		System.out.print("Port: " + port + "\n");
 	}
@@ -58,7 +60,7 @@ public class IniUtil {
 	@Keyword
 	public void HierarchicalINIConfigurationExample(){
 
-		HierarchicalINIConfiguration iniConfObj = new HierarchicalINIConfiguration("C:/Users/fitim/Desktop/data/inidata/myinifile.ini");
+		HierarchicalINIConfiguration iniConfObj = new HierarchicalINIConfiguration(iniPath);
 
 		// Get Section names in ini file
 		Set setOfSections = iniConfObj.getSections();
