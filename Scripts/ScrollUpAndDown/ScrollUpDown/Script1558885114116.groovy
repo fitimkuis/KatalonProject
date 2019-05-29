@@ -13,34 +13,13 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+WebUI.openBrowser('')
+WebUI.navigateToUrl("https://www.iltalehti.fi/")
 
-import com.esotericsoftware.yamlbeans.YamlReader;
-
-
-private String yamlContactPath = System.getProperty("user.dir")+"\\YAML\\contact.yaml";
-private String yamlUsersPath = System.getProperty("user.dir")+"\\YAML\\users.yaml";
-
-YamlReader reader = new YamlReader(new FileReader(yamlContactPath));
-Object object = reader.read();
-System.out.println(object);
-Map map = (Map)object;
-System.out.println(map.get("address"));
-System.out.println(map.get("name"));
-System.out.println(map.get("phone numbers"));
-
-
-reader2 = new YamlReader(new FileReader(yamlUsersPath));
-Object object2 = reader2.read();
-System.out.println(object2);
-Map map2 = (Map)object2;
-System.out.println(map2.get("url1"));
-System.out.println(map2.get("user1"));
-System.out.println(map2.get("pass1"));
-
-
+for (int i = 0; i < 5; i++){
+WebUI.scrollToPosition(999999, 999999)
+WebUI.delay(3)
+WebUI.scrollToPosition(0, 0)
+WebUI.delay(3)
+}
+WebUI.closeBrowser()

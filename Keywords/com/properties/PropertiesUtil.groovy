@@ -26,12 +26,13 @@ import internal.GlobalVariable
 public class PropertiesUtil {
 
 	Properties prop
+	private String propertiesPath = System.getProperty("user.dir")+"\\Include\\PROPERTIES\\config.properties";
 
 	public void WriteProperties(){
 
 		try {
 
-			OutputStream output = new FileOutputStream("C:\\Users\\fitim\\.git\\KatalonProject\\Include\\Include\\PROPERTIES\\config.properties")
+			OutputStream output = new FileOutputStream(propertiesPath)
 			prop = new Properties();
 
 			// set the properties value
@@ -52,7 +53,7 @@ public class PropertiesUtil {
 	public String GetProperty(String strProp){
 
 		try{
-			InputStream input = new FileInputStream("C:\\Users\\fitim\\.git\\KatalonProject\\Include\\PROPERTIES\\config.properties")
+			InputStream input = new FileInputStream(propertiesPath)
 			prop = new Properties();
 
 			// load a properties file
@@ -74,7 +75,7 @@ public class PropertiesUtil {
 	public Properties GetAllProperties(){
 
 		try{
-			InputStream input = new FileInputStream("C:\\Users\\fitim\\.git\\KatalonProject\\Include\\PROPERTIES\\config.properties")
+			InputStream input = new FileInputStream(propertiesPath)
 			prop = new Properties();
 
 			// load a properties file
