@@ -23,8 +23,8 @@ import java.util.Map;
 import com.esotericsoftware.yamlbeans.YamlReader;
 
 
-private String yamlContactPath = System.getProperty("user.dir")+"\\YAML\\contact.yaml";
-private String yamlUsersPath = System.getProperty("user.dir")+"\\YAML\\users.yaml";
+String yamlContactPath = System.getProperty("user.dir")+"\\YAML\\contact.yaml";
+String yamlUsersPath = System.getProperty("user.dir")+"\\YAML\\users.yaml";
 
 YamlReader reader = new YamlReader(new FileReader(yamlContactPath));
 Object object = reader.read();
