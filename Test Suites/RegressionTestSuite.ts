@@ -43,7 +43,7 @@
    <testCaseLink>
       <guid>2dc06547-fe96-4499-902a-8d1eb8685bd7</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -55,7 +55,7 @@
    <testCaseLink>
       <guid>f403c489-bf2c-4f5d-bf0b-bf49397ea83b</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Web Application/jQueryDatePicker</testCaseId>
       <variableLink>
          <testDataLinkId></testDataLinkId>
