@@ -19,10 +19,10 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable
 
 public class pingExe {
-	
+
 	@Keyword
 	public void runExe(){
-		
+
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		// Windows
 		processBuilder.command("cmd.exe", "/c", "ping -n 3 google.com");

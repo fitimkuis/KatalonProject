@@ -20,7 +20,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable
 
 public class JavaSinGenerator {
-	
+
 	@Keyword
 	public String getSinAsString() {
 		String MySin = WebUI.executeJavaScript('{var validPrefix = new Array(1, 2, 3, 4, 5, 6, 7, 9);var length = 9;var sin = new Array(length);sin[0] = validPrefix[Math.floor(Math.random() * validPrefix.length)];var index = 1;while (index < length - 1) {sin[index] = Math.floor(Math.random() * 9);index++;} var sum = 0;var pos = 1; while (pos < length - 1){var odd = sin[pos] * 2;sum += odd > 9 ? odd - 9 : odd;sum += sin[pos - 1]; pos += 2;}var checkdigit = ((Math.floor(sum / 10) + 1) * 10 - sum) % 10;sin[length - 1] = checkdigit;var MySin = (sin.join(""));return MySin;}', null)
