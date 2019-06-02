@@ -22,7 +22,7 @@ excelValues = CustomKeywords.'readExcelRows.ReadRows.readExcelRows'(1, 2, path)
 System.out.println("Row 2 values")
 for (String temp : excelValues) {
 	//System.out.print(temp + "\t");
-	//log.logInfo(temp + "\t")
+	//log.markPassed(path)(temp + "\t")
 }
 //println headerValues
 println excelValues
