@@ -57,6 +57,14 @@ echo Most recent subfolder: %a%
 robocopy C:\Users\fitim\KatalonFromGitHub\KatalonProject\Reports\RegressionTestSuite\%a% "C:\Program Files (x86)\Jenkins\workspace\TestSuiteCollection\Reports" /E /COPYALL /V /NP /R:0
 if ERRORLEVEL 1 set ERRORLEVEL=0
 
+
+LINUX UBUNTU
+#!/bin/bash
+export DISPLAY=:1
+cd /home/timo/Desktop/katalon-project/KatalonProject
+/home/timo/Desktop/Katalon_Studio_Linux_64-6.1.6/katalon -noSplash  -runMode=console -reportFolder="$WORKSPACE/Reports" -projectPath="$WORKSPACE/KatalonProject.prj" -retry=0 -testSuiteCollectionPath="Test Suites/RegressionTestSuiteCollection" -browserType="Firefox" -apiKey=27f70c12-7093-4ea7-83d6-ed64ce7c257b -apikey=0145e236-3ede-43a2-a1bf-4c5c9e27fd23
+set +e
+
 ###############################################
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 JENKINS WORKSPACE polku
