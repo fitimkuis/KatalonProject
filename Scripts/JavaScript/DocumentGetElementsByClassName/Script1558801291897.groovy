@@ -3,6 +3,27 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+/*
+ @Keyword
+static clickJS (TestObject to, int timeout) {
+    WebUI.waitForElementVisible(to, timeout)
+    try {
+        WebUI.click(to)
+    }
+    catch (Exception e) {
+        WebDriver driver = DriverFactory.getWebDriver()
+        WebElement element = WebUiCommonHelper.findWebElement(to, timeout)
+        JavascriptExecutor executor = ((driver) as JavascriptExecutor)
+        executor.executeScript('arguments[0].click()', element)
+    }
+    throw(e)
+}
+CustomKeyords.'yourPackage.yourClass.clickJS'(findTestObject("yourObject"))
+
+((JavascriptExecutor) DriverFactory.webDriver).executeScript('Your JavaScript-Code', argument);
+ */
+
+
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://eonasdan.github.io/bootstrap-datetimepicker/')
