@@ -1,11 +1,11 @@
-import com.kms.katalon.core.logging.KeywordLogger
+import com.kms.katalon.core.util.KeywordUtil
 
 String path = System.getProperty("user.dir")+"\\demoData.txt";
 
 List l = CustomKeywords.'readFile.read.readFileInList'(path)
 
 String s = l.get(1);
-KeywordLogger log = new KeywordLogger()
+KeywordUtil log = new KeywordUtil()
 log.logInfo("DEBUG value is "+s)
 
   Iterator<String> itr = l.iterator();

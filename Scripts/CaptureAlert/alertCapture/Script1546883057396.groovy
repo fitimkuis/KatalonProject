@@ -15,7 +15,7 @@ KeywordLogger logger = new KeywordLogger()
 
 //Run the Test from TestSuite
 WebUI.openBrowser('http://www.google.com')
-WebUI.maximizeWindow()
+//WebUI.maximizeWindow()
 
 String path = WebUI.takeScreenshot()
 
@@ -43,7 +43,7 @@ File input = new File(path);
 BufferedImage bufImage = ImageIO.read(input);
 
 WebUI.delay(3)
-String scaledConvertedImagePath = "C:\\Users\\fitim\\.git\\KatalonProject\\images\\"+prefix+"Google.png";
+String scaledConvertedImagePath = "C:\\Users\\fitim\\KatalonFromGitHub\\KatalonProject\\images\\"+prefix+"Google.png";
 //BufferedImage scaledBufImage = CustomKeywords.'readImageText.readImage.resized'(bufImage,544, 184); //scale image testing
 BufferedImage scaledBufImage = CustomKeywords.'readImageText.readImage.resized'(bufImage,1066, 468) //scale image
 BufferedImage convertBufImage = CustomKeywords.'readImageText.readImage.convert'(scaledBufImage)//convert to gray
@@ -51,7 +51,7 @@ ImageIO.write(convertBufImage, 'png', new File(scaledConvertedImagePath))//save 
 
 def res = CustomKeywords.'readImageText.readImage.readImageText'(scaledConvertedImagePath)//read text
 System.out.print(res);
-logger.logDebug(res)
+//logger.logDebug(res)
 
 WebUI.delay(2)
 

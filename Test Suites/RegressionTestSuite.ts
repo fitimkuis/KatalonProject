@@ -139,7 +139,7 @@
    <testCaseLink>
       <guid>77401652-72e3-48b4-9247-8765c1e416a4</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CaptureAlert/alertCapture</testCaseId>
    </testCaseLink>
    <testCaseLink>
