@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_MakeAppointment</name>
+   <name>a_Make Appointment</name>
    <tag></tag>
-   <elementGuidId>97a3bbdb-56f5-4e1f-a6eb-9f9af864b480</elementGuidId>
+   <elementGuidId>cba806d2-0120-46bf-9be0-6a85f4e78f57</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
          <value>//a[@id='btn-make-appointment']</value>
-      </entry>
-      <entry>
-         <key>BASIC</key>
-         <value>//a[@id = 'btn-make-appointment' and @href = './profile.php#login' and (text() = 'Make Appointment' or . = 'Make Appointment')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

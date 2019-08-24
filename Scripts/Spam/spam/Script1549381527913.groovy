@@ -1,5 +1,7 @@
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormatter
@@ -7,13 +9,39 @@ import org.joda.time.format.ISODateTimeFormat
 
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.exception.StepErrorException
+import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.util.KeywordUtil
-import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import internal.GlobalVariable
 
 KeywordUtil log = new KeywordUtil()
+
+WebUI.openBrowser('https://www.google.com')
+
+if(!WebUI.verifyElementPresent(findTestObject("asd"), 1, FailureHandling.OPTIONAL)){
+	log.logInfo("Element not found but test still passes")
+}
+
+def res = CustomKeywords.'com.two.keyword.Keyword1.getString'("Katalon")
+//def test = CustomKeywords.'com.two.keyword.Keyword2.returnFirstKeywordString'()
+println res
+
+log.logInfo("this is info step")
+log.markFailed("this step is failed")
+log.markError("step has error")
+
+
+
+String test = "JSESSIONID=2334456678SHG888;path=rttt.com/backeben;secured";
+//Pattern p = Pattern.compile("(\\w+)");
+Pattern p = Pattern.compile("JSESSIONID=([^;]+)");
+Matcher m = p.matcher(test);
+while(m.find()) {
+	def splitted = m.group().split("=");
+	System.out.println(splitted[1]);
+}
 
 /*
 //just do a simple click

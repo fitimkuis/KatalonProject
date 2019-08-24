@@ -10,6 +10,10 @@ import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.JavascriptExecutor as JavascriptExecutor
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+
 WebUI.openBrowser('')
 
 
@@ -24,6 +28,9 @@ WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')
 
 WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/a_MakeAppointment'))
 
+//WebUI.executeJavaScript("return document.getElementById('login').innerHTML", false).toString()
+//System.out.println("Text on hompage is- "+text );
+
 //TODO recorded way to add test to inputbox
 //WebUI.setText(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareService/input_Username_username'), 'John Doe')
 WebUI.delay(1)
@@ -35,6 +42,12 @@ WebUI.executeJavaScript("arguments[0].value='John Doe';", Arrays.asList(element)
 //TODO set readOnly property to true
 def x = WebUI.executeJavaScript("return document.getElementById('txt-username').readOnly=true;", null)
 println ("DEBUG readOnly value x "+x)
+
+/*
+WebDriver driver = DriverFactory.getWebDriver()
+JavascriptExecutor js = ((driver) as JavascriptExecutor)
+def archiveID = js.executeScript("return document.getElementById('txt-username').innerHTML;")
+println(archiveID)*/
 
 def y = WebUI.executeJavaScript("return document.getElementsByClassName('form-control')[0].readOnly=false;", null)
 println ("DEBUG readOnly value y "+y)

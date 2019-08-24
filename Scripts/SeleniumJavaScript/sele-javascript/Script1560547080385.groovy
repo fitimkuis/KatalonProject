@@ -18,8 +18,10 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory
 
-//String chromeDriverPath = "C:\\Users\\fitim\\Desktop\\ajuri\\chromedriver.exe";
-//System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 String downloadPath = "C:\\Users\\fitim\\Desktop\\data\\pdf\\"
 Map<String, Object> chromePrefs = new HashMap<String, Object>()
@@ -31,9 +33,28 @@ ChromeOptions options = new ChromeOptions()
 //options.addArguments("--headless")
 options.setExperimentalOption("prefs", chromePrefs)
 WebDriver driver = new ChromeDriver(options)
-driver.get("https://docs.oracle.com/javaee/7/JEETT.pdf");
-WebUI.delay(30)
-System.out.println("Task complete, please go to save folder to see it.");
-driver.close()
 
+driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
+//driver.get("http://www.inviul.com");
+driver.get("http://demoaut.katalon.com/")
+
+//driver.manage().window().maximize();
+//Thread.sleep(1000);
+
+driver.findElement(By.id("btn-make-appointment")).click();
+//WebUI.click(findTestObject('LoginPage-of-DemoApplication/a_MakeAppointment'))
+
+String att = driver.findElement(By.id('demo_username_label')).getAttribute("value")
+System.out.println("Attribute is "+att );
+
+//Javascript command
+JavascriptExecutor js = (JavascriptExecutor)driver;
+String text = js.executeScript("return document.getElementById('demo_username_label').innerHTML").toString();
+System.out.println("Text on hompage is- "+text );
+	  
+Thread.sleep(3000);
+
+driver.close();
+
+driver.quit();
