@@ -30,20 +30,20 @@ aList = CustomKeywords.'com.compare.two.lists.CompareTwoLists.getNameListsCompar
 
 if (aList.get(0).size > 0)
 {
-	logger.logWarning("Missing elements from list two: ")
+	logger.logFailed("Missing elements from list two: ")
 	print ("Missing elements from list two: ")
 	for (int a = 0; a < aList.get(0).size(); a++){
 		print "missing name: "+aList.get(0).get(a)
-		logger.logWarning("missing name: "+aList.get(0).get(a))
+		logger.logFailed("missing name: "+aList.get(0).get(a))
 	}
 }
 
 if (aList.get(1).size() > 0){
-	logger.logWarning("Missing elements from list one: ")
+	logger.logFailed("Missing elements from list one: ")
 	print ("Missing elements from list one: ")
 	for (int b = 0; b < aList.get(1).size(); b++){
 		print "missing name: "+aList.get(1).get(b)
-		logger.logWarning("missing name: "+aList.get(1).get(b))
+		logger.logFailed("missing name: "+aList.get(1).get(b))
 	}
 }
 

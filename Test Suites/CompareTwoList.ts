@@ -16,4 +16,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/GetAttributeValue/getAttribute</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>77c34821-30fd-4144-ab45-97121cc11542</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/CompareTwoLists/CompareTwoLists</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>

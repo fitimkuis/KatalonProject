@@ -1,4 +1,4 @@
-
+/.project
 /bin/
 /Libs/
 /.settings/
@@ -31,3 +31,4 @@ settings/internal/com.kms.katalon.integration.jira.properties
 *.pdf*
 *.xml
 *.log
+> .project
