@@ -44,7 +44,7 @@
       <guid>2dc06547-fe96-4499-902a-8d1eb8685bd7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
+      <testCaseId>Test Cases/Demo-JavaScript-Examples/withoutWhiteSpaces-javascript</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>62176495-edef-483c-9acd-1618dbbede97</guid>

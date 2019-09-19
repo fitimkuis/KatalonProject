@@ -14,6 +14,6 @@
       <guid>2e050b8b-722b-4eaa-9ba5-53e04659df94</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
+      <testCaseId>Test Cases/Demo-JavaScript-Examples/withoutWhiteSpaces-javascript</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
