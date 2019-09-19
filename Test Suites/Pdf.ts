@@ -20,7 +20,7 @@
       <guid>fbb5789b-32ac-4332-92f2-b7df9a908ee7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/Demo/demotest</testCaseId>
+      <testCaseId>Test Cases/Demo-JavaScript-Examples/demotest</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>b0919555-afc7-4b87-8b9c-ecc763dc4dc7</guid>
@@ -98,6 +98,6 @@
       <guid>59a3dbf1-ecad-47c0-a806-6f07a4dcee4c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/Demo/withoutWhiteSpaces</testCaseId>
+      <testCaseId>Test Cases/Demo-JavaScript-Examples/withoutWhiteSpaces-javascript</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
