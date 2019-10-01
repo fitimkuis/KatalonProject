@@ -1,2 +1,5 @@
 [1119/171527.274:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
 [1119/171840.372:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0928/133132.743:ERROR:process_info.cc(359)] UncheckedAllocate
+[0929/111339.081:ERROR:process_info.cc(359)] UncheckedAllocate
+[1001/180611.120:ERROR:process_info.cc(359)] UncheckedAllocate
