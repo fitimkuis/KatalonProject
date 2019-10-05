@@ -1,14 +1,23 @@
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
-import org.openqa.selenium.By
-import org.openqa.selenium.Keys as Keys
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement as WebElement
+import javax.swing.JFrame
+import javax.swing.JOptionPane
 
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.WebElement
+
 import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 KeywordUtil log = new KeywordUtil()
+
+
+JFrame frame = new JFrame("User Input Frame")
+frame.requestFocus()
+String number = JOptionPane.showInputDialog("frame, Enter the days added to current day!")
+int days = Integer.valueOf(number)
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl("https://www.sierratec.com/efacilitydemo/IgGrid_CRUD.aspx")
@@ -42,7 +51,7 @@ log.logInfo("DEBUG day/month/year: "+dayMonthYear)
 //today + 5 days
 WebUI.click(findTestObject('Object Repository/Spy2/SelectFields/clickDatePickerField'))
 WebUI.delay(1)
-for (int i = 0; i < 5; i++){
+for (int i = 0; i < days; i++){
 	WebUI.sendKeys(findTestObject('Object Repository/Spy2/EnterpriseFacilitiesManagementSystem/clickDatePickerField'), Keys.chord(Keys.ARROW_UP))
 }
 WebUI.sendKeys(findTestObject('Object Repository/Spy2/EnterpriseFacilitiesManagementSystem/clickDatePickerField'), Keys.chord(Keys.ENTER))
