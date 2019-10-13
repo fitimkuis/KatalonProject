@@ -10,6 +10,10 @@ import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 
+import com.kms.katalon.core.configuration.RunConfiguration
+def folder = RunConfiguration.getReportFolder()
+print folder
+
 /*WebUI.openBrowser('https://www.katalon.com/')
 def driver = DriverFactory.getWebDriver()
 String baseUrl = "https://www.katalon.com/"
