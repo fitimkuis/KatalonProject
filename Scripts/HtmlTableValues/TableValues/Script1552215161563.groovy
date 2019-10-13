@@ -129,7 +129,8 @@ Loop: for (int row = 0; row < rows_count; row++) {
         'Checking if Cell text is matching with the expected value'
         if (celltext == ExpectedValue) {
             'Getting the Country Name if cell text i.e Company name matches with Expected value'
-            println('Text present in row number 3 is: ' + Columns_row.get(2).getText())
+            println('Text present in row number 3 is: ' + Columns_row.get(row).getText())
+			//Colums_row.click()
 
             'After getting the Expected value from Table we will Terminate the loop'
             //Loop: break

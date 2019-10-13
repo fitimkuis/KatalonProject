@@ -23,6 +23,12 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory
 
+import helper.HelperUtils
+
+CustomKeywords.'helper.HelperUtils.addGlobalVariable'('testURL', 'katalon.com')
+println GlobalVariable.testURL
+
+
 //global variable default value
 println "global variable default value "+GlobalVariable.testVariable
 //give new value for global variable in testsuite1
@@ -50,3 +56,4 @@ options.setExperimentalOption("prefs", chromePrefs)
 WebDriver driver = new ChromeDriver(options)
 driver.get('http://demoaut.katalon.com/')
 WebUI.callTestCase(findTestCase('GlobalVarBetweenTestSuites/forTestSuite2'), [('driver') : driver], FailureHandling.CONTINUE_ON_FAILURE)
+println ("new value given in testcase 2 "+GlobalVariable.testURL)

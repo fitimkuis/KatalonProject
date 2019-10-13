@@ -3,6 +3,6 @@
    <description></description>
    <name>properties</name>
    <tag></tag>
-   <comment></comment>
+   <comment>>>> currentTestCaseId=$GlobalVariable.currentTestCaseId</comment>
    <testCaseGuid>01163d9e-46a5-4b30-90ef-e69ce7c3635f</testCaseGuid>
 </TestCaseEntity>

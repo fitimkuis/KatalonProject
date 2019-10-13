@@ -154,4 +154,9 @@
       <initValue>5</initValue>
       <name>G_ShortTimeOut</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>currentTestCaseId</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
