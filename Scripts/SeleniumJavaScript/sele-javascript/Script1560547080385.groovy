@@ -52,6 +52,12 @@ System.out.println("Attribute is "+att );
 JavascriptExecutor js = (JavascriptExecutor)driver;
 String text = js.executeScript("return document.getElementById('demo_username_label').innerHTML").toString();
 System.out.println("Text on hompage is- "+text );
+
+
+//JavascriptExecutor js = (JavascriptExecutor)driver;
+//String text = js.executeScript("document.querySelector('CSS selectors').disabled = false;")
+
+
 	  
 Thread.sleep(3000);
 

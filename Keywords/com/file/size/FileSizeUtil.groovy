@@ -81,16 +81,4 @@ public class FileSizeUtil {
 		boolean fileSuccessfullyDeleted =  new File(path).delete()  
 		println fileSuccessfullyDeleted
 	}
-	
-	@Keyword
-	public void deleteLatestFile(String path){
-		
-		File file = new File(path)
-		if(file.delete()){
-			System.out.println(file+" File deleted");
-		}
-		else{
-			System.out.println("Failed to delete the file");
-		}
-	}
 }

@@ -26,6 +26,33 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import com.kms.katalon.core.webui.driver.DriverFactory
 
+
+WebUI.executeJavaScript("alert(‘test’)", null)
+WebUI.comment("Line after alert")
+
+
+//another javascript demo
+def jsPath = System.getProperty("user.dir")+"/Include/JavaScript/Jsfunctions.js"
+
+ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+try {
+  engine.eval(new FileReader(jsPath));
+  Invocable invocable = (Invocable) engine;
+  Object result;
+  result = invocable.invokeFunction("display", 'helloWorld');
+  System.out.println(result);
+  System.out.println(result.getClass());
+  } catch (FileNotFoundException | NoSuchMethodException | ScriptException e) {
+	e.printStackTrace();
+	}
+  
+  engine.eval("function composeGreeting(name) {" +"return 'Hello ' + name" +"}");
+	Invocable invocable = (Invocable) engine;
+	 
+	Object funcResult = invocable.invokeFunction("composeGreeting", "baeldung");
+	println funcResult
+	
+
 def htmlPath = System.getProperty("user.dir")+"/Include/JavaScript/prompt.html"
 //CustomKeywords.'readGmail.openWebHtml.openHtmlPage'(htmlPath)
 
@@ -42,7 +69,7 @@ driver.get(htmlPath);*/
 
 WebUI.openBrowser(htmlPath)
 
-
+def val = ""
 WebUI.click(findTestObject('Object Repository/JavaScript/Page_Input-info/add-user-input'))
 long start = System.currentTimeMillis();
  while(true){
@@ -50,17 +77,20 @@ long start = System.currentTimeMillis();
 	 long end   = System.currentTimeMillis();
 	 float sec = (end - start) / 1000F; 
 	 System.out.println(sec + " seconds");
-	 if (sec >= 20){
-		 println "Value added correct"
+	 if (sec >= 10){
 		 break
 	 }
  }
 
+WebUI.delay(3)
+val = WebUI.getText(findTestObject('Object Repository/JavaScript/Page_Input-info/given-value'))
 while (true){
-	def val = WebUI.getText(findTestObject('Object Repository/JavaScript/Page_Input-info/given-value'))
-	if (!val.equals(""))
-	{
-		println val
+	if (val.equals("")){
+		println "no values given !!!"
+		break;
+	}
+	else{
+		println val //value read from page
 		break
 	}
 	WebUI.delay(2)
@@ -68,18 +98,5 @@ while (true){
 WebUI.delay(2)
 WebUI.closeBrowser()
 
-//another javascript demo
-def jsPath = System.getProperty("user.dir")+"/Include/JavaScript/Jsfunctions.js"
 
-ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
-try {
-  engine.eval(new FileReader(jsPath));
-  Invocable invocable = (Invocable) engine;
-  Object result;
-  result = invocable.invokeFunction("display", 'helloWorld');
-  System.out.println(result);
-  System.out.println(result.getClass());
-  } catch (FileNotFoundException | NoSuchMethodException | ScriptException e) {
-	e.printStackTrace();
-	}
   

@@ -24,3 +24,11 @@ def text = WebUI.getText(findTestObject('Object Repository/JavaScript/Page_Input
 //def text = WebUI.getText(findTestObject('Object Repository/JavaScript/Page_Input-demo/p_5'))
 print text
 
+/*
+TestObject to = findTestObject("Object Repository/myobj121")
+WebElement element = WebUiCommonHelper.findWebElement(to, 30)
+String value = findTestData("mydbfile").getValue("c10", i) //get value from database
+String js = "arguments[0].value = '${value}';" //drefine javascript
+WebUI.executeJavaScript(js, Arrays.asList(element)) //execute javascript
+
+*/
