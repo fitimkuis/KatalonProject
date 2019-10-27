@@ -15,13 +15,9 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-//String path = "C:\\Users\\fitim\\KatalonFromGitHub\\KatalonProject\\ExcelFiles\\SmoobuBookings - 2019-5-20.xls";
-
-
-
 String path = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData.xls";
-String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData2.xls";
-String path3 = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData4.xlsx";
+String xlsPath = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData2.xls";
+String xlsxPath = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData4.xlsx";
 List<String> headerValues = new ArrayList<String>();
 List<String> excelValues = new ArrayList<String>();
 int processRows = 2;  //how many rows to get processed
@@ -45,26 +41,32 @@ columns.add("Three")
 columns.add("Four")
 columns.add("Five")
 
+String sheetName = "SheetName"
+String xlsxSheetName = "TestSheet"
+
+int cols = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(xlsxPath, xlsxSheetName)
+println cols
+
 //create xlsx
-CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGreateExcelFileWithColumnsNameXlsx'(path3, "TestSheet", columns)//create new excel
+CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGreateExcelFileWithColumnsNameXlsx'(xlsxPath, xlsxSheetName, columns)//create new excel
 
 //create xls
-CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGreateExcelFileWithColumnsName'(path2, "TestSheet", columns)//create new excel
+CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGreateExcelFileWithColumnsName'(xlsPath, xlsxSheetName, columns)//create new excel
 
-CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateFromList'(excelTo, addtoRow, addToColumn, path)//add or update value to cell
+CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateFromList'(excelTo, addtoRow, addToColumn, path, sheetName)//add or update value to cell
 
-CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateExactValue'(valToExcel, addtoRow, addToColumn, path)//add or update value to cell
+CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateExactValue'(valToExcel, addtoRow, addToColumn, path, sheetName)//add or update value to cell
 
-int countOfColums = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGetColumnCount'(path)//get count of columns
+int countOfColums = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGetColumnCount'(path, sheetName)//get count of columns
 
-headerValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(countOfColums, start, end, path)//get header values
+headerValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(countOfColums, start, end, path, sheetName)//get header values
 
 
 start = 1;
 end = 2;
 
 for (int x = 0; x < processRows; x++) {
-	excelValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(headerValues.size(), start, end, path)
+	excelValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(headerValues.size(), start, end, path, sheetName)
 	int i = 0;
 
 	for (String s : headerValues) {

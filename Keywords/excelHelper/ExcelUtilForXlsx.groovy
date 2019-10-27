@@ -106,12 +106,12 @@ public class ExcelUtilForXlsx {
 	}
 
 	@Keyword
-	public int ExcelHelperGetColumnCountXlsx(String path) throws IOException, InvalidFormatException {
+	public int ExcelHelperGetColumnCountXlsx(String path, String sheetName) throws IOException, InvalidFormatException {
 
 		int noOfColumns = 0
 		// Check the file extension
-		if (!path.endsWith(".xls")) {
-			throw new IllegalArgumentException("Unknown file type. Please use .xls");
+		if (!path.endsWith(".xlsx")) {
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
 		}
 
 		try
@@ -120,7 +120,8 @@ public class ExcelUtilForXlsx {
 			Workbook book = WorkbookFactory.create(new File(path));
 
 			//Get first/desired sheet from the workbook
-			Sheet sheet = book.getSheetAt(0);
+			//Sheet sheet = book.getSheetAt(0); //int sheet 0 1 2 ...
+			Sheet sheet = book.getSheet(sheetName);
 			noOfColumns = sheet.getRow(0).getLastCellNum();
 		}
 		catch(Exception ex){
@@ -130,12 +131,12 @@ public class ExcelUtilForXlsx {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperReadXlsx(int colCount, int start, int end, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperReadXlsx(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
 
 
 		// Check the file extension
 		if (!path.endsWith(".xlsx")) {
-			throw new IllegalArgumentException("Unknown file type. Please use .xls");
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
 		}
 
 		List<String> excelValues = new ArrayList<String>();
@@ -146,7 +147,7 @@ public class ExcelUtilForXlsx {
 			Workbook book = WorkbookFactory.create(new File(path));
 
 			//Get first/desired sheet from the workbook
-			Sheet sheet = book.getSheetAt(0);
+			Sheet sheet = book.getSheet(sheetName);
 
 			// Create a DataFormatter to format and get each cell's value as String
 			DataFormatter dataFormatter = new DataFormatter();
@@ -186,18 +187,18 @@ public class ExcelUtilForXlsx {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperUpdateFromListXlsx(List<String> excel, int rw, int col, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperUpdateFromListXlsx(List<String> excel, int rw, int col, String path, String sheetName) throws IOException, InvalidFormatException {
 
 		// Check the file extension
 		if (!path.endsWith(".xlsx")) {
-			throw new IllegalArgumentException("Unknown file type. Please use .xls");
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
 		}
 
 		try
 		{
 			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
 			wb = new XSSFWorkbook(fsIP); //Access the workbook
-			worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+			worksheet = wb.getSheet(sheetName); //Access the worksheet, so that we can update / modify it.
 
 			Row row = worksheet.getRow(rw); //row to update
 			if (row == null) {
@@ -234,18 +235,18 @@ public class ExcelUtilForXlsx {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperUpdateExactValueXlsx(String value, int rw, int col, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperUpdateExactValueXlsx(String value, int rw, int col, String path, String sheetName) throws IOException, InvalidFormatException {
 
 		// Check the file extension
 		if (!path.endsWith(".xlsx")) {
-			throw new IllegalArgumentException("Unknown file type. Please use .xls");
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
 		}
 
 		try
 		{
 			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
 			wb = new XSSFWorkbook(fsIP); //Access the workbook
-			worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+			worksheet = wb.getSheet(sheetName); //Access the worksheet, so that we can update / modify it.
 
 			Row row = worksheet.getRow(rw); //row to update
 			if (row == null) {
