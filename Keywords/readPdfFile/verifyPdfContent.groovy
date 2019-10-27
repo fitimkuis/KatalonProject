@@ -32,7 +32,7 @@ import WebUiBuiltInKeywords as WebUI
 public class verifyPdfContent {
 
 	@Keyword
-	public String readPdfFileVerify(String pdfUrl){
+	public String readPdfFile(String pdfUrl){
 
 		URL TestURL = new URL(pdfUrl);
 		BufferedInputStream bis = new BufferedInputStream(TestURL.openStream());

@@ -31,7 +31,7 @@ driver.get('https://pressbooks.com/sample-books/')
 driver.findElement(By.xpath("//article[@id='post-2344']/div/ul/li/a")).click()
 def url = WebUI.getUrl()
 println url
-String pdfContent = CustomKeywords.'readPdfFile.verifyPdfContent.readPdfFileVerify'(url)
+String pdfContent = CustomKeywords.'readPdfFile.verifyPdfContent.readPdfFile'(url)
 Assert.assertTrue(pdfContent.contains('The PressBooks version of The Metamorphosis, by Franz Kafka.'))
 
 WebUI.delay(5)
@@ -110,7 +110,7 @@ public List<String> openPfdFile(String pdfFile){
 	
 	List<String> lines = new ArrayList<>()
 	
-	//PDDocument pdfDocument = PDDocument.load(new File("C:/Users/fitim/Desktop/data/file2.pdf"))
+	//PDDocument pdfDocument = PDDocument.load(new File("C:/xxxx/fitim/Desktop/data/file2.pdf"))
 	PDDocument pdfDocument = PDDocument.load(new File(pdfFile))
 	pdfDocument.getClass();
 	if (!pdfDocument.isEncrypted()) {

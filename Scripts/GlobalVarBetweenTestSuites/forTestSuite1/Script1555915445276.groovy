@@ -44,7 +44,7 @@ println "value changed "+var1
 //import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 //WebUI.closeBrowser()
 
-String downloadPath = "C:\\Users\\xxxxx\\Desktop\\data\\pdf\\"
+String downloadPath = "C:\\Users\\fitimkuis\\Desktop\\data\\pdf\\"
 Map<String, Object> chromePrefs = new HashMap<String, Object>()
 chromePrefs.put("download.default_directory", downloadPath)
 chromePrefs.put("download.prompt_for_download", false)

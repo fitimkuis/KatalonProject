@@ -16,9 +16,9 @@ import internal.GlobalVariable as GlobalVariable
 import helper.HelperUtils
 
 def testUrl = GlobalVariable.testURL
-println("TestUrls given in testcase 1 "+testUrl)
+println("TestUrl given in testcase 1 "+testUrl)
 //give new value
-CustomKeywords.'helper.HelperUtils.addGlobalVariable'('testURL', 'kuisma.com')
+CustomKeywords.'helper.HelperUtils.addGlobalVariable'('testURL', 'book.com')
 println ("variable value changed "+GlobalVariable.testURL)
 
 

@@ -13,6 +13,21 @@ import org.testng.Assert as Assert
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
+
+import com.testautomationguru.utility.PDFUtil;
+
+//get pdf file from folder which is added under project
+String pdfFilePath = System.getProperty("user.dir")+"\\pdfFiles\\2019-04-24_20-10-35.pdf";
+PDFUtil pdfUtil = new PDFUtil();
+String content = pdfUtil.getText(pdfFilePath,1);
+println content
+//String pdfTxt = CustomKeywords.'readPdfFile.ReadFromFolder.readPdfFileFromFolder'(pdfFilePath, 1)
+
+
+
 /*
 FirefoxProfile ffProfile = new FirefoxProfile();
 ffProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/zip;"); 
@@ -36,20 +51,21 @@ Thread.sleep(10000);
 
 System.out.println("Task complete, please go to save folder to see it.");*/
 WebUI.closeBrowser()
-//chromeProperties()
-
-//WebUI.openBrowser('')
-//testChromeDownloadPopup()
-//WebUI.closeBrowser()
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl('http://www.testingdiaries.com/selenium-webdriver-read-pdf-content/')
 
-//WebUI.click(findTestObject('99_RPDF/Page_Selenium WebDriver Read PDF Co (1)/a_this location'))
-WebUI.click(findTestObject('Page_SeleniumWebDriverRead-PDF-Co/a_this-location'))
+WebUI.click(findTestObject('Page_SeleniumWebDriverRead-PDF-Co/a_this-location'))//click pdf link button
 
-//CustomKeywords.'tools.pdfReader.ReadPDF'('http://www.axmag.com/download/pdfurl-guide.pdf')
-String pdfContent = CustomKeywords.'readPdfFile.verifyPdfContent.readPdfFileVerify'('http://www.axmag.com/download/pdfurl-guide.pdf')
+WebUI.delay(5)
+WebUI.switchToWindowIndex(1) //pdf file url here
+
+url = WebUI.getUrl() //get url
+println ("***DEBUG URL*** "+url)
+
+String pdfContent = readPdfFile(url)
+
+//String pdfContent = CustomKeywords.'readPdfFile.verifyPdfContent.readPdfFile'(url)
 
 Assert.assertTrue(pdfContent.contains('Open the setting.xml, you can see it is like this:'))
 
@@ -59,10 +75,22 @@ Assert.assertTrue(pdfContent.contains('You can see that I have modified the sett
 
 println('PDF IS GOOD TO GO...\r')
 
+WebUI.switchToWindowIndex(0) //back to main window
+
 WebUI.closeBrowser()
 
-//WebUI.callTestCase(findTestCase('GetTestReports/showTestReports'), [:], FailureHandling.CONTINUE_ON_FAILURE)
 
+public String readPdfFile(String pdfUrl){
+	
+			URL TestURL = new URL(pdfUrl);
+			BufferedInputStream bis = new BufferedInputStream(TestURL.openStream());
+			PDDocument doc = PDDocument.load(bis);
+			String pdfText = new PDFTextStripper().getText(doc);
+			doc.close();
+			bis.close();
+			println(pdfText);
+			return pdfText;
+}
 
 public void testChromeDownloadPopup() throws InterruptedException {
 	

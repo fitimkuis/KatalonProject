@@ -118,6 +118,28 @@ public class WriteToFile {
 		FileOutputStream output_file =new FileOutputStream(new File(excelpath));  //Open FileOutputStream to write updates
 		wb.write(output_file); //write changes
 	}
+	
+	@Keyword
+	public void updateExcelFileStartFrom(List<String> excel, int row, colIndex, path){
+		FileInputStream fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
+
+		HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook
+		HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+
+		Cell cell = null; // declare a Cell object
+
+		//int ro = 1 //rows will start
+		int ro = row //rows will start
+		for (String s : excel){
+			cell = worksheet.getRow(ro).getCell(colIndex);//if cell is null
+			worksheet.createRow(ro).createCell(colIndex).setCellValue(s); //if cell is null then update it to new value
+			ro++
+		}
+
+		fsIP.close(); //Close the InputStream
+		FileOutputStream output_file =new FileOutputStream(new File(path));  //Open FileOutputStream to write updates
+		wb.write(output_file); //write changes
+	}
 
 	@Keyword
 	public void updateNumberValueXlsx(HashMap<String, String> hmap, colIndexNumbers, colIndexValues)throws FileNotFoundException, IOException, InvalidFormatException{
@@ -133,8 +155,8 @@ public class WriteToFile {
 			Map.Entry mentry = (Map.Entry)iterator.next();
 			eRowX = ExcelWSheetX.getRow(ro);
 
-			eCellNumbersX = eRowX.getCell(colIndexNumbers, Row.RETURN_BLANK_AS_NULL);//check if cell is null
-			eCellValuesX = eRowX.getCell(colIndexValues, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellNumbersX = eRowX.getCell(colIndexNumbers, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellValuesX = eRowX.getCell(colIndexValues, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);//check if cell is null
 			if (eCellNumbersX == null || eCellValuesX == null) {
 				eCellNumbersX = eRowX.createCell(colIndexNumbers);
 				eCellValuesX = eRowX.createCell(colIndexValues);
@@ -166,8 +188,8 @@ public class WriteToFile {
 			Map.Entry mentry = (Map.Entry)iterator.next();
 			eRowH = ExcelWSheetH.getRow(ro);
 
-			eCellNumbers = eRowH.getCell(colIndexNumbers, Row.RETURN_BLANK_AS_NULL);//check if cell is null
-			eCellValues = eRowH.getCell(colIndexValues, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellNumbers = eRowH.getCell(colIndexNumbers, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellValues = eRowH.getCell(colIndexValues, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);//check if cell is null
 			if (eCellNumbers == null || eCellValues == null) {
 				eCellNumbers = eRowH.createCell(colIndexNumbers);
 				eCellValues = eRowH.createCell(colIndexValues);
@@ -197,7 +219,7 @@ public class WriteToFile {
 
 			eRowH = ExcelWSheetH.getRow(ro);
 
-			eCellH = eRowH.getCell(colIndex, Row.RETURN_BLANK_AS_NULL);//check if cell is null
+			eCellH = eRowH.getCell(colIndex, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);//check if cell is null
 			if (eCellH == null) {
 				eCellH = eRowH.createCell(colIndex);
 				eCellH.setCellValue(s);

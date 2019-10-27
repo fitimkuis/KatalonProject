@@ -2,19 +2,18 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import org.openqa.selenium.WebElement 
 
-import com.kms.katalon.core.logging.KeywordLogger
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.common.WebUiCommonHelper 
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 WebUI.openBrowser('')
 
-KeywordLogger log = new KeywordLogger()
+KeywordUtil log = new KeywordUtil()
 log.logInfo("yourMsg")
 
 WebUI.comment("myMessage")
 
-WebUI.focus(null)
 
 WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')
 

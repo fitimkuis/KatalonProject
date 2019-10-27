@@ -1,3 +1,5 @@
+import java.util.List
+
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -17,21 +19,47 @@ import internal.GlobalVariable as GlobalVariable
 
 
 
-String path = System.getProperty("user.dir")+"\\ExcelFiles\\SmoobuBookings - 2019-5-20.xls";
+String path = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData.xls";
+String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData2.xls";
 List<String> headerValues = new ArrayList<String>();
 List<String> excelValues = new ArrayList<String>();
-int processRows = 5;  //how many rows to get processed
+int processRows = 2;  //how many rows to get processed
 int start = 0;
 int end = 1;
 
-headerValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelper'(20, start, end, path)//get header values
+List <String> excelTo = new ArrayList<>()
+excelTo.add("cat")
+excelTo.add("dog")
+excelTo.add("pig")
 
-//increase start & end to get data rows
+def valToExcel = "cow"
+
+int addtoRow = 11
+int addToColumn = 0
+
+List <String> columns = new ArrayList<>()
+columns.add("One")
+columns.add("Two")
+columns.add("Three")
+columns.add("Four")
+columns.add("Five")
+
+CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGreateExcelFileWithColumnsName'(path2, "TestSheet", columns)//create new excel
+
+CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateFromList'(excelTo, addtoRow, addToColumn, path)//add or update value to cell
+
+CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateExactValue'(valToExcel, addtoRow, addToColumn, path)//add or update value to cell
+
+int countOfColums = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGetColumnCount'(path)//get count of columns
+
+headerValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(countOfColums, start, end, path)//get header values
+
+
 start = 1;
 end = 2;
 
 for (int x = 0; x < processRows; x++) {
-	excelValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelper'(headerValues.size(), start, end, path)
+	excelValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(headerValues.size(), start, end, path)
 	int i = 0;
 
 	for (String s : headerValues) {
@@ -42,6 +70,6 @@ for (int x = 0; x < processRows; x++) {
 		}
 		i++;
 	}
-	start++;
+	start++; //increase start & end to get data rows
 	end++;
 }

@@ -35,13 +35,14 @@ public class ReadPdfFromBrowser {
 	PDDocument pdDoc;
 
 	@Keyword
-	public String PdfReaderUtil(){
+	public String PdfReaderUtil(String html){
 
 		String pdfFileInText = "";
 
 		driver=new ChromeDriver();
 
-		driver.get("http://www.vandevenbv.nl/dynamics/modules/SFIL0200/view.php?fil_Id=5515");
+		//driver.get("http://www.vandevenbv.nl/dynamics/modules/SFIL0200/view.php?fil_Id=5515");
+		driver.get(html);
 
 		Thread.sleep(5000);
 		URL url = new URL(driver.getCurrentUrl());
@@ -60,11 +61,6 @@ public class ReadPdfFromBrowser {
 
 			pdfFileInText = tStripper.getText(pdDoc);
 
-			// split by whitespace
-			/*String lines[] = pdfFileInText.split("\\r?\\n");
-			 for (String line : lines) {
-			 System.out.println(line);
-			 }*/
 		}
 		driver.close();
 		return pdfFileInText;
