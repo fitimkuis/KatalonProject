@@ -32,3 +32,5 @@ settings/internal/com.kms.katalon.integration.jira.properties
 *.xml
 *.log
 > .project
+*.png
+images/*.tif

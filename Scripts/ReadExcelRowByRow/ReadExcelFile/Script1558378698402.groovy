@@ -21,6 +21,7 @@ import internal.GlobalVariable as GlobalVariable
 
 String path = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData.xls";
 String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData2.xls";
+String path3 = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData4.xlsx";
 List<String> headerValues = new ArrayList<String>();
 List<String> excelValues = new ArrayList<String>();
 int processRows = 2;  //how many rows to get processed
@@ -44,6 +45,10 @@ columns.add("Three")
 columns.add("Four")
 columns.add("Five")
 
+//create xlsx
+CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGreateExcelFileWithColumnsNameXlsx'(path3, "TestSheet", columns)//create new excel
+
+//create xls
 CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGreateExcelFileWithColumnsName'(path2, "TestSheet", columns)//create new excel
 
 CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateFromList'(excelTo, addtoRow, addToColumn, path)//add or update value to cell

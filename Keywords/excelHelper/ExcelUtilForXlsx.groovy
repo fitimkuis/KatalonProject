@@ -1,63 +1,38 @@
 package excelHelper
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
-import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
-import com.kms.katalon.core.testdata.TestData
-import com.kms.katalon.core.testobject.TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
-import internal.GlobalVariable
-
-import com.kms.katalon.core.exception.StepErrorException;
-import com.kms.katalon.core.exception.StepFailedException;
-import com.kms.katalon.core.logging.ErrorCollector;
-import com.kms.katalon.core.logging.KeywordLogger;
-
-import com.kms.katalon.core.util.KeywordUtil
-
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.usermodel.Row.MissingCellPolicy
+import java.text.SimpleDateFormat;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.kms.katalon.core.annotation.Keyword
+import com.kms.katalon.core.util.KeywordUtil
 
-public class ExcelUtil {
+public class ExcelUtilForXlsx {
 
 	FileInputStream fsIP
-	HSSFWorkbook wb
-	HSSFSheet worksheet
+	XSSFWorkbook wb
+	XSSFSheet worksheet
 	FileOutputStream outputFile
 	KeywordUtil logger
 
-	public ExcelUtil(){
+	public ExcelUtilForXlsx(){
 		logger = new KeywordUtil()
 	}
 
 
 	@Keyword
-	public void ExcelHelperGreateExcelFileWithColumnsName(String path, String sheetName, List<String>columns){
+	public void ExcelHelperGreateExcelFileWithColumnsNameXlsx(String path, String sheetName, List<String>columns){
+		
+		Cell cell
 
 		//Workbook workbook = new XSSFWorkbook();
-		Workbook workbook = new HSSFWorkbook();
+		Workbook workbook = new XSSFWorkbook();
 		/* CreationHelper helps us create instances of various things like DataFormat,
 		 Hyperlink, RichTextString etc, in a format (HSSF, XSSF) independent way */
-		//CreationHelper createHelper = workbook.getCreationHelper
+		CreationHelper createHelper = workbook.getCreationHelper()
 
 		File file = new File(path);
 		if(file.isFile() && file.exists()) {
@@ -88,14 +63,41 @@ public class ExcelUtil {
 
 		// Create cells
 		for(int i = 0; i < columns.size(); i++) {
-			Cell cell = headerRow.createCell(i);
+			cell = headerRow.createCell(i);
 			cell.setCellValue(columns[i]);
 			cell.setCellStyle(headerCellStyle);
 		}
+		
+		double value = 25.698
+		CellStyle twoDigitFormat = workbook.createCellStyle();
+		twoDigitFormat = workbook.createCellStyle();
+		twoDigitFormat.setDataFormat(createHelper.createDataFormat().getFormat("0.00"));
+		Row cellRow = sheet.createRow(1);
+		cell = cellRow.createCell(1);//
+		cell.setCellValue(value);
+		cell.setCellStyle(twoDigitFormat);
+	
+		CellStyle threeDigitFormat = workbook.createCellStyle();
+		threeDigitFormat = workbook.createCellStyle();
+		threeDigitFormat.setDataFormat(createHelper.createDataFormat().getFormat("0.000"));
+	
+		CellStyle commaNumberFormat = workbook.createCellStyle();
+		commaNumberFormat = workbook.createCellStyle();
+		commaNumberFormat.setDataFormat(createHelper.createDataFormat().getFormat("#,##0"));
+	
+		CellStyle twoDigitCommaFormat = workbook.createCellStyle();
+		twoDigitCommaFormat = workbook.createCellStyle();
+		twoDigitCommaFormat.setDataFormat(createHelper.createDataFormat().getFormat("#,##0.00"));
 
 		// Create Cell Style for formatting Date for xlsx
-		//CellStyle dateCellStyle = workbook.createCellStyle();
-		//dateCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd-MM-yyyy"));
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		System.out.println(formatter.format(date));
+		CellStyle dateCellStyle = workbook.createCellStyle();
+		dateCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd-MM-yyyy"));
+		cell = cellRow.createCell(0);//
+		cell.setCellValue(formatter.format(date));
+		cell.setCellStyle(dateCellStyle);
 
 		//FileOutputStream fileOut = new FileOutputStream(path);
 
@@ -104,7 +106,7 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public int ExcelHelperGetColumnCount(String path) throws IOException, InvalidFormatException {
+	public int ExcelHelperGetColumnCountXlsx(String path) throws IOException, InvalidFormatException {
 
 		int noOfColumns = 0
 		// Check the file extension
@@ -128,11 +130,11 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperRead(int colCount, int start, int end, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperReadXlsx(int colCount, int start, int end, String path) throws IOException, InvalidFormatException {
 
 
 		// Check the file extension
-		if (!path.endsWith(".xls")) {
+		if (!path.endsWith(".xlsx")) {
 			throw new IllegalArgumentException("Unknown file type. Please use .xls");
 		}
 
@@ -184,17 +186,17 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperUpdateFromList(List<String> excel, int rw, int col, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperUpdateFromListXlsx(List<String> excel, int rw, int col, String path) throws IOException, InvalidFormatException {
 
 		// Check the file extension
-		if (!path.endsWith(".xls")) {
+		if (!path.endsWith(".xlsx")) {
 			throw new IllegalArgumentException("Unknown file type. Please use .xls");
 		}
 
 		try
 		{
 			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
-			wb = new HSSFWorkbook(fsIP); //Access the workbook
+			wb = new XSSFWorkbook(fsIP); //Access the workbook
 			worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
 
 			Row row = worksheet.getRow(rw); //row to update
@@ -232,17 +234,17 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperUpdateExactValue(String value, int rw, int col, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperUpdateExactValueXlsx(String value, int rw, int col, String path) throws IOException, InvalidFormatException {
 
 		// Check the file extension
-		if (!path.endsWith(".xls")) {
+		if (!path.endsWith(".xlsx")) {
 			throw new IllegalArgumentException("Unknown file type. Please use .xls");
 		}
 
 		try
 		{
 			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
-			wb = new HSSFWorkbook(fsIP); //Access the workbook
+			wb = new XSSFWorkbook(fsIP); //Access the workbook
 			worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
 
 			Row row = worksheet.getRow(rw); //row to update
