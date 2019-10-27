@@ -104,7 +104,7 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public int ExcelHelperGetColumnCount(String path) throws IOException, InvalidFormatException {
+	public int ExcelHelperGetColumnCount(String path, String sheetName) throws IOException, InvalidFormatException {
 
 		int noOfColumns = 0
 		// Check the file extension
@@ -118,7 +118,7 @@ public class ExcelUtil {
 			Workbook book = WorkbookFactory.create(new File(path));
 
 			//Get first/desired sheet from the workbook
-			Sheet sheet = book.getSheetAt(0);
+			Sheet sheet = book.getSheet(sheetName);
 			noOfColumns = sheet.getRow(0).getLastCellNum();
 		}
 		catch(Exception ex){
@@ -128,7 +128,7 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperRead(int colCount, int start, int end, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperRead(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
 
 
 		// Check the file extension
@@ -144,7 +144,7 @@ public class ExcelUtil {
 			Workbook book = WorkbookFactory.create(new File(path));
 
 			//Get first/desired sheet from the workbook
-			Sheet sheet = book.getSheetAt(0);
+			Sheet sheet = book.getSheet(sheetName);
 
 			// Create a DataFormatter to format and get each cell's value as String
 			DataFormatter dataFormatter = new DataFormatter();
@@ -184,7 +184,7 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperUpdateFromList(List<String> excel, int rw, int col, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperUpdateFromList(List<String> excel, int rw, int col, String path, String sheetName) throws IOException, InvalidFormatException {
 
 		// Check the file extension
 		if (!path.endsWith(".xls")) {
@@ -195,7 +195,7 @@ public class ExcelUtil {
 		{
 			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
 			wb = new HSSFWorkbook(fsIP); //Access the workbook
-			worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+			worksheet = wb.getSheet(sheetName); //Access the worksheet, so that we can update / modify it.
 
 			Row row = worksheet.getRow(rw); //row to update
 			if (row == null) {
@@ -232,7 +232,7 @@ public class ExcelUtil {
 	}
 
 	@Keyword
-	public List<String> ExcelHelperUpdateExactValue(String value, int rw, int col, String path) throws IOException, InvalidFormatException {
+	public List<String> ExcelHelperUpdateExactValue(String value, int rw, int col, String path, String sheetName) throws IOException, InvalidFormatException {
 
 		// Check the file extension
 		if (!path.endsWith(".xls")) {
@@ -243,7 +243,7 @@ public class ExcelUtil {
 		{
 			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
 			wb = new HSSFWorkbook(fsIP); //Access the workbook
-			worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+			worksheet = wb.getSheet(sheetName); //Access the worksheet, so that we can update / modify it.
 
 			Row row = worksheet.getRow(rw); //row to update
 			if (row == null) {
