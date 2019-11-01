@@ -25,7 +25,7 @@ public class ExcelUtilForXlsx {
 
 	@Keyword
 	public void ExcelHelperGreateExcelFileWithColumnsNameXlsx(String path, String sheetName, List<String>columns){
-		
+
 		Cell cell
 
 		//Workbook workbook = new XSSFWorkbook();
@@ -67,7 +67,7 @@ public class ExcelUtilForXlsx {
 			cell.setCellValue(columns[i]);
 			cell.setCellStyle(headerCellStyle);
 		}
-		
+
 		double value = 25.698
 		CellStyle twoDigitFormat = workbook.createCellStyle();
 		twoDigitFormat = workbook.createCellStyle();
@@ -76,15 +76,15 @@ public class ExcelUtilForXlsx {
 		cell = cellRow.createCell(1);//
 		cell.setCellValue(value);
 		cell.setCellStyle(twoDigitFormat);
-	
+
 		CellStyle threeDigitFormat = workbook.createCellStyle();
 		threeDigitFormat = workbook.createCellStyle();
 		threeDigitFormat.setDataFormat(createHelper.createDataFormat().getFormat("0.000"));
-	
+
 		CellStyle commaNumberFormat = workbook.createCellStyle();
 		commaNumberFormat = workbook.createCellStyle();
 		commaNumberFormat.setDataFormat(createHelper.createDataFormat().getFormat("#,##0"));
-	
+
 		CellStyle twoDigitCommaFormat = workbook.createCellStyle();
 		twoDigitCommaFormat = workbook.createCellStyle();
 		twoDigitCommaFormat.setDataFormat(createHelper.createDataFormat().getFormat("#,##0.00"));
