@@ -60,7 +60,7 @@ WebUI.click(findTestObject('Page_SeleniumWebDriverRead-PDF-Co/a_this-location'))
 WebUI.delay(5)
 WebUI.switchToWindowIndex(1) //pdf file url here
 
-WebUI.waitForPageLoad(5)
+WebUI.delay(10)
 
 url = WebUI.getUrl() //get url
 println ("***DEBUG URL*** "+url)
