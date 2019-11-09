@@ -139,7 +139,7 @@ class CompareTwoLists {
 
 	@Keyword
 	public ArrayList<ArrayList<String>> getNameListsCompared(){
-		
+
 		int n = 3;
 		// Here aList is an ArrayList of ArrayLists
 		ArrayList<ArrayList<String> > aList =  new ArrayList<ArrayList<String> >(n);
@@ -153,7 +153,7 @@ class CompareTwoLists {
 		listOne.removeAll(listTwo);
 		//println "missing elements from list two " + listOne;
 		aList.add(listOne)
-		
+
 		listOne = getFirstNamesSortedList();
 		listTwo = getSecondNamesSortedList();
 
@@ -161,7 +161,7 @@ class CompareTwoLists {
 		listTwo.removeAll(listOne);
 		//println "missing elements from list one " + listTwo;
 		aList.add(listTwo)
-		
+
 		listOne = getFirstNamesSortedList();
 		listTwo = getSecondNamesSortedList();
 
@@ -169,17 +169,16 @@ class CompareTwoLists {
 		listTwo.retainAll(listOne);
 		//println "common elements are: " + listTwo;
 		aList.add(listTwo)
-		
-		/*listOne = getFirstNamesSortedList();
-		listTwo = getSecondNamesSortedList();
 
-		HashSet<String> set1 = new HashSet<>(Arrays.asList(listOne));
-		HashSet<String> set2 = new HashSet<>(Arrays.asList(listTwo));
-		set1.retainAll(set2);
-		println "name missing from listTwo" + listOne;
-		set2.retainAll(set1);
-		println "name missing from listOne" + listTwo;*/
-		
+		/*listOne = getFirstNamesSortedList();
+		 listTwo = getSecondNamesSortedList();
+		 HashSet<String> set1 = new HashSet<>(Arrays.asList(listOne));
+		 HashSet<String> set2 = new HashSet<>(Arrays.asList(listTwo));
+		 set1.retainAll(set2);
+		 println "name missing from listTwo" + listOne;
+		 set2.retainAll(set1);
+		 println "name missing from listOne" + listTwo;*/
+
 		listOne = getFirstNamesSortedList();
 		listTwo = getSecondNamesSortedList();
 

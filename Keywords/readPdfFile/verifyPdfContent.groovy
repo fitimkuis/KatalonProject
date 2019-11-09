@@ -1,33 +1,13 @@
 package readPdfFile
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.pdmodel.PDPage
+import org.apache.pdfbox.pdmodel.PDPageContentStream
+import org.apache.pdfbox.pdmodel.font.PDFont
+import org.apache.pdfbox.pdmodel.font.PDType1Font
+import org.apache.pdfbox.text.PDFTextStripper
 
 import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.checkpoint.CheckpointFactory
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords
-import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
-import com.kms.katalon.core.testcase.TestCaseFactory
-import com.kms.katalon.core.testdata.TestData
-import com.kms.katalon.core.testdata.TestDataFactory
-import com.kms.katalon.core.testobject.ObjectRepository
-import com.kms.katalon.core.testobject.TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords
-
-import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.text.PDFTextStripper
-import org.testng.Assert
-
-import internal.GlobalVariable
-
-import MobileBuiltInKeywords as Mobile
-import WSBuiltInKeywords as WS
-import WebUiBuiltInKeywords as WebUI
 
 public class verifyPdfContent {
 
@@ -111,5 +91,32 @@ public class verifyPdfContent {
 				missingWords.add(token);
 		}
 		return missingWords;
+	}
+	
+	public void writeDfferences(String message, String filename){
+		
+		//String filename = "sample.pdf";
+		//String message = "This is a sample PDF document created using PDFBox.";
+		
+		PDDocument doc = new PDDocument();
+		try {
+			PDPage page = new PDPage();
+			doc.addPage(page);
+			
+			PDFont font = PDType1Font.TIMES_ROMAN;
+ 
+			PDPageContentStream contents = new PDPageContentStream(doc, page);
+			contents.beginText();
+			contents.setFont(font, 12);
+			contents.newLineAtOffset(50, 700);
+			contents.showText(message);
+			contents.endText();
+			contents.close();
+			
+			doc.save(filename);
+		}
+		finally {
+			doc.close();
+		}
 	}
 }
