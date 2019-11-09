@@ -1,23 +1,31 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
-import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling as FailureHandling
-import com.kms.katalon.core.testcase.TestCase as TestCase
-import com.kms.katalon.core.testdata.TestData as TestData
-import com.kms.katalon.core.testobject.TestObject as TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+import static org.junit.Assert.*;
 
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets
 
+import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import groovy.xml.MarkupBuilder
+
+String a = "9 999 905.70"
+String b = "9 999 905.70"
+
+assertEquals(a, b);
+
+assert a == b
+
+Charset charset = StandardCharsets.UTF_8;
+byte[] byteArrrayA = a.getBytes(charset);
+byte[] byteArrrayB = b.getBytes(charset);
+System.out.println("Text [Byte Format] : " + byteArrrayA);
+System.out.println("Text [Byte Format] : " + byteArrrayB);
+System.out.println(Arrays.equals(byteArrrayA, byteArrrayB));
+
+
+//assertArrayEquals(new byte[] { -2, -1, 0, 72, 0, 101, 0, 108, 0, 108, 0,111, 0, 32, 0, 87, 0, 111, 0, 114, 0, 108, 0, 100, 0, 33 },	byteArrray);
+
+String inputString = "Hello World!";
+//byte[] byteArrray = a.getBytes();
 
 String json = '''
 {
@@ -49,22 +57,33 @@ String json = '''
     }
 ]}'''
 
-def json2 = System.getProperty("user.dir")+"\\Include\\json\\test.json";
+def jsonPath = System.getProperty("user.dir")+"\\Include\\json\\test.json";
 
-def inputFile = new File(json2)
+def jsonFile = new File(jsonPath)
 def slurper = new JsonSlurper()
-String data = slurper.parse(inputFile)
+def data = slurper.parse(jsonFile)
 
-String jsonVal = "\'''"+data+"\'''";
+assert data instanceof Map  //result is Map
+println data //print json request
+println data.quiz.sport.q1.answer
+assert data.quiz.sport.q1.answer == 'Huston Rocket'
 
-String value = "\'''Ram\'''";
-System.out.println("Value - " + jsonVal );
+//https://groovy-lang.org/json.html
 
-println data
+def json3 = JsonOutput.toJson(data) //convert to json format
+println json3
+
+println(JsonOutput.prettyPrint(json3).stripIndent()) //print out as json format
 
 jsonToXml(json)
-jsonToXml(data)
+//jsonToXml2(json3)
 
+//String jsonVal = "\'''"+data+"\'''";
+
+//String value = "\'''Ram\'''";
+//System.out.println("Value - " + value );
+
+//String dat = "'''"+data+"'''"
 
 public void jsonToXml(String json){
 
@@ -92,3 +111,30 @@ public void jsonToXml(String json){
 	
 	println xml
 }
+
+public void jsonToXml2(String json){
+	
+		def xml = new JsonSlurper().parseText(json).with { j ->
+			new StringWriter().with { sw ->
+				new MarkupBuilder(sw)."$quiz"(maths: maths, q1:q1) {
+					params {
+						options.each { p ->
+							if(p.answer instanceof List) {
+								"$p.name"(description:p.description) {
+									p.value.each { v ->
+										"$v.name"(description: v.description, v.value)
+									}
+								}
+							}
+							else {
+								"$p.name"(description:p.description, p.value)
+							}
+						}
+					}
+				}
+				sw.toString()
+			}
+		}
+		
+		println xml
+	}

@@ -41,7 +41,12 @@ String file_2 = pdfUtil.getText("C:/Users/fitim/Desktop/data/file2.pdf",1);
 def diff1 = CustomKeywords.'readPdfFile.verifyPdfContent.findNotMatching'(file_1, file_2)
 def diff2 = CustomKeywords.'readPdfFile.verifyPdfContent.findNotMatching'(file_2, file_1)
 
+String message = "pages have differences file1 have words "+diff1+ " which are not in file2, file2 instead have "+diff2
+
 println "pages have differences file1 have words "+diff1+ " which are not in file2, file2 instead have "+diff2
+
+CustomKeywords.'readPdfFile.verifyPdfContent.writeDfferences'(message, "C:/Users/fitim/Desktop/data/file3.pdf")
+
  
 // returns the pdf content from page number 5 to 8
 //pdfUtil.getText("c:/sample.pdf", 5, 8);

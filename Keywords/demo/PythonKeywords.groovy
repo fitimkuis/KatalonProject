@@ -22,6 +22,11 @@ class PythonKeywords {
 	def gotoKatalonDemo(){
 		runPython("keywords.goto_katalon_demo")
 	}
+	
+	@Keyword
+	def compareTwoCsv(String csv1, String csv2){
+		runPython("keywords.compare_csv", csv1,csv2)
+	}
 
 	private runPython(String script, Object[] keywordArgs) {
 		try {
