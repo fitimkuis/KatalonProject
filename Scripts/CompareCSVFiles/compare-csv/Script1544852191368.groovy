@@ -12,6 +12,22 @@ String originalPath = System.getProperty("user.dir")+"\\ExcelFiles\\original.csv
 String comparePath = System.getProperty("user.dir")+"\\ExcelFiles\\compare.csv";
 String differencesPath = System.getProperty("user.dir")+"\\ExcelFiles\\differences.csv";
 
+/*
+BufferedReader br = new BufferedReader(new FileReader(originalPath));
+BufferedReader br2 = new BufferedReader(new FileReader(comparePath));
+while ((line = br.readLine()) != null) {
+	// use comma as separator
+	String[] cols = line.split(",");
+	System.out.println("Coulmn 1= " + cols[0] + " , Column 2= " + cols[1]+ " , Column 3= " + cols[2] );
+}
+
+while ((line = br2.readLine()) != null) {
+	// use comma as separator
+	String[] cols = line.split(",",-1);
+	System.out.println("Coulmn 1= " + cols[0] + " , Column 2= " + cols[1]+ " , Column 3= " + cols[2] );
+}*/
+
+
 //createCSVFile();
 int[] rowsCols = getRowsColsNo(originalPath);
 int[] rowsCols2 = getRowsColsNo(comparePath);
@@ -31,15 +47,17 @@ createCSVFile(differencesPath);//create new file
 
 String mess = "original.csv does not match with compare.csv ";
 //start from row 0 (header)
-writeToDiffFile(differencesPath, null, mess, 0, 0);//write header wrote
+writeToDiffFile(differencesPath, null, mess, 0, 0);//write header
 String[] strDiff = new String[rowsCols[0]];
 for (int i = 0; i < rowsCols[0]; i++) {
 	String line = Files.readAllLines(Paths.get(originalPath)).get(i);
 	String line2 = Files.readAllLines(Paths.get(comparePath)).get(i);
 	String diff = getDiff(line, line2);
+	//println diff
 	strDiff[0] = diff;
 	strDiff[1] = "in row "+i;
 	writeToDiffFile(differencesPath, strDiff, null, 1, i);
+	
 }
 
 
@@ -121,5 +139,5 @@ public static String getDiff(String str1, String str2){
 	for (String s : union) {
 		arr.add(s);
 	}
-	return String.join(", ", arr);
+	return String.join(",", arr);
 }
