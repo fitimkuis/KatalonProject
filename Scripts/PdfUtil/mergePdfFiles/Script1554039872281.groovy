@@ -16,6 +16,7 @@ try {
 	List<InputStream> inputPdfList = new ArrayList<InputStream>();
 	inputPdfList.add(new FileInputStream(pdfDir+"file1.pdf"));
 	inputPdfList.add(new FileInputStream(pdfDir+"file2.pdf"));
+	
 	//inputPdfList.add(new FileInputStream("..\\pdf\\pdf_2.pdf"));
 	//inputPdfList.add(new FileInputStream("..\\pdf\\pdf_3.pdf"));
 	//inputPdfList.add(new FileInputStream("..\\pdf\\pdf_4.pdf"));
