@@ -34,3 +34,10 @@ settings/internal/com.kms.katalon.integration.jira.properties
 > .project
 *.png
 images/*.tif
+*.csv
+*.xlsx
+*.xls
+*.tif
+*.png
+*.jpg
+*.meta
