@@ -37,7 +37,7 @@
    <testCaseLink>
       <guid>20a1d9a7-07fb-4c1c-8791-4c73860b0f7e</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/ReadPdf/pdfReader</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -91,7 +91,7 @@
    <testCaseLink>
       <guid>aae2f9bd-05fd-4804-85d0-c2203192fccf</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/WriteToExcel(SpreadSheet)/write-to-excel-spreadsheet</testCaseId>
    </testCaseLink>
    <testCaseLink>
