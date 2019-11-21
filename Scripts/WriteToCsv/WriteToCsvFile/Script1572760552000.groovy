@@ -26,9 +26,10 @@ String outputpath = "dataOut.csv"
 //updateCSV(filepath) //update .csv file cell
 //appendToCsvFile(filepath) //append to .csv file
 //readLines(filepath) //read line by line start from row 1
-String row = getSpecificRowFromCsv(filepath, 5) //red specific row
+String row = getSpecificRowFromCsv(filepath, 4) //red specific row
+println row
 String[] parts = row.split(";")
-println parts[3]
+println parts[3].replace("]", "")
 
 
 /*List<String[]> dataLines = new ArrayList<>();

@@ -13,7 +13,7 @@
    <testCaseLink>
       <guid>389f71ff-980b-4e88-9169-13ac64c4e166</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CucumberBDD/CucumberFeatureCall</testCaseId>
    </testCaseLink>
    <testCaseLink>
