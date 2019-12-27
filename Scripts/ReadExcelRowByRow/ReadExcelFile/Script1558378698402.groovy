@@ -15,11 +15,30 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+System.out.println(sdf.format(timestamp));
+String stamp = sdf.format(timestamp);
+
 String path = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData.xls";
-String xlsPath = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData2.xls";
-String xlsxPath = System.getProperty("user.dir")+"\\ExcelFiles\\newFileXlsData4.xlsx";
+
+String pathXlsx = System.getProperty("user.dir")+"\\ExcelFiles\\xlsxData.xlsx";
+
+//Get the Latest excel file from folder
+String filePath = System.getProperty("user.dir")+"\\ExcelFiles\\"
+def latestExcelFile = CustomKeywords.'excelHelper.GetLatestExcelFile.getTheNewestFile'(filePath)
+println latestExcelFile
+
+
+String xlsPath = System.getProperty("user.dir")+"\\ExcelFiles\\"+stamp+"_FileXlsData.xls";
+String xlsxPath = System.getProperty("user.dir")+"\\ExcelFiles\\"+stamp+"_FileXlsxData.xlsx";
 List<String> headerValues = new ArrayList<String>();
 List<String> excelValues = new ArrayList<String>();
+
 int processRows = 2;  //how many rows to get processed
 int start = 0;
 int end = 1;
@@ -44,8 +63,8 @@ columns.add("Five")
 String sheetName = "SheetName"
 String xlsxSheetName = "TestSheet"
 
-int cols = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(xlsxPath, xlsxSheetName)
-println cols
+//int cols = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(xlsxPath, xlsxSheetName)
+//println cols
 
 //create xlsx
 CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGreateExcelFileWithColumnsNameXlsx'(xlsxPath, xlsxSheetName, columns)//create new excel
@@ -62,6 +81,16 @@ int countOfColums = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperGetColumnCo
 headerValues = CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperRead'(countOfColums, start, end, path, sheetName)//get header values
 
 
+//Xlsx
+//Xlsx
+List<String> headerValuesXlsx = new ArrayList<String>();
+List<String> excelValuesXlsx = new ArrayList<String>();
+//CustomKeywords.'excelHelper.ExcelUtil.ExcelHelperUpdateExactValue'(valToExcel, addtoRow, addToColumn, pathXlsx, sheetName)//add or update value to cell
+
+int countOfColumsXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(pathXlsx, sheetName)//get count of columns
+headerValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperReadXlsx'(countOfColumsXlsx, start, end, pathXlsx, sheetName)//get header values
+
+
 start = 1;
 end = 2;
 
@@ -76,6 +105,26 @@ for (int x = 0; x < processRows; x++) {
 			System.out.println("Row " + start + " Header " + headerValues.get(i) + " has value " + excelValues.get(i));
 		}
 		i++;
+	}
+	start++; //increase start & end to get data rows
+	end++;
+}
+
+//Xlsx
+start = 1;
+end = 2;
+
+for (int z = 0; z < processRows; z++) {
+	excelValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperReadXlsx'(headerValuesXlsx.size(), start, end, pathXlsx, sheetName)
+	int y = 0;
+
+	for (String s : headerValuesXlsx) {
+		if (excelValuesXlsx.get(y).equals("**No Value**")) {
+			System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has not value ");
+		} else {
+			System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has value " + excelValuesXlsx.get(y));
+		}
+		y++;
 	}
 	start++; //increase start & end to get data rows
 	end++;

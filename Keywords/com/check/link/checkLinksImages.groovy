@@ -44,39 +44,37 @@ import com.google.common.base.Predicate;
 
 
 public class checkLinksImages {
-	
+
 	@Keyword
 	public List<String> findAllLinks(WebDriver driver){
-		
-		List elementList = new ArrayList();	
-			  elementList = driver.findElements(By.tagName("a"));
-			  elementList.addAll(driver.findElements(By.tagName("img")));
-			  List finalList = new ArrayList(); ;
-			  for (WebElement element : elementList)
-			  {
-				  if(element.getAttribute("href") != null)
-				  {
-					  finalList.add(element);
-				  }
-			  }
-			  return finalList;
+
+		List elementList = new ArrayList();
+		elementList = driver.findElements(By.tagName("a"));
+		elementList.addAll(driver.findElements(By.tagName("img")));
+		List finalList = new ArrayList(); ;
+		for (WebElement element : elementList) {
+			if(element.getAttribute("href") != null) {
+				finalList.add(element);
+			}
+		}
+		return finalList;
 	}
-	
+
 	@Keyword
 	public String isLinkBroken(URL url) throws Exception	{
 		//url = new URL("https://yahoo.com");
 		String response = "";
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			try
-			{
-				connection.connect();
-				 response = connection.getResponseMessage();
-				connection.disconnect();
-				return response;
-			}
-			catch(Exception exp)
-			{
-				return exp.getMessage();
-			}
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		try
+		{
+			connection.connect();
+			response = connection.getResponseMessage();
+			connection.disconnect();
+			return response;
+		}
+		catch(Exception exp)
+		{
+			return exp.getMessage();
+		}
 	}
 }
