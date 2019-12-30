@@ -7,6 +7,12 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.util.KeywordUtil
 
@@ -244,13 +250,21 @@ public class ExcelUtilForXlsx {
 
 		try
 		{
-			fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
-			wb = new XSSFWorkbook(fsIP); //Access the workbook
-			worksheet = wb.getSheet(sheetName); //Access the worksheet, so that we can update / modify it.
 
-			Row row = worksheet.getRow(rw); //row to update
+			////XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(new File(path)));
+			///Workbook workbook = new HSSFWorkbook(new FileInputStream(new File(path)));
+			//FileInputStream inputStream = new FileInputStream(new File(path));
+			Workbook workbook = WorkbookFactory.create(new File(path));
+
+			////XSSFSheet sheet = workbook.getSheetAt(0);
+			Sheet sheet = workbook.getSheetAt(0);
+			//fsIP= new FileInputStream(new File(path)); //Read the spreadsheet that needs to be updated
+			//book = new XSSFWorkbook(fsIP); //Access the workbook
+			//worksheet = wb.getSheet(sheetName); //Access the worksheet, so that we can update / modify it.
+
+			Row row = sheet.getRow(rw); //row to update
 			if (row == null) {
-				row = worksheet.createRow(rw);
+				row = sheet.createRow(rw);
 			}
 
 
@@ -263,16 +277,18 @@ public class ExcelUtilForXlsx {
 				cell.setCellValue(value);
 			}
 
+			//inputStream.close();
+			//workbook.close();
+
+			FileOutputStream outputStream = new FileOutputStream(path);
+			//outputFile = new FileOutputStream(new File(path));  //Open FileOutputStream to write updates
+			workbook.write(outputStream); //write changes
+			//workbook.close();
+			outputStream.close();
+
 		}
 		catch(Exception ex){
 			logger.logInfo(ex)
 		}
-		finally{
-			fsIP.close(); //Close the InputStream
-			outputFile =new FileOutputStream(new File(path));  //Open FileOutputStream to write updates
-			wb.write(outputFile); //write changes
-			outputFile.close();  //close the stream
-		}
-
 	}
 }
