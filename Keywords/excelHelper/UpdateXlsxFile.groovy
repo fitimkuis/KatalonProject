@@ -17,16 +17,16 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.util.KeywordUtil
 
 public class UpdateXlsxFile {
-	
+
 	KeywordUtil logger
 	FileOutputStream outputFile
 	Workbook workbook
-	
+
 	public UpdateXlsxFile(){
 		logger = new KeywordUtil()
 	}
 
-	
+
 
 	@Keyword
 	public void updateXlsxFromList(List<String> excel, int rw, int col, String path, String sheetName, String fileName){
@@ -71,7 +71,7 @@ public class UpdateXlsxFile {
 			logger.logInfo(ex)
 		}
 
-		
+
 		String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData_copy.xlsx";
 		// Write the output to the file
 		FileOutputStream fileOut = new FileOutputStream(path2);
@@ -80,24 +80,24 @@ public class UpdateXlsxFile {
 
 		// Closing the workbook
 		workbook.close();
-		
+
 		//delete original file
 		File f = new File(path);
-		
-		  if(f.delete())
-		  {
-			  System.out.println("File deleted successfully");
-		  }
-		  else
-		  {
-			  System.out.println("Failed to delete the file");
-		  }
-		  
-		 //rename copied file
-		  Path source = Paths.get(path2);
-		  Files.move(source, source.resolveSibling(fileName));
+
+		if(f.delete())
+		{
+			System.out.println("File deleted successfully");
+		}
+		else
+		{
+			System.out.println("Failed to delete the file");
+		}
+
+		//rename copied file
+		Path source = Paths.get(path2);
+		Files.move(source, source.resolveSibling(fileName));
 	}
-	
+
 	@Keyword
 	public void ExcelHelperUpdateExactValueXlsx(String value, int rw, int col, String path, String sheetName, String fileName) throws IOException, InvalidFormatException {
 
@@ -129,37 +129,37 @@ public class UpdateXlsxFile {
 				cell.setCellValue(value);
 			}
 
-		String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData_copy.xlsx";
-		// Write the output to the file
-		FileOutputStream fileOut = new FileOutputStream(path2);
-		workbook.write(fileOut);
-		fileOut.close();
+			String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData_copy.xlsx";
+			// Write the output to the file
+			FileOutputStream fileOut = new FileOutputStream(path2);
+			workbook.write(fileOut);
+			fileOut.close();
 
-		// Closing the workbook
-		workbook.close();
-		
-		//delete original file
-		File f = new File(path);
-		
-		  if(f.delete())
-		  {
-			  System.out.println("File deleted successfully");
-		  }
-		  else
-		  {
-			  System.out.println("Failed to delete the file");
-		  }
-		  
-		 //rename copied file
-		  Path source = Paths.get(path2);
-		  Files.move(source, source.resolveSibling(fileName)); 
+			// Closing the workbook
+			workbook.close();
+
+			//delete original file
+			File f = new File(path);
+
+			if(f.delete())
+			{
+				System.out.println("File deleted successfully");
+			}
+			else
+			{
+				System.out.println("Failed to delete the file");
+			}
+
+			//rename copied file
+			Path source = Paths.get(path2);
+			Files.move(source, source.resolveSibling(fileName));
 
 		}
 		catch(Exception ex){
 			logger.logInfo(ex)
 		}
 	}
-	
+
 	@Keyword
 	public int ExcelHelperGetColumnCountXlsx(String path, String sheetName) throws IOException, InvalidFormatException {
 
@@ -186,7 +186,7 @@ public class UpdateXlsxFile {
 		}
 		return noOfColumns;
 	}
-	
+
 	@Keyword
 	public List<String> ExcelHelperReadXlsx(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
 

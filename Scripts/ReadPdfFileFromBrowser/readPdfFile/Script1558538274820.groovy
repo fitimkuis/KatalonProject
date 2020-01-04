@@ -13,9 +13,14 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-String value1 = "http://www.vandevenbv.nl/dynamics/modules/SFIL0200/view.php?fil_Id=5515"
-def pdf = CustomKeywords.'com.pdf.reader.ReadPdfFromBrowser.PdfReaderUtil'(value1)
+WebDriver driver = new ChromeDriver();
+driver.get("http://www.vandevenbv.nl/dynamics/modules/SFIL0200/view.php?fil_Id=5515")
+String url = driver.getCurrentUrl()
+
+def pdf = CustomKeywords.'com.pdf.reader.ReadPdfFromBrowser.PdfReaderUtil'(url, driver)
 
 def lines = pdf.split("\\r?\\n");
 for (String line : lines) {
