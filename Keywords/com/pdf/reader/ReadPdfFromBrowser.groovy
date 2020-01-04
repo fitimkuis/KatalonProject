@@ -31,21 +31,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ReadPdfFromBrowser {
 
-	WebDriver driver;
 	PDDocument pdDoc;
 
 	@Keyword
-	public String PdfReaderUtil(String html){
+	public String PdfReaderUtil(String html, WebDriver driver){
 
 		String pdfFileInText = "";
 
-		driver=new ChromeDriver();
-
-		//driver.get("http://www.vandevenbv.nl/dynamics/modules/SFIL0200/view.php?fil_Id=5515");
-		driver.get(html);
-
 		Thread.sleep(5000);
-		URL url = new URL(driver.getCurrentUrl());
+		URL url = new URL(html);
 		BufferedInputStream fileToParse = new BufferedInputStream(
 				url.openStream());
 
@@ -60,7 +54,6 @@ public class ReadPdfFromBrowser {
 			PDFTextStripper tStripper = new PDFTextStripper();
 
 			pdfFileInText = tStripper.getText(pdDoc);
-
 		}
 		driver.close();
 		return pdfFileInText;
