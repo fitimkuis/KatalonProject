@@ -1,4 +1,15 @@
-﻿C:\Users\fitim\KatalonStudio\Katalon6.1.5\configuration\resources\drivers\chromedriver_win32\chromedriver.exe. 
+﻿NEW Katalon 7.x
+del /q "%WORKSPACE%\Reports\RegressionTestSuite\*"
+FOR /D %%p IN ("%WORKSPACE%\Reports\RegressionTestSuite\*.*") DO rmdir "%%p" /s /q
+cd C:\Users\fitim\katalon\Katalon_Studio_Engine_Windows_64-7.2.1
+katalonc -noSplash  -runMode=console -reportFolder="%WORKSPACE%/Reports" -projectPath="%WORKSPACE%\KatalonProject.prj" -retry=0 -testSuiteCollectionPath="Test Suites/RegressionTestSuiteCollection" -browserType="Chrome (headless)" -apiKey=27f70c12-7093-4ea7-83d6-ed64ce7c257b -apikey=0145e236-3ede-43a2-a1bf-4c5c9e27fd23
+if ERRORLEVEL 1 set ERRORLEVEL=0
+
+############################################################
+
+
+
+C:\Users\fitim\KatalonStudio\Katalon6.1.5\configuration\resources\drivers\chromedriver_win32\chromedriver.exe. 
 In case your browser is updated to a newer version, please use this command to update chromdriver: --config -webui.autoUpdateDrivers=true
 
 TESTIJENKINS projekti
