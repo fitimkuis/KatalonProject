@@ -34,10 +34,10 @@ def im2 = f2.getName()
 
 def stringComp = Compare.processImage(img1, img2);
 if (stringComp.equals("true")){
-	println ("images "+im1 +" and "+im2+" are equal sizes "+stringComp)
+	println ("images "+im1 +" and "+im2+" are equal sizes, "+stringComp)
 }
 else{
-	println ("images "+im1 +" and "+im2+" are not equal sizes "+stringComp)
+	println ("images "+im1 +" and "+im2+" are not equal sizes, "+stringComp)
 }
 
 img1 = RunConfiguration.getProjectDir() + "/images/Lenna100.jpg"
@@ -45,10 +45,10 @@ img2 = RunConfiguration.getProjectDir() + "/images/Lenna100.jpg"
 
 stringComp = Compare.processImage(img1, img2);
 if (stringComp.equals("true")){
-	println ("images "+im1 +" and "+im2+" are not equal sizes "+stringComp)
+	println ("images "+im1 +" and "+im2+" are equal sizes, "+stringComp)
 }
 else{
-	println ("images "+im1 +" and "+im2+" are equal sizes "+stringComp)
+	println ("images "+im1 +" and "+im2+" are not equal sizes, "+stringComp)
 }
 
 public class Compare {
@@ -85,7 +85,8 @@ public class Compare {
 				}
 	
 				//System.out.println("Pixels equal: " + java.util.Arrays.equals(data1, data2));
-				return "Pixels equal: " + java.util.Arrays.equals(data1, data2)
+				//return "Pixels equal: " + java.util.Arrays.equals(data1, data2)
+				return java.util.Arrays.equals(data1, data2)
 	
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
