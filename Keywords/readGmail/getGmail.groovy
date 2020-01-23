@@ -60,7 +60,8 @@ public class getGmail {
 		////////////////////// </CONFIGURATION> //////////////////////
 
 		Properties props = new Properties();
-		props.load(new FileInputStream(new File( "C:\\Users\\fitim\\Desktop\\gmail\\smtp.properties" )));
+		//props.load(new FileInputStream(new File( "C:\\Users\\fitim\\Desktop\\gmail\\smtp.properties" )));
+		props.load(new FileInputStream(new File( "C:/Users/fitim/Google Drive/Desktop2019/tyopoydalta_2019/gmail/smtp.properties" )));
 		Session session = Session.getDefaultInstance(props, null);
 
 		//StartDate = Date.parse("dd-MM-yyyy", StartDate)

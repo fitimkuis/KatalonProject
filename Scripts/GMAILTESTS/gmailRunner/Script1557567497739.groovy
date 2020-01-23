@@ -18,6 +18,23 @@ import mail.gmail.util.SendEmail
 
 import com.kms.katalon.core.configuration.RunConfiguration
 
+def testString = "Treat this as confidential. 869256 is your login OTP. Sharing it with anyone gives them full access to your Paytm Wallet. Paytm never calls to verify your OTP."
+
+//will match any 6 digit number in the message
+Pattern p = Pattern.compile("(|^)\\d{6}");
+		
+if(testString!=null){
+	 Matcher m = p.matcher(testString);
+	 if(m.find()) {
+		 println(m.group(0));
+	 }
+   else
+   {
+	   println("no match");
+   }
+}
+
+
 Logger LOGGER = Logger.getLogger("InfoLogging");
 
 		Properties prop = new Properties();
@@ -48,7 +65,7 @@ Logger LOGGER = Logger.getLogger("InfoLogging");
 		String path = "C:/Users/fitim/Desktop/Tappara_banners.jpg"
 		SendEmail mailSender;
 		mailSender = new SendEmail(password,user, user,"Hello Katalon","Testing with gmail sender","");
-		mailSender = new SendEmail(password,user, user,"Hello Katalon with attachement","Gmail with attachement",path);
+		//mailSender = new SendEmail(password,user, user,"Hello Katalon with attachement","Gmail with attachement",path);
 
 		//will delete email(s) by given search keyword (subject)
 		deletedByKeyword = util.deleteMails(user, password, "Katalon");

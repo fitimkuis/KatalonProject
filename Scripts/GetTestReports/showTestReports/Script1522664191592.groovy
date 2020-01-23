@@ -1,8 +1,8 @@
 import java.nio.file.Paths
 
-String fileName = "index.html"
+String name = "index.html"
 String home = System.getProperty("user.home")
-url = home+"\\Downloads\\Website\\Website\\" + fileName
+url = home+"\\Downloads\\Website\\Website\\" + name
 println url
 String path = Paths.get(".").toAbsolutePath().normalize().toString();
 println path
@@ -14,7 +14,7 @@ println("**************DEBUG returned filename *************** "+fileName)
 CustomKeywords.'readGmail.unZip.unzipFile'(fileName)
 String zip = fileName.substring(0, 29);
 println("*********DEBUG zipfile*******"+zip)
-String path = Paths.get(".").toAbsolutePath().normalize().toString();
+path = Paths.get(".").toAbsolutePath().normalize().toString();
 path = path.replace("\\", "/");
 spam1 = zip.substring(0,8)
 spam2 = zip.substring(9,15)
