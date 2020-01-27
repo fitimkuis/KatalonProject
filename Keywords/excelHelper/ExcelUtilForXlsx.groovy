@@ -112,7 +112,20 @@ public class ExcelUtilForXlsx {
 	}
 
 	@Keyword
-	public int ExcelHelperGetColumnCountXlsx(String path, String sheetName) throws IOException, InvalidFormatException {
+	public List<String> getSheetNames(String path){
+
+		Workbook book = WorkbookFactory.create(new File(path));
+		List<String> sheetNames = new ArrayList<String>();
+
+		for (int i=0; i<book.getNumberOfSheets(); i++) {
+			sheetNames.add( book.getSheetName(i) );
+		}
+		//book.close()
+		return sheetNames
+	}
+
+	@Keyword
+	public int getColumnCount(String path, String sheetName) throws IOException, InvalidFormatException {
 
 		int noOfColumns = 0
 		// Check the file extension
@@ -127,17 +140,50 @@ public class ExcelUtilForXlsx {
 
 			//Get first/desired sheet from the workbook
 			//Sheet sheet = book.getSheetAt(0); //int sheet 0 1 2 ...
+			println("*********DEBUG SheetName************: "+sheetName)
 			Sheet sheet = book.getSheet(sheetName);
 			noOfColumns = sheet.getRow(0).getLastCellNum();
+			//book.close()
 		}
 		catch(Exception ex){
 			logger.logInfo(ex)
 		}
+
 		return noOfColumns;
 	}
 
 	@Keyword
-	public List<String> ExcelHelperReadXlsx(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
+	public int ExcelHelperGetColumnCountXlsx(String path, String sheetName) throws IOException, InvalidFormatException {
+
+		println("*********DEBUG SheetName************: "+sheetName)
+
+		int noOfColumns = 0
+		// Check the file extension
+		if (!path.endsWith(".xlsx")) {
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
+		}
+
+		try
+		{
+
+			Workbook book = WorkbookFactory.create(new File(path));
+
+			//Get first/desired sheet from the workbook
+			//Sheet sheet = book.getSheetAt(0); //int sheet 0 1 2 ...
+			println("*********DEBUG SheetName************: "+sheetName)
+			Sheet sheet = book.getSheet(sheetName);
+			noOfColumns = sheet.getRow(0).getLastCellNum();
+			//book.close()
+		}
+		catch(Exception ex){
+			logger.logInfo(ex)
+		}
+
+		return noOfColumns;
+	}
+	
+	@Keyword
+	public List<String> ReadFile(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
 
 
 		// Check the file extension
@@ -154,6 +200,7 @@ public class ExcelUtilForXlsx {
 
 			//Get first/desired sheet from the workbook
 			Sheet sheet = book.getSheet(sheetName);
+			//Sheet sheet = book.getSheetAt(1);
 
 			// Create a DataFormatter to format and get each cell's value as String
 			DataFormatter dataFormatter = new DataFormatter();
@@ -184,6 +231,65 @@ public class ExcelUtilForXlsx {
 					}
 				}
 			}
+			//book.close()
+		}
+		catch (Exception ex){
+			logger.logInfo(ex)
+		}
+
+		return excelValues;
+	}
+
+	@Keyword
+	public List<String> ExcelHelperReadXlsx(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
+
+
+		// Check the file extension
+		if (!path.endsWith(".xlsx")) {
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
+		}
+
+		List<String> excelValues = new ArrayList<String>();
+		int MY_MINIMUM_COLUMN_COUNT = colCount;
+
+		try
+		{
+			Workbook book = WorkbookFactory.create(new File(path));
+
+			//Get first/desired sheet from the workbook
+			//Sheet sheet = book.getSheet(sheetName);
+			Sheet sheet = book.getSheetAt(1);
+
+			// Create a DataFormatter to format and get each cell's value as String
+			DataFormatter dataFormatter = new DataFormatter();
+
+			// Decide which rows to process
+			int rowStart = start;
+			int rowEnd = end;
+
+			for (int rowNum = rowStart; rowNum < rowEnd; rowNum++) {
+				Row r = sheet.getRow(rowNum);
+				if (r == null) {
+					// This whole row is empty
+					// Handle it as needed
+					continue;
+				}
+
+				int lastColumn = Math.max(r.getLastCellNum(), MY_MINIMUM_COLUMN_COUNT);
+				//System.out.println("last column "+lastColumn);
+
+				for (int cn = 0; cn < lastColumn; cn++) {
+					Cell c = r.getCell(cn, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+					if (c == null) {
+						excelValues.add("**No Value**");
+						// The spreadsheet is empty in this cell
+					} else {
+						// Do something useful with the cell's contents
+						excelValues.add(dataFormatter.formatCellValue(c));
+					}
+				}
+			}
+			//book.close()
 		}
 		catch (Exception ex){
 			logger.logInfo(ex)
