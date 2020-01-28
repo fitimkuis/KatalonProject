@@ -123,6 +123,36 @@ public class ExcelUtilForXlsx {
 		//book.close()
 		return sheetNames
 	}
+	
+	@Keyword
+	public int getRowCount(String path, String sheetName) throws IOException, InvalidFormatException {
+
+		int noOfColumns = 0
+		int totalRows = 0
+		// Check the file extension
+		if (!path.endsWith(".xlsx")) {
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
+		}
+
+		try
+		{
+	
+		   // Open the Excel file
+		   FileInputStream ExcelFile = new FileInputStream(path);
+			
+		   // Access the required test data sheet
+		   XSSFWorkbook ExcelWBook = new XSSFWorkbook(ExcelFile);
+		   XSSFSheet ExcelWSheet = ExcelWBook.getSheet(sheetName);
+			
+		   totalRows = ExcelWSheet.getPhysicalNumberOfRows();
+							
+		}
+		catch(Exception ex){
+			logger.logInfo(ex)
+		}
+
+		return totalRows;
+	}
 
 	@Keyword
 	public int getColumnCount(String path, String sheetName) throws IOException, InvalidFormatException {
@@ -140,10 +170,8 @@ public class ExcelUtilForXlsx {
 
 			//Get first/desired sheet from the workbook
 			//Sheet sheet = book.getSheetAt(0); //int sheet 0 1 2 ...
-			println("*********DEBUG SheetName************: "+sheetName)
 			Sheet sheet = book.getSheet(sheetName);
 			noOfColumns = sheet.getRow(0).getLastCellNum();
-			//book.close()
 		}
 		catch(Exception ex){
 			logger.logInfo(ex)
@@ -154,8 +182,6 @@ public class ExcelUtilForXlsx {
 
 	@Keyword
 	public int ExcelHelperGetColumnCountXlsx(String path, String sheetName) throws IOException, InvalidFormatException {
-
-		println("*********DEBUG SheetName************: "+sheetName)
 
 		int noOfColumns = 0
 		// Check the file extension
@@ -170,7 +196,6 @@ public class ExcelUtilForXlsx {
 
 			//Get first/desired sheet from the workbook
 			//Sheet sheet = book.getSheetAt(0); //int sheet 0 1 2 ...
-			println("*********DEBUG SheetName************: "+sheetName)
 			Sheet sheet = book.getSheet(sheetName);
 			noOfColumns = sheet.getRow(0).getLastCellNum();
 			//book.close()

@@ -59,7 +59,7 @@ columns.add("Five")
 String ext = FilenameUtils.getExtension(pathXlsx);
 
 
-
+/*
 if (ext.equals("xls")){
 	println "processing .xls file"
 	String fileName = "xlsData.xls"
@@ -134,39 +134,56 @@ else{
 		end++;
 	}
 }
-
+*/
 
 //true or false value
 start = 0;
 end = 1;
 //int counter = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getColumnCount'(pathXlsx, truefalse)
-int counter = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(pathXlsx, truefalse)
-println ("DEBUG******************* "+counter)
+///int counter = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(pathXlsx, truefalse)
+//println ("DEBUG******************* "+counter)
 
 //int countOfColumsXlsx = CustomKeywords.'excelHelper.UpdateXlsxFile.ExcelHelperGetColumnCountXlsx'(pathXlsx, truefalse)//get count of columns
-headerValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(counter, start, end, pathXlsx, truefalse)
+///headerValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(counter, start, end, pathXlsx, truefalse)
 //headerValuesXlsx = CustomKeywords.'excelHelper.UpdateXlsxFile.ExcelHelperReadXlsx'(counter, start, end, pathXlsx, truefalse)//get header values
 //headerValuesXlsx = CustomKeywords.'excelHelper.UpdateXlsxFile.ExcelHelperReadXlsx'(counter, start, end, pathXlsx, truefalse)//get header values
-println ("DEBUG******************* "+headerValuesXlsx)
+//println ("DEBUG******************* "+headerValuesXlsx)
 
-processRows = 1;  //how many rows to get processed
-start = 1;
-end = 2;
-for (int z = 0; z < processRows; z++) {
-	excelValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(headerValuesXlsx.size(), start, end, pathXlsx, truefalse)
-	//excelValuesXlsx = CustomKeywords.'excelHelper.UpdateXlsxFile.ExcelHelperReadXlsx'(headerValuesXlsx.size(), start, end, pathXlsx, truefalse)
-	int y = 0;
-
-	for (String s : headerValuesXlsx) {
-		if (excelValuesXlsx.get(y).equals("**No Value**")) {
-			System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has not value ");
-		} else {
-			System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has value " + excelValuesXlsx.get(y));
+//processRows = 1;  //how many rows to get processed
+//start = 1;
+//end = 2;
+int counter = 0
+int rowCount = 0
+for(String sheet: sheetNames){
+	//header count
+	start = 0;
+	end = 1;
+	counter = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(pathXlsx, sheet)
+	println ("DEBUG*******************Columns "+counter)
+	headerValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(counter, start, end, pathXlsx, sheet)
+	println ("DEBUG*******************Header Values "+headerValuesXlsx)
+	rowCount = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getRowCount'(pathXlsx, sheet)
+	rowCount--
+	println ("DEBUG*******************Rows "+rowCount)
+	//row count
+	start = 1;
+	end = 2;
+	for (int z = 0; z < rowCount; z++) {
+		excelValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(headerValuesXlsx.size(), start, end, pathXlsx, sheet)
+		//excelValuesXlsx = CustomKeywords.'excelHelper.UpdateXlsxFile.ExcelHelperReadXlsx'(headerValuesXlsx.size(), start, end, pathXlsx, truefalse)
+		int y = 0;
+	
+		for (String s : headerValuesXlsx) {
+			if (excelValuesXlsx.get(y).equals("**No Value**")) {
+				System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has not value ");
+			} else {
+				System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has value " + excelValuesXlsx.get(y));
+			}
+			y++;
 		}
-		y++;
+		start++; //increase start & end to get data rows
+		end++;
 	}
-	start++; //increase start & end to get data rows
-	end++;
 }
 
 
