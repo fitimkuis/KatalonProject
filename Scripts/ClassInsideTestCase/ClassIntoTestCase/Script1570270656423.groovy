@@ -25,11 +25,11 @@ println(test.getTestString())
 
 TestClass2 test2 = new TestClass2()
 //test.setTestString("this is fynny job")
-println("DEBUG defined in class1 contructor and called with super contructor in class2 "+test2.getTestString())
+println("DEBUG defined in class1 constructor and called with super contructor in class2 "+test2.getTestString())
 
 TestClass2 test3 = new TestClass2()
-test3.setString("this is fynny job")
-println("DEBUG overrided by class2 contructor "+test3.getString())
+test3.setString("For Testers")
+println("DEBUG overrided by class2 constructor "+test3.getString())
 
 for (TestClass.Weekdays days : TestClass.Weekdays.values()){
 	

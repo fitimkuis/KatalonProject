@@ -123,7 +123,7 @@ public class ExcelUtilForXlsx {
 		//book.close()
 		return sheetNames
 	}
-	
+
 	@Keyword
 	public int getRowCount(String path, String sheetName) throws IOException, InvalidFormatException {
 
@@ -136,16 +136,16 @@ public class ExcelUtilForXlsx {
 
 		try
 		{
-	
-		   // Open the Excel file
-		   FileInputStream ExcelFile = new FileInputStream(path);
-			
-		   // Access the required test data sheet
-		   XSSFWorkbook ExcelWBook = new XSSFWorkbook(ExcelFile);
-		   XSSFSheet ExcelWSheet = ExcelWBook.getSheet(sheetName);
-			
-		   totalRows = ExcelWSheet.getPhysicalNumberOfRows();
-							
+
+			// Open the Excel file
+			FileInputStream ExcelFile = new FileInputStream(path);
+
+			// Access the required test data sheet
+			XSSFWorkbook ExcelWBook = new XSSFWorkbook(ExcelFile);
+			XSSFSheet ExcelWSheet = ExcelWBook.getSheet(sheetName);
+
+			totalRows = ExcelWSheet.getPhysicalNumberOfRows();
+
 		}
 		catch(Exception ex){
 			logger.logInfo(ex)
@@ -206,7 +206,7 @@ public class ExcelUtilForXlsx {
 
 		return noOfColumns;
 	}
-	
+
 	@Keyword
 	public List<String> ReadFile(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
 

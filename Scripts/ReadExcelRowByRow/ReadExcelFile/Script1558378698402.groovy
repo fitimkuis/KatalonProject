@@ -3,10 +3,41 @@ import java.text.SimpleDateFormat;
 
 import org.apache.commons.io.FilenameUtils
 
+import com.kms.katalon.core.testobject.ConditionType
+import com.kms.katalon.core.testobject.TestObject
+
+def verifyNavMenu(List list, List<String> menuname){
+	println list
+	println("total menus "+menuname.size())
+	for(String s : menuname){
+	   println("menuiten name: "+s)
+	}
+}
+
+def TestObject makeTOwithXPath(String xpath) {
+	TestObject to = new TestObject()
+	to.addProperty("xpath", ConditionType.EQUALS, xpath)
+	return to
+}
+
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 System.out.println(sdf.format(timestamp));
 String stamp = sdf.format(timestamp);
+
+
+List<String> careerNavbarList = new ArrayList<>()
+careerNavbarList.add("test1")
+careerNavbarList.add("test2")
+careerNavbarList.add("test3")
+def xpath = "//header[@id='top']/div/a"
+TestObject to2 = new TestObject()
+to2 = makeTOwithXPath(xpath)
+println to2
+def list= []
+list.add(to2)
+//CustomKeywords.‘ciautils.ciaUtilities.verifyNavMenu’(menuListObj, careerNavbarList)
+verifyNavMenu(list, careerNavbarList)
 
 def valToExcel = "car"
 
