@@ -31,7 +31,10 @@ if (resp.getStatusCode() == 200) {
 	}	
 */
 
+String jsonString = JsonOutput.prettyPrint(responseText)
+println ("DEBUG jason string "+jsonString)
 println JsonOutput.prettyPrint(responseText)
+
 
 def jsonSlurper = new JsonSlurper()
 def object = jsonSlurper.parseText(responseText)

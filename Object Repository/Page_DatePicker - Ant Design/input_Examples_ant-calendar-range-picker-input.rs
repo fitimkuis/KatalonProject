@@ -6,6 +6,10 @@
    <elementGuidId>ade9a1d4-1b0c-4734-9364-d6aafc6d6196</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>BASIC</key>
+         <value>id(&quot;components-date-picker-demo-basic&quot;)/section[@class=&quot;code-box-demo&quot;]/div[1]/span[@class=&quot;ant-calendar-picker&quot;]/span[@class=&quot;ant-calendar-picker-input ant-input&quot;]/input[@class=&quot;ant-calendar-range-picker-input&quot;][count(. | //input[@placeholder = 'Start date']) = count(//input[@placeholder = 'Start date'])]</value>
+      </entry>
+      <entry>
          <key>XPATH</key>
          <value>(//input[@value=''])[4]</value>
       </entry>
@@ -13,7 +17,7 @@
    <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
@@ -41,7 +45,7 @@
       <value>-1</value>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
