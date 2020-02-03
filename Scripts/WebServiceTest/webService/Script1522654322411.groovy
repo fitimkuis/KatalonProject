@@ -1,8 +1,6 @@
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
-import java.util.regex.Pattern
-import java.util.regex.Matcher;
-
+import com.google.gson.Gson
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 
@@ -65,6 +63,14 @@ for (int y = 0; y < object.MRData.CircuitTable.Circuits.circuitName.size(); y++)
 
 def json = new JsonSlurper().parseText('{"applications":[{"name":"test123","id":"c1257c5","description":"test","type":"generic","version":"0.1"},{"name":"Asset_1","id":"a9e0bce","description":"sfsdgdg","type":"generic","version":"0.1"},{"name":"Asset_2","id":"a9e0cd2","description":"sffgdgf","type":"generic","version":"0.1"}]}')
 println("***DEBUG**** "+json.applications[1].id)
+
+def strString = json.applications[1].id
+//used Gson to convert json to String
+Gson gson = new Gson();
+String jsonStringTest = gson.toJson(strString);
+println ("DEBUG Gson used: "+jsonStringTest)
+
+
 /*println JsonOutput.prettyPrint(text)
 def jsonSlurper = new JsonSlurper()
 def object = jsonSlurper.parseText(text)*/
@@ -115,3 +121,42 @@ println part2 //here is token ewrerydjgkfgijrtupk,nyouktu
 //***DEBUG**** 6000112216066021
 
 //println("***DEBUG**** "+j.refresh_token[0].tokenValidityTime)
+def accessString = ""
+def refreshString = ""
+restResponse = '{"token_type":"Bearer","expires_in":300,"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjY2MTdjNjViOTQ4NzM0YjI3MDBhMzRkMWQyMDEzYTNlNWY3MGMzOGUwNjJlNmZlNjE3YTI3YjU5OTc2NTM1NjdmYTY0ZDczYWU3NmRiZGM2IyJhdWQiOiIyIiwianRpIjoiNjYxN2M2NWI5NDg3MzRiMjcwMGEzNGQxZDIwMTNhM2U1ZjcwYzM4ZTA2MmU2ZmU2MTdhMjdiNTk5NzY1MzU2N2ZhNjRkNzNhZTc2ZGJkYzYiLCJpYXQiOjE1ODA3MTM0NTYsIm5iZiI6MTU4MDcxMzQ1NiwiZXhwIjoxNjEyMjQ5NDU2LCJzdWIiOiI4Njk1NyIsInNjb3BlcyI6WyIqIl19.mwFJWZoZz7fv8gybBL1EjpbmrOLpcY4OEANpk65BF-l5XDCoyhZoef8T675-VgfomLKQjuzgb9siokq9LdmUNm1H1ZB0unnwECK4gYjz3Ua3oGVmED6oPeH3x8Gt_tCc60cdmHa0bxFyGwx2LsMYhy_HNHIzkJ1Xrk-mchuVYYowCd3hqzlh02QnPKNqe8bqi0ETfU6GK7sLKDwUgyOhDPTFSrdgDAe3QWukfiF4WBeLVKDNWjoyJ_BAwh20kEdpgNWlWKtDOALsLr2NSEHuQU-w-yXJ4JpwQj1SBULxw8nzEhsAmI916_FIH_OgNf7DLu8tnHOauQnJi2xpmQrf1u3633QhO5ah9GAuCafEDoVuIEmZoiykn118wqa5rwx9gVl9epM7zEDAUuaTagEZpRuqZVM5z-RPxtuWjf2EnRFgQphlp7d0pgoR2XEuPO_FsyaMrI_z-qVYjXLHnFto8gACaVug3O1sRDxBGZGt1Nvpyu-8gUA-_2wi1x2t9LzTwIn7qfB03HbnE9nolvBEIgX4GVN_uspPKtXR1NkKWepWqoWR2Dv0zl8XNUwCi0CaIzkM1-2YskHMj95gRT6jIhW6eSSUOOTT3yOkIAc1OJq5m_rfSCmdtMT_zoFYWkvUu3RNbbc3cZVQtJomegTXyB5Cpq8oOcgBB9k","refresh_token":"def50200aa6503e01d85876d8de0a812143744dba64187b2b24591cdba3840c0b0f013350a0d79fc601f346f356b4c702110045b3927b92f13d2339e612697ea13ee7c433d208af3b7b879d6b8c61ab1362659c5d8283ac3b50648d09f68fb165bb1c339c505b37f21e2fdb2e79a5562e65b8dbe1864697632fc98d454b1a93e6bfbc2803d6c1d0f3533e48a29b0a1e9097e20b5fb2931128de5fb49e59177045384d87cee4e597a22b14cf037617edbf93b9eedefad3281a216cd0cb134a9454858a8f36e798e1c78e4f4a8b7f17dc6370045ac785a115e7d95d90d53e0ea13fdc1e4d801eb517e84457504e39ffc8ab4996745006a0d8b3903d3d0379da9478eea966bdecba7d856ac341cf8c58929edb613fdd7af47f8932bf5d566e624b81621013632d902c6c7dcf28d37e4a3c52d8b5222df2748bdd8b44df7e042a8670f2cd2d92aaaaa70be70d979bf7d452f63dee7166900bcc4be7675f7cf054b865d408","region":"test"}'
+
+list = new JsonSlurper().parseText( restResponse )
+list.each { println it }
+
+for (String s : list){
+	if (s.startsWith("access_token=")){
+		accessString = s
+		break;
+	}
+}
+parts = accessString.split("=");
+String access1 = parts[0]; 
+String access2 = parts[1]; 
+
+for (String s : list){
+	if (s.startsWith("refresh_token=")){
+		refreshString = s
+		break;
+	}
+}
+parts = refreshString.split("=");
+String refresh1 = parts[0];
+String refresh2 = parts[1];
+
+println("DEBUG access_token: "+accessString)
+println("DEBUG refresh_token: "+refreshString)
+
+println("DEBUG access_token: "+access1)
+println("DEBUG access_token value: "+access2)
+println("DEBUG refresh_token: "+refresh1)
+println("DEBUG refresh_token value: "+refresh2)
+
+//DEBUG access_token: access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjY2MTdjNjViOTQ4NzM0YjI3MDBhMzRkMWQyMDEzYTNlNWY3MGMzOGUwNjJlNmZlNjE3YTI3YjU5OTc2NTM1NjdmYTY0ZDczYWU3NmRiZGM2IyJhdWQiOiIyIiwianRpIjoiNjYxN2M2NWI5NDg3MzRiMjcwMGEzNGQxZDIwMTNhM2U1ZjcwYzM4ZTA2MmU2ZmU2MTdhMjdiNTk5NzY1MzU2N2ZhNjRkNzNhZTc2ZGJkYzYiLCJpYXQiOjE1ODA3MTM0NTYsIm5iZiI6MTU4MDcxMzQ1NiwiZXhwIjoxNjEyMjQ5NDU2LCJzdWIiOiI4Njk1NyIsInNjb3BlcyI6WyIqIl19.mwFJWZoZz7fv8gybBL1EjpbmrOLpcY4OEANpk65BF-l5XDCoyhZoef8T675-VgfomLKQjuzgb9siokq9LdmUNm1H1ZB0unnwECK4gYjz3Ua3oGVmED6oPeH3x8Gt_tCc60cdmHa0bxFyGwx2LsMYhy_HNHIzkJ1Xrk-mchuVYYowCd3hqzlh02QnPKNqe8bqi0ETfU6GK7sLKDwUgyOhDPTFSrdgDAe3QWukfiF4WBeLVKDNWjoyJ_BAwh20kEdpgNWlWKtDOALsLr2NSEHuQU-w-yXJ4JpwQj1SBULxw8nzEhsAmI916_FIH_OgNf7DLu8tnHOauQnJi2xpmQrf1u3633QhO5ah9GAuCafEDoVuIEmZoiykn118wqa5rwx9gVl9epM7zEDAUuaTagEZpRuqZVM5z-RPxtuWjf2EnRFgQphlp7d0pgoR2XEuPO_FsyaMrI_z-qVYjXLHnFto8gACaVug3O1sRDxBGZGt1Nvpyu-8gUA-_2wi1x2t9LzTwIn7qfB03HbnE9nolvBEIgX4GVN_uspPKtXR1NkKWepWqoWR2Dv0zl8XNUwCi0CaIzkM1-2YskHMj95gRT6jIhW6eSSUOOTT3yOkIAc1OJq5m_rfSCmdtMT_zoFYWkvUu3RNbbc3cZVQtJomegTXyB5Cpq8oOcgBB9k
+//DEBUG refresh_token: refresh_token=def50200aa6503e01d85876d8de0a812143744dba64187b2b24591cdba3840c0b0f013350a0d79fc601f346f356b4c702110045b3927b92f13d2339e612697ea13ee7c433d208af3b7b879d6b8c61ab1362659c5d8283ac3b50648d09f68fb165bb1c339c505b37f21e2fdb2e79a5562e65b8dbe1864697632fc98d454b1a93e6bfbc2803d6c1d0f3533e48a29b0a1e9097e20b5fb2931128de5fb49e59177045384d87cee4e597a22b14cf037617edbf93b9eedefad3281a216cd0cb134a9454858a8f36e798e1c78e4f4a8b7f17dc6370045ac785a115e7d95d90d53e0ea13fdc1e4d801eb517e84457504e39ffc8ab4996745006a0d8b3903d3d0379da9478eea966bdecba7d856ac341cf8c58929edb613fdd7af47f8932bf5d566e624b81621013632d902c6c7dcf28d37e4a3c52d8b5222df2748bdd8b44df7e042a8670f2cd2d92aaaaa70be70d979bf7d452f63dee7166900bcc4be7675f7cf054b865d408
+
+
