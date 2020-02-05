@@ -30,22 +30,22 @@ import javax.crypto.spec.PBEKeySpec;
 import internal.GlobalVariable
 
 public class PasswordUtils {
-	
+
 	private static final Random RANDOM = new SecureRandom();
 	private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	private static final int ITERATIONS = 10000;
 	private static final int KEY_LENGTH = 256;
-	
+
 	@Keyword
 	public static String getSalt(int length) {
-		
+
 		StringBuilder returnValue = new StringBuilder(length);
 		for (int i = 0; i < length; i++) {
 			returnValue.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
 		}
 		return new String(returnValue);
 	}
-	
+
 	@Keyword
 	public static String generateSecurePassword(String password, String salt) {
 		String returnValue = null;
@@ -55,21 +55,20 @@ public class PasswordUtils {
 
 		return returnValue;
 	}
-	
+
 	@Keyword
-	public static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt)
-	{
+	public static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt) {
 		boolean returnValue = false;
-	
+
 		// Generate New secure password with the same salt
 		String newSecurePassword = generateSecurePassword(providedPassword, salt);
-	
+
 		// Check if two passwords are equal
 		returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
-	
+
 		return returnValue;
 	}
-	
+
 	public static byte[] hash(char[] password, byte[] salt) {
 		PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
 		Arrays.fill(password, Character.MIN_VALUE);

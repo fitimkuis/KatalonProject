@@ -206,6 +206,95 @@ public class ExcelUtilForXlsx {
 
 		return noOfColumns;
 	}
+	
+	@Keyword
+	public String getExactColumnData(String path){
+		
+		File file = new File(path);
+		Workbook workbook = WorkbookFactory.create(new FileInputStream(file));
+		Sheet sheet = workbook.getSheetAt(0);//TestSheet
+		int column_index_1 = 0;
+		int column_index_2 = 0;
+		int column_index_3 = 0;
+		int column_index_4 = 0;
+		int column_index_5 = 0;
+		Row row = sheet.getRow(0);
+		for (Cell cell : row) {
+			// Column header names.
+			switch (cell.getStringCellValue()) {
+				case "AccountNumber":
+					column_index_1 = cell.getColumnIndex();
+					break;
+				case "Name":
+					column_index_2 = cell.getColumnIndex();
+					break;
+				case "Amount":
+					column_index_3 = cell.getColumnIndex();
+				case "Profit":
+					column_index_4 = cell.getColumnIndex();
+					break;
+				case "Account":
+					column_index_5 = cell.getColumnIndex();
+					break;
+			}
+		}
+	
+		for (Row r : sheet) {
+			if (r.getRowNum()==0) continue;//hearders
+			Cell c_1 = r.getCell(column_index_1);
+			Cell c_2 = r.getCell(column_index_2);
+			Cell c_3 = r.getCell(column_index_3);
+			Cell c_4 = r.getCell(column_index_4);
+			Cell c_5 = r.getCell(column_index_5);
+			if (c_1 != null && c_1.getCellType() != Cell.CELL_TYPE_BLANK
+					&&c_2 != null && c_2.getCellType() != Cell.CELL_TYPE_BLANK
+					&&c_3 != null && c_3.getCellType() != Cell.CELL_TYPE_BLANK
+					&&c_4 != null && c_4.getCellType() != Cell.CELL_TYPE_BLANK
+					&&c_5 != null && c_5.getCellType() != Cell.CELL_TYPE_BLANK) 
+			{
+				System.out.print("  "+c_1 + "   " + c_2+"   "+c_3+"  "+ c_4+"  "+c_5+"\n");
+			}
+		}
+	
+	}
+	
+	@Keyword
+	public String getRowColumn(int rowNum, int columnNum, String path, String sheetName) throws IOException, InvalidFormatException {
+
+		// Check the file extension
+		if (!path.endsWith(".xlsx")) {
+			throw new IllegalArgumentException("Unknown file type. Please use .xlsx");
+		}
+
+		try
+		{
+			Workbook book = WorkbookFactory.create(new File(path));
+
+			//Get first/desired sheet from the workbook
+			Sheet sheet = book.getSheet(sheetName);
+			//Sheet sheet = book.getSheetAt(1);
+
+			// Create a DataFormatter to format and get each cell's value as String
+			DataFormatter dataFormatter = new DataFormatter();
+
+			if (rowNum == 1){
+				rowNum++ //add 1 cause row 1 is headers
+			}
+			Row r = sheet.getRow(rowNum);//get wanted row
+			//column nums start from 0
+			Cell c = r.getCell(columnNum, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+			if (c == null) {
+				return ("**No Value**");
+						// The spreadsheet is empty in this cell
+			} 
+			else {
+				return(dataFormatter.formatCellValue(c));
+			}
+		}
+		catch (Exception ex){
+			logger.logInfo(ex)
+		}
+	}
 
 	@Keyword
 	public List<String> ReadFile(int colCount, int start, int end, String path, String sheetName) throws IOException, InvalidFormatException {
@@ -256,7 +345,6 @@ public class ExcelUtilForXlsx {
 					}
 				}
 			}
-			//book.close()
 		}
 		catch (Exception ex){
 			logger.logInfo(ex)
