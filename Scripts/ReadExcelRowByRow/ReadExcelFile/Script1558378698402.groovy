@@ -61,12 +61,14 @@ String path = System.getProperty("user.dir")+"\\ExcelFiles\\xlsData.xls";
 
 String pathXlsx = System.getProperty("user.dir")+"\\ExcelFiles\\xlsxData.xlsx";
 
+int rowNum = 3
+int colNum = 2
 //arguments: row number, column number (start from 0), file path, sheetname 
-def columnData = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getRowColumn'(1, 1, pathXlsx, xlsxSheetName)
-println columnData
+def columnData = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getRowColumn'(rowNum, colNum, pathXlsx, xlsxSheetName)
+println ("***DEBUG row "+rowNum+" and column "+colNum+" data: "+columnData)
 
 //CustomKeywords.'excelHelper.ExcelUtilForXlsx.getExactColumnData'(pathXlsx)
-
+ 
 List<String> sheetNames = new ArrayList<>()
 sheetNames = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getSheetNames'(pathXlsx)
 

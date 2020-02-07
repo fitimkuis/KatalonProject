@@ -1,16 +1,42 @@
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static org.junit.Assert.*
+
+import java.text.SimpleDateFormat
 
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 
-import com.kms.katalon.core.webui.driver.DriverFactory
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
-
 import com.kms.katalon.core.configuration.RunConfiguration
+import com.kms.katalon.core.webui.driver.DriverFactory
+
+/*
+String line = "2013-10-27T13:00:00.325234Z";
+DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSSSS'Z'");
+LocalDateTime time = LocalDateTime.parse(line, dateFormat);
+Timestamp ts = Timestamp.valueOf(time);
+System.out.println(ts);
+*/
+/*
+String line = "Mon Jan 01 00:00:00 EET 2020";
+DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy HH:mm:ss zzz").withLocale( Locale.ENGLISH );
+LocalDateTime time = LocalDateTime.parse(line, dateFormat);
+Timestamp ts = Timestamp.valueOf(time);
+System.out.println(ts);
+*/
+
+SimpleDateFormat sdf = new SimpleDateFormat('dd/mm/yy')
+Date parsedDate = null
+String sentDate = '9/1/20'
+parsedDate = sdf.parse(sentDate);
+println (parsedDate)
+sdf = new SimpleDateFormat('dd/mm/YYYY')
+String sDate = sdf.format(parsedDate)
+println (sDate)
+
+//Thu Jan 09 00:01:00 EET 2020
+//09/01/2020
+
 def folder = RunConfiguration.getReportFolder()
 print folder
 

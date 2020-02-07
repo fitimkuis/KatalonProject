@@ -70,14 +70,14 @@ for (def index : (0..data.getRowNumbers() - 1)) {
 	for (String col : colNames){
 		//check is there value in the column cell
 		if (data.getValue(col, row).equals("")){
-			println "column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row
+			println "header: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row
 			log.markWarning("column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row);
 			//allCol.get(colCount).add(data.getValue(col, row))
 			lists.get(colCount).add(data.getValue(col, row))
 			//log.markError("column "+col+" has not value!!!! "+data.getValue(col, row)+ " row "+row);
 			//throw new com.kms.katalon.core.exception.StepErrorException("column "+col+" has not value!!!! "+data.getValue(col, row)+ " row "+row)
 		}else{
-			println "column: "+col+ " row: "+row+" value: "+data.getValue(col, row)
+			println "header: "+col+ " row: "+row+" value: "+data.getValue(col, row)
 			//allCol.get(colCount).add(data.getValue(col, row))
 			lists.get(colCount).add(data.getValue(col, row))
 			println colCount	

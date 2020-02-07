@@ -206,10 +206,10 @@ public class ExcelUtilForXlsx {
 
 		return noOfColumns;
 	}
-	
+
 	@Keyword
 	public String getExactColumnData(String path){
-		
+
 		File file = new File(path);
 		Workbook workbook = WorkbookFactory.create(new FileInputStream(file));
 		Sheet sheet = workbook.getSheetAt(0);//TestSheet
@@ -238,7 +238,7 @@ public class ExcelUtilForXlsx {
 					break;
 			}
 		}
-	
+
 		for (Row r : sheet) {
 			if (r.getRowNum()==0) continue;//hearders
 			Cell c_1 = r.getCell(column_index_1);
@@ -247,17 +247,17 @@ public class ExcelUtilForXlsx {
 			Cell c_4 = r.getCell(column_index_4);
 			Cell c_5 = r.getCell(column_index_5);
 			if (c_1 != null && c_1.getCellType() != Cell.CELL_TYPE_BLANK
-					&&c_2 != null && c_2.getCellType() != Cell.CELL_TYPE_BLANK
-					&&c_3 != null && c_3.getCellType() != Cell.CELL_TYPE_BLANK
-					&&c_4 != null && c_4.getCellType() != Cell.CELL_TYPE_BLANK
-					&&c_5 != null && c_5.getCellType() != Cell.CELL_TYPE_BLANK) 
+			&&c_2 != null && c_2.getCellType() != Cell.CELL_TYPE_BLANK
+			&&c_3 != null && c_3.getCellType() != Cell.CELL_TYPE_BLANK
+			&&c_4 != null && c_4.getCellType() != Cell.CELL_TYPE_BLANK
+			&&c_5 != null && c_5.getCellType() != Cell.CELL_TYPE_BLANK)
 			{
 				System.out.print("  "+c_1 + "   " + c_2+"   "+c_3+"  "+ c_4+"  "+c_5+"\n");
 			}
 		}
-	
+
 	}
-	
+
 	@Keyword
 	public String getRowColumn(int rowNum, int columnNum, String path, String sheetName) throws IOException, InvalidFormatException {
 
@@ -285,8 +285,8 @@ public class ExcelUtilForXlsx {
 			Cell c = r.getCell(columnNum, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
 			if (c == null) {
 				return ("**No Value**");
-						// The spreadsheet is empty in this cell
-			} 
+				// The spreadsheet is empty in this cell
+			}
 			else {
 				return(dataFormatter.formatCellValue(c));
 			}
