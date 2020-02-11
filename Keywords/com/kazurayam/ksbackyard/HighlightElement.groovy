@@ -25,9 +25,9 @@ public class HighlightElement {
 			List<WebElement> elements = WebUiCommonHelper.findWebElements(testObject, 20);
 			for (WebElement element : elements) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript(
-						"arguments[0].setAttribute('style','outline: dashed red;');",
-						element);
+				js.executeScript("arguments[0].setAttribute('style','outline: dashed red;');", element);
+				def ret = js.executeScript("return window.getSelection().toString();");
+				println ret
 			}
 		} catch (Exception e) {
 			// TODO use Katalon Logging

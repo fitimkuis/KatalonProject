@@ -1,23 +1,13 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
-import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling as FailureHandling
-import com.kms.katalon.core.testcase.TestCase as TestCase
-import com.kms.katalon.core.testdata.TestData as TestData
-import com.kms.katalon.core.testobject.TestObject as TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
-
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.Select
+
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 // open browser and navigate to the AUT
@@ -38,6 +28,34 @@ WebUI.delay(2)
 CustomKeywords.'com.kazurayam.ksbackyard.HighlightElement.pandemic'()
 
 WebUI.click(findTestObject('Page_CURA Healthcare Service_top/a_Make Appointment'), FailureHandling.CONTINUE_ON_FAILURE)
+WebDriver driver = DriverFactory.getWebDriver()
+JavascriptExecutor js = (JavascriptExecutor) driver;
+
+WebDriver driver = DriverFactory.getWebDriver()
+String color = driver.findElement(By.xpath("//a[@id='btn-make-appointment']")).getCssValue("color");
+String backcolor = driver.findElement(By.xpath("//a[@id='btn-make-appointment']")).getCssValue("background-color");
+System.out.println(color);
+System.out.println(backcolor);
+if(!color.equals(backcolor)){
+	System.out.println("Text is highlighted!")
+}
+else{
+	System.out.println("Text is not highlighted!")
+}
+
+WebElement desiredElement = driver.findElement(By.xpath("//a[@id='btn-make-appointment']"));
+WebElement activeElement = driver.switchTo().activeElement();
+
+ /*
+Select select = new Select(driver.findElement(By.xpath("//a[@id='btn-make-appointment']")));
+WebElement option = select.getFirstSelectedOption();
+String defaultItem = option.getText();
+System.out.println(defaultItem );*/
+
+//js.executeScript("arguments[0].setAttribute('style','outline: dashed red;');", element);
+//def ret = js.executeScript("return window.getSelection().toString();");
+//println ("************** "+ret)
+
 WebUI.delay(1)
 
 WebUI.setText(findTestObject('Page_CURA Healthcare Service_login/input_Username_username'), 'John Doe', FailureHandling.CONTINUE_ON_FAILURE)
