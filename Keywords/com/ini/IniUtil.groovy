@@ -25,7 +25,7 @@ import org.apache.commons.configuration.SubnodeConfiguration
 
 
 public class IniUtil {
-	
+
 	private String iniPath = System.getProperty("user.dir")+"\\inidata\\myinifile.ini";
 
 	@Keyword
