@@ -16,11 +16,25 @@ WebUI.setViewPortSize(1024, 768)
 WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')
 WebUI.delay(1)
 
+
+WebDriver driver = DriverFactory.getWebDriver()
 // highlight a specific element
 CustomKeywords.'com.kazurayam.ksbackyard.HighlightElement.on'(
 	findTestObject('Page_CURA Healthcare Service_top/h1_CURA Healthcare Service'))
 WebUI.delay(2)
-
+//List<WebElement> el = driver.findElements(By.cssSelector("*"));
+List<WebElement> el = driver.findElements(By.xpath("*"));
+for ( WebElement e : el ) {
+	print(e.getText());
+	WebElement textDemo = driver.findElement(By.xpath("//*[normalize-space(text())="+e.getText()+"]"));
+	 if(textDemo.isDisplayed())
+	 {
+		 System.out.println("Element found using text");
+	 }
+	 else{
+		 System.out.println("Element not found");
+	 }
+}
 
 
 // modify WebUI.* keywords which take TestObject as arg0
@@ -28,10 +42,14 @@ WebUI.delay(2)
 CustomKeywords.'com.kazurayam.ksbackyard.HighlightElement.pandemic'()
 
 WebUI.click(findTestObject('Page_CURA Healthcare Service_top/a_Make Appointment'), FailureHandling.CONTINUE_ON_FAILURE)
-WebDriver driver = DriverFactory.getWebDriver()
+
 JavascriptExecutor js = (JavascriptExecutor) driver;
 
-WebDriver driver = DriverFactory.getWebDriver()
+
+
+
+
+
 String color = driver.findElement(By.xpath("//a[@id='btn-make-appointment']")).getCssValue("color");
 String backcolor = driver.findElement(By.xpath("//a[@id='btn-make-appointment']")).getCssValue("background-color");
 System.out.println(color);

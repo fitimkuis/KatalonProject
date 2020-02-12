@@ -28,13 +28,17 @@ if (resp.getStatusCode() == 200) {
 	parsedResponse = jsl.parseText(myJson)	
 	}	
 */
+def jsonSlurper = new JsonSlurper()
+
+//def jsontest = new JsonSlurper().parseText('{Test1:{Item:"Name",Number:0},Test2:{Item:"Name1",Number:21},"0563300111":{Item:"NameP",Number:0},"0563300127":{Item:"NameP",Number:21},"0563300154":{Item:"NameP",Number:22},"0563300166":{Item:"NameP",Number:22},"0563300142":{Item:"NameP",Number:99},"0563300131":{Item:"Name2",Number:18},"0563300151":{Item:"Name2",Number:18},"0563300163":{Item:"Name2",Number:0},"0563300136":{Item:"Name3",Number:0},"0563300143":{Item:"Name3",Number:0},"0563300152":{Item:"Name3",Number:21},"0563300164":{Item:"Name3",Number:22},"0563300147":{Item:"Name3",Number:99},"0563300139":{Item:"pe",Number:6},"0563300170":{Item:"pe",Number:7},"0563300172":{Item:"pe",Number:7},"0563300173":{Item:"pe",Number:7},"0563300137":{Item:"Name",Number:0},"0563300144":{Item:"Name",Number:0},"0563300145":{Item:"Name",Number:0},"0563300146":{Item:"Name",Number:0},"0563300148":{Item:"Name",Number:0},"0563300165":{Item:"Name",Number:21},"0563300156":{Item:"Name",Number:21},"0563300157":{Item:"Name",Number:21},"0563300158":{Item:"Name",Number:21},"0563300159":{Item:"Name",Number:21},"0563300160":{Item:"Name",Number:21},"0563300153":{Item:"Name mac",Number:21},"0563300161":{Item:"Name mac",Number:21},"0563300168":{Item:"Name beta",Number:21},"0563300169":{Item:"Name mac beta",Number:21},"0563300140":{Item:"Name1",Number:21},"0563300162":{Item:"Name1",Number:21},"0563300167":{Item:"Name1",Number:21},"0563300149":{Item:"Name8",Number:1},"0563300150":{Item:"Name8",Number:99}}')
+//println("***DEBUG**** "+jsontest.Test1[1].Number)
 
 String jsonString = JsonOutput.prettyPrint(responseText)
 println ("DEBUG jason string "+jsonString)
 println JsonOutput.prettyPrint(responseText)
 
 
-def jsonSlurper = new JsonSlurper()
+
 def object = jsonSlurper.parseText(responseText)
 int jsonSize = object.MRData.CircuitTable.Circuits.circuitId.size()
 
