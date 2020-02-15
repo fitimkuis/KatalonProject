@@ -111,7 +111,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'postgres'</initValue>
+      <initValue>'password'</initValue>
       <name>postgresPass</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

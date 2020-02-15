@@ -19,3 +19,7 @@ import helper.HelperUtils
 
 CustomKeywords.'helper.HelperUtils.addGlobalVariable'('testURL', 'katalon.com')
 println GlobalVariable.testURL
+
+//change global variable value
+CustomKeywords.'helper.HelperUtils.addGlobalVariable'('testURL', 'testautomation.com')
+println GlobalVariable.testURL
