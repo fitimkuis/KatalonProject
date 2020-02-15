@@ -170,7 +170,9 @@ public class postgresHandler {
 	}
 
 	@Keyword
-	public void selectDataByUsername(String userName){
+	public List<String> selectDataByUsername(String userName){
+		
+		List<String> userData = new ArrayList<>()
 
 		String query = "SELECT * FROM COMPANY WHERE name = '"+userName+"';"
 
@@ -185,11 +187,17 @@ public class postgresHandler {
 			ResultSet rs= pstmt.executeQuery();
 			while ( rs.next() ) {
 				int id = rs.getInt("id");
+				userData.add(id)
 				String  name = rs.getString("name");
+				userData.add(name)
 				int age  = rs.getInt("age");
+				userData.add(age)
 				String  address = rs.getString("address");
+				userData.add(address)
 				float salary = rs.getFloat("salary");
+				userData.add(salary)
 				String  ssn = rs.getString("ssn");
+				userData.add(ssn)
 				System.out.println( "ID = " + id );
 				System.out.println( "NAME = " + name );
 				System.out.println( "AGE = " + age );
@@ -206,6 +214,7 @@ public class postgresHandler {
 			System.exit(0);
 		}
 		System.out.println("Operation done successfully");
+		return userData
 	}
 
 	@Keyword

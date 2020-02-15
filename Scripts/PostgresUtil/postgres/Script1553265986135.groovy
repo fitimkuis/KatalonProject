@@ -9,7 +9,15 @@ import com.microsoft.sqlserver.jdbc.LocalDate
 //create example table
 //CustomKeywords.'postgresUtil.postgresHandler.createTable'()
 
-CustomKeywords.'postgresUtil.postgresHandler.selectDataByUsername'("Gerlach")
+List<String> userData = new ArrayList<>()
+List<String> userDataTrailed = new ArrayList<>()
+userData = CustomKeywords.'postgresUtil.postgresHandler.selectDataByUsername'("Gerlach")
+//remove whitespaces from list
+for(String values : userData){
+    String[] parts = values.split(" ");
+    userDataTrailed.add(parts[0]);
+}
+println("selected userdata: "+userDataTrailed)
 
 //generate SSN
 String ssnData = ""
