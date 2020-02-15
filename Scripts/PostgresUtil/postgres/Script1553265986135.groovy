@@ -5,7 +5,11 @@ import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.microsoft.sqlserver.jdbc.LocalDate
 
-CustomKeywords.'postgresUtil.postgresHandler.selectDataByUsername'("Colin")
+
+//create example table
+//CustomKeywords.'postgresUtil.postgresHandler.createTable'()
+
+CustomKeywords.'postgresUtil.postgresHandler.selectDataByUsername'("Gerlach")
 
 //generate SSN
 String ssnData = ""

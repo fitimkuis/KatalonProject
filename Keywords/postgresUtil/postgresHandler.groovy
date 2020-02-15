@@ -48,6 +48,7 @@ public class postgresHandler {
 
 	@Keyword
 	public void createTable(){
+		//" SSN            CHAR(20), " +
 
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -61,8 +62,8 @@ public class postgresHandler {
 					" NAME           TEXT    NOT NULL, " +
 					" AGE            INT     NOT NULL, " +
 					" ADDRESS        CHAR(50), " +
-					" SALARY         REAL)" +
-					" SSN			 CHAR(20)";
+					" SALARY         REAL, " +
+					" SSN            CHAR(20));"
 			stmt.executeUpdate(sql);
 			stmt.close();
 			c.close();
