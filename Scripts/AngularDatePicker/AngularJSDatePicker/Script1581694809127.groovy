@@ -1,6 +1,5 @@
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import java.time.LocalDate
 
-import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
@@ -11,6 +10,10 @@ println "Current month count of dates: "+monthMaxDays
 int day = c.get(Calendar.DATE);
 int validDays = monthMaxDays - day
 println "Valid calendar days in month: "+validDays
+
+LocalDate date0 = LocalDate.now().minusDays(1);
+println ("DEBUG current date minus day "+date0)
+
 
 int startDate = monthMaxDays - validDays
 String strStartDate = startDate.toString()

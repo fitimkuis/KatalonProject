@@ -21,6 +21,7 @@ def pattern4 = "MM dd, yyyy"
 def pattern5 = "EEE',' dd MMM yyyy"
 def pattern6 = "EEE',' dd MMM yyyy HH:mm:ss"
 
+
 DateTimeFormatter df1 = DateTimeFormat.forPattern("EEE',' dd MMM yyyy HH':'mm':'ss zzz").withZoneUTC();
 DateTime dtnew = df1.withLocale(Locale.ENGLISH).parseDateTime("Fri, 24 Jun 2016 13:23:02 GMT");
 println dtnew
