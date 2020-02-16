@@ -171,7 +171,7 @@ public class postgresHandler {
 
 	@Keyword
 	public List<String> selectDataByUsername(String userName){
-		
+
 		List<String> userData = new ArrayList<>()
 
 		String query = "SELECT * FROM COMPANY WHERE name = '"+userName+"';"
