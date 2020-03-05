@@ -100,9 +100,9 @@ for (def index : (0..data.getRowNumbers() - 1)) {
 //print as string
 def wantedString = allValues.get(0)+" "+allValues.get(1)+" "+allValues.get(2)+" "+allValues.get(3)
 println wantedString
-String ss
+String ss = ""
 for (int c = 0; c < colNames.size(); c++){
-	ss += " "+allValues.get(c)+" "
+	ss += allValues.get(c)+" "
 }
 print ss
 
