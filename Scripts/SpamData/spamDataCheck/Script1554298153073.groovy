@@ -20,6 +20,17 @@ def colNames = data.columnNames
 println "column names "+colNames
 
 def ro = data.getRowNumbers()
+println "count of rows "+ro
+
+println (data.getData())
+
+search = "book"
+println (data.getValue(1, 3))
+for (int i = 1; i< ro; i++){
+	if (data.getValue(1, i).equals(search)){
+		println ("row index: "+i+" data "+data.getValue(1, i))
+	}
+}
 
 /*
 //add column name to list
@@ -63,7 +74,39 @@ allCol.add(row4)*/
 int row = 1  //values start from row 1
 //int rowCount = 1
 int colCount = 0
+List<String> allValues = new ArrayList<>()
 
+def searchString = "dog"
+int colIndex = 1
+//loop rows
+for (def index : (0..data.getRowNumbers() - 1)) {
+	//loop columns
+	for (int x = 1; x < colNames.size()+1; x++){
+		//check is there value in the column cell
+		if (data.getValue(x, row).equals(searchString)){
+			for (String header :colNames){
+				//println "header: "+header+ " row: "+row+" value: "+data.getValue(colIndex++, row)
+				allValues.add(data.getValue(colIndex++, row))
+			}
+			println allValues
+			break
+			//println "header: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row
+			//log.markWarning("column: "+col+" has not value!!!! "+data.getValue(col, row)+ " row: "+row);
+		}
+	}
+	row++
+}
+
+//print as string
+def wantedString = allValues.get(0)+" "+allValues.get(1)+" "+allValues.get(2)+" "+allValues.get(3)
+println wantedString
+String ss
+for (int c = 0; c < colNames.size(); c++){
+	ss += " "+allValues.get(c)+" "
+}
+print ss
+
+row = 1
 //loop rows
 for (def index : (0..data.getRowNumbers() - 1)) {
 	//loop columns
@@ -87,10 +130,7 @@ for (def index : (0..data.getRowNumbers() - 1)) {
 	colCount++
 	row++
 }
-/*println "row 1 contents "+row1
-println "row 2 contents "+row2
-println "row 3 contents "+row3
-println "row 4 contents "+row4*/
+
 
 
 List <String> colRows1 = new ArrayList<>()
@@ -128,6 +168,8 @@ println "count of rows in column name first: "+colRows1.size()
 println "count of rows in column name second: "+colRows2.size()
 println "count of rows in column name third: "+colRows3.size()
 println "count of rows in column name fourth: "+colRows4.size()
+
+
 
 
 /*

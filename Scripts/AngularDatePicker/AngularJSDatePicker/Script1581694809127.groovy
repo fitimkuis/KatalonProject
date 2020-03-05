@@ -1,8 +1,34 @@
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+public static boolean validateDates(String start, String end) {
+	try {
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate startDate = LocalDate.parse(start, dateFormat);
+		//LocalDate endDate = LocalDate.parse(end, dateFormat);
+		LocalDate current = LocalDate.now();
+		println current
+		if(startDate.isEqual(current)){
+			println("dates are same")
+			return true
+		}
+		else{
+			println("dates are not same")
+			return false
+		}
+		//return (startDate.isEqual(current) || startDate.isAfter(current)) && endDate.isAfter(startDate);
+	}catch(DateTimeParseException ex) {
+		ex.printStackTrace();
+	}
+}
+
+boolean val = validateDates("2020-02-18","2020-02-18")
+println ("DEBUG dates verify "+val)
 
 Calendar c = Calendar.getInstance();
 int monthMaxDays = c.getActualMaximum(Calendar.DAY_OF_MONTH);

@@ -14,6 +14,8 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+
 import internal.GlobalVariable
 
 KeywordUtil log = new KeywordUtil()

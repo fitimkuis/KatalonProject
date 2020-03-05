@@ -25,7 +25,7 @@ println(test.getTestString())
 
 TestClass2 test2 = new TestClass2()
 //test.setTestString("this is fynny job")
-println("DEBUG defined in class1 constructor and called with super contructor in class2 "+test2.getTestString())
+println("DEBUG defined in class1 constructor and called with super constructor in class2 "+test2.getTestString())
 
 TestClass2 test3 = new TestClass2()
 test3.setString("For Testers")
