@@ -25,6 +25,9 @@ import com.kms.katalon.core.util.KeywordUtil
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 KeywordUtil logger = new KeywordUtil()
 
@@ -48,8 +51,38 @@ document.close();
 
 def lines = text.split("(\r\n|\r|\n)", -1);
 
+//for testing purpose
+Map<String, String> rules = new HashMap<>();
 
-//String regex = "CR001 Description 1 Person 1 GREEN"
+String regex = "CR001 Description 1 Person 1 GREEN"
+//String pattern1 = '([\\S\\s+]) Person ([\\S\\s])([\\S\\s])([\\S\\s]+)';
+String pattern1 = '([CR\\d]+) * Description ([\\S\\s]) Person ([\\S\\s])([\\S\\s]+)';
+Pattern r1 = Pattern.compile(pattern1);
+Matcher m1 = r1.matcher(regex);
+String rule = ""
+String outcome1 = ""
+if (m1.find( )) {
+   System.out.println("Found value: " + m1.group(0) );
+   System.out.println("Found value: " + m1.group(1) ); //rule
+   rule = m1.group(1).replaceAll("\\s","")
+   System.out.println("Found value: " + m1.group(2) );
+   System.out.println("Found value: " + m1.group(3) );
+   System.out.println("Found value: " + m1.group(4) ); //outcome
+   outcome1 = m1.group(4).replaceAll("\\s","")
+   rules.put(rule, outcome1)
+   //outcome = outcome.replaceAll("\\s","");
+   if (outcome1.equals("YELLOW")){
+	   logger.markWarning("value is wrong should be GREEN")
+   }
+}else {
+   System.out.println("NO MATCH");
+}
+for (Map.Entry<String, String> entry : rules.entrySet()){
+	String k = entry.getKey();
+	String v = entry.getValue();
+	System.out.println("Key: " + k + ", Value: " + v);
+}
+//for testing purpose
 
 String pattern = '^.*Person ([\\S\\s])([\\S\\s])([\\S\\s]+)';
 String searchString = "YELLOW"
