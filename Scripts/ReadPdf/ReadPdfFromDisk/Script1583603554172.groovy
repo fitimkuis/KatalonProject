@@ -18,7 +18,7 @@ import com.kms.katalon.core.util.KeywordUtil
 
 KeywordUtil logger = new KeywordUtil()
 
-String pdfFilePath = System.getProperty("user.dir")+"\\pdfFiles\\pdfcontent.pdf";
+String pdfFilePath = System.getProperty("user.dir")+"\\pdfFiles\\Kreditbeslutsfil_500786.pdf";
 //PDFUtil pdfUtil = new PDFUtil();
 //String content = pdfUtil.getText(pdfFilePath,1);
 //println content
@@ -38,12 +38,17 @@ document.close();
 
 def lines = text.split("(\r\n|\r|\n)", -1);
 
+print lines
+
 //for testing purpose
 Map<String, String> rules = new HashMap<>();
 
-String regex = "CR001 Description 1 Person 1 GREEN"
+/*
+//String regex = "CR001 Description 1 Person 1 GREEN"
+String regex = "20-03-10 13:12 CR008 - 199003122455 System Godkänt"
 //String pattern1 = '([\\S\\s+]) Person ([\\S\\s])([\\S\\s])([\\S\\s]+)';
-String pattern1 = '([CR\\d]+) * Description ([\\S\\s]) Person ([\\S\\s])([\\S\\s]+)';
+//String pattern1 = '([CR\\d]+) * Description ([\\S\\s]) Person ([\\S\\s])([\\S\\s]+)';
+String pattern1 = '([\\S\\s]+) ([\\S\\s]+) ([CR\\d]+) - ([\\d]+) System ([\\S\\s]+)'
 Pattern r1 = Pattern.compile(pattern1);
 Matcher m1 = r1.matcher(regex);
 String rule1 = ""
@@ -51,10 +56,13 @@ String outcome1 = ""
 if (m1.find( )) {
    System.out.println("Found value: " + m1.group(0) );
    System.out.println("Found value: " + m1.group(1) ); //rule
-   rule1 = m1.group(1).replaceAll("\\s","")
+   //rule1 = m1.group(1).replaceAll("\\s","")
    System.out.println("Found value: " + m1.group(2) );
-   System.out.println("Found value: " + m1.group(3) );
+   System.out.println("Found value: " + m1.group(3) ); //rule x
+   rule1 = m1.group(1).replaceAll("\\s","")
    System.out.println("Found value: " + m1.group(4) ); //outcome
+   //outcome1 = m1.group(4).replaceAll("\\s","")
+   System.out.println("Found value: " + m1.group(5) ); //outcome x
    outcome1 = m1.group(4).replaceAll("\\s","")
    rules.put(rule1, outcome1)
    //outcome = outcome.replaceAll("\\s","");
@@ -70,10 +78,12 @@ for (Map.Entry<String, String> entry : rules.entrySet()){
 	System.out.println("Key: " + k + ", Value: " + v);
 }
 //for testing purpose
+*/
 
 //String pattern = '^.*Person ([\\S\\s])([\\S\\s])([\\S\\s]+)';
-String pattern = '([CR\\d]+) * Description ([\\S\\s]) Person ([\\S\\s])([\\S\\s]+)';
-String searchString = "YELLOW"
+//String pattern = '([CR\\d]+) * Description ([\\S\\s]) Person ([\\S\\s])([\\S\\s]+)';
+String pattern = '([\\S\\s]+) ([\\S\\s]+) ([CR\\d]+) - ([\\d]+) System ([\\S\\s]+)'
+String searchString = "Avslag"
 String rule = ""
 String outcome = ""
 Map<String, String> rulesOutcomes = new HashMap<>();
@@ -86,15 +96,17 @@ for(String line:lines){
 	if (m.find( )) {
 	   System.out.println("Found value: " + m.group(0) );
 	   System.out.println("Found value: " + m.group(1) ); //rule
-	   rule = m.group(1).replaceAll("\\s","")
+	   //rule1 = m1.group(1).replaceAll("\\s","")
 	   System.out.println("Found value: " + m.group(2) );
-	   System.out.println("Found value: " + m.group(3) );
-	   System.out.println("Found value: " + m1.group(4) ); //outcome
-	   outcome = m.group(4).replaceAll("\\s","")
+	   System.out.println("Found value: " + m.group(3) ); //rule x
+	   rule = m.group(3).replaceAll("\\s","")
+	   System.out.println("Found value: " + m.group(4) ); //outcome
+	   //outcome1 = m1.group(4).replaceAll("\\s","")
+	   System.out.println("Found value: " + m.group(5) ); //outcome x
+	   outcome = m.group(5).replaceAll("\\s","")
 	   rulesOutcomes.put(rule, outcome)
-	   //outcome = outcome.replaceAll("\\s","");
-	   if (m.group(4).replaceAll("\\s","").equals(searchString)){
-		   logger.markWarning("value is wrong should be GREEN")
+	   if (m.group(5).replaceAll("\\s","").equals(searchString)){
+		   logger.markFailed("value is wrong should be Godkänt")
 	   }
 	}else {
 	   System.out.println("NO MATCH");
@@ -103,12 +115,12 @@ for(String line:lines){
 
 //define map where are expected key and value pair
 Map<String, String> expectedValues = new HashMap<>();
-expectedValues.put("CR001","GREEN")
-expectedValues.put("CR002","GREEN")
+expectedValues.put("CR007","Godkänt")
+expectedValues.put("CR008","Avslag")
 
 //compare maps
-assertFalse("Maps should be unequal", MapDiffUtil.validateEqual(
-	rulesOutcomes, expectedValues, "map1", "map2"));
+assertTrue("Maps should be unequal", MapDiffUtil.validateEqual(rulesOutcomes, expectedValues, "map1", "map2"));
+assertFalse("Maps should be unequal", MapDiffUtil.validateEqual(rulesOutcomes, expectedValues, "map1", "map2"));
 
 /*
 for (Map.Entry<String, String> entry : rulesOutcomes.entrySet()){
@@ -245,7 +257,7 @@ public class MapDiffUtil {
 		if (diff.areEqual()) {
 			def error = "Maps "+map1Name+" and "+map2Name+" contain exactly the same name/value pairs"
 			logg.markWarning(error)
-			//log.info("Maps '{}' and '{}' contain exactly the same name/value pairs", map1Name, map2Name);
+			log.info("Maps '{}' and '{}' contain exactly the same name/value pairs", map1Name, map2Name);
 			return true;
 
 		} else {
@@ -260,7 +272,7 @@ public class MapDiffUtil {
 			Map<K, V> mapSubset, String n1, String n2) {
 		if (not(mapSubset.isEmpty())) {
 			logg.markWarning("Keys found in "+n1+" but not in "+n2+" : "+mapSubset.keySet());
-			//log.error("Keys found in {} but not in {}: {}",n1, n2, mapSubset.keySet());
+			log.error("Keys found in {} but not in {}: {}",n1, n2, mapSubset.keySet());
 		}
 	}
 
@@ -268,8 +280,8 @@ public class MapDiffUtil {
 			Map<K, ValueDifference<V>> differing,
 			String n1, String n2) {
 		if (not(differing.isEmpty())) {
-			logg.markWarning("Differing values found {key="+n1+"-value,"+n2+"-value}: "+differing);
-			//log.error("Differing values found {key={}-value,{}-value}: {}",	n1, n2, differing);
+			logg.markFailed("Differing values found {key="+n1+"-value,"+n2+"-value}: "+differing);
+			log.error("Differing values found {key={}-value,{}-value}: {}",	n1, n2, differing);
 		}
 	}
 
