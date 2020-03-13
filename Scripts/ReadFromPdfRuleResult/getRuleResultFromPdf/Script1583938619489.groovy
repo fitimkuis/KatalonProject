@@ -129,6 +129,26 @@ for(String s : spaceMoved){
 
 Map<String, String> rulesOutcomes = new HashMap<>();
 
+
+//TODO working one regex
+Map<String, String> testValues = new HashMap<>();
+rulePattern = "(?m)^(\\d+:\\d+)\\s(\\w+\\d+).* System (\\w.*)";
+// Create a Pattern object
+r = Pattern.compile(rulePattern);
+// Now create matcher object.
+for (String line : spaceMoved) {
+	m = r.matcher(line);
+	if (m.find()) {
+		System.out.println("Found value: " + m.group(0));
+		System.out.println("Found value: " + m.group(1));
+		System.out.println("Found value: " + m.group(2));
+		System.out.println("Found value: " + m.group(3));
+		testValues.put(m.group(2),m.group(3));
+		rulesOutcomes.put(m.group(2),m.group(3));
+	}
+}
+System.out.println(testValues);
+
 List<String> ruleList = new ArrayList<>();
 List<String> outList = new ArrayList<>();
 
@@ -147,7 +167,7 @@ for (String line : spaceMoved) {
 	}
 }
 
-rulePattern = "Godkänt|Avslag";
+/*rulePattern = "Godkänt|Avslag";
 // Create a Pattern object
 r = Pattern.compile(rulePattern);
 // Now create matcher object.
@@ -157,11 +177,11 @@ for (String line : spaceMoved) {
 		//System.out.println("Found value: " + m.group(0));
 		outList.add(m.group(0));
 	}
-}
+}*/
 
-for (int i = 0; i < outList.size(); i++){
-	rulesOutcomes.put(ruleList.get(i), outList.get(i));
-}
+//for (int i = 0; i < outList.size(); i++){
+//	rulesOutcomes.put(ruleList.get(i), outList.get(i));
+//}
 
 //expected values are done by rulelist "Godkänt" if i modulo 2 == 0 else "Avslag"
 int i = 0;
