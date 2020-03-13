@@ -208,13 +208,13 @@
    <testCaseLink>
       <guid>abe2a2c8-cadd-44e7-832c-9452da1523e4</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/ReadFromPdfRuleResult/getRuleResultFromPdf</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>a141ca30-11b0-4c35-9f1a-f14c01c628d3</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/WebServiceTest/SOAP</testCaseId>
    </testCaseLink>
    <testCaseLink>
