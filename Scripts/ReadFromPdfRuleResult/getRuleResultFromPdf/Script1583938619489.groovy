@@ -139,20 +139,25 @@ r = Pattern.compile(rulePattern);
 for (String line : spaceMoved) {
 	m = r.matcher(line);
 	if (m.find()) {
-		System.out.println("Found value: " + m.group(0));
+		/*System.out.println("Found value: " + m.group(0));
 		System.out.println("Found value: " + m.group(1));
 		System.out.println("Found value: " + m.group(2));
-		System.out.println("Found value: " + m.group(3));
+		System.out.println("Found value: " + m.group(3));*/
 		testValues.put(m.group(2),m.group(3));
 		rulesOutcomes.put(m.group(2),m.group(3));
 	}
 }
-System.out.println(testValues);
+//System.out.println(testValues);
 
 List<String> ruleList = new ArrayList<>();
 List<String> outList = new ArrayList<>();
 
-rulePattern = "([\\d:\\d]+)\\s([CR\\d+]+)";
+for (Map.Entry<String,String> entry : rulesOutcomes.entrySet()){
+	//System.out.println("Key = " + entry.getKey() +", Value = " + entry.getValue());
+	ruleList.add(entry.getKey().toString());
+}
+
+/*rulePattern = "([\\d:\\d]+)\\s([CR\\d+]+)";
 // Create a Pattern object
 r = Pattern.compile(rulePattern);
 // Now create matcher object.
@@ -165,7 +170,7 @@ for (String line : spaceMoved) {
 		//System.out.println("Found value: " + m.group(2));
 		ruleList.add(m.group(2));
 	}
-}
+}*/
 
 /*rulePattern = "Godkänt|Avslag";
 // Create a Pattern object
