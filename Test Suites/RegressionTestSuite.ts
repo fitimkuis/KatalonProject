@@ -133,7 +133,7 @@
    <testCaseLink>
       <guid>f65f6328-9aef-4f07-926c-a909d5c5498d</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/CygwinSSH/cygwinSsh</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -204,5 +204,23 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/ExcelDataBinding/databindFromExcel</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>abe2a2c8-cadd-44e7-832c-9452da1523e4</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ReadFromPdfRuleResult/getRuleResultFromPdf</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>a141ca30-11b0-4c35-9f1a-f14c01c628d3</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/WebServiceTest/SOAP</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>79d28635-db87-4d26-a31c-2f988cc808cb</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/WebServiceTest/webService</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>
