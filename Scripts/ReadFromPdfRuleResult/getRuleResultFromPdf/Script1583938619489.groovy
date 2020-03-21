@@ -1,58 +1,24 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import static com.google.common.collect.MapDifference.ValueDifference;
 
-import java.io.IOException
-import java.util.List
-import java.util.Map
-import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.google.common.collect.MapDifference;
-import com.google.common.collect.Maps;
-
-import static com.google.common.collect.MapDifference.ValueDifference;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
 import com.google.common.collect.MapDifference.*;
-
-import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling as FailureHandling
-import com.kms.katalon.core.testcase.TestCase as TestCase
-import com.kms.katalon.core.testdata.TestData as TestData
-import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
+
+import read.pdf.from.disk.ReadPdf
 
 KeywordUtil logger = new KeywordUtil();
 
@@ -64,6 +30,13 @@ def lines;
 def tempFileName = "temp.txt"
 def tempFilePath = System.getProperty("user.dir")+"\\pdfFiles\\"
 def temp = tempFilePath+tempFileName
+
+
+String number = "1.000";
+Double doubleNumber = Double.parseDouble(number);
+println(doubleNumber);
+def integer = doubleNumber.intValue();
+println(integer);
 
 //TODO read pdf file
 String pdfFilePath = System.getProperty("user.dir")+"\\pdfFiles\\Kreditbeslutsfil_500786.pdf";
