@@ -5,7 +5,7 @@ import org.apache.commons.lang3.math.NumberUtils
 import org.w3c.dom.*;
 
 try {
-	//File fXmlFile = new File("C:\\Users\\fitim\\IdeaProjects\\compareMaps\\src\\main\\java\\stuff.xml");
+
 	String xmlFilePath = System.getProperty("user.dir")+"\\Include\\xmlFiles\\stuff.xml";
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -30,7 +30,7 @@ try {
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 			if (node.getNodeName().equals("report")){
 				countReport++;
-			}
+			} 
 			if (node.getNodeName().contains("R")){
 				tags.add(node.getNodeName());
 				tagCounter++;
@@ -65,11 +65,13 @@ try {
 
 			Element eElement = (Element) nNode;
 			for (int i = 0; i <= tagCounter-1; i++) {
-				maps1.get("r" + startTag).add(eElement.getElementsByTagName("R" + startTag).item(0).getTextContent());
-				startTag++;
-				if (startTag >= latestTag + 1) {
-					startTag = Integer.parseInt(tag);
-				}
+				//if(maps1.get("r" + startTag).add(eElement.getElementsByTagName("R" + startTag).item(0).getTextContent() != null)){
+					maps1.get("r" + startTag).add(eElement.getElementsByTagName("R" + startTag).item(0).getTextContent());
+					startTag++;
+					if (startTag >= latestTag + 1) {
+						startTag = Integer.parseInt(tag);
+					}
+				//}
 			}
 		}
 	}
@@ -87,20 +89,20 @@ try {
             for (int i = 0; i < nList.getLength(); i++){
 
                 for (int j = 0; j <= tagCounter-1; j++) {
-
-                    boolean digits = NumberUtils.isDigits(maps1.get("r" + startTag).get(i));
-
-                    if (maps1.get("r"+startTag).get(i).equals("") || digits == false){
-                        maps2.get(startTag).add(0);
-                        //maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(0)));
-                    }
-                    else{
-                        maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(i)));
-                    }
-                    startTag++;
-                    if (startTag >= latestTag + 1) {
-                        startTag = Integer.parseInt(tag);
-                    }
+					
+						boolean digits = NumberUtils.isDigits(maps1.get("r" + startTag).get(i));
+	
+	                    if (maps1.get("r"+startTag).get(i).equals("") || digits == false){
+	                        maps2.get(startTag).add(0);
+	                        //maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(0)));
+	                    }
+	                    else{
+	                        maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(i)));
+	                    }
+	                    startTag++;
+	                    if (startTag >= latestTag + 1) {
+	                        startTag = Integer.parseInt(tag);
+	                    }
                 }
             }
 			
