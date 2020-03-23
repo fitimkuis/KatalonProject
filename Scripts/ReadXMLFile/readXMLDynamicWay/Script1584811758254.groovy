@@ -1,36 +1,11 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
-import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling as FailureHandling
-import com.kms.katalon.core.testcase.TestCase as TestCase
-import com.kms.katalon.core.testdata.TestData as TestData
-import com.kms.katalon.core.testobject.TestObject as TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
-
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathFactory;
+import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.lang3.math.NumberUtils
 import org.w3c.dom.*;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 try {
-	//File fXmlFile = new File("C:\\Users\\fitim\\IdeaProjects\\compareMaps\\src\\main\\java\\stuff.xml");
+
 	String xmlFilePath = System.getProperty("user.dir")+"\\Include\\xmlFiles\\stuff.xml";
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -55,7 +30,7 @@ try {
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 			if (node.getNodeName().equals("report")){
 				countReport++;
-			}
+			} 
 			if (node.getNodeName().contains("R")){
 				tags.add(node.getNodeName());
 				tagCounter++;
@@ -90,14 +65,17 @@ try {
 
 			Element eElement = (Element) nNode;
 			for (int i = 0; i <= tagCounter-1; i++) {
-				maps1.get("r" + startTag).add(eElement.getElementsByTagName("R" + startTag).item(0).getTextContent());
-				startTag++;
-				if (startTag >= latestTag + 1) {
-					startTag = Integer.parseInt(tag);
-				}
+				//if(maps1.get("r" + startTag).add(eElement.getElementsByTagName("R" + startTag).item(0).getTextContent() != null)){
+					maps1.get("r" + startTag).add(eElement.getElementsByTagName("R" + startTag).item(0).getTextContent());
+					startTag++;
+					if (startTag >= latestTag + 1) {
+						startTag = Integer.parseInt(tag);
+					}
+				//}
 			}
 		}
 	}
+	
 	startTag = Integer.parseInt(tag);
 	//TODO print out and calculate
 	HashMap<Integer,ArrayList<Integer>> maps2 = new HashMap<Integer, ArrayList<Integer>>();
@@ -105,58 +83,64 @@ try {
 		maps2.put(startTag, new ArrayList<>());
 		startTag++;
 	}
-	//add maps1 values to maps2 as integer
-	startTag = Integer.parseInt(tag);
-	String val = maps1.get("r"+startTag).get(0);
-	for (int i = 0; i < nList.getLength(); i++){
+            //add maps1 values to maps2 as integer
+            startTag = Integer.parseInt(tag);
+            //String val = maps1.get("r"+startTag).get(0);
+            for (int i = 0; i < nList.getLength(); i++){
 
-		for (int j = 0; j <= tagCounter-1; j++) {
-			if (maps1.get("r"+startTag).get(i).equals("")) {
-				maps2.get(startTag).add(0);
-				//maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(0)));
-			}
-			else{
-				maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(i)));
-			}
-			startTag++;
-			if (startTag >= latestTag + 1) {
-				startTag = Integer.parseInt(tag);
-			}
-		}
-	}
+                for (int j = 0; j <= tagCounter-1; j++) {
+					
+						boolean digits = NumberUtils.isDigits(maps1.get("r" + startTag).get(i));
+	
+	                    if (maps1.get("r"+startTag).get(i).equals("") || digits == false){
+	                        maps2.get(startTag).add(0);
+	                        //maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(0)));
+	                    }
+	                    else{
+	                        maps2.get(startTag).add(Integer.parseInt(maps1.get("r" + startTag).get(i)));
+	                    }
+	                    startTag++;
+	                    if (startTag >= latestTag + 1) {
+	                        startTag = Integer.parseInt(tag);
+	                    }
+                }
+            }
+			
+            startTag = Integer.parseInt(tag);
+            System.out.println("Node values");
+            int sumCounter = 1;
+            int nodesSum = 0;
+            int getCounter = 0;
+            int tempSum = 0;
+            for (int i = 0; i < nList.getLength(); i++) {
+                for (int j = 0; j <= tagCounter-1; j++) {
+                    if (maps2.get(startTag).get(i) != 0) {
+                        nodesSum += maps2.get(startTag).get(i);
+                        tempSum += maps2.get(startTag).get(i);
+                    }
+                    else{
+                        nodesSum += 0;
+                        tempSum += 0;
+                        System.out.println("node R"+startTag+ " value: "+maps1.get("r"+startTag).get(getCounter));
 
-	startTag = Integer.parseInt(tag);
-	System.out.println("Node values");
-	int sumCounter = 1;
-	int nodesSum = 0;
-	int getCounter = 0;
-	int tempSum = 0;
-	for (int i = 0; i < nList.getLength(); i++) {
-		for (int j = 0; j <= tagCounter-1; j++) {
-			if (maps2.get(startTag).get(i) != 0) {
-				nodesSum += maps2.get(startTag).get(i);
-				tempSum += maps2.get(startTag).get(i);
-			}
-			else{
-				nodesSum += 0;
-				tempSum += 0;
-			}
-			//System.out.println("node R"+startTag+ " sum: "+nodesSum);
-			System.out.println("node R"+startTag+ " value: "+maps2.get(startTag).get(getCounter));
-			if (sumCounter % tagCounter == 0){
-				System.out.println("nodes sum: "+nodesSum);
-				getCounter++;
-				nodesSum = 0;
-			}
-			startTag++;
-			if (startTag >= latestTag + 1) {
-				startTag = Integer.parseInt(tag);
-			}
-			sumCounter++;
-		}
-	}
+                    }
+                    //System.out.println("node R"+startTag+ " sum: "+nodesSum);
+                    System.out.println("node R"+startTag+ " value: "+maps2.get(startTag).get(getCounter));
+                    //System.out.println("node R"+startTag+ " value: "+maps1.get(startTag).get(0));
+                    if (sumCounter % tagCounter == 0){
+                        System.out.println("nodes sum: "+nodesSum);
+                        getCounter++;
+                        nodesSum = 0;
+                    }
+                    startTag++;
+                    if (startTag >= latestTag + 1) {
+                        startTag = Integer.parseInt(tag);
+                    }
+                    sumCounter++;
+                }
+            }
 
-	System.out.println("R Node sum values: "+tempSum);
+            System.out.println("R Node sum values: "+tempSum);
 
 } catch (Exception e) {
 	e.printStackTrace();
