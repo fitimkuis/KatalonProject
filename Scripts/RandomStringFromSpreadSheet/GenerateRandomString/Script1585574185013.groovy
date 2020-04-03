@@ -6,12 +6,16 @@ import org.jopendocument.dom.spreadsheet.SpreadSheet
 
 String filename = System.getProperty("user.dir")+"\\Include\\spreadsheet\\random_string.ods";
 
-Desktop.getDesktop().open(new File(filename));
-
-Thread.sleep(2000);
-
-def randString = getRandString(filename);
-println randString
+for (int i = 0; i < 5; i++){
+	
+	Desktop.getDesktop().open(new File(filename));
+	
+	Thread.sleep(4000);
+	
+	def randString = getRandString(filename);
+	println ("DEBUG returned random string: "+randString)
+	
+}
 
 
 public static String getRandString(String filename) throws IOException {
@@ -24,7 +28,7 @@ public static String getRandString(String filename) throws IOException {
 
     String cellText = "";
     cellText = sheet.getCellAt(0, 0).getTextValue();
-    System.out.println("loadfile method read: " +cellText);
+    //System.out.println("loadfile method read: " +cellText);
 	
 	return cellText
 
