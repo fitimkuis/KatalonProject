@@ -1,5 +1,3 @@
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import java.awt.Dimension
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -9,12 +7,17 @@ import java.text.SimpleDateFormat;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.IOUtils
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 
-import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+
+InputStream image = new FileInputStream("C:\\Users\\fitim\\Desktop\\data\\screenshots\\test-image2.png");
+bytes = IOUtils.toByteArray(image);
+print bytes
 
 captureImage()
 
@@ -32,6 +35,8 @@ WebUI.click(findTestObject('Object Repository/withoutSpaces/Page_CURAHealthcareS
 	//Thread.sleep(10000);
 //}
 	//partial()
+
+
 	
 WebUI.closeBrowser()
 
@@ -50,7 +55,7 @@ public void partial() throws Exception{
 
 public void captureImage(){
 	WebUI.openBrowser("https://www.google.fi/")
-	WebElement image = DriverFactory.getWebDriver().findElement(By.xpath("//img[@id='hplogo']"))
+	WebElement image = DriverFactory.getWebDriver().findElement(By.xpath("//*[@id='hplogo']/a/img"))
 	//WebUI.openBrowser("https://d1h3p5fzmizjvp.cloudfront.net/themes/katalon_4/images/katalon_template_1809/logo@2x.png")
 	//WebElement image = DriverFactory.getWebDriver().findElement(By.xpath("//img"))
 	String imgSrc = image.getAttribute("src")
