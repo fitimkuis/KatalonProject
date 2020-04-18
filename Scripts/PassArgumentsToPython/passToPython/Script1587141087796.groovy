@@ -38,6 +38,9 @@ CustomKeywords.'demo.PythonKeywords.sortList'(result)
 
 CustomKeywords.'demo.PythonKeywords.fibionacciSequence'(10)
 
+
+
+
 //CustomKeywords.'demo.PythonKeywords.compareTwoCsv'(null, null)
 
 /*
@@ -64,6 +67,11 @@ RuleBasedCollator c = new RuleBasedCollator(localRules.getRules() + " & " + extr
 shuffle(list);
 list.sort(c);
 System.out.println(list);
+
+def a = ['AA-1', 'AA-2', 'AA-2 (1)', 'AA-10', 'BB-7']
+def b = list
+def r = CustomKeywords.'demo.PythonKeywords.getDiff'(a, b)
+print r[0]
 
 /*
 def arguments = ["sort.py", "arg1", "arg2", "arg3"];

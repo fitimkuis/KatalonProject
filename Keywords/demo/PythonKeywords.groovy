@@ -22,6 +22,11 @@ class PythonKeywords {
 	def sortList(String names){
 		runPython("keywords.sort_string", names)
 	}
+	
+	@Keyword
+	def getDiff(def a, def b){
+		runPython("keywords.diff", a, b)
+	}
 
 	@Keyword
 	def fibionacciSequence(int a){
@@ -78,11 +83,15 @@ class PythonKeywords {
 			def errCode = process.waitFor()
 
 			def line
+			def retval = []
 			def input = new BufferedReader(new InputStreamReader(process.getInputStream()))
 			while ((line = input.readLine()) != null) {
 				KeywordUtil.logInfo(line)
+				retval.add(line)
+				
 			}
 			input.close()
+			return retval
 		} catch (Exception err) {
 			err.printStackTrace()
 		}

@@ -12,6 +12,14 @@ def hello_world(allArgs, *numbers):
   print("Sum is", s)
   return s
   
+def diff(AllArgs, list1, list2):
+  #res1 = list1.strip('][').split(', ')
+  #res2 = list1.strip('][').split(', ')
+  c = set(list1).union(set(list2))  # or c = set(list1) | set(list2)
+  d = set(list1).intersection(set(list2))  # or d = set(list1) & set(list2)
+  print (list(c - d))
+  return list(c - d)
+  
 def sort_string(AllArgs, names):
   res = names.strip('][').split(', ')
   res = natsorted(res, key=lambda y: y.lower())
