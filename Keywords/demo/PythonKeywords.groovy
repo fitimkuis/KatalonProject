@@ -23,6 +23,10 @@ class PythonKeywords {
 		runPython("keywords.sort_string", names)
 	}
 
+	@Keyword
+	def fibionacciSequence(int a){
+		runPython("keywords.fibonacci", a)
+	}
 
 	@Keyword
 	def gotoGoogle() {

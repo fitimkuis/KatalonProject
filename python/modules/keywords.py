@@ -13,7 +13,6 @@ def hello_world(allArgs, *numbers):
   return s
   
 def sort_string(AllArgs, names):
-  print("are we here!!!!!!!")
   res = names.strip('][').split(', ')
   res = natsorted(res, key=lambda y: y.lower())
   print(res)
@@ -26,3 +25,43 @@ def goto_google(allArgs):
   input_element.send_keys("Search and close after 5 seconds")
   input_element.submit()
   time.sleep(5)
+
+
+def fibonacci(allArgs, a):  
+  nterms = a
+
+  # first two terms
+  n1, n2 = 0, 1
+  count = 0
+
+  # check if the number of terms is valid
+  if nterms <= 0:
+     print("Please enter a positive integer")
+  elif nterms == 1:
+    print("Fibonacci sequence upto",nterms,":")
+    print(n1)
+  else:
+    print("Fibonacci sequence:")
+    while count < nterms:
+      print(n1)
+      nth = n1 + n2
+      # update values
+      n1 = n2
+      n2 = nth
+      count += 1
+  
+def compare_csv(allArgs, csv1, csv2):
+  print("COMPARE CSV")
+  #deff file3 = System.getProperty("user.dir")+"\\python\\modules\\update.csv";
+  #print (file3)
+  #t = os.path.isfile(file3)
+  A=set(pd.read_csv(csv1, index_col=False, header=None)[0]) #reads the csv, takes only the first column and creates a set out of it.
+  B=set(pd.read_csv(csv2, index_col=False, header=None)[0]) #same here
+  print("missing rows from file2 %s "%(A-B)) #set A - set B gives back everything thats only in A.
+  messageA = A-B
+  messageB = B-A
+  #print messageA
+  a = list(messageA)
+  b = list(messageB)
+  print (a)
+  print (b)
