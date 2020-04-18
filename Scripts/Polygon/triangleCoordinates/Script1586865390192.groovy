@@ -33,19 +33,30 @@ arr.add("AA-1")
 arr.add("AA-10")
 arr.add("AA-2")
 arr.add("AA-2 (1)")
-arr.add("BB")
+//arr.add("BB")
 
 arr2.add("AA-10")
 arr2.add("AA-1")
 arr2.add("AA-2 (1)")
 arr2.add("AA-2")
 
+//print arr
+//print arr2
+
+
+//Collections.sort(arr, Collections.reverseOrder());
+Collections.sort(arr2, Collections.reverseOrder());
+
+//print arr
+//print arr2
+
+//Collections.sort(arr, Collections.reverseOrder());
+Collections.sort(arr2);
+
 print arr
 print arr2
 
 
-Collections.sort(arr, Collections.reverseOrder());
-Collections.sort(arr2, Collections.reverseOrder());
 
 // Here aList is an ArrayList of ArrayLists
 ArrayList<ArrayList<String> > aList =  new ArrayList<ArrayList<String> >(n);
