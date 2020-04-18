@@ -223,4 +223,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/WebServiceTest/webService</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>6f38073b-0ccb-4e3f-9954-98832c280260</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/PassArgumentsToPython/passToPython</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
