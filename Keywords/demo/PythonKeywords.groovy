@@ -12,6 +12,21 @@ class PythonKeywords {
 	def helloWorld(int a, int b) {
 		runPython("keywords.hello_world", a, b)
 	}
+	
+	@Keyword
+	def testDemo(int a, int b) {
+		runPython("keywords.testing", a, b)
+	}
+	
+	@Keyword
+	def sortList(String names){
+		runPython("keywords.sort_string", names)
+	}
+
+	@Keyword
+	def fibionacciSequence(int a){
+		runPython("keywords.fibonacci", a)
+	}
 
 	@Keyword
 	def gotoGoogle() {
@@ -22,7 +37,7 @@ class PythonKeywords {
 	def gotoKatalonDemo(){
 		runPython("keywords.goto_katalon_demo")
 	}
-	
+
 	@Keyword
 	def compareTwoCsv(String csv1, String csv2){
 		runPython("keywords.compare_csv", csv1,csv2)

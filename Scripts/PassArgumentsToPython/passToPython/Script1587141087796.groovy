@@ -5,20 +5,56 @@ import org.python.core.PyString;
 import org.python.core.__builtin__;
 import org.python.util.PythonInterpreter;*/
 
-import java.text.Collator;
-import java.text.RuleBasedCollator;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
 import static java.util.Collections.shuffle;
 import static java.util.stream.Collectors.joining;
+
+import java.text.Collator;
+import java.text.RuleBasedCollator;
+import java.util.stream.IntStream;
+
+import com.kms.katalon.core.configuration.RunConfiguration
+
 
 List<String> list = new ArrayList<String>();
 list.add("AA-10");
 list.add("AA-1");
 list.add("AA-2");
 list.add("AA-2 (1)");
+
+//String result = list.join(",")
+
+StringBuilder sb = new StringBuilder()
+for (String item: list) {
+	if (sb.length() > 0 ) {
+	  sb.append(", ");
+	}
+   sb.append(item)
+}
+String result = sb.toString()
+
+CustomKeywords.'demo.PythonKeywords.helloWorld'(11, 15)
+
+CustomKeywords.'demo.PythonKeywords.sortList'(result)
+
+CustomKeywords.'demo.PythonKeywords.fibionacciSequence'(10)
+
+//CustomKeywords.'demo.PythonKeywords.compareTwoCsv'(null, null)
+
+/*
+def pythonDir = RunConfiguration.getProjectDir() + "/python"
+
+Runtime.getRuntime().exec("python "+pythonDir+"/test.py",""+result)
+
+ProcessBuilder pb = new ProcessBuilder("C:/Users/fitim/AppData/Local/Programs/Python/Python37/python",pythonDir+"/test.py",""+result);
+Process p = pb.start();
+BufferedReader bfr = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+System.out.println(".........start   process.........");
+String line = "";
+while ((line = bfr.readLine()) != null){
+	System.out.println("Python Output: " + line);
+}*/
+
 
 RuleBasedCollator localRules = (RuleBasedCollator) Collator.getInstance();
 String extraRules = IntStream.range(0, 100).mapToObj(String.&valueOf).collect(joining(" < "));
