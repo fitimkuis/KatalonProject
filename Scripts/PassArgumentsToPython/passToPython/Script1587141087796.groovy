@@ -5,6 +5,9 @@ import org.python.core.PyString;
 import org.python.core.__builtin__;
 import org.python.util.PythonInterpreter;*/
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static java.util.Collections.shuffle;
 import static java.util.stream.Collectors.joining;
 
@@ -32,9 +35,34 @@ for (String item: list) {
 }
 String result = sb.toString()
 
-CustomKeywords.'demo.PythonKeywords.helloWorld'(11, 15)
+def sum = CustomKeywords.'demo.PythonKeywords.helloWorld'(11, 15)
+print (sum[2]+"\n")
+Pattern pattern = Pattern.compile("\\d+");
+Matcher matcher = pattern.matcher(sum[2]);
+    while (matcher.find()) {
+        System.out.print("Start index: " + matcher.start());
+        System.out.print(" End index: " + matcher.end() + " ");
+        System.out.println(matcher.group());
+    }
 
-CustomKeywords.'demo.PythonKeywords.sortList'(result)
+def ress = CustomKeywords.'demo.PythonKeywords.sortList'(result)
+print (ress[0]+"\n")
+
+def sorted
+pattern = Pattern.compile("([\\S\\s]+)");
+matcher = pattern.matcher(ress[0]);
+while (matcher.find()) {
+	System.out.print("Start index: " + matcher.start());
+	System.out.print("End index: " + matcher.end() + " ");
+	sorted = matcher.group()
+	System.out.println(sorted);
+}
+def arr = sorted.replace("[","").replace("]","").replaceAll("'","").split(",");
+
+for(String s: arr){
+	println s.trim()
+}
+
 
 CustomKeywords.'demo.PythonKeywords.fibionacciSequence'(10)
 
@@ -71,7 +99,7 @@ System.out.println(list);
 def a = ['AA-1', 'AA-2', 'AA-2 (1)', 'AA-10', 'BB-7']
 def b = list
 def r = CustomKeywords.'demo.PythonKeywords.getDiff'(a, b)
-print r[0]
+print (r[0]+"\n")
 
 /*
 def arguments = ["sort.py", "arg1", "arg2", "arg3"];
