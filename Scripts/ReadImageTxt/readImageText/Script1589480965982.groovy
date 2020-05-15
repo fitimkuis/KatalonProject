@@ -1,9 +1,66 @@
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.testdata.InternalData as InternalData
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import internal.GlobalVariable as GlobalVariable
+
+
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+
+import com.kms.katalon.core.configuration.RunConfiguration
 
 import net.sourceforge.tess4j.Tesseract; 
 import net.sourceforge.tess4j.TesseractException;
 
+def eurotext = RunConfiguration.getProjectDir() + "/Include/tessdata/eurotext.png"
+def filename = RunConfiguration.getProjectDir() + "/Include/tessdata/image.png"
+
+def screenshots = RunConfiguration.getProjectDir() + "/Include/screenshots/"
+
+/*def text = CustomKeywords.'demo.PythonKeywords.getimagetext'(eurotext)
+for (String a in text){
+	println(a)
+}*/
+
+int ind = 0
+def shot = "demoshot"+ind+".png"
+def tempshot = "tempshot"+ind+".png"
+
+WebUI.openBrowser(null)
+WebUI.navigateToUrl(GlobalVariable.URL_Application)
+WebUI.takeScreenshot(screenshots+""+shot)
+def path = screenshots+""+shot
+print(path)
+WebUI.delay(2)
+//def text = CustomKeywords.'demo.PythonKeywords.getimagetext'(path)
+//print(text[0])
+//ind++
+WebUI.closeBrowser()
+
+
+def temppath = RunConfiguration.getProjectDir() + "/Screenshots/"+tempshot
+def imagepath = RunConfiguration.getProjectDir() + "/Screenshots/"+shot
+println(imagepath)
+def ret = CustomKeywords.'demo.PythonKeywords.getimagetext'(imagepath, temppath)
+println(ret[0])
+
+def text = CustomKeywords.'demo.PythonKeywords.readimage'(temppath)
+for (String s in text){
+	if (s.contains('CURA Healthcare Service')){
+		println("WORD WAS THERE!!!")
+		break
+	}
+	println(s)
+}
+ind++
+
+
+
+
+
+
+/*
 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 Date currentDate = new Date();
 // convert date to calendar
@@ -21,9 +78,9 @@ c.add(Calendar.SECOND, 1);
 Date currentDatePlusOne = c.getTime();
 
 System.out.println(dateFormat.format(currentDatePlusOne));
+*/
 
-
-try {
+/*try {
 
     File image = new File("C:\\Users\\fitim\\IdeaProjects\\JideaProjects\\src\\main\\images\\image.png");
     Tesseract tesseract = new Tesseract();
@@ -37,7 +94,7 @@ try {
 }
 catch (TesseractException e) {
     e.printStackTrace();
-}
+}*/
 
 	
 //ReadText();

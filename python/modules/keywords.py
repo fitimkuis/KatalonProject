@@ -3,6 +3,7 @@ import modules.utils as utils
 import logging
 import time
 from natsort import natsorted
+import cv2
 
 def hello_world(allArgs, *numbers):
   print("Hello, World from print")
@@ -12,7 +13,7 @@ def hello_world(allArgs, *numbers):
   print("Sum is", s)
   return s
   
-def get_image_text(allArgs, filename):
+def read_image(allArgs, filepath):
   try:
       from PIL import Image
   except ImportError:
@@ -20,9 +21,32 @@ def get_image_text(allArgs, filename):
   from pytesseract import image_to_string, pytesseract
 
   pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
-  text = pytesseract.image_to_string(Image.open(filename))
+  text = pytesseract.image_to_string(Image.open(filepath))
+  #image = Image.open(filepath)
+  #text = image_to_string(image)
   print("**********DEBUG**********"+text)
   return text
+  
+def get_image_text(allArgs, filename, tempname):
+  print(filename)
+  print(tempname)
+  try:
+      from PIL import Image
+  except ImportError:
+      import Image
+  from pytesseract import image_to_string, pytesseract
+
+  #pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+  #text = pytesseract.image_to_string(Image.open(filename))
+  #print("**********DEBUG**********"+text)
+  
+  image = cv2.imread(filename)
+  image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+  cv2.imwrite(tempname, image)
+  #image = Image.open(tempname)
+  #text = image_to_string(image)
+  #print(text)
+  return tempname
   
 def diff(AllArgs, list1, list2):
   #res1 = list1.strip('][').split(', ')
