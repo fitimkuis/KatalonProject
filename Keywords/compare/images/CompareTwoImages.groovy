@@ -75,6 +75,7 @@ public class CompareTwoImages {
 
 		WebUI.openBrowser("https://www.google.fi/")
 		WebElement image = DriverFactory.getWebDriver().findElement(By.xpath("//img[@id='hplogo']"))
+		//#hplogo > a > img
 		//WebUI.openBrowser("https://d1h3p5fzmizjvp.cloudfront.net/themes/katalon_4/images/katalon_template_1809/logo@2x.png")
 		//WebElement image = DriverFactory.getWebDriver().findElement(By.xpath("//img"))
 		String imgSrc = image.getAttribute("src")
