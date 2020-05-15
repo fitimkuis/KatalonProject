@@ -17,8 +17,9 @@ import java.util.stream.IntStream;
 
 import com.kms.katalon.core.configuration.RunConfiguration
 
-def eurotext = "C:\\Users\\fitim\\KatalonProjectFromGit\\KatalonProject\\Include\\tessdata\\eurotext.png"
-def filename = "C:\\Users\\fitim\\IdeaProjects\\PythonProject\\PythonProject\\testcases\\images\\image.png"
+def eurotext = RunConfiguration.getProjectDir() + "/Include/tessdata/eurotext.png"
+def filename = RunConfiguration.getProjectDir() + "/Include/tessdata/image.png"
+
 def text = CustomKeywords.'demo.PythonKeywords.getimagetext'(eurotext)
 for (String a in text){
 	println(a)
