@@ -20,6 +20,20 @@ import internal.GlobalVariable
 
 KeywordUtil log = new KeywordUtil()
 
+def first = "04/22/2020"
+def second = "04/22/2020"
+
+print(WebUI.verifyMatch(first, second, false))
+
+log.logInfo("this is info step")
+log.markFailed("this step is failed")
+log.markError("step has error")
+
+log.logInfo("DEBUG first variable to verify: "+first)
+log.logInfo("DEBUG second variable to verify: "+second)
+
+print(WebUI.verifyMatch(first, second, false))
+
 WebUI.openBrowser('https://www.google.com')
 
 if(!WebUI.verifyElementPresent(findTestObject("asd"), 1, FailureHandling.OPTIONAL)){

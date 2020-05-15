@@ -36,9 +36,16 @@ WebUI.closeBrowser()
 ChromeOptions options = new ChromeOptions();
 DesiredCapabilities capabilities = new DesiredCapabilities();
 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-System.setProperty("webdriver.chrome.driver", "C:\\Users\\fitim\\Desktop\\ajuri\\chromedriver.exe");
-ChromeDriver driver = new ChromeDriver(capabilities);
-DriverFactory.changeWebDriver(driver)
+System.setProperty("webdriver.chrome.driver", "C:/Users/fitim/bin/chromedriver.exe");
+ChromeDriver driver1 = new ChromeDriver(capabilities);
+DriverFactory.changeWebDriver(driver1)
+driver1.quit()
+
+ChromeDriver driver2 = new ChromeDriver(capabilities);
+DriverFactory.changeWebDriver(driver2)
+driver2.quit()
+
+
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl('http://www.google.com')

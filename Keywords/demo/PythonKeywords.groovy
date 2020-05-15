@@ -9,20 +9,25 @@ import com.kms.katalon.core.webui.exception.BrowserNotOpenedException
 class PythonKeywords {
 
 	@Keyword
+	def getimagetext(filename){
+		runPython("keywords.get_image_text", filename)
+	}
+
+	@Keyword
 	def helloWorld(int a, int b) {
 		runPython("keywords.hello_world", a, b)
 	}
-	
+
 	@Keyword
 	def testDemo(int a, int b) {
 		runPython("keywords.testing", a, b)
 	}
-	
+
 	@Keyword
 	def sortList(String names){
 		runPython("keywords.sort_string", names)
 	}
-	
+
 	@Keyword
 	def getDiff(def a, def b){
 		runPython("keywords.diff", a, b)
@@ -88,7 +93,6 @@ class PythonKeywords {
 			while ((line = input.readLine()) != null) {
 				KeywordUtil.logInfo(line)
 				retval.add(line)
-				
 			}
 			input.close()
 			return retval

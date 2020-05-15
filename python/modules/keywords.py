@@ -12,6 +12,18 @@ def hello_world(allArgs, *numbers):
   print("Sum is", s)
   return s
   
+def get_image_text(allArgs, filename):
+  try:
+      from PIL import Image
+  except ImportError:
+      import Image
+  from pytesseract import image_to_string, pytesseract
+
+  pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+  text = pytesseract.image_to_string(Image.open(filename))
+  print("**********DEBUG**********"+text)
+  return text
+  
 def diff(AllArgs, list1, list2):
   #res1 = list1.strip('][').split(', ')
   #res2 = list1.strip('][').split(', ')
