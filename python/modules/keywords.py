@@ -21,7 +21,12 @@ def read_image(allArgs, filepath):
   from pytesseract import image_to_string, pytesseract
 
   pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
-  text = pytesseract.image_to_string(Image.open(filepath))
+  img = cv2.imread(filepath)
+  img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+  custom_config = r'--oem 3 --psm 6'
+  text = pytesseract.image_to_string(img, config=custom_config)
+  
+  #text = pytesseract.image_to_string(Image.open(filepath))
   #image = Image.open(filepath)
   #text = image_to_string(image)
   print("**********DEBUG**********"+text)
@@ -42,6 +47,8 @@ def get_image_text(allArgs, filename, tempname):
   
   image = cv2.imread(filename)
   image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+  #custom_config = r'--oem 3 --psm 6'
+  #pytesseract.image_to_string(image, config=custom_config)
   cv2.imwrite(tempname, image)
   #image = Image.open(tempname)
   #text = image_to_string(image)
