@@ -1,15 +1,11 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-jobs:
+orbs:
+  katalon-studio: katalon/katalon-studio@23.0.2
+workflows:
   build:
-    docker:
-      - image: katalonstudio/katalon
-    steps:
-      - checkout
-      - run:
-          name: Execute Katalon Studio
-          command: katalonc -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/RegressionTestSuiteCollection"
-      - store-test_results:
-          path: ./report
-      - store-artifacts:
-          path: ./report
+    jobs:
+      - katalon-studio/run:
+          version: latest
+          command_arguments: >-
+            -browserType='Chrome' -retry=0 -statusDelay=15 -testSuitePath='Test Suites/RegressionTestSuiteCollection'
