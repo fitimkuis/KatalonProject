@@ -7,7 +7,7 @@ import com.kms.katalon.core.webui.exception.BrowserNotOpenedException
 
 
 class PythonKeywords {
-	
+
 	@Keyword
 	def readimage(filepath){
 		runPython("keywords.read_image", filepath)
