@@ -24,20 +24,73 @@ List<String> files = new ArrayList<>()
 Map<String, String> map = new HashMap<String, String>();
 
 
+
+
+int i = 1
+
 for (File file : listOfFiles) {
 	if (file.isFile()) {
+		String fileName = "f"
 		//System.out.println(file.getName());
 		//String path = file.getAbsolutePath();
 		//System.out.println(file.getAbsolutePath());
-		map.put(file.getName(),file.getAbsolutePath())
+		//map.put(file.getName(),file.getAbsolutePath())
+		fileName = fileName+i
+		map.put(fileName,file.getAbsolutePath())
+		i++
 	}
 }
 
-Iterator<String> iterator = map.keySet().iterator();
+//Iterator<String> iterator = map.keySet().iterator();
 
-while(iterator.hasNext()){
+Map<String, String> treeMap = new TreeMap<String, String>(map);
+
+ind = 1
+
+List<String> fArray = new ArrayList<>()
+List<String> nameArray = new ArrayList<>()
+
+for (String s : treeMap){
+	
+	def file = treeMap.get("f"+ind)
+	fArray.add(file)
+	println("String path: "+file)
+	ind++
+}
+
+println fArray
+println("first filename in array: "+fArray.get(0))
+
+int x = 0
+for (String s : fArray){
+	def file1 = new File(s)
+	println file1
+	x++
+}
+
+
+//System.out.println("The Value is: " + treeMap.get("f1"));
+
+//def firstFile = treeMap.get("f1")
+//println("String first path: "+firstFile)
+
+printMap(treeMap);
+
+/*while(iterator.hasNext()){
 	String key   = iterator.next();
 	String value = map.get(key);
 	println("key: "+key+" value: "+value)
-}
+}*/
+
+public static void printMap(Map<String,String> map) {
+	Set s = map.entrySet();
+	Iterator it = s.iterator();
+	while ( it.hasNext() ) {
+	   Map.Entry entry = (Map.Entry) it.next();
+	   String key = (String) entry.getKey();
+	   String value = (String) entry.getValue();
+	   System.out.println(key + " => " + value);
+	}//while
+	System.out.println("========================");
+}//printMap
 
