@@ -20,6 +20,8 @@ import internal.GlobalVariable
 
 KeywordUtil log = new KeywordUtil()
 
+
+
 def first = "04/22/2020"
 def second = "04/22/2020"
 
@@ -58,6 +60,8 @@ while(m.find()) {
 	def splitted = m.group().split("=");
 	System.out.println(splitted[1]);
 }
+
+
 
 /*
 //just do a simple click
