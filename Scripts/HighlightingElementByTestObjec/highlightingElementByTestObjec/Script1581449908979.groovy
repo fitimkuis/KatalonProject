@@ -18,9 +18,9 @@ WebUI.delay(1)
 
 
 WebDriver driver = DriverFactory.getWebDriver()
+WebUI.delay(2)
 // highlight a specific element
-CustomKeywords.'com.kazurayam.ksbackyard.HighlightElement.on'(
-	findTestObject('Page_CURA Healthcare Service_top/h1_CURA Healthcare Service'))
+CustomKeywords.'com.kazurayam.ksbackyard.HighlightElement.on'(findTestObject('Page_CURA Healthcare Service_top/h1_CURA Healthcare Service'))
 WebUI.delay(2)
 //List<WebElement> el = driver.findElements(By.cssSelector("*"));
 List<WebElement> el = driver.findElements(By.xpath("*"));

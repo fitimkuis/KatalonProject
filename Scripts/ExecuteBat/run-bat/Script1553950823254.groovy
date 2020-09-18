@@ -18,7 +18,7 @@ CustomKeywords.'bashRun.ExecuteShellComand.getHostData'()
 CustomKeywords.'bashRun.pingExe.runExe'()
 
 try {
-	Process process = Runtime.getRuntime().exec("cmd /c start C:\\Users\\fitim\\Desktop\\KatalonStudio\\test.bat");
+	Process process = Runtime.getRuntime().exec("cmd /c start C:\\Users\\fitim\\Desktop\\KatalonStudio\\mybat.bat");
 	System.out.println(process.getText());
 } catch(IOException e) {
 	e.printStackTrace();
