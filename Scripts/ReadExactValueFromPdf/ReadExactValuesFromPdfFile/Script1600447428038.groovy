@@ -25,7 +25,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-	PDDocument document = PDDocument.load(new File("C:\\Users\\fitim\\Desktop\\pdf\\pdfcontent.pdf"))
+CustomKeywords.'kms.turing.katalon.plugins.visualtesting.ScreenCapture.takeScreenshot'('C:\\Users\\fitim\\KatalonProjectFromGit\\KatalonProject\\pdfFilesfullscreen.png', FailureHandling.OPTIONAL)
+
+
+PDDocument document = PDDocument.load(new File("C:\\Users\\fitim\\Desktop\\pdf\\pdfcontent.pdf"))
 	
 	document.getClass();
 

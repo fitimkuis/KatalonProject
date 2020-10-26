@@ -37,7 +37,7 @@ public class ReadRows {
 		List<String> excelValues = new ArrayList<String>();
 
 		// Creating a Workbook from an Excel file (.xls or .xlsx)
-		workbook = WorkbookFactory.create(new File(SAMPLE_XLSX_FILE_PATH));
+		workbook = WorkbookFactory.create(new File(path));
 
 		// Retrieving the number of sheets in the Workbook
 		//System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
@@ -99,15 +99,15 @@ public class ReadRows {
 		int endRow = 0;
 		for (Row row: sheet) {
 			for(Cell cell: row) {
-
 				if (startRow >= start && endRow < end && last==false){
 
 					if (cell == null || cell.getCellType() == Cell.CELL_TYPE_BLANK) {
 						excelValues.add("**no value**");
 					}else{
 						String cellValue = dataFormatter.formatCellValue(cell);
-						System.out.print(cellValue + ",");
+						//System.out.print(cellValue + ",");
 						excelValues.add(cellValue);
+						//println("********************* Is there added anything ****************")
 					}
 
 					/*String cellValue = dataFormatter.formatCellValue(cell);
@@ -116,8 +116,9 @@ public class ReadRows {
 				}
 				if (last){
 					String cellValue = dataFormatter.formatCellValue(cell);
-					System.out.print(cellValue + ",");
+					//System.out.print("last "+cellValue + ",");
 					excelValues.add(cellValue);
+					//println("********************* Is there added anything ****************")
 				}
 				//}
 			}
