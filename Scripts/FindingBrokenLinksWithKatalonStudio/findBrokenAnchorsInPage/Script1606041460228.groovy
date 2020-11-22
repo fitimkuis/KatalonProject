@@ -28,9 +28,8 @@ WebUI.openBrowser("")
 WebUI.navigateToUrl(pageUrl)
 WebUI.delay(5)   // wait until the page gets stable
 
-//TODO
-//TODO
 
+//TODO
 
 // find all <a> elements with non-null href attribute
 TestObject tObjAnchors =
