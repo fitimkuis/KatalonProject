@@ -8,16 +8,16 @@ import com.kms.katalon.core.annotation.Keyword
 
 public class ReadRows {
 
-	public String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\fitim\\Desktop\\data\\readExcelSheet.xls";
+	//public String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\fitim\\Desktop\\data\\readExcelSheet.xls";
 	Workbook workbook
 
 	@Keyword
-	public int getCountOfRows(String path){
+	public int getCountOfRows(String path, int sheetNum){
 
 		// Creating a Workbook from an Excel file (.xls or .xlsx)
 		workbook = WorkbookFactory.create(new File(path));
 		//Sheet sheet = workbook.getSheet("sheet0");
-		Sheet sheet = workbook.getSheetAt(0);
+		Sheet sheet = workbook.getSheetAt(sheetNum);
 		int lastRowNum = sheet.getLastRowNum()
 
 		int used = sheet.getRow(0).getPhysicalNumberOfCells();
@@ -30,9 +30,9 @@ public class ReadRows {
 	}
 
 	@Keyword
-	public List<String> readExcelRows(int start, int end, String path) throws IOException, InvalidFormatException{
+	public List<String> readExcelRows(int start, int end, String path, int sheetNum) throws IOException, InvalidFormatException{
 
-		SAMPLE_XLSX_FILE_PATH = path;
+		//SAMPLE_XLSX_FILE_PATH = path;
 
 		List<String> excelValues = new ArrayList<String>();
 
@@ -64,7 +64,7 @@ public class ReadRows {
 
 		// Getting the Sheet at index zero
 		//Sheet sheet = workbook.getSheet("sheet0");
-		Sheet sheet = workbook.getSheetAt(0);
+		Sheet sheet = workbook.getSheetAt(sheetNum);
 
 		// Create a DataFormatter to format and get each cell's value as String
 		DataFormatter dataFormatter = new DataFormatter();
