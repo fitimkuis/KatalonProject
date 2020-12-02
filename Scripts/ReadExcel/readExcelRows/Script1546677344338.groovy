@@ -11,6 +11,7 @@ List<String> headerValues = new ArrayList<String>();
 String path = System.getProperty("user.dir")+"\\ExcelFiles\\SmoobuBookings-2020-sheet2.xlsx";
 println path
 
+//create two list arrays
 List <String> idArray = new ArrayList<>()
 List <String> amountArray = new ArrayList<>()
 
