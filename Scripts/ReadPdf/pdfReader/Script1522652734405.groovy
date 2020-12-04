@@ -19,8 +19,13 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 import com.testautomationguru.utility.PDFUtil;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 //get pdf file from folder which is added under project
-String pdfFilePath = System.getProperty("user.dir")+"\\pdfFiles\\2019-04-24_20-10-35.pdf";
+String pdfFilePath = System.getProperty("user.dir")+"\\pdfFiles\\2020-04-18_15-29-08.pdf";
 PDFUtil pdfUtil = new PDFUtil();
 String content = pdfUtil.getText(pdfFilePath,1);
 println content
@@ -50,7 +55,22 @@ ffDriver.get("https://docs.oracle.com/javaee/7/JEETT.pdf");
 Thread.sleep(10000);
 
 System.out.println("Task complete, please go to save folder to see it.");*/
-WebUI.closeBrowser()
+
+//get all pdf links from page
+def basicUrlrl = 'http://www.testingdiaries.com/selenium-webdriver-read-pdf-content/'
+List<String> linksArray = new ArrayList<>()
+linksArray = readAllPdfLinks(basicUrlrl)
+println linksArray
+
+//read pdf contents
+String pdf = readPdfFile(linksArray.get(0))
+println (pdf)
+Assert.assertTrue(pdf.contains('Open the setting.xml, you can see it is like this:'))
+Assert.assertTrue(pdf.contains('Please add the following sentence in setting.xml before'))
+Assert.assertTrue(pdf.contains('You can see that I have modified the setting.xml, and if open the file in IE, it is like this:'))
+
+
+//WebUI.closeBrowser()
 
 WebUI.openBrowser('')
 WebUI.navigateToUrl('http://www.testingdiaries.com/selenium-webdriver-read-pdf-content/')
@@ -92,6 +112,26 @@ public String readPdfFile(String pdfUrl){
 			bis.close();
 			println(pdfText);
 			return pdfText;
+}
+
+public List<String> readAllPdfLinks(def url){
+	
+	List<String> linksArray = new ArrayList<>()
+	
+	Document doc = Jsoup.connect(url).get();
+	print((doc.title()));
+
+	Elements links = doc.select("a[href]");
+
+	println("\nLinks: "+ links.size());
+	for (Element link : links) {
+		if (link.absUrl("href").contains(".pdf")) {
+			println("a: "+link.attr("abs:href"));
+			linksArray.add(link.attr("abs:href"))
+		}
+	}
+	return linksArray
+	
 }
 
 public void testChromeDownloadPopup() throws InterruptedException {
