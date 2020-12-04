@@ -63,12 +63,14 @@ linksArray = readAllPdfLinks(basicUrlrl)
 println linksArray
 
 //read pdf contents
-String pdf = readPdfFile(linksArray.get(0))
-println (pdf)
-Assert.assertTrue(pdf.contains('Open the setting.xml, you can see it is like this:'))
-Assert.assertTrue(pdf.contains('Please add the following sentence in setting.xml before'))
-Assert.assertTrue(pdf.contains('You can see that I have modified the setting.xml, and if open the file in IE, it is like this:'))
+for (int i = 0; i < linksArray.size();i++){
+	String pdf = readPdfFile(linksArray.get(i))
+	println (pdf)
 
+	Assert.assertTrue(pdf.contains('Open the setting.xml, you can see it is like this:'))
+	Assert.assertTrue(pdf.contains('Please add the following sentence in setting.xml before'))
+	Assert.assertTrue(pdf.contains('You can see that I have modified the setting.xml, and if open the file in IE, it is like this:'))
+}
 
 //WebUI.closeBrowser()
 
