@@ -56,23 +56,82 @@ for (int i = 0; i < cell1.size(); i++){
 	
 }
 
+//create list of lists count of added cells in second column
+List<List<String>> lists = new ArrayList<List<String>>();
+for (int i = 0; i < cell2.size(); i++) {
+	List<String> list = new ArrayList<>();
+	lists.add(list);
+	// Use the list further...
+}
+println ("count of lists in a list "+lists.size())
+println ("lists in a list "+lists)
+
 List<String> cell1Values = new ArrayList<String>();
 List<String> cell2Values = new ArrayList<String>();
+
+
 String REGEX = "\\r?\\n";
 pat = Pattern.compile(REGEX);
-for (int i = 0; i < cell2.size();i++){
+for (int i = 0; i < lists.size();i++){
 	def result = pat.split(cell2.get(i));
 		
 	for(String data:result){
 		if (i % 2 == 0){
 			cell1Values.add(data)
+			lists.get(i).add(data)
 		}
 		else{
 			cell2Values.add(data)
+			lists.get(i).add(data)
 		}
 	}
 }
 
+//create list of lists count of added cells in second column
+List<List<String>> valueLists = new ArrayList<List<String>>();
+for (int i = 0; i < cell2.size(); i++) {
+	List<String> list = new ArrayList<>();
+	valueLists.add(list);
+	// Use the list further...
+}
+
+List <String> values = new ArrayList<>()
+List <String> valuesList1 = new ArrayList<>()
+List <String> valuesList2 = new ArrayList<>()
+println ("lists in a list "+lists)
+int z = 0
+int index = 0
+int cnt = (cell1Values.size()*2) / 2
+println cnt
+int count1 = 0
+int count2 = 0
+int cnt2 = cell1Values.size()*2
+println cnt2
+println lists.get(1).get(0)
+List<List<String>> valuesLists = new ArrayList<List<String>>();
+for (int i = 0; i < cnt2; i++){
+	if (i < cnt){
+		values.add(lists.get(z).get(count1).replaceAll("[^0-9]", ""))
+		count1++
+		//println count1
+		if (i == cnt-1){
+			valuesLists.add(values)
+		}
+	}
+	if (i >= cnt){
+		z = 1
+		values.add(lists.get(z).get(count2).replaceAll("[^0-9]", ""))
+		count2++
+		//println count2
+		if (i == cnt2){
+			valuesLists.add(values)
+		}
+	}
+}
+println ("***********valueLists values "+values+"*************")
+println ("************************")
+println ("***********valueList of lists values "+valuesLists+"*************")
+println ("************************")
 List <String> list1 = new ArrayList<>()
 List <String> list2 = new ArrayList<>()
 for (int i = 0; i < cell1Values.size(); i++){
@@ -87,6 +146,31 @@ println list2
 
 //verify values
 List<String> searched = new ArrayList<>()
+/*
+List<String> first = new ArrayList<>()
+List<String> second = new ArrayList<>()
+count1 = 0
+count2 = 0
+int k = 0
+println valuesLists.get(0).get(0)
+
+for (int i = 0; i < cnt2; i++){
+	if (i < cnt){
+		println valuesLists.get(k).get(count1)
+		first.add(valuesLists.get(k).get(count1))
+		count1++
+	}
+	if (i >= cnt){
+		println valuesLists.get(k).get(count2)
+		second.add(valuesLists.get(k).get(count2))
+		count2++
+	}
+}
+searched = findUsingLoop(cell1Regex.get(0), first)
+println ("**found expected first value** "+searched)
+searched = findUsingLoop(cell1Regex.get(1), second)
+println ("**found expected second value** "+searched)
+*/
 
 searched = findUsingLoop(cell1Regex.get(0), list1)
 if (searched.isEmpty()){
