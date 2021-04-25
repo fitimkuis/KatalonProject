@@ -7,8 +7,6 @@ import java.util.zip.ZipEntry
 import org.apache.xerces.dom.NodeImpl
 
 
-
-
 URL u = NodeImpl.class.getResource("/" + NodeImpl.class.getName().replaceAll("\\.", "/") + ".class");
 System.out.println("*************"+u);
 
