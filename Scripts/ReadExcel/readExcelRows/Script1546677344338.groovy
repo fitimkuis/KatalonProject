@@ -14,6 +14,8 @@ List<String> headerValues = new ArrayList<String>();
 String path = System.getProperty("user.dir")+"\\ExcelFiles\\SmoobuBookings-2020-sheet2.xlsx";
 println path
 
+
+
 //create two list arrays
 List <String> idArray = new ArrayList<>()
 List <String> amountArray = new ArrayList<>()
@@ -26,6 +28,11 @@ int sheet = 2
 String path2 = System.getProperty("user.dir")+"\\ExcelFiles\\SmoobuBookings-2020-sheet3-1.xlsx";
 List<String> cell1 = new ArrayList<String>();
 List<String> cell2 = new ArrayList<String>();
+
+def columns = CustomKeywords.'readExcelRows.ReadRows.getCountOfColumns'(path2, sheet)
+columns = columns+1
+println("****count of columns ****"+columns)
+
 excelValues = CustomKeywords.'readExcelRows.ReadRows.readExcelRows'(0, 2, path2, sheet)
 
 for(int i = 0; i< excelValues.size(); i++){
@@ -61,7 +68,6 @@ List<List<String>> lists = new ArrayList<List<String>>();
 for (int i = 0; i < cell2.size(); i++) {
 	List<String> list = new ArrayList<>();
 	lists.add(list);
-	// Use the list further...
 }
 println ("count of lists in a list "+lists.size())
 println ("lists in a list "+lists)

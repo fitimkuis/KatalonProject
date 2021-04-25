@@ -30,6 +30,47 @@ public class ReadRows {
 	}
 
 	@Keyword
+	public int getCountOfColumns(String path, int sheetNum){
+
+		// Creating a Workbook from an Excel file (.xls or .xlsx)
+		workbook = WorkbookFactory.create(new File(path));
+		//Sheet sheet = workbook.getSheet("sheet0");
+		Sheet sheet = workbook.getSheetAt(sheetNum);
+
+		int columnIndex = -1;
+
+		for (int i = sheet.getRow(0).getLastCellNum() - 1; i >= 0; i--) {
+			Cell cell = sheet.getRow(i).getCell(i);
+
+			if (cell == null || CellType.BLANK.equals(cell.getCellType() == Cell.CELL_TYPE_BLANK)) {
+				continue;
+			} else {
+				columnIndex = cell.getColumnIndex();
+				break;
+			}
+		}
+
+		return columnIndex;
+	}
+
+	private int getLastFilledCellPosition(Sheet sheet) {
+		int columnIndex = -1;
+
+		for (int i = sheet.getRow(0).getLastCellNum() - 1; i >= 0; i--) {
+			Cell cell = sheet.getRow(i).getCell(i);
+
+			if (cell == null || CellType.BLANK.equals(cell.getCellType() == Cell.CELL_TYPE_BLANK)) {
+				continue;
+			} else {
+				columnIndex = cell.getColumnIndex();
+				break;
+			}
+		}
+
+		return columnIndex;
+	}
+
+	@Keyword
 	public List<String> readExcelRows(int start, int end, String path, int sheetNum) throws IOException, InvalidFormatException{
 
 		SAMPLE_XLSX_FILE_PATH = path;
