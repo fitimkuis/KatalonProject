@@ -6,6 +6,7 @@ import org.apache.commons.io.FilenameUtils
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 
+
 def verifyNavMenu(List list, List<String> menuname){
 	println list
 	println("total menus "+menuname.size())

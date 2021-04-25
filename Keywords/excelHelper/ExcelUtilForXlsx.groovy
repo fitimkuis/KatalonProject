@@ -16,13 +16,16 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.util.KeywordUtil
 
+
 public class ExcelUtilForXlsx {
 
 	FileInputStream fsIP
 	XSSFWorkbook wb
 	XSSFSheet worksheet
 	FileOutputStream outputFile
-	KeywordUtil logger
+	public KeywordUtil logger
+	public String message = ""
+
 
 	public ExcelUtilForXlsx(){
 		logger = new KeywordUtil()
@@ -148,7 +151,12 @@ public class ExcelUtilForXlsx {
 
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			message = ex
+			println(ex)
+		}
+		
+		finally {
+			logger.logInfo(message)
 		}
 
 		return totalRows;
@@ -174,7 +182,9 @@ public class ExcelUtilForXlsx {
 			noOfColumns = sheet.getRow(0).getLastCellNum();
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 
 		return noOfColumns;
@@ -201,7 +211,9 @@ public class ExcelUtilForXlsx {
 			//book.close()
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 
 		return noOfColumns;
@@ -292,7 +304,9 @@ public class ExcelUtilForXlsx {
 			}
 		}
 		catch (Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 	}
 
@@ -347,7 +361,9 @@ public class ExcelUtilForXlsx {
 			}
 		}
 		catch (Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 
 		return excelValues;
@@ -405,7 +421,9 @@ public class ExcelUtilForXlsx {
 			//book.close()
 		}
 		catch (Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 
 		return excelValues;
@@ -449,7 +467,9 @@ public class ExcelUtilForXlsx {
 
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 		finally{
 			fsIP.close(); //Close the InputStream
@@ -507,7 +527,9 @@ public class ExcelUtilForXlsx {
 
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			println(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 	}
 }
