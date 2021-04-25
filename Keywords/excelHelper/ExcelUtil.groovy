@@ -44,6 +44,7 @@ public class ExcelUtil {
 	HSSFSheet worksheet
 	FileOutputStream outputFile
 	KeywordUtil logger
+	public String message = ""
 
 	public ExcelUtil(){
 		logger = new KeywordUtil()
@@ -177,7 +178,8 @@ public class ExcelUtil {
 			}
 		}
 		catch (Exception ex){
-			logger.logInfo(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 
 		return excelValues;
@@ -221,7 +223,8 @@ public class ExcelUtil {
 
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 		finally{
 			fsIP.close(); //Close the InputStream
@@ -262,7 +265,8 @@ public class ExcelUtil {
 
 		}
 		catch(Exception ex){
-			logger.logInfo(ex)
+			message = ex
+			logger.logInfo(message)
 		}
 		finally{
 			fsIP.close(); //Close the InputStream

@@ -17,6 +17,87 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+
+String pathXlsx = System.getProperty("user.dir")+"\\ExcelFiles\\two_dimension_table.xlsx";
+println pathXlsx
+
+List<String> headerValuesXlsx = new ArrayList<String>();
+List<String> excelValuesXlsx = new ArrayList<String>();
+
+def sheet = "Taul1"
+//header count
+start = 0;
+end = 1;
+counter = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(pathXlsx, sheet)
+println ("DEBUG*******************Columns "+counter)
+headerValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(counter, start, end, pathXlsx, sheet)
+println ("DEBUG*******************Header Values "+headerValuesXlsx)
+rowCount = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getRowCount'(pathXlsx, sheet)
+rowCount--
+println ("DEBUG*******************Rows "+rowCount)
+
+//get rows
+//row count
+start = 1;
+end = 2;
+for (int z = 0; z < rowCount; z++) {
+	excelValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(headerValuesXlsx.size(), start, end, pathXlsx, sheet)
+	//excelValuesXlsx = CustomKeywords.'excelHelper.UpdateXlsxFile.ExcelHelperReadXlsx'(headerValuesXlsx.size(), start, end, pathXlsx, truefalse)
+	int y = 0;
+
+	for (String s : headerValuesXlsx) {
+		if (excelValuesXlsx.get(y).equals("**No Value**")) {
+			System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has not value ");
+		} else {
+			System.out.println("Row " + start + " Header " + headerValuesXlsx.get(y) + " has value " + excelValuesXlsx.get(y));
+		}
+		y++;
+	}
+	start++; //increase start & end to get data rows
+	end++;
+}
+
+
+
+//##################################################
+List<String> excel2ValuesXlsx = new ArrayList<String>();
+start2 = 1
+end2 =2
+counter = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ExcelHelperGetColumnCountXlsx'(pathXlsx, sheet)
+rowCount = CustomKeywords.'excelHelper.ExcelUtilForXlsx.getRowCount'(pathXlsx, sheet)
+println(counter)
+println(rowCount)
+
+//create list of lists count of added cells in second column
+List<List<Object>> lists = new ArrayList<List<Object>>();
+for (int i = 0; i < rowCount; i++) {
+	List<String> list = new ArrayList<>();
+	lists.add(list);
+}
+println ("count of lists in a list "+lists.size())
+println ("lists in a list "+lists)
+
+int column = 0
+for (int i = 0;i < rowCount; i++) {
+	excel2ValuesXlsx = CustomKeywords.'excelHelper.ExcelUtilForXlsx.ReadFile'(2, start2, end2, pathXlsx, sheet)
+	lists.get(i).add(excel2ValuesXlsx)
+	start2++
+	end2++
+	column++
+}
+
+println(lists)
+
+for (String s : lists) {
+	println(s)
+}
+
+//print one of values pair
+println(lists.get(0).get(0))
+
+//#################################################################################
+
+
 List<List<Object>> exlPgm = [
 	["Administrative", "Payer"],
 	["Advance", "Payer 1"],
