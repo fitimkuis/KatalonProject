@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "067388A1DF9F139002226BD63CFE0D07",
+  "keywordClasses": [
+    {
+      "name": "readGmail.openWebHtml",
+      "keywordMethods": [
+        {
+          "name": "openHtmlPage",
+          "parameters": [
+            {
+              "name": "url",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

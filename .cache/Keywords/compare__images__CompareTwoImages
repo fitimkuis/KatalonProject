@@ -1,0 +1,94 @@
+{
+  "keywordFileContentHash": "DC5DD52017E55A8549193A7D2BF01104",
+  "keywordClasses": [
+    {
+      "name": "compare.images.CompareTwoImages",
+      "keywordMethods": [
+        {
+          "name": "compareImage",
+          "parameters": [
+            {
+              "name": "fileA",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.io.File",
+                "unresolvedClassName": "File",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "fileB",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.io.File",
+                "unresolvedClassName": "File",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "compareImagePercentages",
+          "parameters": [
+            {
+              "name": "pathA",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "pathB",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "captureImage",
+          "parameters": [
+            {
+              "name": "imgDir",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

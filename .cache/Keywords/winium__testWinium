@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "F0BC5F839979B78DF655A06C5760D1AB",
+  "keywordClasses": [
+    {
+      "name": "winium.testWiniumClass",
+      "keywordMethods": [
+        {
+          "name": "testWiniumExe",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

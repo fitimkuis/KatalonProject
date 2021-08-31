@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "B8AE3224D52E86E320C9064294C47933",
+  "keywordClasses": [
+    {
+      "name": "sshUtil.ReadSSHFile",
+      "keywordMethods": [
+        {
+          "name": "readSsh",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

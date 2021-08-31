@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "2573E16099CED71F311858EE0C845B42",
+  "keywordClasses": [
+    {
+      "name": "ssn.SocialSecurityNumber",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}

@@ -1,0 +1,26 @@
+{
+  "keywordFileContentHash": "7EE3574E1198D0B5FC98CB700163CF6B",
+  "keywordClasses": [
+    {
+      "name": "compareFiles.CompareTwoCsvFiles",
+      "keywordMethods": [
+        {
+          "name": "compareTwoCsvFiles",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "Compare",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "readCsvFile",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

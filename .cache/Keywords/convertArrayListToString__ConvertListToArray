@@ -1,0 +1,40 @@
+{
+  "keywordFileContentHash": "BA86D858056C02C8E223B5C48EA7A0D4",
+  "keywordClasses": [
+    {
+      "name": "convertArrayListToString.ConvertListToArray",
+      "keywordMethods": [
+        {
+          "name": "getArrayList",
+          "parameters": [
+            {
+              "name": "arrayList",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.util.ArrayList",
+                "unresolvedClassName": "ArrayList",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [
+                  {
+                    "fullClassName": "java.lang.String",
+                    "unresolvedClassName": "String",
+                    "isArray": false,
+                    "isGnericsPlaceHolder": false,
+                    "hasImmutableClassName": false,
+                    "genericsTypes": [],
+                    "errorOnParsing": false
+                  }
+                ],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

@@ -63,7 +63,7 @@ ind++
 
 
 'Run the Test from TestSuite'
-WebUI.openBrowser('http://www.google.com 1')
+WebUI.openBrowser('http://www.google.com')
 WebUI.maximizeWindow()
 String path2 = WebUI.takeScreenshot()
 

@@ -1,0 +1,24 @@
+{
+  "keywordFileContentHash": "BF726715FCACC0D74F855857051FC4AC",
+  "keywordClasses": [
+    {
+      "name": "read.pdf.from.disk.ReadPdfFileAndVerify",
+      "keywordMethods": [
+        {
+          "name": "pdfVerify",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    },
+    {
+      "name": "read.pdf.from.disk.ReadPdf",
+      "keywordMethods": []
+    },
+    {
+      "name": "read.pdf.from.disk.ReadStringFromFileLineByLine",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}

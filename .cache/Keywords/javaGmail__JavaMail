@@ -1,0 +1,73 @@
+{
+  "keywordFileContentHash": "9161E5486FAE1BDE5F9E88AFAA887B0E",
+  "keywordClasses": [
+    {
+      "name": "javaGmail.JavaMail",
+      "keywordMethods": [
+        {
+          "name": "searchEmail",
+          "parameters": [
+            {
+              "name": "host",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "userName",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "password",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "keyword",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t * Searches for e-mail messages containing the specified keyword in\r\n\t * Subject field.\r\n\t * @param host\r\n\t * @param port\r\n\t * @param userName\r\n\t * @param password\r\n\t * @param keyword\r\n\t */"
+        }
+      ]
+    },
+    {
+      "name": "javaGmail.JavaMail$1",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}

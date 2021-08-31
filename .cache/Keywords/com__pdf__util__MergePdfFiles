@@ -1,0 +1,53 @@
+{
+  "keywordFileContentHash": "11E716978AEF33D795ABB7679E8814CF",
+  "keywordClasses": [
+    {
+      "name": "com.pdf.util.MergePdfFiles",
+      "keywordMethods": [
+        {
+          "name": "mergePdfFiles",
+          "parameters": [
+            {
+              "name": "inputPdfList",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.util.List",
+                "unresolvedClassName": "List",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [
+                  {
+                    "fullClassName": "java.io.InputStream",
+                    "unresolvedClassName": "InputStream",
+                    "isArray": false,
+                    "isGnericsPlaceHolder": false,
+                    "hasImmutableClassName": false,
+                    "genericsTypes": [],
+                    "errorOnParsing": false
+                  }
+                ],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "outputStream",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.io.OutputStream",
+                "unresolvedClassName": "OutputStream",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

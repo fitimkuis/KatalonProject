@@ -10,7 +10,7 @@ from random import randint
 CHECK_KEYS = "0123456789ABCDEFHJKLMNPRSTUVWXY" 
 CENTURIES = {'18':'+','19':'-','20':'A'}
 
-def create_ssn(start=1800, end=2014):
+def create_ssn(start=1800, end=2022):
 
 	year = randint(start, end)
 	month = randint(1, 12)
@@ -76,8 +76,8 @@ def in_range(value, minimum, maximum):
 def main(argv=sys.argv):
     argparser = create_argparser()
 
-    if len(argv) <= 1:
-        ssn = create_ssn(1900, 2000)
+    if len(argv) <= 0:
+        ssn = create_ssn(1900, 2022)
 	print(ssn)
 	file=open('C:/KatalonStudio/KatalonProject/ssn-python/ssn.txt','w')
         file.write(ssn)

@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "95ED97D4B3358F48A73AA6EC99DA8CAC",
+  "keywordClasses": [
+    {
+      "name": "readGmail.unZip",
+      "keywordMethods": [
+        {
+          "name": "unzipFile",
+          "parameters": [
+            {
+              "name": "fname",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

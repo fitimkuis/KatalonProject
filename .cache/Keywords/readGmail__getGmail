@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "6ACD477EBF05D9814366354719D699FC",
+  "keywordClasses": [
+    {
+      "name": "readGmail.getGmail",
+      "keywordMethods": [
+        {
+          "name": "getGmailAttachment",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

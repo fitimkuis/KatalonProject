@@ -1,9 +1,10 @@
 import java.text.DecimalFormat
+import java.time.LocalDate
 import java.time.Period
 
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.microsoft.sqlserver.jdbc.LocalDate
+//import com.microsoft.sqlserver.jdbc.LocalDate
 
 
 //create example table

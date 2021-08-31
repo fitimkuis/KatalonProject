@@ -1,0 +1,43 @@
+{
+  "keywordFileContentHash": "96A817FE6F1004B040F50EE3CD2DF270",
+  "keywordClasses": [
+    {
+      "name": "customPackage.customFileUpload",
+      "keywordMethods": [
+        {
+          "name": "uploadFile",
+          "parameters": [
+            {
+              "name": "to",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "filePath",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t * File Upload\r\n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

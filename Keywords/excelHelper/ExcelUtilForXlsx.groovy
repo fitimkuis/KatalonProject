@@ -154,7 +154,7 @@ public class ExcelUtilForXlsx {
 			message = ex
 			println(ex)
 		}
-		
+
 		finally {
 			logger.logInfo(message)
 		}

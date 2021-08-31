@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "60046F66C76A5AE5E33F98D086CF0132",
+  "keywordClasses": [
+    {
+      "name": "com.two.keyword.Keyword1",
+      "keywordMethods": [
+        {
+          "name": "getString",
+          "parameters": [
+            {
+              "name": "test",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

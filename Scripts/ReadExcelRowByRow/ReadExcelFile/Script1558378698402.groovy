@@ -6,6 +6,10 @@ import org.apache.commons.io.FilenameUtils
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 
+def increaseStartPath = System.getProperty("user.dir")+"\\ExcelFiles\\start.txt";
+def increaseEndPath = System.getProperty("user.dir")+"\\ExcelFiles\\end.txt";
+//IncreaseStart(increaseStartPath)
+//IncreaseEnd(increaseEndPath)
 
 def verifyNavMenu(List list, List<String> menuname){
 	println list
@@ -20,6 +24,7 @@ def TestObject makeTOwithXPath(String xpath) {
 	to.addProperty("xpath", ConditionType.EQUALS, xpath)
 	return to
 }
+
 
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -221,11 +226,100 @@ for(String sheet: sheetNames){
 			}
 			y++;
 		}
-		start++; //increase start & end to get data rows
-		end++;
+		//increase values in a txt file
+		IncreaseStart(increaseStartPath)
+		IncreaseEnd(increaseEndPath)
+		start = ReadIncreasedStart(increaseStartPath)
+		println ("%%%%%%%%%%%%%%%%%%%%"+start)
+		end = ReadIncreasedStart(increaseEndPath)
+		println ("%%%%%%%%%%%%%%%%%%%%"+end)
 	}
 }
 
+public def ReadIncreasedStart(def startPath) {
+	BufferedWriter out = null;
+	// Read File Contents - score
+	BufferedReader br = new BufferedReader(new FileReader(startPath));
+	String storedScore="0";
+	int storedScoreNumber = 0;
+	while ((storedScore = br.readLine()) != null) {
+		storedScoreNumber=(Integer.parseInt(storedScore==null?"0":storedScore));
+	}
+	return storedScoreNumber
+}
 
+public def ReadIncreasedEnd(def endPath) {
+	BufferedWriter out = null;
+	// Read File Contents - score
+	BufferedReader br = new BufferedReader(new FileReader(endPath));
+	String storedScore="0";
+	int storedScoreNumber = 0;
+	while ((storedScore = br.readLine()) != null) {
+		storedScoreNumber=(Integer.parseInt(storedScore==null?"0":storedScore));
+	}
+	return storedScoreNumber
+}
 
+public IncreaseStart(def startPath) {
+   BufferedWriter out = null;
+   //String increaseStartPath = System.getProperty("user.dir")+"\\ExcelFiles\\start.txt";
+    try {
 
+        // Read File Contents - score
+        BufferedReader br = new BufferedReader(new FileReader(startPath));
+        String storedScore="0";
+        int storedScoreNumber = 0;
+        while ((storedScore = br.readLine()) != null) {
+            storedScoreNumber=(Integer.parseInt(storedScore==null?"0":storedScore));
+        }
+
+		
+        // Write File Contents - incremented socre
+        out = new BufferedWriter(new FileWriter(startPath, false));
+        out.write(String.valueOf(storedScoreNumber+1));
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if (out != null) {
+            try {
+                out.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public IncreaseEnd(def endPath) {
+	BufferedWriter out = null;
+	 try {
+ 
+		 // Read File Contents - score
+		 BufferedReader br = new BufferedReader(new FileReader(endPath));
+		 String storedScore="0";
+		 int storedScoreNumber = 0;
+		 while ((storedScore = br.readLine()) != null) {
+			 storedScoreNumber=(Integer.parseInt(storedScore==null?"0":storedScore));
+			 //print ("****************'"+storedScoreNumber)
+		 }
+ 
+		 
+		 // Write File Contents - incremented socre
+		 out = new BufferedWriter(new FileWriter(endPath, false));
+		 out.write(String.valueOf(storedScoreNumber+1));
+ 
+	 } catch (IOException e) {
+		 e.printStackTrace();
+	 } finally {
+		 if (out != null) {
+			 try {
+				 out.close();
+			 } catch (IOException e) {
+				 // TODO Auto-generated catch block
+				 e.printStackTrace();
+			 }
+		 }
+	 }
+ }

@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "6C0FB15582FD2D2FF7F7F012DC1FE8B7",
+  "keywordClasses": [
+    {
+      "name": "excelHelper.GetLatestExcelFile",
+      "keywordMethods": [
+        {
+          "name": "getTheNewestFile",
+          "parameters": [
+            {
+              "name": "filePath",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "D1B171CD6BCD58F01B83B71B82C71272",
+  "keywordClasses": [
+    {
+      "name": "sin.generation.JavaSinGenerator",
+      "keywordMethods": [
+        {
+          "name": "getSinAsString",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

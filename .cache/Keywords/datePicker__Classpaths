@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "85367954DA3B9B9946C8930D4421DC3A",
+  "keywordClasses": [
+    {
+      "name": "datePicker.Classpaths",
+      "keywordMethods": [
+        {
+          "name": "getSystemInfo",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

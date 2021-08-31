@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "D2C93933D027AFB485F33A0E973F8F8A",
+  "keywordClasses": [
+    {
+      "name": "creditcard.getCardNumber",
+      "keywordMethods": [
+        {
+          "name": "generateCardNumber",
+          "parameters": [
+            {
+              "name": "cType",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "net.andreinc.mockneat.types.enums.CreditCardType",
+                "unresolvedClassName": "CreditCardType",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

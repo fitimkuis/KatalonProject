@@ -1,0 +1,49 @@
+{
+  "keywordFileContentHash": "62DC41A22E22056793DBC417E0B2C60B",
+  "keywordClasses": [
+    {
+      "name": "compare.images.Grayscale",
+      "keywordMethods": [
+        {
+          "name": "imgGrayScale",
+          "parameters": [
+            {
+              "name": "imgPath",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "writeToImage",
+          "parameters": [
+            {
+              "name": "imgPath",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

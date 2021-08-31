@@ -1,0 +1,21 @@
+{
+  "keywordFileContentHash": "A021C6AF08231C54FC4A60E57DD7F0D1",
+  "keywordClasses": [
+    {
+      "name": "compareFiles.CompareCsvFileColumns",
+      "keywordMethods": [
+        {
+          "name": "compare_cvs",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "titles",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

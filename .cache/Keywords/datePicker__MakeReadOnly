@@ -1,0 +1,21 @@
+{
+  "keywordFileContentHash": "1F624A4BE8D1C0F8798292ABBC99E28E",
+  "keywordClasses": [
+    {
+      "name": "datePicker.ReadOnly",
+      "keywordMethods": [
+        {
+          "name": "readOnlyTrue",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "key",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

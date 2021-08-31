@@ -7,13 +7,13 @@ def count = CustomKeywords.'postgresUtil.postgresHandler.getRowCount'()
 int x = 1;
 for (int i = 0;i < count; i++){
 	
-	Runtime.getRuntime().exec("python "+ssnDir+"/ssn.py")
+	Runtime.getRuntime().exec("python "+ssnDir+"/ssn1.py")
 	
 	WebUI.delay(3)
 	
 	//get ssn from file
 	println ssnDir
-	File file = new File(ssnDir+"/ssn.txt");
+	File file = new File(ssnDir+"/ssn1.txt");
 	BufferedReader br = new BufferedReader(new FileReader(file));
 	String st;
 	String data = ""
@@ -28,6 +28,6 @@ for (int i = 0;i < count; i++){
 	 * index nro to update
 	 * update value
 	*/
-	CustomKeywords.'postgresUtil.postgresHandler.updateDbColumn'("ssn", x, data)
+	//CustomKeywords.'postgresUtil.postgresHandler.updateDbColumn'("ssn", x, data)
 	x++
 }

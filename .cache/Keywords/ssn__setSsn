@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "01E1C0E12445D6274F158F83695AB346",
+  "keywordClasses": [
+    {
+      "name": "ssn.setSsn",
+      "keywordMethods": [
+        {
+          "name": "getSsn",
+          "parameters": [
+            {
+              "name": "ssn",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

@@ -93,8 +93,10 @@ for (String s : lists) {
 }
 
 //print one of values pair
-println(lists.get(0).get(0))
-
+println(lists.get(10))
+List<String> results = new ArrayList<String>();
+results = lists.get(10)
+println(results.get(0))
 //#################################################################################
 
 

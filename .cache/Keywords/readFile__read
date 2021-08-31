@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "884A3A1C1B28B2FE62177BDAEFD45B34",
+  "keywordClasses": [
+    {
+      "name": "readFile.read",
+      "keywordMethods": [
+        {
+          "name": "readFileInList",
+          "parameters": [
+            {
+              "name": "fileName",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
