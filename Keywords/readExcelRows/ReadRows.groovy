@@ -12,12 +12,12 @@ public class ReadRows {
 	Workbook workbook
 
 	@Keyword
-	public int getCountOfRows(String path){
+	public int getCountOfRows(String path, int sheetNum){
 
 		// Creating a Workbook from an Excel file (.xls or .xlsx)
 		workbook = WorkbookFactory.create(new File(path));
 		//Sheet sheet = workbook.getSheet("sheet0");
-		Sheet sheet = workbook.getSheetAt(0);
+		Sheet sheet = workbook.getSheetAt(sheetNum);
 		int lastRowNum = sheet.getLastRowNum()
 
 		int used = sheet.getRow(0).getPhysicalNumberOfCells();
@@ -30,7 +30,48 @@ public class ReadRows {
 	}
 
 	@Keyword
-	public List<String> readExcelRows(int start, int end, String path) throws IOException, InvalidFormatException{
+	public int getCountOfColumns(String path, int sheetNum){
+
+		// Creating a Workbook from an Excel file (.xls or .xlsx)
+		workbook = WorkbookFactory.create(new File(path));
+		//Sheet sheet = workbook.getSheet("sheet0");
+		Sheet sheet = workbook.getSheetAt(sheetNum);
+
+		int columnIndex = -1;
+
+		for (int i = sheet.getRow(0).getLastCellNum() - 1; i >= 0; i--) {
+			Cell cell = sheet.getRow(i).getCell(i);
+
+			if (cell == null || CellType.BLANK.equals(cell.getCellType() == Cell.CELL_TYPE_BLANK)) {
+				continue;
+			} else {
+				columnIndex = cell.getColumnIndex();
+				break;
+			}
+		}
+
+		return columnIndex;
+	}
+
+	private int getLastFilledCellPosition(Sheet sheet) {
+		int columnIndex = -1;
+
+		for (int i = sheet.getRow(0).getLastCellNum() - 1; i >= 0; i--) {
+			Cell cell = sheet.getRow(i).getCell(i);
+
+			if (cell == null || CellType.BLANK.equals(cell.getCellType() == Cell.CELL_TYPE_BLANK)) {
+				continue;
+			} else {
+				columnIndex = cell.getColumnIndex();
+				break;
+			}
+		}
+
+		return columnIndex;
+	}
+
+	@Keyword
+	public List<String> readExcelRows(int start, int end, String path, int sheetNum) throws IOException, InvalidFormatException{
 
 		SAMPLE_XLSX_FILE_PATH = path;
 
@@ -64,7 +105,7 @@ public class ReadRows {
 
 		// Getting the Sheet at index zero
 		//Sheet sheet = workbook.getSheet("sheet0");
-		Sheet sheet = workbook.getSheetAt(0);
+		Sheet sheet = workbook.getSheetAt(sheetNum);
 
 		// Create a DataFormatter to format and get each cell's value as String
 		DataFormatter dataFormatter = new DataFormatter();
@@ -91,7 +132,7 @@ public class ReadRows {
 		boolean actualValue;
 		int lastRowNum = sheet.getLastRowNum()
 		lastRowNum++
-		if (start == lastRowNum){
+		if(start == lastRowNum){
 			last = true
 		}
 		//System.out.println("sheet rows "+lastRowNum);
